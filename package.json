@@ -1,0 +1,25 @@
+{
+  "name": "pulse-ai-backend",
+  "version": "1.0.0",
+  "description": "pulse.ai — AI & Tech News Aggregator Backend",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.27.0",
+    "axios": "^1.7.0",
+    "cheerio": "^1.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^16.4.0",
+    "express": "^4.19.0",
+    "mongoose": "^9.6.2",
+    "node-cache": "^5.1.2",
+    "node-cron": "^4.2.1",
+    "rss-parser": "^3.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

@@ -1,0 +1,7 @@
+.env
+.env_old
+backend/.env
+frontend/.env
+firebase-service-account.json
+node_modules
+dist
