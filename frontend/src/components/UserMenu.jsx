@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { logout } from "../firebase";
 
 export default function UserMenu({ user }) {
+
+  const [open, setOpen] = useState(false);
+
+  const menuRef = useRef(null);
 
   const handleLogout = async () => {
     await logout();
@@ -11,54 +15,73 @@ export default function UserMenu({ user }) {
     window.location.reload();
   };
 
-  // Generate initials from user name
-  const getInitials = (name) => {
+  // Close dropdown on outside click
+  useEffect(() => {
 
-    if (!name) return "U";
+    const handleClickOutside = (event) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target)
+      ) {
+        setOpen(false);
+      }
+    };
 
-    return name
-      .split(" ")
-      .slice(0, 2)
-      .map((part) => part[0])
-      .join("")
-      .toUpperCase();
-  };
+    document.addEventListener("mousedown", handleClickOutside);
 
-  const initials = getInitials(user?.displayName);
+    return () => {
+      document.removeEventListener(
+        "mousedown",
+        handleClickOutside
+      );
+    };
+
+  }, []);
+
+  const firstName =
+    user?.displayName?.split(" ")[0] || "User";
 
   return (
-    <div className="user-menu-inline">
+    <div className="user-menu-wrapper" ref={menuRef}>
 
+      {/* Welcome text */}
       <span className="welcome-text">
-        👋 Welcome, {user?.displayName?.split(" ")[0] || "User"}
+        👋 {firstName}
       </span>
 
-      <div className="avatar-wrapper">
+      {/* Avatar */}
+      <button
+        className="avatar-btn"
+        onClick={() => setOpen(!open)}
+      >
 
         {user?.photoURL ? (
-
           <img
             src={user.photoURL}
             alt="profile"
             className="user-avatar"
           />
-
         ) : (
-
           <div className="avatar-fallback">
-            {initials}
+            {firstName[0]}
           </div>
-
         )}
 
-      </div>
-
-      <button
-        onClick={handleLogout}
-        className="signout-btn"
-      >
-        Sign Out
       </button>
+
+      {/* Dropdown */}
+      {open && (
+        <div className="user-dropdown">
+
+            <button
+            className="dropdown-item"
+            onClick={handleLogout}
+          >
+            Sign Out
+          </button>
+
+        </div>
+      )}
 
     </div>
   );

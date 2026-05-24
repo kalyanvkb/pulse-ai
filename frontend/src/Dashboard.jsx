@@ -225,13 +225,17 @@ useEffect(() => {
   <span className="last-updated">
     Updated {formatRefreshed(lastRefreshed)}
   </span>
-  <button
-    className={`btn ${isRefreshing ? "btn-loading" : ""}`}
-    onClick={refresh}
-    disabled={isRefreshing}
-  >
-    {isRefreshing ? "Refreshing…" : "↻ Refresh"}
-  </button>
+ <button
+  className={`btn refresh-btn ${isRefreshing ? "btn-loading" : ""}`}
+  onClick={refresh}
+  disabled={isRefreshing}
+>
+  <span className="refresh-icon">↻</span>
+
+  <span className="refresh-text">
+    {isRefreshing ? "  Refreshing…" : "  Refresh"}
+  </span>
+</button>
 
   {/* ── Auth ── */}
   {/* ── Auth ── */}
