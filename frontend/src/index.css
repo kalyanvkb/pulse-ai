@@ -32,7 +32,6 @@ html, body, #root {
   color: var(--text);
   font-family: var(--font-ui);
   -webkit-font-smoothing: antialiased;
-  font-size: 17px;
 }
 
 /* ── Dashboard wrapper ───────────────────────────────────────────────────── */
@@ -54,13 +53,13 @@ html, body, #root {
   display: flex;
   align-items: center;
   gap: 16px;
-  height: 72px;
   padding: 0 24px;
+  height: 54px;
 }
 
 .logo {
   font-family: var(--font-display);
-  font-size: 34px;
+  font-size: 21px;
   color: var(--text);
   letter-spacing: -0.3px;
   white-space: nowrap;
@@ -87,9 +86,9 @@ html, body, #root {
   background: var(--bg3);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 12px 14px 12px 38px;
+  padding: 7px 12px 7px 32px;
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: 13px;
   color: var(--text);
   outline: none;
   transition: border-color 0.2s;
@@ -144,7 +143,7 @@ html, body, #root {
   border-bottom: 2px solid transparent;
   padding: 10px 18px 11px;
   font-family: var(--font-ui);
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--muted);
   cursor: pointer;
@@ -306,7 +305,7 @@ html, body, #root {
   display: grid;
 
   grid-template-columns:
-    repeat(auto-fill, minmax(400px, 1fr));
+    repeat(auto-fill, minmax(300px, 1fr));
 
   gap: 16px;
 
@@ -321,7 +320,7 @@ html, body, #root {
 
   border-radius: 16px;
 
-  padding: 26px;
+  padding: 16px;
 
   display: flex;
   flex-direction: column;
@@ -331,8 +330,6 @@ html, body, #root {
   transition: all 0.2s ease;
 
   animation: fadeUp 0.4s ease both;
-
-  min-height: 500px;
 }
 .news-card:hover {
   background: var(--card-hover);
@@ -392,7 +389,7 @@ html, body, #root {
 .card-title {
   font-family: var(--font-display);
 
-  font-size: 24px;
+  font-size: 18px;
 
   line-height: 1.35;
 
@@ -404,7 +401,6 @@ html, body, #root {
 
   transition: color 0.15s;
 
-  letter-spacing: -0.3px;
 }
 .card-title:hover { color: var(--accent); }
 
@@ -418,7 +414,7 @@ html, body, #root {
 .bullet {
   display: flex;
   gap: 8px;
-  font-size: 15px;
+  font-size: 12.5px;
   line-height: 1.55;
   color: #b0b8cc;
 }
