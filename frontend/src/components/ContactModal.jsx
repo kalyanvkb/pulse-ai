@@ -1,37 +1,72 @@
-export default function ContactModal({ isOpen, onClose }) {
-  if (!isOpen) return null;
+import React from "react";
+
+export default function ContactModal({ open, onClose }) {
+
+  if (!open) return null;
+
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
 
   return (
-    <>
-      <div className="modal-overlay" onClick={onClose} />
-      <div className="modal-content">
-        <button className="modal-close" onClick={onClose}>✕</button>
-        <div className="contact-header">Get in Touch</div>
+    <div
+      className="auth-modal-overlay"
+      onClick={handleBackdropClick}
+    >
 
-        <div className="contact-info">
-          <div className="info-item">
-            <span className="info-label">Name</span>
-            <span className="info-value">Kalyan Chakravarthy Yapuram</span>
-          </div>
+      <div className="auth-modal">
 
-          <div className="info-item">
-            <span className="info-label">Email</span>
-            <a href="mailto:kalyanvkb@gmail.com" className="info-link">
+        <button
+          className="auth-close"
+          onClick={onClose}
+        >
+          ×
+        </button>
+
+        <h2 className="auth-title">
+          Contact
+        </h2>
+
+        <p className="auth-subtitle">
+          We'd love to hear from you.
+        </p>
+
+        <div style={{ lineHeight: "2", color: "white" }}>
+
+          <div>
+            📧 Email:
+            {" "}
+            <a
+              href="mailto:kalyanvkb@gmail.com"
+              style={{ color: "#60a5fa" }}
+            >
               kalyanvkb@gmail.com
             </a>
           </div>
 
-          <div className="info-item">
-            <span className="info-label">Project</span>
-            <span className="info-value">pulse-ai — AI & Tech News Aggregator</span>
+          <div>
+            🌐 Website:
+            {" "}
+            <a
+              href="https://pulse-ai.in"
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: "#60a5fa" }}
+            >
+              pulse-ai.in
+            </a>
           </div>
 
-          <div className="info-item">
-            <span className="info-label">Domain</span>
-            <span className="info-value">pulse-ai.in</span>
+          <div>
+            💡 Feedback and collaboration ideas are welcome.
           </div>
+
         </div>
+
       </div>
-    </>
+
+    </div>
   );
 }

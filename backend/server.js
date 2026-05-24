@@ -1,11 +1,12 @@
 // backend/server.js — Express API server for pulse.ai
 
-require("dotenv").config({ path: require("path").join(__dirname, "../.env") });
+require("dotenv").config({ path: require("path").join(__dirname, ".env") });
 
 const express = require("express");
 const cors = require("cors");
 const cron = require("node-cron");
 const path = require("path");
+const authRoutes = require("./routes/auth");
 
 const SOURCES = require("../sources.config");
 const { fetchAllSources } = require("./fetcher");
@@ -16,16 +17,19 @@ const { connect, getTodaysArticles, getArticlesByDate } = require("./db");
 const { startScheduler, runDailyFetch, warmCacheFromDB } = require("./scheduler");
 
 const app = express();
+app.use(express.json());
 const PORT = process.env.PORT || 3001;
+
+// Parse CORS origins from environment variable
+const corsOrigins = (process.env.CORS_ORIGINS || "http://localhost:5173,https://pulse-ai.in").split(",").map(origin => origin.trim());
 
 // ─── Middleware ─────────────────────────────────────────────────────────────
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://pulse-ai.in"
-  ],
+  origin: corsOrigins,
   credentials: true
 }));
+
+app.use("/api/auth", authRoutes);
 
 app.use(express.json());
 
@@ -245,7 +249,7 @@ app.get("/", (req, res) => {
 
 // ─── Start ───────────────────────────────────────────────────────────────────
 app.listen(PORT, async () => {
-  console.log("pulse.ai backend on http://0.0.0.0:${PORT}");
+  console.log(`pulse.ai backend on http://0.0.0.0:${PORT}`);
 
   try{
   // Connect to MongoDB

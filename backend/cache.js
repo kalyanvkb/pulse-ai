@@ -2,7 +2,8 @@
 
 const NodeCache = require("node-cache");
 
-const FEED_TTL = 30 * 60;    // 30 minutes for raw feed data
+// Read TTL values from environment or use defaults (in seconds)
+const FEED_TTL = parseInt(process.env.FEED_CACHE_TTL || "1800", 10);    // 30 minutes for raw feed data
 const SUMMARY_TTL = 24 * 60 * 60; // 24 hours for AI summaries
 
 const cache = new NodeCache({

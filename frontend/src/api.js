@@ -1,8 +1,8 @@
 // frontend/src/api.js — API client for communicating with the backend
 
-//const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
-//const BASE_URL = import.meta.env.VITE_API_URL || "/api";
-//const BASE_URL = import.meta.env.VITE_API_URL || "";
+// Get API base URL from environment variable (configured in .env.local or .env.production)
+// Defaults to empty string to use relative paths when not explicitly set
+// Set VITE_API_URL in .env.local to override (e.g., http://localhost:3001)
 const BASE_URL = import.meta.env.VITE_API_URL || "";
 
 /**

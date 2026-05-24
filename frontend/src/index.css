@@ -32,6 +32,7 @@ html, body, #root {
   color: var(--text);
   font-family: var(--font-ui);
   -webkit-font-smoothing: antialiased;
+  font-size: 17px;
 }
 
 /* ── Dashboard wrapper ───────────────────────────────────────────────────── */
@@ -39,6 +40,7 @@ html, body, #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+   padding: 0 20px;
 }
 
 /* ── NAV ─────────────────────────────────────────────────────────────────── */
@@ -52,13 +54,13 @@ html, body, #root {
   display: flex;
   align-items: center;
   gap: 16px;
-  height: 54px;
+  height: 72px;
   padding: 0 24px;
 }
 
 .logo {
   font-family: var(--font-display);
-  font-size: 21px;
+  font-size: 34px;
   color: var(--text);
   letter-spacing: -0.3px;
   white-space: nowrap;
@@ -85,9 +87,9 @@ html, body, #root {
   background: var(--bg3);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 7px 12px 7px 32px;
+  padding: 12px 14px 12px 38px;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text);
   outline: none;
   transition: border-color 0.2s;
@@ -142,7 +144,7 @@ html, body, #root {
   border-bottom: 2px solid transparent;
   padding: 10px 18px 11px;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--muted);
   cursor: pointer;
@@ -302,21 +304,35 @@ html, body, #root {
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 14px;
+
+  grid-template-columns:
+    repeat(auto-fill, minmax(400px, 1fr));
+
+  gap: 16px;
+
+  align-items: stretch;
 }
 
 /* ── NEWS CARD ───────────────────────────────────────────────────────────── */
 .news-card {
   background: var(--card-bg);
+
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px;
+
+  border-radius: 16px;
+
+  padding: 26px;
+
   display: flex;
   flex-direction: column;
-  gap: 10px;
+
+  gap: 14px;
+
   transition: all 0.2s ease;
+
   animation: fadeUp 0.4s ease both;
+
+  min-height: 500px;
 }
 .news-card:hover {
   background: var(--card-hover);
@@ -375,12 +391,20 @@ html, body, #root {
 
 .card-title {
   font-family: var(--font-display);
-  font-size: 15.5px;
-  line-height: 1.4;
+
+  font-size: 24px;
+
+  line-height: 1.35;
+
   color: var(--text);
+
   text-decoration: none;
+
   display: block;
+
   transition: color 0.15s;
+
+  letter-spacing: -0.3px;
 }
 .card-title:hover { color: var(--accent); }
 
@@ -394,7 +418,7 @@ html, body, #root {
 .bullet {
   display: flex;
   gap: 8px;
-  font-size: 12.5px;
+  font-size: 15px;
   line-height: 1.55;
   color: #b0b8cc;
 }
@@ -589,4 +613,250 @@ html, body, #root {
   .grid { grid-template-columns: 1fr; }
   .tabs, .source-filter, .stats-bar, .toolbar { padding-left: 16px; padding-right: 16px; }
   .modal-content { padding: 24px; max-width: 90%; }
+}
+
+.auth-section {
+  display: flex;
+  align-items: center;
+}
+
+.auth-btn {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.06);
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.auth-btn:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.auth-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+}
+
+.auth-modal {
+  position: relative;
+
+  width: 420px;
+
+  background: #111827;
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 24px;
+
+  padding: 32px;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.45);
+
+  animation: modalFade 0.2s ease;
+}
+
+.auth-title {
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.auth-subtitle {
+  color: #9ca3af;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.google-btn {
+  width: 100%;
+
+  border: none;
+
+  background: white;
+  color: black;
+
+  padding: 14px;
+
+  border-radius: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.google-btn:hover {
+  transform: scale(1.02);
+}
+
+.guest-btn {
+  width: 100%;
+
+  margin-top: 14px;
+
+  background: transparent;
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  color: white;
+
+  padding: 14px;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+}
+
+.guest-btn:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.auth-footer {
+  margin-top: 18px;
+
+  text-align: center;
+
+  color: #6b7280;
+
+  font-size: 13px;
+}
+
+.auth-close {
+  position: absolute;
+
+  top: 16px;
+  right: 18px;
+
+  background: transparent;
+  border: none;
+
+  color: #9ca3af;
+
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+.auth-close:hover {
+  color: white;
+}
+
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+.user-menu-inline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.welcome-text {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.avatar-wrapper {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, #5b8af0 0%, #3dd68c 100%);
+
+  border: 1.5px solid rgba(255,255,255,0.15);
+
+  flex-shrink: 0;
+}
+
+.user-avatar {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+.avatar-fallback {
+  color: white;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+}
+
+.signout-btn {
+  background: transparent;
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  color: #d1d5db;
+
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  font-size: 13px;
+
+  transition: all 0.2s ease;
+}
+
+.signout-btn:hover {
+  background: rgba(255,255,255,0.08);
+  color: white;
+}
+
+.contact-btn {
+  padding: 10px 18px;
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  background: rgba(255,255,255,0.05);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+  font-size: 14px;
+}
+
+.contact-btn:hover {
+  background: rgba(255,255,255,0.12);
 }

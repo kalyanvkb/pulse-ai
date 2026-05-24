@@ -45,16 +45,19 @@ async function warmCacheFromDB() {
 
 /**
  * Start the scheduler
- * Cron: "0 8 * * *" = every day at 08:00
- * Timezone: Asia/Kolkata (IST)
+ * Cron: environment variable SCHEDULER_CRON_TIME (default: "0 8 * * *" = every day at 08:00)
+ * Timezone: environment variable SCHEDULER_TIMEZONE (default: Asia/Kolkata)
  */
 function startScheduler() {
+  const cronTime = process.env.SCHEDULER_CRON_TIME || "0 8 * * *";
+  const cronTimezone = process.env.SCHEDULER_TIMEZONE || "Asia/Kolkata";
+  
   cron.schedule(
-    "0 8 * * *",
+    cronTime,
     () => runDailyFetch(),
-    { timezone: "Asia/Kolkata" }
+    { timezone: cronTimezone }
   );
-  console.log("⏰ Scheduler set: daily fetch at 8:00 AM IST");
+  console.log(`⏰ Scheduler set: ${cronTime} (Timezone: ${cronTimezone})`);
 }
 
 module.exports = { startScheduler, runDailyFetch, warmCacheFromDB };

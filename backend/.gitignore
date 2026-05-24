@@ -1,0 +1,22 @@
+# Environment variables - DO NOT commit
+.env
+.env.local
+.env.*.local
+.env.production
+.env.staging
+
+# Firebase credentials
+firebase-service-account.json
+
+# Dependencies and build
+node_modules/
+dist/
+build/
+
+# Logs
+*.log
+
+# OS and IDE
+.DS_Store
+.vscode/
+.idea/

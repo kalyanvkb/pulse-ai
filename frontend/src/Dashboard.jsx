@@ -1,10 +1,14 @@
 // frontend/src/Dashboard.jsx — Main layout with nav, filters, grid
 
-import { useState, useMemo } from "react";
+//import { useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import useNews from "./hooks/useNews";
 import NewsCard from "./components/NewsCard";
 import SkeletonCard from "./components/SkeletonCard";
 import ContactModal from "./components/ContactModal";
+import AuthModal from "./components/AuthModal";         // ← add
+import UserMenu from "./components/UserMenu";           // ← add
+import { auth, onAuthStateChanged } from "./firebase";  // ← add
 
 const GROUPS = ["All", "TAMANNA", "AI Labs", "Publications"];
 const GROUP_COLORS = {
@@ -12,6 +16,7 @@ const GROUP_COLORS = {
   "AI Labs": "#3dd68c",
   Publications: "#f0a04b",
 };
+
 
 // Unique sources per group for the filter chips
 function getSourcesForGroup(articles, group) {
@@ -60,6 +65,9 @@ function getDateFilterValue(isoDate) {
 }
 
 export default function Dashboard() {
+   const [user, setUser] = useState(null);
+   const [contactOpen, setContactOpen] = useState(false);
+   const [authOpen, setAuthOpen] = useState(false);
   const { articles, loading, error, refresh, lastRefreshed, isRefreshing } = useNews();
 
   const [activeGroup, setActiveGroup] = useState("All");
@@ -77,6 +85,15 @@ export default function Dashboard() {
       timer = setTimeout(() => setDebouncedSearch(val), 300);
     };
   }, []);
+
+
+useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+    setUser(firebaseUser);
+  });
+
+  return () => unsubscribe();
+}, []);
 
   const handleSearch = (e) => {
     const value = e.target.value;
@@ -205,24 +222,51 @@ export default function Dashboard() {
         </div>
 
         <div className="nav-right">
-          <span className="last-updated">
-            Updated {formatRefreshed(lastRefreshed)}
-          </span>
-          <button
-            className="btn btn-contact"
-            onClick={() => setShowContact(true)}
-          >
-            📧 Contact
-          </button>
-          <button
-            className={`btn ${isRefreshing ? "btn-loading" : ""}`}
-            onClick={refresh}
-            disabled={isRefreshing}
-          >
-            {isRefreshing ? "Refreshing…" : "↻ Refresh"}
-          </button>
-        </div>
+  <span className="last-updated">
+    Updated {formatRefreshed(lastRefreshed)}
+  </span>
+  <button
+    className={`btn ${isRefreshing ? "btn-loading" : ""}`}
+    onClick={refresh}
+    disabled={isRefreshing}
+  >
+    {isRefreshing ? "Refreshing…" : "↻ Refresh"}
+  </button>
+
+  {/* ── Auth ── */}
+  {/* ── Auth ── */}
+  <button
+  className="contact-btn"
+  onClick={() => setContactOpen(true)}
+>
+  Contact
+</button>
+<div className="auth-section">
+  {user ? (
+    <UserMenu user={user} />
+  ) : (
+    <button
+      onClick={() => setAuthOpen(true)}
+      className="auth-btn"
+    >
+      Login / Register
+    </button>
+  )}
+</div>
+</div>
+
+
       </nav>
+
+<ContactModal
+  open={contactOpen}
+  onClose={() => setContactOpen(false)}
+/>
+
+<AuthModal
+  open={authOpen}
+  onClose={() => setAuthOpen(false)}
+/>
 
       {/* ── TABS ── */}
       <div className="tabs">
