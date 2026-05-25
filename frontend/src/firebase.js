@@ -42,6 +42,8 @@ if (missingConfig.length > 0) {
   );
 }
 
+console.log("Firebase authDomain Kalyan:", firebaseConfig.authDomain);
+
 const app = initializeApp(firebaseConfig);
 
 
@@ -50,51 +52,12 @@ const auth = getAuth(app);
 
 const provider = new GoogleAuthProvider();
 
-/*
 export const loginWithGoogle = async () => {
-
-  const isMobile =
-    /Android|iPhone|iPad|iPod/i.test(
-      navigator.userAgent
-    );
-
-  if (isMobile) {
-
-    await signInWithRedirect(auth, provider);
-
-    return null;
-
-  } else {
-
-    return await signInWithPopup(auth, provider);
-
-  }
-};
-
-*/
-export const loginWithGoogle = async () => {
-
-  const isMobile =
-    /Android|iPhone|iPad|iPod/i.test(
-      navigator.userAgent
-    );
-
-  console.log("isMobile:", isMobile);
-
-  if (isMobile) {
-
-    console.log("Using redirect login");
-
-    await signInWithRedirect(auth, provider);
-
-    return;
-  }
 
   console.log("Using popup login");
 
   return signInWithPopup(auth, provider);
 };
-
 
 export const logout = () => {
   return signOut(auth);
