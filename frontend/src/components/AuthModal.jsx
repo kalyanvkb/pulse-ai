@@ -13,7 +13,7 @@ const handleGoogleLogin = async () => {
 
     localStorage.setItem("token", token);
 
-    await fetch("http://localhost:3001/api/auth/google-login", {
+    await fetch("/api/auth/google-login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
