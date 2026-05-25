@@ -70,6 +70,8 @@ function getDateFilterValue(isoDate) {
 
 export default function Dashboard() {
    const [user, setUser] = useState(null);
+   const [authLoading, setAuthLoading] =
+  useState(true);
    const [contactOpen, setContactOpen] = useState(false);
    const [authOpen, setAuthOpen] = useState(false);
   const { articles, loading, error, refresh, lastRefreshed, isRefreshing } = useNews();
@@ -259,6 +261,14 @@ useEffect(() => {
     });
     return counts;
   }, [articles]);
+
+  if (authLoading) {
+  return (
+    <div className="loading-screen">
+      Loading...
+    </div>
+  );
+}
 
   return (
     <div className="dashboard">
