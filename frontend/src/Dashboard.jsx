@@ -90,7 +90,7 @@ export default function Dashboard() {
     };
   }, []);
 
-
+/*
 useEffect(() => {
 
   getRedirectResult(auth)
@@ -109,6 +109,44 @@ useEffect(() => {
     auth,
     (firebaseUser) => {
       setUser(firebaseUser);
+    }
+  );
+
+  return () => unsubscribe();
+
+}, []);
+*/
+
+useEffect(() => {
+
+  console.log("Dashboard mounted");
+
+  const unsubscribe = onAuthStateChanged(
+    auth,
+    async (firebaseUser) => {
+
+      console.log(
+        "onAuthStateChanged fired:",
+        firebaseUser
+      );
+
+      if (firebaseUser) {
+
+        console.log(
+          "User authenticated:",
+          firebaseUser.email
+        );
+
+        setUser(firebaseUser);
+
+      } else {
+
+        console.log("No authenticated user");
+
+        setUser(null);
+      }
+
+      setAuthLoading(false);
     }
   );
 

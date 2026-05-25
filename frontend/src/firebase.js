@@ -50,6 +50,7 @@ const auth = getAuth();
 
 const provider = new GoogleAuthProvider();
 
+/*
 export const loginWithGoogle = async () => {
 
   const isMobile =
@@ -69,6 +70,42 @@ export const loginWithGoogle = async () => {
 
   }
 };
+
+*/
+
+export const loginWithGoogle = async () => {
+
+  console.log("Login started");
+
+  const isMobile =
+    /Android|iPhone|iPad|iPod/i.test(
+      navigator.userAgent
+    );
+
+  console.log("isMobile:", isMobile);
+
+  if (isMobile) {
+
+    console.log("Using redirect auth");
+
+    await signInWithRedirect(auth, provider);
+
+    return;
+  }
+
+  console.log("Using popup auth");
+
+  const result =
+    await signInWithPopup(auth, provider);
+
+  console.log(
+    "Popup login success:",
+    result.user.email
+  );
+
+  return result;
+};
+
 
 export const logout = () => {
   return signOut(auth);
