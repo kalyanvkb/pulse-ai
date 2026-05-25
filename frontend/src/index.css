@@ -941,18 +941,19 @@ html, body, #root {
 .user-dropdown {
   position: absolute;
 
-  top: calc(100% + 10px);
+  top: calc(100% + 4px);
 
   right: 0;
 
-  
-  border-radius: 14px;
+  background: transparent;
 
-  
-  
+  border: none;
 
-  box-shadow:
-    0 12px 40px rgba(0,0,0,0.45);
+  padding: 0;
+
+  z-index: 9999;
+
+  box-shadow: none;
 
   animation: dropdownFade 0.18s ease;
 }
@@ -970,13 +971,13 @@ html, body, #root {
 }
 
 .dropdown-item {
-  background: rgba(255,255,255,0.04);
+  background: #111827;
 
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
 
   color: white;
 
-  padding: 8px 14px;
+  padding: 7px 12px;
 
   border-radius: 999px;
 
@@ -992,8 +993,10 @@ html, body, #root {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-}
 
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.35);
+}
 .dropdown-item:hover {
-  background: rgba(255,255,255,0.10);
+  background: #1f2937;
 }
