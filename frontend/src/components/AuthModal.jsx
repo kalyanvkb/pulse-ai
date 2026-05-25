@@ -9,17 +9,28 @@ const handleGoogleLogin = async () => {
   try {
     const result = await loginWithGoogle();
 
+    console.log("Firebase login success");
+    console.log(result.user);
+
     const token = await result.user.getIdToken();
 
     localStorage.setItem("token", token);
 
-    await fetch("/api/auth/google-login", {
+    console.log("Calling backend sync...");
+
+    const response = await fetch("/api/auth/google-login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ token }),
     });
+
+    console.log("Backend response status:", response.status);
+
+    const data = await response.json();
+
+    console.log("Backend response data:", data);
 
     onClose();
 

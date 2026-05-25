@@ -72,10 +72,7 @@ export const loginWithGoogle = async () => {
 };
 
 */
-
 export const loginWithGoogle = async () => {
-
-  console.log("Login started");
 
   const isMobile =
     /Android|iPhone|iPad|iPod/i.test(
@@ -86,24 +83,16 @@ export const loginWithGoogle = async () => {
 
   if (isMobile) {
 
-    console.log("Using redirect auth");
+    console.log("Using redirect login");
 
     await signInWithRedirect(auth, provider);
 
     return;
   }
 
-  console.log("Using popup auth");
+  console.log("Using popup login");
 
-  const result =
-    await signInWithPopup(auth, provider);
-
-  console.log(
-    "Popup login success:",
-    result.user.email
-  );
-
-  return result;
+  return signInWithPopup(auth, provider);
 };
 
 

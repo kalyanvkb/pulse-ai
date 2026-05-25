@@ -10,9 +10,8 @@ import AuthModal from "./components/AuthModal";         // ← add
 import UserMenu from "./components/UserMenu";           // ← add
 import {
   auth,
-  onAuthStateChanged,
-  getRedirectResult
-} from "./firebase"; // ← add
+  onAuthStateChanged
+} from "./firebase";
 
 const GROUPS = ["All", "TAMANNA", "AI Labs", "Publications"];
 const GROUP_COLORS = {
@@ -91,33 +90,6 @@ export default function Dashboard() {
       timer = setTimeout(() => setDebouncedSearch(val), 300);
     };
   }, []);
-
-/*
-useEffect(() => {
-
-  getRedirectResult(auth)
-    .then((result) => {
-
-      if (result?.user) {
-        console.log("Redirect login success");
-      }
-
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-
-  const unsubscribe = onAuthStateChanged(
-    auth,
-    (firebaseUser) => {
-      setUser(firebaseUser);
-    }
-  );
-
-  return () => unsubscribe();
-
-}, []);
-*/
 
 useEffect(() => {
 
