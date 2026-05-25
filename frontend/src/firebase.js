@@ -3,8 +3,10 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
-  signOut,
+  signInWithRedirect,
+  getRedirectResult,
   onAuthStateChanged,
+  signOut
 } from "firebase/auth";
 
 // Load Firebase config from environment variables
@@ -42,16 +44,39 @@ if (missingConfig.length > 0) {
 
 const app = initializeApp(firebaseConfig);
 
-export const auth = getAuth(app);
+
+
+const auth = getAuth();
 
 const provider = new GoogleAuthProvider();
 
-export const loginWithGoogle = () => {
-  return signInWithPopup(auth, provider);
+export const loginWithGoogle = async () => {
+
+  const isMobile =
+    /Android|iPhone|iPad|iPod/i.test(
+      navigator.userAgent
+    );
+
+  if (isMobile) {
+
+    await signInWithRedirect(auth, provider);
+
+    return null;
+
+  } else {
+
+    return await signInWithPopup(auth, provider);
+
+  }
 };
 
 export const logout = () => {
   return signOut(auth);
 };
 
-export { onAuthStateChanged };
+export {
+  auth,
+  provider,
+  onAuthStateChanged,
+  getRedirectResult,
+};

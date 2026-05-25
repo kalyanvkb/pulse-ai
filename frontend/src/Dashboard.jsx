@@ -8,7 +8,11 @@ import SkeletonCard from "./components/SkeletonCard";
 import ContactModal from "./components/ContactModal";
 import AuthModal from "./components/AuthModal";         // ← add
 import UserMenu from "./components/UserMenu";           // ← add
-import { auth, onAuthStateChanged } from "./firebase";  // ← add
+import {
+  auth,
+  onAuthStateChanged,
+  getRedirectResult
+} from "./firebase"; // ← add
 
 const GROUPS = ["All", "TAMANNA", "AI Labs", "Publications"];
 const GROUP_COLORS = {
@@ -88,11 +92,28 @@ export default function Dashboard() {
 
 
 useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-    setUser(firebaseUser);
-  });
+
+  getRedirectResult(auth)
+    .then((result) => {
+
+      if (result?.user) {
+        console.log("Redirect login success");
+      }
+
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+  const unsubscribe = onAuthStateChanged(
+    auth,
+    (firebaseUser) => {
+      setUser(firebaseUser);
+    }
+  );
 
   return () => unsubscribe();
+
 }, []);
 
   const handleSearch = (e) => {
