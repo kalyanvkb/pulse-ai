@@ -20,7 +20,7 @@ export async function fetchNews({ page = 1, limit = 100 } = {}) {
 
 /**
  * Fetch articles filtered by group
- * @param {string} group - "TAMANNA" | "AI Labs" | "Publications"
+ * @param {string} group - "Model Builders" | "Infra & platforms" | "Semiconductor & Hardware" | "Enterprise AI" | "Coding and Developer Assistants" | "Robotics"
  * @returns {Promise<object>}
  */
 export async function fetchNewsByGroup(group) {

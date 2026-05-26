@@ -3,9 +3,12 @@
 import { useState } from "react";
 
 const GROUP_COLORS = {
-  TAMANNA: "#5b8af0",
-  "AI Labs": "#3dd68c",
-  Publications: "#f0a04b",
+  "Model Builders": "#5b8af0",
+  "Infra & platforms": "#3dd68c",
+  "Semiconductor & Hardware": "#ff9f43",
+  "Enterprise AI": "#f0a04b",
+  "Coding and Developer Assistants": "#7a5cff",
+  Robotics: "#ff6b6b",
 };
 
 /**

@@ -21,7 +21,8 @@ const parser = new Parser({
 });
 
 const RATE_LIMIT_MS = 1000; // 1 req/sec per domain
-const MAX_ARTICLES_PER_SOURCE = 8;
+const MAX_ARTICLES_PER_SOURCE = 10;
+const MAX_ARTICLE_AGE_DAYS = 7; // ignore articles older than this
 
 /**
  * Generate a stable ID from a URL or title string
@@ -66,6 +67,72 @@ function extractImage(item) {
   return "";
 }
 
+function parsePublishedDate(text, fallback) {
+  const dateMatch = text.match(/\b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+\d{1,2},\s+\d{4}\b/);
+  if (dateMatch) {
+    const d = new Date(dateMatch[0]);
+    if (!isNaN(d.getTime())) return d.toISOString();
+  }
+  return fallback;
+}
+
+function parseProxyMarkdown(source, rawText) {
+  const fetchedAt = new Date().toISOString();
+  const articles = [];
+  const seenUrls = new Set();
+  const datePattern = /\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+\d{4}\b/;
+
+  const pushArticle = (titleRaw, url) => {
+    const title = titleRaw
+      .replace(/^\s*(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+\d{4}\s+[A-Za-z]+\s+/, "")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+
+    if (!title || !url || seenUrls.has(url)) return;
+    if (title.length < 15) return;
+    if (!url.startsWith("http")) return;
+
+    articles.push({
+      id: makeId(url || title),
+      title: title.slice(0, 200),
+      url,
+      publishedAt: parsePublishedDate(titleRaw, fetchedAt),
+      fetchedAt,
+      source: source.name,
+      group: source.group,
+      color: source.color,
+      logoUrl: source.logoUrl,
+      rawContent: title,
+      imageUrl: "",
+      summary: null,
+    });
+    seenUrls.add(url);
+  };
+
+  const heroRegex = /##\s*\[([^\]]+?)\]\((https?:\/\/[^)]+)\)/gi;
+  let heroMatch;
+  while ((heroMatch = heroRegex.exec(rawText))) {
+    pushArticle(heroMatch[1].trim(), heroMatch[2].trim());
+  }
+
+  const listRegex = /\*\s*\[([^\]]+?)\]\((https?:\/\/[^)]+)\)/gi;
+  let listMatch;
+  while ((listMatch = listRegex.exec(rawText))) {
+    const titleRaw = listMatch[1].trim();
+    if (datePattern.test(titleRaw)) {
+      pushArticle(titleRaw, listMatch[2].trim());
+    }
+  }
+
+  const cardRegex = /\[[^\]]*?######\s*([^\]]+?)\]\((https?:\/\/[^)]+)\)/gi;
+  let cardMatch;
+  while ((cardMatch = cardRegex.exec(rawText))) {
+    pushArticle(cardMatch[1].trim().replace(/\s+$/g, ""), cardMatch[2].trim());
+  }
+
+  return articles;
+}
+
 /**
  * Normalize a raw RSS item into our unified article schema
  * @param {object} item - rss-parser item
@@ -80,11 +147,16 @@ function normalizeItem(item, source) {
   ).slice(0, 800);
   const fetchedAt = new Date().toISOString();
 
+  // Normalize publishedAt to ISO string when available; fall back to fetchedAt
+  const pubRaw = item.isoDate || item.pubDate;
+  const pubDate = pubRaw ? new Date(pubRaw) : null;
+  const publishedAt = pubDate && !isNaN(pubDate.getTime()) ? pubDate.toISOString() : fetchedAt;
+
   return {
     id: makeId(url || title),
     title,
     url,
-    publishedAt: item.pubDate || item.isoDate || new Date().toISOString(),
+    publishedAt,
     fetchedAt,
     source: source.name,
     group: source.group,
@@ -103,11 +175,33 @@ function normalizeItem(item, source) {
  */
 async function fetchRSS(source) {
   try {
-    const feed = await parser.parseURL(source.rssUrl);
-    const articles = (feed.items || [])
-      .slice(0, MAX_ARTICLES_PER_SOURCE)
+    // If no RSS URL provided, skip RSS parsing and let caller fall back to scraper
+     const rssUrl = source.rssUrl;
+     if (!rssUrl || typeof rssUrl !== "string" || !rssUrl.trim()) {
+       console.log(`  - ${source.name}: no rssUrl configured, skipping RSS`);
+       return null;
+     }
+ 
+     if (!rssUrl.startsWith("http://") && !rssUrl.startsWith("https://")) {
+       console.log(`  - ${source.name}: invalid rssUrl format, skipping RSS`);
+       return null;
+     }
+ 
+     const feed = await parser.parseURL(rssUrl);
+    const items = (feed.items || []).slice();
+    items.sort((a, b) => {
+      const da = new Date(a.isoDate || a.pubDate || 0).getTime() || 0;
+      const db = new Date(b.isoDate || b.pubDate || 0).getTime() || 0;
+      return db - da;
+    });
+
+    // Normalize, filter out invalid entries and older-than-cutoff articles,
+    // then limit to MAX_ARTICLES_PER_SOURCE.
+    const cutoff = Date.now() - MAX_ARTICLE_AGE_DAYS * 24 * 60 * 60 * 1000;
+    const articles = items
       .map((item) => normalizeItem(item, source))
-      .filter((a) => a.title && a.url);
+      .filter((a) => a.title && a.url && new Date(a.publishedAt).getTime() >= cutoff)
+      .slice(0, MAX_ARTICLES_PER_SOURCE);
     console.log(`  ✓ ${source.name}: ${articles.length} articles (RSS)`);
     return articles;
   } catch (err) {
@@ -124,13 +218,29 @@ async function fetchRSS(source) {
 async function scrapeFallback(source) {
   try {
     await new Promise((r) => setTimeout(r, RATE_LIMIT_MS));
-    const { data } = await axios.get(source.fallbackScrapeUrl, {
+    const response = await axios.get(source.fallbackScrapeUrl, {
       timeout: 10000,
       headers: {
         "User-Agent": "Mozilla/5.0 (compatible; PulseAI-NewsBot/1.0)",
-        Accept: "text/html",
+        Accept: "text/html, text/plain",
       },
     });
+
+    const contentType = (response.headers["content-type"] || "").toLowerCase();
+    const data = response.data;
+
+    if (
+      typeof data === "string" &&
+      (contentType.includes("text/plain") || data.includes("Markdown Content:"))
+    ) {
+      const proxyArticles = parseProxyMarkdown(source, data);
+      const cutoff = Date.now() - MAX_ARTICLE_AGE_DAYS * 24 * 60 * 60 * 1000;
+      const filtered = proxyArticles
+        .filter((a) => a.title && a.url && new Date(a.publishedAt).getTime() >= cutoff)
+        .slice(0, MAX_ARTICLES_PER_SOURCE);
+      console.log(`  ✓ ${source.name}: ${filtered.length} articles (proxy scrape)`);
+      return filtered;
+    }
 
     const $ = cheerio.load(data);
     const articles = [];
@@ -146,7 +256,6 @@ async function scrapeFallback(source) {
 
     for (const sel of selectors) {
       $(sel).each((i, el) => {
-        if (i >= MAX_ARTICLES_PER_SOURCE || articles.length >= MAX_ARTICLES_PER_SOURCE) return;
         const titleEl = $(el).find("h1, h2, h3, h4").first();
         const linkEl = $(el).find("a").first();
         const title = titleEl.text().trim();
@@ -160,11 +269,38 @@ async function scrapeFallback(source) {
 
         if (title && url && title.length > 10) {
           const fetchedAt = new Date().toISOString();
+
+          // Try to extract a published date from common locations
+          let pubRaw = null;
+          // time[datetime] or time text
+          const timeEl = $(el).find("time").first();
+          if (timeEl && timeEl.attr("datetime")) pubRaw = timeEl.attr("datetime");
+          if (!pubRaw && timeEl) pubRaw = timeEl.text();
+
+          // meta tags (page-level)
+          if (!pubRaw) pubRaw = $(el).find('meta[property="article:published_time"]').attr('content');
+          if (!pubRaw) pubRaw = $('meta[property="article:published_time"]').attr('content');
+          if (!pubRaw) pubRaw = $('meta[itemprop="datePublished"]').attr('content');
+          if (!pubRaw) pubRaw = $('meta[name="pubdate"]').attr('content') || $('meta[name="date"]').attr('content');
+
+          // inline date text (class heuristics)
+          if (!pubRaw) {
+            const dateText = $(el).find('[class*="date"], .published, .post-date, .pubdate, .published-time').first().text();
+            if (dateText) pubRaw = dateText;
+          }
+
+          // Parse to ISO if possible
+          let publishedAt = fetchedAt;
+          if (pubRaw) {
+            const d = new Date(pubRaw.trim());
+            if (!isNaN(d.getTime())) publishedAt = d.toISOString();
+          }
+
           articles.push({
             id: makeId(url || title),
             title: title.slice(0, 200),
             url,
-            publishedAt: new Date().toISOString(),
+            publishedAt,
             fetchedAt,
             source: source.name,
             group: source.group,
@@ -179,8 +315,15 @@ async function scrapeFallback(source) {
       if (articles.length > 0) break;
     }
 
-    console.log(`  ✓ ${source.name}: ${articles.length} articles (scrape)`);
-    return articles;
+    // Filter out older-than-cutoff and limit to newest N
+    const cutoff = Date.now() - MAX_ARTICLE_AGE_DAYS * 24 * 60 * 60 * 1000;
+    const filtered = articles
+      .filter((a) => a.title && a.url && new Date(a.publishedAt).getTime() >= cutoff)
+      .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+      .slice(0, MAX_ARTICLES_PER_SOURCE);
+
+    console.log(`  ✓ ${source.name}: ${filtered.length} articles (scrape)`);
+    return filtered;
   } catch (err) {
     console.warn(`  ✗ ${source.name} scrape also failed: ${err.message}`);
     return [];

@@ -13,11 +13,22 @@ import {
   onAuthStateChanged
 } from "./firebase";
 
-const GROUPS = ["All", "TAMANNA", "AI Labs", "Publications"];
+const GROUPS = [
+  "All",
+  "Model Builders",
+  "Infra & platforms",
+  "Semiconductor & Hardware",
+  "Enterprise AI",
+  "Coding and Developer Assistants",
+  "Robotics",
+];
 const GROUP_COLORS = {
-  TAMANNA: "#5b8af0",
-  "AI Labs": "#3dd68c",
-  Publications: "#f0a04b",
+  "Model Builders": "#5b8af0",
+  "Infra & platforms": "#3dd68c",
+  "Semiconductor & Hardware": "#ff9f43",
+  "Enterprise AI": "#f0a04b",
+  "Coding and Developer Assistants": "#7a5cff",
+  Robotics: "#ff6b6b",
 };
 
 
@@ -360,9 +371,12 @@ useEffect(() => {
         <div className="stats-bar">
           {[
             { val: articles.length, label: "Total" },
-            { val: groupCounts.TAMANNA, label: "TAMANNA" },
-            { val: groupCounts["AI Labs"], label: "AI Labs" },
-            { val: groupCounts.Publications, label: "Publications" },
+            { val: groupCounts["Model Builders"], label: "Model Builders" },
+            { val: groupCounts["Infra & platforms"], label: "Infra & platforms" },
+            { val: groupCounts["Semiconductor & Hardware"], label: "Semiconductor & Hardware" },
+            { val: groupCounts["Enterprise AI"], label: "Enterprise AI" },
+            { val: groupCounts["Coding and Developer Assistants"], label: "Coding and Developer Assistants" },
+            { val: groupCounts.Robotics, label: "Robotics" },
           ].map((s, i) => (
             <div key={i} className="stat">
               <span className="stat-val">{s.val}</span>
