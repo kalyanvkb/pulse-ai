@@ -12,7 +12,7 @@ const SOURCES = [
   },
   {
     name: "Apple",
-    group: "Enterprise AI",
+    group: "Enterprise",
     rssUrl: "https://www.apple.com/newsroom/rss-feed.rss",
     fallbackScrapeUrl: "https://www.apple.com/newsroom/",
     logoUrl: "https://www.apple.com/favicon.ico",
@@ -20,7 +20,7 @@ const SOURCES = [
   },
   {
     name: "Microsoft",
-    group: "Infra & platforms",
+    group: "Platforms",
     rssUrl: "https://news.microsoft.com/feed/",
     fallbackScrapeUrl: "https://news.microsoft.com/",
     logoUrl: "https://www.microsoft.com/favicon.ico",
@@ -28,7 +28,7 @@ const SOURCES = [
   },
   {
     name: "Amazon",
-    group: "Infra & platforms",
+    group: "Platforms",
     rssUrl: "https://www.aboutamazon.com/news/rss",
     fallbackScrapeUrl: "https://www.aboutamazon.com/news",
     logoUrl: "https://www.amazon.com/favicon.ico",
@@ -36,7 +36,7 @@ const SOURCES = [
   },
   {
     name: "NVIDIA",
-    group: "Infra & platforms",
+    group: "Platforms",
     rssUrl: "https://feeds.feedburner.com/nvidiablog",
     fallbackScrapeUrl: "https://blogs.nvidia.com",
     logoUrl: "https://www.nvidia.com/favicon.ico",
@@ -44,7 +44,7 @@ const SOURCES = [
   },
   {
     name: "Netflix",
-    group: "Enterprise AI",
+    group: "Enterprise",
     rssUrl: "https://netflixtechblog.com/feed",
     // Use jina.ai proxy as a more reliable scraper fallback when the origin
     // presents certificate or bot-protection issues.
@@ -54,7 +54,7 @@ const SOURCES = [
   },
   {
     name: "Google",
-    group: "Infra & platforms",
+    group: "Platforms",
     rssUrl: "https://blog.google/rss/",
     fallbackScrapeUrl: "https://blog.google/",
     logoUrl: "https://www.google.com/favicon.ico",
@@ -64,7 +64,7 @@ const SOURCES = [
   // ─── GROUP B: AI Labs ───────────────────────────────────────────────────────
   {
     name: "OpenAI",
-    group: "Model Builders",
+    group: "Models",
     rssUrl: "https://openai.com/blog/rss.xml",
     fallbackScrapeUrl: "https://openai.com/blog",
     logoUrl: "https://openai.com/favicon.ico",
@@ -72,7 +72,7 @@ const SOURCES = [
   },
   {
     name: "Anthropic",
-    group: "Model Builders",
+    group: "Models",
     rssUrl: null, // No public RSS — using proxy scraper for Anthropic News
     fallbackScrapeUrl: "https://r.jina.ai/http://www.anthropic.com/news",
     logoUrl: "https://www.anthropic.com/favicon.ico",
@@ -80,7 +80,7 @@ const SOURCES = [
   },
   {
     name: "Google DeepMind",
-    group: "Model Builders",
+    group: "Models",
     rssUrl: "https://deepmind.google/blog/rss.xml",
     fallbackScrapeUrl: "https://deepmind.google/discover/blog/",
     logoUrl: "https://deepmind.google/favicon.ico",
@@ -88,7 +88,7 @@ const SOURCES = [
   },
   {
     name: "Perplexity",
-    group: "Enterprise AI",
+    group: "Enterprise",
     rssUrl: null, // No RSS — using proxy scraper due to Cloudflare protection
     fallbackScrapeUrl: "https://r.jina.ai/http://blog.perplexity.ai",
     logoUrl: "https://www.perplexity.ai/favicon.ico",
@@ -96,7 +96,7 @@ const SOURCES = [
   },
   {
     name: "Mistral",
-    group: "Model Builders",
+    group: "Models",
     rssUrl: null, // No RSS — using scraper
     fallbackScrapeUrl: "https://mistral.ai/news",
     logoUrl: "https://mistral.ai/favicon.ico",
@@ -106,7 +106,7 @@ const SOURCES = [
   // ─── GROUP C: Publications ─────────────────────────────────────────────────
   {
     name: "MIT Tech Review",
-    group: "Enterprise AI",
+    group: "Enterprise",
     rssUrl: "https://www.technologyreview.com/feed/",
     fallbackScrapeUrl: "https://www.technologyreview.com/",
     logoUrl: "https://www.technologyreview.com/favicon.ico",
@@ -114,7 +114,7 @@ const SOURCES = [
   },
   {
     name: "Wired AI",
-    group: "Enterprise AI",
+    group: "Enterprise",
     rssUrl: "https://www.wired.com/feed/tag/artificial-intelligence/rss",
     fallbackScrapeUrl: "https://www.wired.com/tag/artificial-intelligence/",
     logoUrl: "https://www.wired.com/favicon.ico",
@@ -122,7 +122,7 @@ const SOURCES = [
   },
   {
     name: "VentureBeat",
-    group: "Enterprise AI",
+    group: "Enterprise",
     rssUrl: "https://venturebeat.com/category/ai/feed/",
     fallbackScrapeUrl: "https://venturebeat.com/category/artificial-intelligence/",
     logoUrl: "https://venturebeat.com/favicon.ico",
@@ -130,7 +130,7 @@ const SOURCES = [
   },
   {
     name: "The Verge",
-    group: "Enterprise AI",
+    group: "Enterprise",
     rssUrl: "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
     fallbackScrapeUrl: "https://www.theverge.com/ai-artificial-intelligence",
     logoUrl: "https://www.theverge.com/favicon.ico",
@@ -138,7 +138,7 @@ const SOURCES = [
   },
   {
     name: "TechCrunch",
-    group: "Enterprise AI",
+    group: "Enterprise",
     rssUrl: "https://techcrunch.com/category/artificial-intelligence/feed/",
     fallbackScrapeUrl: "https://techcrunch.com/category/artificial-intelligence/",
     logoUrl: "https://techcrunch.com/favicon.ico",
@@ -146,7 +146,7 @@ const SOURCES = [
   },
   {
     name: "ArXiv AI",
-    group: "Enterprise AI",
+    group: "Enterprise",
     rssUrl: "https://rss.arxiv.org/rss/cs.LG",
     fallbackScrapeUrl: "https://arxiv.org/list/cs.LG/recent",
     logoUrl: "https://arxiv.org/favicon.ico",
@@ -156,7 +156,7 @@ const SOURCES = [
   // ─── Additional AI Companies requested ───────────────────────────────────
   {
     name: "Meta AI",
-    group: "Model Builders",
+    group: "Models",
     rssUrl: "https://about.meta.com/blog/rss",
     fallbackScrapeUrl: "https://about.meta.com/",
     logoUrl: "https://meta.com/favicon.ico",
@@ -164,7 +164,7 @@ const SOURCES = [
   },
   {
     name: "xAI",
-    group: "Model Builders",
+    group: "Models",
     rssUrl: null,
     fallbackScrapeUrl: "https://x.ai/",
     logoUrl: "https://x.ai/favicon.ico",
@@ -172,7 +172,7 @@ const SOURCES = [
   },
   {
     name: "Cohere",
-    group: "Model Builders",
+    group: "Models",
     rssUrl: null,
     fallbackScrapeUrl: "https://cohere.ai/",
     logoUrl: "https://cohere.ai/favicon.ico",
@@ -180,7 +180,7 @@ const SOURCES = [
   },
   {
     name: "AI21 Labs",
-    group: "Model Builders",
+    group: "Models",
     rssUrl: null,
     fallbackScrapeUrl: "https://www.ai21.com/",
     logoUrl: "https://www.ai21.com/favicon.ico",
@@ -188,7 +188,7 @@ const SOURCES = [
   },
   {
     name: "Inflection AI",
-    group: "Model Builders",
+    group: "Models",
     rssUrl: null,
     fallbackScrapeUrl: "https://www.inflection.ai/",
     logoUrl: "https://www.inflection.ai/favicon.ico",
@@ -196,7 +196,7 @@ const SOURCES = [
   },
   {
     name: "Adept",
-    group: "Model Builders",
+    group: "Models",
     rssUrl: null,
     fallbackScrapeUrl: "https://www.adept.ai/",
     logoUrl: "https://www.adept.ai/favicon.ico",
@@ -204,7 +204,7 @@ const SOURCES = [
   },
   {
     name: "Amazon Web Services",
-    group: "Infra & platforms",
+    group: "Platforms",
     rssUrl: "https://aws.amazon.com/blogs/machine-learning/feed/",
     fallbackScrapeUrl: "https://aws.amazon.com/blogs/machine-learning/",
     logoUrl: "https://aws.amazon.com/favicon.ico",
@@ -212,7 +212,7 @@ const SOURCES = [
   },
   {
     name: "Google Cloud AI",
-    group: "Infra & platforms",
+    group: "Platforms",
     rssUrl: "https://cloud.google.com/blog/topics/ai-machine-learning/rss",
     fallbackScrapeUrl: "https://cloud.google.com/blog/topics/ai-machine-learning",
     logoUrl: "https://cloud.google.com/favicon.ico",
@@ -220,7 +220,7 @@ const SOURCES = [
   },
   {
     name: "Oracle AI",
-    group: "Infra & platforms",
+    group: "Platforms",
     rssUrl: "https://www.oracle.com/news/rss.xml",
     fallbackScrapeUrl: "https://www.oracle.com/artificial-intelligence/",
     logoUrl: "https://www.oracle.com/favicon.ico",
@@ -228,7 +228,7 @@ const SOURCES = [
   },
   {
     name: "IBM Watsonx",
-    group: "Infra & platforms",
+    group: "Platforms",
     rssUrl: "https://www.ibm.com/blogs/watsonx/feed/",
     fallbackScrapeUrl: "https://www.ibm.com/watsonx",
     logoUrl: "https://www.ibm.com/favicon.ico",
@@ -236,7 +236,7 @@ const SOURCES = [
   },
   {
     name: "Snowflake",
-    group: "Infra & platforms",
+    group: "Platforms",
     rssUrl: "https://www.snowflake.com/blog/feed/",
     fallbackScrapeUrl: "https://www.snowflake.com/blog/",
     logoUrl: "https://www.snowflake.com/favicon.ico",
@@ -244,7 +244,7 @@ const SOURCES = [
   },
   {
     name: "Databricks",
-    group: "Infra & platforms",
+    group: "Platforms",
     rssUrl: "https://databricks.com/blog/feed",
     fallbackScrapeUrl: "https://databricks.com/blog",
     logoUrl: "https://databricks.com/favicon.ico",
@@ -252,7 +252,7 @@ const SOURCES = [
   },
   {
     name: "CoreWeave",
-    group: "Infra & platforms",
+    group: "Platforms",
     rssUrl: null,
     fallbackScrapeUrl: "https://www.coreweave.com/",
     logoUrl: "https://www.coreweave.com/favicon.ico",
@@ -260,7 +260,7 @@ const SOURCES = [
   },
   {
     name: "Lambda Labs",
-    group: "Infra & platforms",
+    group: "Platforms",
     rssUrl: null,
     fallbackScrapeUrl: "https://lambdalabs.com/blog",
     logoUrl: "https://lambdalabs.com/favicon.ico",
@@ -268,7 +268,7 @@ const SOURCES = [
   },
   {
     name: "AMD",
-    group: "Semiconductor & Hardware",
+    group: "Hardware",
     rssUrl: null,
     fallbackScrapeUrl: "https://www.amd.com/en/newsroom",
     logoUrl: "https://www.amd.com/favicon.ico",
@@ -276,7 +276,7 @@ const SOURCES = [
   },
   {
     name: "Intel AI",
-    group: "Semiconductor & Hardware",
+    group: "Hardware",
     rssUrl: null,
     fallbackScrapeUrl: "https://www.intel.com/content/www/us/en/artificial-intelligence/overview.html",
     logoUrl: "https://www.intel.com/favicon.ico",
@@ -284,7 +284,7 @@ const SOURCES = [
   },
   {
     name: "Cerebras Systems",
-    group: "Semiconductor & Hardware",
+    group: "Hardware",
     rssUrl: null,
     fallbackScrapeUrl: "https://www.cerebras.net/",
     logoUrl: "https://www.cerebras.net/favicon.ico",
@@ -292,7 +292,7 @@ const SOURCES = [
   },
   {
     name: "Groq",
-    group: "Semiconductor & Hardware",
+    group: "Hardware",
     rssUrl: null,
     fallbackScrapeUrl: "https://www.groq.com/",
     logoUrl: "https://www.groq.com/favicon.ico",
@@ -300,7 +300,7 @@ const SOURCES = [
   },
   {
     name: "SambaNova Systems",
-    group: "Semiconductor & Hardware",
+    group: "Hardware",
     rssUrl: null,
     fallbackScrapeUrl: "https://sambanova.ai/",
     logoUrl: "https://sambanova.ai/favicon.ico",
@@ -308,7 +308,7 @@ const SOURCES = [
   },
   {
     name: "Tenstorrent",
-    group: "Semiconductor & Hardware",
+    group: "Hardware",
     rssUrl: null,
     fallbackScrapeUrl: "https://tenstorrent.com/",
     logoUrl: "https://tenstorrent.com/favicon.ico",
@@ -316,7 +316,7 @@ const SOURCES = [
   },
   {
     name: "Qualcomm AI",
-    group: "Semiconductor & Hardware",
+    group: "Hardware",
     rssUrl: null,
     fallbackScrapeUrl: "https://www.qualcomm.com/news/releases",
     logoUrl: "https://www.qualcomm.com/favicon.ico",
@@ -324,7 +324,7 @@ const SOURCES = [
   },
   {
     name: "Arm AI",
-    group: "Semiconductor & Hardware",
+    group: "Hardware",
     rssUrl: null,
     fallbackScrapeUrl: "https://www.arm.com/ai",
     logoUrl: "https://www.arm.com/favicon.ico",
@@ -332,7 +332,7 @@ const SOURCES = [
   },
   {
     name: "Palantir",
-    group: "Enterprise AI",
+    group: "Enterprise",
     rssUrl: null,
     fallbackScrapeUrl: "https://www.palantir.com/",
     logoUrl: "https://www.palantir.com/favicon.ico",
@@ -340,7 +340,7 @@ const SOURCES = [
   },
   {
     name: "UiPath",
-    group: "Enterprise AI",
+    group: "Enterprise",
     rssUrl: null,
     fallbackScrapeUrl: "https://www.uipath.com/blog",
     logoUrl: "https://www.uipath.com/favicon.ico",
@@ -348,7 +348,7 @@ const SOURCES = [
   },
   {
     name: "Scale AI",
-    group: "Enterprise AI",
+    group: "Enterprise",
     rssUrl: null,
     fallbackScrapeUrl: "https://scale.com/blog",
     logoUrl: "https://scale.com/favicon.ico",
@@ -356,7 +356,7 @@ const SOURCES = [
   },
   {
     name: "Dataiku",
-    group: "Enterprise AI",
+    group: "Enterprise",
     rssUrl: null,
     fallbackScrapeUrl: "https://www.dataiku.com/blog/",
     logoUrl: "https://www.dataiku.com/favicon.ico",
@@ -364,7 +364,7 @@ const SOURCES = [
   },
   {
     name: "C3 AI",
-    group: "Enterprise AI",
+    group: "Enterprise",
     rssUrl: null,
     fallbackScrapeUrl: "https://c3.ai/",
     logoUrl: "https://c3.ai/favicon.ico",
@@ -372,7 +372,7 @@ const SOURCES = [
   },
   {
     name: "Writer",
-    group: "Enterprise AI",
+    group: "Enterprise",
     rssUrl: "https://writer.com/blog/rss",
     fallbackScrapeUrl: "https://writer.com/blog/",
     logoUrl: "https://writer.com/favicon.ico",
@@ -380,7 +380,7 @@ const SOURCES = [
   },
   {
     name: "Glean",
-    group: "Enterprise AI",
+    group: "Enterprise",
     rssUrl: null,
     fallbackScrapeUrl: "https://www.glean.com/blog/",
     logoUrl: "https://www.glean.com/favicon.ico",
@@ -388,7 +388,7 @@ const SOURCES = [
   },
   {
     name: "Moveworks",
-    group: "Enterprise AI",
+    group: "Enterprise",
     rssUrl: null,
     fallbackScrapeUrl: "https://www.moveworks.com/",
     logoUrl: "https://www.moveworks.com/favicon.ico",
@@ -396,7 +396,7 @@ const SOURCES = [
   },
   {
     name: "Notion AI",
-    group: "Enterprise AI",
+    group: "Enterprise",
     rssUrl: null,
     fallbackScrapeUrl: "https://r.jina.ai/http://www.notion.so/blog",
     logoUrl: "https://www.notion.so/favicon.ico",
@@ -404,7 +404,7 @@ const SOURCES = [
   },
   {
     name: "GitHub Copilot",
-    group: "Coding and Developer Assistants",
+    group: "Developers",
     rssUrl: "https://github.blog/feed/",
     fallbackScrapeUrl: "https://github.blog/",
     logoUrl: "https://github.com/favicon.ico",
@@ -412,7 +412,7 @@ const SOURCES = [
   },
   {
     name: "Cursor",
-    group: "Coding and Developer Assistants",
+    group: "Developers",
     rssUrl: null,
     fallbackScrapeUrl: "https://r.jina.ai/http://cursor.com/blog",
     logoUrl: "https://cursor.com/favicon.ico",
@@ -420,7 +420,7 @@ const SOURCES = [
   },
   {
     name: "Replit",
-    group: "Coding and Developer Assistants",
+    group: "Developers",
     rssUrl: null,
     fallbackScrapeUrl: "https://r.jina.ai/http://replit.com/blog",
     logoUrl: "https://replit.com/favicon.ico",
@@ -428,7 +428,7 @@ const SOURCES = [
   },
   {
     name: "Hugging Face",
-    group: "Coding and Developer Assistants",
+    group: "Developers",
     rssUrl: null,
     fallbackScrapeUrl: "https://r.jina.ai/http://huggingface.co/blog",
     logoUrl: "https://huggingface.co/favicon.ico",
@@ -436,7 +436,7 @@ const SOURCES = [
   },
   {
     name: "Weights & Biases",
-    group: "Coding and Developer Assistants",
+    group: "Developers",
     rssUrl: null,
     fallbackScrapeUrl: "https://r.jina.ai/http://wandb.ai/articles",
     logoUrl: "https://wandb.ai/favicon.ico",
@@ -444,7 +444,7 @@ const SOURCES = [
   },
   {
     name: "LangChain",
-    group: "Coding and Developer Assistants",
+    group: "Developers",
     rssUrl: "https://blog.langchain.dev/rss.xml",
     fallbackScrapeUrl: "https://blog.langchain.dev/",
     logoUrl: "https://langchain.com/favicon.ico",
@@ -493,3 +493,4 @@ const SOURCES = [
 ];
 
 module.exports = SOURCES;
+

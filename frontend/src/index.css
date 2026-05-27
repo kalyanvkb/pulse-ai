@@ -1000,3 +1000,64 @@ html, body, #root {
 .dropdown-item:hover {
   background: #1f2937;
 }
+
+
+
+@media (max-width: 450px) {
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    align-items: center;
+
+    overflow-x: hidden;
+
+    padding: 6px 4px;
+  }
+
+  .tab {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    padding: 5px 8px;
+
+    min-height: 28px;
+
+    border-radius: 999px;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    flex-shrink: 0;
+  }
+
+  .count-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 16px;
+    height: 16px;
+
+    padding: 0 4px;
+
+    border-radius: 999px;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    line-height: 1;
+  }
+}

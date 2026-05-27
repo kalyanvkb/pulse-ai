@@ -3,11 +3,11 @@
 import { useState } from "react";
 
 const GROUP_COLORS = {
-  "Model Builders": "#5b8af0",
-  "Infra & platforms": "#3dd68c",
-  "Semiconductor & Hardware": "#ff9f43",
-  "Enterprise AI": "#f0a04b",
-  "Coding and Developer Assistants": "#7a5cff",
+  Models: "#5b8af0",
+  Platforms: "#3dd68c",
+  Hardware: "#ff9f43",
+  Enterprise: "#f0a04b",
+  Developers: "#7a5cff",
   Robotics: "#ff6b6b",
 };
 

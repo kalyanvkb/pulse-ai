@@ -15,22 +15,22 @@ import {
 
 const GROUPS = [
   "All",
-  "Model Builders",
-  "Infra & platforms",
-  "Semiconductor & Hardware",
-  "Enterprise AI",
-  "Coding and Developer Assistants",
+  "Models",
+  "Platforms",
+  "Hardware",
+  "Enterprise",
+  "Developers",
   "Robotics",
 ];
+
 const GROUP_COLORS = {
-  "Model Builders": "#5b8af0",
-  "Infra & platforms": "#3dd68c",
-  "Semiconductor & Hardware": "#ff9f43",
-  "Enterprise AI": "#f0a04b",
-  "Coding and Developer Assistants": "#7a5cff",
+  Models: "#5b8af0",
+  Platforms: "#3dd68c",
+  Hardware: "#ff9f43",
+  Enterprise: "#f0a04b",
+  Developers: "#7a5cff",
   Robotics: "#ff6b6b",
 };
-
 
 // Unique sources per group for the filter chips
 function getSourcesForGroup(articles, group) {
@@ -371,12 +371,12 @@ useEffect(() => {
         <div className="stats-bar">
           {[
             { val: articles.length, label: "Total" },
-            { val: groupCounts["Model Builders"], label: "Model Builders" },
-            { val: groupCounts["Infra & platforms"], label: "Infra & platforms" },
-            { val: groupCounts["Semiconductor & Hardware"], label: "Semiconductor & Hardware" },
-            { val: groupCounts["Enterprise AI"], label: "Enterprise AI" },
-            { val: groupCounts["Coding and Developer Assistants"], label: "Coding and Developer Assistants" },
-            { val: groupCounts.Robotics, label: "Robotics" },
+           { val: groupCounts["Models"], label: "Models" },
+           { val: groupCounts["Platforms"], label: "Platforms" },
+           { val: groupCounts["Hardware"], label: "Hardware" },
+           { val: groupCounts["Enterprise"], label: "Enterprise" },
+           { val: groupCounts["Developers"], label: "Developers" },
+           { val: groupCounts["Robotics"], label: "Robotics" },
           ].map((s, i) => (
             <div key={i} className="stat">
               <span className="stat-val">{s.val}</span>
