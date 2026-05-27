@@ -32,9 +32,36 @@ const GROUP_COLORS = {
   Robotics: "#ff6b6b",
 };
 
+
+function normalizeGroup(group) {
+  if (!group) return "";
+
+  const cleaned = group.trim();
+
+  const mapping = {
+    "Model Builders": "Models",
+    "Infra & Platforms": "Platforms",
+    "Infra & platforms": "Platforms",
+    "Semiconductor & Hardware": "Hardware",
+    "Enterprise AI": "Enterprise",
+    "Coding and Developer Assistants": "Developers",
+    "Robotics": "Robotics",
+  };
+
+  return mapping[cleaned] || cleaned;
+}
+
 // Unique sources per group for the filter chips
 function getSourcesForGroup(articles, group) {
-  const filtered = group === "All" ? articles : articles.filter((a) => a.group === group);
+  //const filtered = group === "All" ? articles : articles.filter((a) => a.group === group);
+
+  const filtered =
+  group === "All"
+    ? articles
+    : articles.filter(
+        (a) =>
+          normalizeGroup(a.group) === group
+      );
   const seen = new Set();
   return filtered
     .map((a) => ({ name: a.source, color: a.color, group: a.group }))
@@ -180,7 +207,14 @@ useEffect(() => {
       return true;
     });
 
-  if (activeGroup !== "All") arr = arr.filter((a) => a.group === activeGroup);
+ // if (activeGroup !== "All") arr = arr.filter((a) => a.group === activeGroup);
+if (activeGroup !== "All") {
+  arr = arr.filter(
+    (a) =>
+      normalizeGroup(a.group) === activeGroup
+  );
+}
+
   if (activeSources.size > 0) {
     arr = arr.filter((a) => activeSources.has((a.source || "").trim()));
   }
@@ -240,7 +274,10 @@ useEffect(() => {
   const groupCounts = useMemo(() => {
     const counts = { All: articles.length };
     GROUPS.slice(1).forEach((g) => {
-      counts[g] = articles.filter((a) => a.group === g).length;
+      //counts[g] = articles.filter((a) => a.group === g).length;
+      counts[g] = articles.filter(
+  (a) => normalizeGroup(a.group) === g
+).length;
     });
     return counts;
   }, [articles]);
