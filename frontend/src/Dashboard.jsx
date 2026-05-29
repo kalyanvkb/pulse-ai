@@ -3,11 +3,13 @@
 //import { useState, useMemo } from "react";
 import React, { useEffect, useState, useMemo } from "react";
 import useNews from "./hooks/useNews";
+import useFollowing from "./hooks/useFollowing";
 import NewsCard from "./components/NewsCard";
 import SkeletonCard from "./components/SkeletonCard";
 import ContactModal from "./components/ContactModal";
 import AuthModal from "./components/AuthModal";         // ← add
-import UserMenu from "./components/UserMenu";           // ← add
+import UserMenu from "./components/UserMenu";  
+       // ← add
 import {
   auth,
   onAuthStateChanged
@@ -15,12 +17,13 @@ import {
 
 const GROUPS = [
   "All",
+  "My Companies",
   "Models",
   "Platforms",
   "Hardware",
   "Enterprise",
   "Developers",
-  "Robotics",
+  "Robotics"
 ];
 
 const GROUP_COLORS = {
@@ -113,6 +116,12 @@ export default function Dashboard() {
    const [authOpen, setAuthOpen] = useState(false);
   const { articles, loading, error, refresh, lastRefreshed, isRefreshing } = useNews();
 
+  const {
+  following,
+  follow,
+  unfollow
+} = useFollowing(user);
+
   const [activeGroup, setActiveGroup] = useState("All");
   const [activeSources, setActiveSources] = useState(new Set());
   const [sortMode, setSortMode] = useState("latest");
@@ -197,6 +206,9 @@ useEffect(() => {
 
   // Compute filtered + sorted articles
   const filtered = useMemo(() => {
+
+    
+
     let arr = [...articles];
 
     // 👇 Deduplicate by title first
@@ -207,12 +219,29 @@ useEffect(() => {
       return true;
     });
 
- // if (activeGroup !== "All") arr = arr.filter((a) => a.group === activeGroup);
-if (activeGroup !== "All") {
+   if (activeGroup === "My Companies") {
+
+  const followedSet = new Set(
+    following.map(s =>
+      s.trim().toLowerCase()
+    )
+  );
+
+  arr = arr.filter(a =>
+    followedSet.has(
+      (a.source || "")
+        .trim()
+        .toLowerCase()
+    )
+  );
+
+} else if (activeGroup !== "All") {
+
   arr = arr.filter(
-    (a) =>
+    a =>
       normalizeGroup(a.group) === activeGroup
   );
+
 }
 
   if (activeSources.size > 0) {
@@ -266,21 +295,50 @@ if (activeGroup !== "All") {
   return arr;
 }, [articles, activeGroup, activeSources, debouncedSearch, sortMode, routeDateFilter]);
 
-  const sourcesForFilter = useMemo(
-    () => getSourcesForGroup(articles, activeGroup),
-    [articles, activeGroup]
+  const sourcesForFilter = useMemo(() => {
+
+  if (activeGroup === "My Companies") {
+
+    return getSourcesForGroup(
+      articles.filter(
+        (a) =>
+          following.includes(a.source)
+      ),
+      "All"
+    );
+  }
+
+  return getSourcesForGroup(
+    articles,
+    activeGroup
   );
 
+}, [
+  articles,
+  activeGroup,
+  following
+]);
+
   const groupCounts = useMemo(() => {
-    const counts = { All: articles.length };
-    GROUPS.slice(1).forEach((g) => {
-      //counts[g] = articles.filter((a) => a.group === g).length;
-      counts[g] = articles.filter(
-  (a) => normalizeGroup(a.group) === g
-).length;
-    });
-    return counts;
-  }, [articles]);
+
+  const counts = {
+    All: articles.length
+  };
+
+  counts["My Companies"] = articles.filter(
+    (a) =>
+      following.includes(a.source)
+  ).length;
+
+  GROUPS.slice(2).forEach((g) => {
+    counts[g] = articles.filter(
+      (a) => normalizeGroup(a.group) === g
+    ).length;
+  });
+
+  return counts;
+
+}, [articles, following]);
 
   if (authLoading) {
   return (
@@ -384,42 +442,71 @@ if (activeGroup !== "All") {
         >
           All sources
         </div>
-        {sourcesForFilter.map((s) => (
-          <div
-            key={s.name}
-            className={`source-chip ${activeSources.has(s.name) ? "chip-active" : ""}`}
-            onClick={() => toggleSource(s.name)}
-            style={activeSources.has(s.name) ? { background: `${s.color}28` } : {}}
-          >
-            <span className="source-dot" style={{ background: s.color }} />
-            {s.name}
-          </div>
-        ))}
+       {sourcesForFilter.map((s) => {
+
+  const isFollowing =
+    following.includes(s.name);
+
+  return (
+    <div
+      key={s.name}
+      className={`source-chip ${
+        activeSources.has(s.name)
+          ? "chip-active"
+          : ""
+      } ${
+        isFollowing
+          ? "source-followed"
+          : ""
+      }`}
+      onClick={() => toggleSource(s.name)}
+      style={
+        activeSources.has(s.name)
+          ? { background: `${s.color}28` }
+          : {}
+      }
+    >
+      <span
+        className="source-dot"
+        style={{
+          background: s.color
+        }}
+      />
+
+      <span className="source-label">
+        {s.name}
+      </span>
+
+      {user && (
+        <span
+          className={`follow-star ${
+            isFollowing
+              ? "followed"
+              : ""
+          }`}
+          onClick={(e) => {
+
+            e.stopPropagation();
+
+            if (isFollowing) {
+              unfollow(s.name);
+            } else {
+              follow(s.name);
+            }
+          }}
+        >
+          {isFollowing ? "★" : "☆"}
+        </span>
+      )}
+    </div>
+  );
+})}
       </div>
 
       {/* ── STATS BAR ── */}
       {(routeDateFilter === "today" || routeDateFilter === "yesterday") && (
         <div className="banner banner-info">
           Showing news fetched {routeDateFilter}.
-        </div>
-      )}
-
-      {articles.length > 0 && (
-        <div className="stats-bar">
-          {[
-            { val: articles.length, label: "Total" },
-           { val: groupCounts["Models"], label: "Models" },
-           { val: groupCounts["Platforms"], label: "Platforms" },
-           { val: groupCounts["Hardware"], label: "Hardware" },
-           { val: groupCounts["Enterprise"], label: "Enterprise" },
-           { val: groupCounts["Developers"], label: "Developers" },
-           { val: groupCounts["Robotics"], label: "Robotics" },
-          ].map((s, i) => (
-            <div key={i} className="stat">
-              <span className="stat-val">{s.val}</span>
-              <span className="stat-label">{s.label}</span>
-            </div>
-          ))}
         </div>
       )}
 
@@ -456,18 +543,52 @@ if (activeGroup !== "All") {
           {loading ? (
             Array(9).fill(null).map((_, i) => <SkeletonCard key={i} />)
           ) : filtered.length === 0 ? (
-            <div className="empty">
-              <div className="empty-icon">∅</div>
-              {debouncedSearch ? (
-                `No results for "${debouncedSearch}"`
-              ) : routeDateFilter ? (
-                `No articles fetched ${routeDateFilter}.`
-              ) : (
-                "No articles yet. Click Refresh."
-              )}
-            </div>
+  <div className="empty">
+
+    {activeGroup === "My Companies" ? (
+      <>
+        <div className="empty-icon">★</div>
+
+        <h3>Your Tracked Companies</h3>
+
+        <div className="tracked-companies-list">
+          {following.length > 0 ? (
+            following.map((company) => (
+              <div
+                key={company}
+                className="tracked-company"
+              >
+                ★ {company}
+              </div>
+            ))
           ) : (
-            filtered.map((a, i) => <NewsCard key={a.id} article={a} index={i} />)
+            <div>
+              You are not tracking any companies yet.
+            </div>
+          )}
+        </div>
+
+        <div className="empty-message">
+          No articles found for your tracked companies.
+        </div>
+      </>
+    ) : debouncedSearch ? (
+      `No results for "${debouncedSearch}"`
+    ) : routeDateFilter ? (
+      `No articles fetched ${routeDateFilter}.`
+    ) : (
+      "No articles yet. Click Refresh."
+    )}
+
+  </div>
+) : (
+            filtered.map((a, i) => (
+  <NewsCard
+    key={a.id}
+    article={a}
+    index={i}
+  />
+))
           )}
         </div>
       </div>

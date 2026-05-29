@@ -77,9 +77,12 @@ export default function NewsCard({ article, index = 0 }) {
           )}
         </div>
 
-        <span className="source-name" style={{ color: article.color }}>
-          {article.source}
-        </span>
+      <span
+  className="source-name"
+  style={{ color: article.color }}
+>
+  {article.source}
+</span>
 
         <span
           className="group-tag"

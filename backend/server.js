@@ -13,7 +13,14 @@ const { fetchAllSources } = require("./fetcher");
 const { summarizeBatch } = require("./summarizer");
 const { getCache, setCache, flushFeedCache, getCacheStats, FEED_TTL } = require("./cache");
 
-const { connect, getTodaysArticles, getArticlesByDate } = require("./db");
+const {
+  connect,
+  getTodaysArticles,
+  getArticlesByDate,
+  getUserByEmail,
+  followCompany,
+  unfollowCompany
+} = require("./db");
 const { startScheduler, runDailyFetch, warmCacheFromDB } = require("./scheduler");
 
 const app = express();
@@ -224,6 +231,114 @@ app.get("/api/health", (req, res) => {
     isRefreshing,
     uptime: Math.round(process.uptime()) + "s",
   });
+});
+
+app.get("/api/debug/user-model", async (req, res) => {
+  const users = await mongoose.model("User").find({});
+  res.json(users);
+});
+
+app.get("/api/users/following", async (req, res) => {
+  try {
+
+    const email = req.query.email;
+
+    if (!email) {
+      return res.status(400).json({
+        error: "email required"
+      });
+    }
+
+    const user =
+      await getUserByEmail(email);
+
+    return res.json(
+      user?.preferences?.sources || []
+    );
+
+  } catch (err) {
+
+    console.error(
+      "Failed loading following",
+      err
+    );
+
+    return res.status(500).json({
+      error: "Failed to load following"
+    });
+  }
+});
+
+app.post("/api/users/follow", async (req, res) => {
+
+  try {
+
+    const { email, company } =
+      req.body;
+
+    if (!email || !company) {
+      return res.status(400).json({
+        error:
+          "email and company required"
+      });
+    }
+
+    await followCompany(
+      email,
+      company
+    );
+
+    return res.json({
+      success: true
+    });
+
+  } catch (err) {
+
+    console.error(
+      "Follow failed",
+      err
+    );
+
+    return res.status(500).json({
+      success: false
+    });
+  }
+});
+
+app.post("/api/users/unfollow", async (req, res) => {
+
+  try {
+
+    const { email, company } =
+      req.body;
+
+    if (!email || !company) {
+      return res.status(400).json({
+        error:
+          "email and company required"
+      });
+    }
+
+    await unfollowCompany(
+      email,
+      company
+    );
+
+    return res.json({
+      success: true
+    });
+
+  } catch (err) {
+
+    console.error(
+      "Unfollow failed",
+      err
+    );
+
+    return res.status(500).json({
+      success: false
+    });
+  }
 });
 
 /**

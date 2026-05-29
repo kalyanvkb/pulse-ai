@@ -21,6 +21,8 @@ const articleSchema = new mongoose.Schema({
 
 const Article = mongoose.model("Article", articleSchema);
 
+
+
 /**
  * Connect to MongoDB
  */
@@ -79,6 +81,80 @@ async function getArticlesByDate(date) {
     .lean();
 }
 
+const userSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+
+  followedCompanies: {
+    type: [String],
+    default: [],
+  },
+
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+const User =
+  mongoose.models.User ||
+  mongoose.model("User", userSchema);
+
+async function getUserByEmail(email) {
+  const user = await User.findOne({
+  email: email.trim().toLowerCase()
+}).lean();
+
+return user;
+}
+
+async function followCompany(email, company) {
+
+  const result = await User.findOneAndUpdate(
+    { email: email.trim().toLowerCase() },
+    {
+      $addToSet: {
+        "preferences.sources": company
+      }
+    },
+    {
+      returnDocument: "after"
+    }
+  );
+
+  console.log(
+    "FOLLOW RESULT:",
+    JSON.stringify(result, null, 2)
+  );
+
+  return result;
+}
+
+async function unfollowCompany(email, company) {
+
+  const result = await User.findOneAndUpdate(
+    { email: email.trim().toLowerCase() },
+    {
+      $pull: {
+        "preferences.sources": company
+      }
+    },
+    {
+      returnDocument: "after"
+    }
+  );
+
+  console.log(
+    "UNFOLLOW RESULT:",
+    JSON.stringify(result, null, 2)
+  );
+
+  return result;
+}
+
 module.exports = {
   connect,
   getTodayIST,
@@ -86,4 +162,7 @@ module.exports = {
   saveArticles,
   getTodaysArticles,
   getArticlesByDate,
+  getUserByEmail,
+  followCompany,
+  unfollowCompany
 };
