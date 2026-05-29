@@ -4,24 +4,20 @@ export default function useFollowing(user) {
   const [following, setFollowing] = useState([]);
   const [loadingFollowing, setLoadingFollowing] = useState(false);
 
-  // Load followed companies when user logs in
-  useEffect(() => {
-    if (!user?.email) {
+  // 1. Define loadFollowing first so useEffect can safely access it
+  const loadFollowing = async (emailOverride) => {
+    const email = emailOverride || user?.email;
+
+    if (!email) {
       setFollowing([]);
       return;
     }
 
-    loadFollowing();
-  }, [user]);
-
-  const loadFollowing = async () => {
     try {
       setLoadingFollowing(true);
 
       const response = await fetch(
-        `/api/users/following?email=${encodeURIComponent(
-          user.email
-        )}`
+        `/api/users/following?email=${encodeURIComponent(email)}`
       );
 
       if (!response.ok) {
@@ -32,92 +28,74 @@ export default function useFollowing(user) {
 
       setFollowing(Array.isArray(data) ? data : []);
     } catch (err) {
-      console.error(
-        "Error loading followed companies:",
-        err
-      );
-
+      console.error("Error loading followed companies:", err);
       setFollowing([]);
     } finally {
       setLoadingFollowing(false);
     }
   };
 
+  // 2. Load followed companies when user changes
+  useEffect(() => {
+    if (!user?.email) {
+      setFollowing([]);
+      return;
+    }
+
+    loadFollowing(user.email);
+  }, [user]);
+
   const follow = async (company) => {
-    if (!user?.email || !company) return;
+    if (!user?.email || !company) {
+      return;
+    }
 
     try {
-      const response = await fetch(
-        "/api/users/follow",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type":
-              "application/json",
-          },
-          body: JSON.stringify({
-            email: user.email,
-            company,
-          }),
-        }
-      );
+      const response = await fetch("/api/users/follow", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: user.email,
+          company,
+        }),
+      });
 
       if (!response.ok) {
         throw new Error("Failed to follow company");
       }
 
-      // Optimistic UI update
-      setFollowing((prev) => {
-        if (prev.includes(company)) {
-          return prev;
-        }
-
-        return [...prev, company];
-      });
-
+      await loadFollowing(user.email);
     } catch (err) {
-      console.error(
-        "Error following company:",
-        err
-      );
+      console.error("Error following company:", err);
     }
   };
 
   const unfollow = async (company) => {
-    if (!user?.email || !company) return;
+    if (!user?.email || !company) {
+      return;
+    }
 
     try {
-      const response = await fetch(
-        "/api/users/unfollow",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type":
-              "application/json",
-          },
-          body: JSON.stringify({
-            email: user.email,
-            company,
-          }),
-        }
-      );
+      const response = await fetch("/api/users/unfollow", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: user.email,
+          company,
+        }),
+      });
 
       if (!response.ok) {
-        throw new Error(
-          "Failed to unfollow company"
-        );
+        throw new Error("Failed to unfollow company");
       }
 
-      // Optimistic UI update
-      setFollowing((prev) =>
-        prev.filter((c) => c !== company)
-      );
-
+      await loadFollowing(user.email);
     } catch (err) {
-      console.error(
-        "Error unfollowing company:",
-        err
-      );
+      console.error("Error unfollowing company:", err);
     }
   };
 

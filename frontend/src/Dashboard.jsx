@@ -15,6 +15,8 @@ import {
   onAuthStateChanged
 } from "./firebase";
 
+
+
 const GROUPS = [
   "All",
   "My Companies",
@@ -114,6 +116,7 @@ export default function Dashboard() {
   useState(true);
    const [contactOpen, setContactOpen] = useState(false);
    const [authOpen, setAuthOpen] = useState(false);
+  const [pendingCompany, setPendingCompany] = useState(null);
   const { articles, loading, error, refresh, lastRefreshed, isRefreshing } = useNews();
 
   const {
@@ -138,6 +141,95 @@ export default function Dashboard() {
     };
   }, []);
 
+  useEffect(() => {
+
+  if (
+    !authLoading &&
+    user?.email &&
+    following.length > 0 &&
+    activeGroup === "All"
+  ) {
+
+    setActiveGroup(
+      "My Companies"
+    );
+
+  }
+
+}, [
+  authLoading,
+  user,
+  following
+]);
+
+const [groupInitialized,
+  setGroupInitialized] =
+  useState(false);
+
+  useEffect(() => {
+
+  if (
+    groupInitialized ||
+    authLoading
+  ) {
+    return;
+  }
+
+  if (
+    user?.email &&
+    following.length > 0
+  ) {
+
+    setActiveGroup(
+      "My Companies"
+    );
+
+  }
+
+  setGroupInitialized(true);
+
+}, [
+  authLoading,
+  user,
+  following,
+  groupInitialized
+]);
+
+useEffect(() => {
+
+  const company =
+    localStorage.getItem(
+      "pendingFollow"
+    );
+
+  if (
+    user?.email &&
+    company
+  ) {
+
+    const autoFollow = async () => {
+
+      await follow(company);
+
+      await loadFollowing();
+
+      localStorage.removeItem(
+        "pendingFollow"
+      );
+
+      setPendingCompany(null);
+
+      setActiveGroup(
+        "My Companies"
+      );
+    };
+
+    autoFollow();
+  }
+
+}, [user]);
+
+
 useEffect(() => {
 
   console.log("Dashboard mounted");
@@ -153,19 +245,23 @@ useEffect(() => {
 
       if (firebaseUser) {
 
-        console.log(
-          "User authenticated:",
-          firebaseUser.email
-        );
+  console.log(
+    "User authenticated:",
+    firebaseUser.email
+  );
 
-        setUser(firebaseUser);
+  setUser(firebaseUser);
 
-      } else {
+  
 
-        console.log("No authenticated user");
+} else {
 
-        setUser(null);
-      }
+  console.log(
+    "No authenticated user"
+  );
+
+  setUser(null);
+}
 
       setAuthLoading(false);
     }
@@ -460,11 +556,6 @@ useEffect(() => {
           : ""
       }`}
       onClick={() => toggleSource(s.name)}
-      style={
-        activeSources.has(s.name)
-          ? { background: `${s.color}28` }
-          : {}
-      }
     >
       <span
         className="source-dot"
@@ -477,27 +568,40 @@ useEffect(() => {
         {s.name}
       </span>
 
-      {user && (
-        <span
-          className={`follow-star ${
-            isFollowing
-              ? "followed"
-              : ""
-          }`}
-          onClick={(e) => {
+      <span
+        className={`follow-star ${
+          isFollowing
+            ? "followed"
+            : ""
+        }`}
+       onClick={(e) => {
 
-            e.stopPropagation();
+  e.stopPropagation();
 
-            if (isFollowing) {
-              unfollow(s.name);
-            } else {
-              follow(s.name);
-            }
-          }}
-        >
-          {isFollowing ? "★" : "☆"}
-        </span>
-      )}
+  if (!user) {
+
+    localStorage.setItem(
+      "pendingFollow",
+      s.name
+    );
+
+    setPendingCompany(s.name);
+
+    setAuthOpen(true);
+
+    return;
+  }
+
+  if (isFollowing) {
+    unfollow(s.name);
+  } else {
+    follow(s.name);
+  }
+}}
+      >
+        {isFollowing ? "★" : "☆"}
+      </span>
+
     </div>
   );
 })}
@@ -584,7 +688,7 @@ useEffect(() => {
 ) : (
             filtered.map((a, i) => (
   <NewsCard
-    key={a.id}
+    key={`${a.id}-${i}`}
     article={a}
     index={i}
   />
