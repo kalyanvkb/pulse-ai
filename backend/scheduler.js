@@ -1,63 +1,126 @@
-// backend/scheduler.js — Daily 8 AM IST fetch scheduler
-
 const cron = require("node-cron");
 const SOURCES = require("../sources.config");
 const { fetchAllSources } = require("./fetcher");
 const { summarizeBatch } = require("./summarizer");
-const { saveArticles, hasTodaysArticles, getTodaysArticles } = require("./db");
+const { saveArticles, getTodaysArticles } = require("./db");
 const { setCache } = require("./cache");
+const {
+  refreshDailyIntelligence,
+  refreshWeeklyIntelligence
+} = require("./intelligenceRefresher");
 
 /**
- * Run the full fetch → summarize → save pipeline
+ * Fetch → Summarize → Save Articles
  */
 async function runDailyFetch() {
   console.log("\n📰 Daily fetch started...");
   try {
-    const articles = await fetchAllSources(SOURCES);
-    await summarizeBatch(articles);
-    await saveArticles(articles);
+    const rawArticles =
+  await fetchAllSources(SOURCES);
 
-    // Warm the in-memory cache so API responds instantly
+await summarizeBatch(rawArticles);
+
+await saveArticles(rawArticles);
+
     setCache("all_articles", {
-      articles,
-      refreshedAt: new Date().toISOString(),
-    });
+  articles: rawArticles,
+  refreshedAt: new Date().toISOString()
+});
 
-    console.log(`✅ Daily fetch complete — ${articles.length} articles saved\n`);
+console.log(
+  `Daily fetch complete - ${rawArticles.length} articles saved`
+);
+
+return rawArticles;
   } catch (err) {
     console.error("❌ Daily fetch failed:", err.message);
+    throw err;
   }
 }
 
 /**
- * Load today's articles from DB into memory cache on startup
+ * Daily Pipeline
+ * Fetch News → Generate Daily Company Briefs
+ */
+async function runDailyPipeline() {
+  console.log("\n🚀 Daily Pipeline Started...");
+  try {
+    await runDailyFetch();
+
+    console.log("🧠 Generating Daily Intelligence...");
+    const result = await refreshDailyIntelligence();
+
+    console.log("Daily Intelligence Result:", result);
+    console.log("✅ Daily Pipeline Complete");
+  } catch (err) {
+    console.error("❌ Daily Pipeline Failed:", err);
+  }
+}
+
+/**
+ * Weekly Pipeline
+ * Generate Weekly Company Briefs
+ */
+async function runWeeklyPipeline() {
+  console.log("\n📊 Weekly Intelligence Started...");
+  try {
+    const result = await refreshWeeklyIntelligence();
+
+    console.log("Weekly Intelligence Result:", result);
+    console.log("✅ Weekly Intelligence Complete");
+  } catch (err) {
+    console.error("❌ Weekly Intelligence Failed:", err);
+  }
+}
+
+/**
+ * Load today's articles into cache
+ * Startup only warms cache.
+ * No fetching.
+ * No AI generation.
  */
 async function warmCacheFromDB() {
-  const articles = await getTodaysArticles();
-  if (articles.length > 0) {
-    setCache("all_articles", {
-      articles,
-      refreshedAt: new Date().toISOString(),
-    });
-    console.log(`✓ Loaded ${articles.length} articles from MongoDB into cache`);
+  try {
+    const articles = await getTodaysArticles();
+
+    if (articles && articles.length > 0) {
+      setCache("all_articles", {
+        articles,
+        refreshedAt: new Date().toISOString()
+      });
+
+      console.log(`✓ Loaded ${articles.length} articles from MongoDB into cache`);
+    }
+  } catch (err) {
+    console.error("❌ Failed to warm cache from DB:", err.message);
   }
 }
 
 /**
- * Start the scheduler
- * Cron: environment variable SCHEDULER_CRON_TIME (default: "0 8 * * *" = every day at 08:00)
- * Timezone: environment variable SCHEDULER_TIMEZONE (default: Asia/Kolkata)
+ * Scheduler Setup
  */
 function startScheduler() {
-  const cronTime = process.env.SCHEDULER_CRON_TIME || "0 8 * * *";
-  const cronTimezone = process.env.SCHEDULER_TIMEZONE || "Asia/Kolkata";
-  
-  cron.schedule(
-    cronTime,
-    () => runDailyFetch(),
-    { timezone: cronTimezone }
-  );
-  console.log(`⏰ Scheduler set: ${cronTime} (Timezone: ${cronTimezone})`);
+  const timezone = process.env.SCHEDULER_TIMEZONE || "Asia/Kolkata";
+
+  /**
+   * Daily Pipeline
+   * Every day @ 5:00 AM IST
+   */
+  cron.schedule("0 5 * * *", runDailyPipeline, { timezone });
+  console.log("⏰ Daily Pipeline: Every day @ 5:00 AM IST");
+
+  /**
+   * Weekly Pipeline
+   * Saturday @ 8:00 AM IST
+   */
+  cron.schedule("0 8 * * 6", runWeeklyPipeline, { timezone });
+  console.log("⏰ Weekly Intelligence: Saturday @ 8:00 AM IST");
 }
 
-module.exports = { startScheduler, runDailyFetch, warmCacheFromDB };
+module.exports = {
+  startScheduler,
+  runDailyFetch,
+  runDailyPipeline,
+  runWeeklyPipeline,
+  warmCacheFromDB
+};

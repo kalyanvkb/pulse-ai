@@ -1,8 +1,39 @@
-// frontend/src/App.jsx — Root component
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 
-import Dashboard from "./Dashboard";
-import "./index.css";
+import Dashboard from "./pages/Dashboard";
+import DailyIntelligence from "./pages/DailyIntelligence";
+import WeeklyIntelligence from "./pages/WeeklyIntelligence";
 
-export default function App() {
-  return <Dashboard />;
+function App() {
+
+  return (
+    <BrowserRouter>
+
+      <Routes>
+
+        <Route
+          path="/"
+          element={<Dashboard />}
+        />
+
+        <Route
+          path="/daily-intelligence"
+          element={<DailyIntelligence />}
+        />
+
+        <Route
+          path="/weekly-intelligence"
+          element={<WeeklyIntelligence />}
+        />
+
+      </Routes>
+
+    </BrowserRouter>
+  );
 }
+
+export default App;

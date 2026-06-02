@@ -530,6 +530,14 @@ html, body, #root {
   animation: slideUp 0.3s ease;
 }
 
+.weekly-intelligence {
+  width: 100%;
+  grid-column: 1 / -1;
+  margin-top: -12px;
+}
+
+intelligence-grid
+
 .modal-close {
   position: absolute;
   top: 16px;
@@ -1105,4 +1113,475 @@ html, body, #root {
   margin-top: 16px;
   opacity: 0.7;
   font-size: 13px;
+}
+
+/* -------------------------------- */
+/* Watchlist View Toggle            */
+/* -------------------------------- */
+
+
+.watchlist-btn {
+  background: transparent;
+  color: rgba(255,255,255,0.75);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 8px 16px;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.watchlist-btn:hover {
+  border-color: rgba(91,138,240,0.45);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.watchlist-btn-active {
+
+  background: rgba(
+    91,
+    138,
+    240,
+    0.18
+  );
+
+  border-color: #5b8af0;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 0 0 1px rgba(
+      91,
+      138,
+      240,
+      0.2
+    );
+}
+
+.weekly-header {
+  margin-bottom: 24px;
+}
+
+.weekly-header h2 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.weekly-meta {
+
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 0;
+
+  margin-bottom: 12px;
+}
+
+/* ===================================== */
+/* Weekly Intelligence                   */
+/* ===================================== */
+
+.intelligence-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  gap: 24px;
+
+  margin-top: 20px;
+
+  width: 100%;
+}
+
+.intel-card {
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.02)
+    );
+
+  border:
+    1px solid rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  min-height: 700px;
+}
+
+.intel-card-header {
+
+  padding:
+    18px 20px;
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  color: white;
+
+  border-bottom:
+    1px solid rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.02
+    );
+}
+
+.intel-card-content {
+
+  padding: 12px 20px;
+}
+
+.intel-item {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  padding: 14px 0;
+
+  border-bottom:
+    1px solid rgba(
+      255,
+      255,
+      255,
+      0.05
+    );
+}
+
+.intel-item:last-child {
+
+  border-bottom: none;
+}
+
+.intel-company {
+
+  color:
+    #7ca6ff;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  min-width: 80px;
+}
+
+.intel-text {
+
+  flex: 1;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.9
+    );
+
+  font-size: 14px;
+
+  line-height: 1.65;
+}
+
+.weekly-pill {
+
+  padding:
+    8px 14px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      91,
+      138,
+      240,
+      0.12
+    );
+
+  border:
+    1px solid rgba(
+      91,
+      138,
+      240,
+      0.25
+    );
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.intel-row {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+}
+
+.intel-text {
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.92
+    );
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  flex: 1;
+}
+
+.intel-rank {
+
+  width: 22px;
+
+  min-width: 22px;
+
+  height: 22px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      91,
+      138,
+      240,
+      0.18
+    );
+
+  color:
+    #7ca6ff;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+
+  .intelligence-grid {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    width: 100%;
+  }
+
+  .intel-card {
+
+    width: 100%;
+
+    min-height: auto;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .weekly-intelligence {
+
+    padding: 0 12px;
+  }
+
+  .intel-card-header {
+
+    font-size: 18px;
+  }
+
+  .intel-text {
+
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .intel-card {
+
+    border-radius: 16px;
+
+    margin-bottom: 8px;
+  }
+
+}
+
+.watchlist-tabs {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-left: 16px;
+
+  margin-top: 4px;
+
+  margin-bottom: 4px;
+}
+
+.watchlist-view-toggle {
+
+  display: flex;
+
+  gap: 10px;
+
+  margin-left: 0;
+
+  margin-top: 4px;
+
+  margin-bottom: 4px;
+}
+
+.watchlist-empty {
+
+  grid-column: 1 / -1;
+
+  width: 100%;
+
+  min-height: calc(
+    100vh - 220px
+  );
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+
+  padding: 40px;
+}
+.watchlist-empty-icon {
+
+  font-size: 64px;
+
+  color: #f5c84c;
+
+  margin-bottom: 24px;
+}
+
+.watchlist-empty h2 {
+
+  color: white;
+
+  font-size: 42px;
+
+  font-weight: 700;
+
+  margin-bottom: 16px;
+}
+
+.watchlist-empty p {
+
+  max-width: 800px;
+
+  white-space: nowrap;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.75
+    );
+
+  font-size: 18px;
+
+  line-height: 1.8;
+}
+@media (max-width: 768px) {
+
+  .watchlist-empty {
+
+    min-height: calc(
+      100vh - 180px
+    );
+
+    padding: 20px;
+  }
+
+  .watchlist-empty-icon {
+
+    font-size: 56px;
+  }
+
+  .watchlist-empty h2 {
+
+    font-size: 32px;
+  }
+
+  .watchlist-empty p {
+
+    white-space: normal;
+
+    max-width: 320px;
+  }
 }

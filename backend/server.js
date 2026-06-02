@@ -1,5 +1,6 @@
 // backend/server.js — Express API server for pulse.ai
 
+
 require("dotenv").config({ path: require("path").join(__dirname, ".env") });
 
 const express = require("express");
@@ -12,16 +13,16 @@ const SOURCES = require("../sources.config");
 const { fetchAllSources } = require("./fetcher");
 const { summarizeBatch } = require("./summarizer");
 const { getCache, setCache, flushFeedCache, getCacheStats, FEED_TTL } = require("./cache");
-
 const {
   connect,
   getTodaysArticles,
   getArticlesByDate,
   getUserByEmail,
   followCompany,
-  unfollowCompany
+  unfollowCompany,
+  getCompanyWeeklyBriefs
 } = require("./db");
-const { startScheduler, runDailyFetch, warmCacheFromDB } = require("./scheduler");
+const { startScheduler, warmCacheFromDB } = require("./scheduler");
 
 const app = express();
 app.use(express.json());
@@ -29,6 +30,18 @@ const PORT = process.env.PORT || 3001;
 
 // Parse CORS origins from environment variable
 const corsOrigins = (process.env.CORS_ORIGINS || "http://localhost:5173,https://pulse-ai.in").split(",").map(origin => origin.trim());
+
+const {
+  getLatestDailyIntelligence,
+  getLatestWeeklyIntelligence
+}
+=
+require("./db");
+
+console.log(
+  "AI_SERVICE_URL =",
+  process.env.AI_SERVICE_URL
+);
 
 // ─── Middleware ─────────────────────────────────────────────────────────────
 app.use(cors({
@@ -143,6 +156,224 @@ return res.json({
   message: "No articles available",
 });
 });
+
+function getTopItems(
+  briefs,
+  sectionName,
+  minimumCount = 5
+) {
+
+  const selected = [];
+  const remaining = [];
+
+  for (const brief of briefs) {
+
+    const items =
+      brief[sectionName] || [];
+
+    const sorted =
+      [...items].sort(
+        (a, b) =>
+          b.importance - a.importance
+      );
+
+    if (sorted.length === 0) {
+      continue;
+    }
+
+    selected.push({
+      company: brief.company,
+      ...sorted[0]
+    });
+
+    remaining.push(
+      ...sorted
+        .slice(1)
+        .map(item => ({
+          company: brief.company,
+          ...item
+        }))
+    );
+  }
+
+  remaining.sort(
+    (a, b) =>
+      b.importance - a.importance
+  );
+
+  const totalAvailable =
+    selected.length +
+    remaining.length;
+
+  const requiredCount =
+    Math.min(
+      minimumCount,
+      totalAvailable
+    );
+
+  while (
+    selected.length <
+      requiredCount &&
+    remaining.length > 0
+  ) {
+    selected.push(
+      remaining.shift()
+    );
+  }
+
+  return selected;
+}
+
+function buildRankedSection(
+  briefs,
+  field
+) {
+
+    return briefs
+
+    .flatMap(
+      brief =>
+
+        (brief[field] || [])
+          .map(item => ({
+
+            company:
+              brief.company,
+
+            importance:
+              item.importance,
+
+            text:
+              item.text
+          }))
+    )
+
+    .sort(
+      (a, b) =>
+        b.importance -
+        a.importance
+    )
+
+    .slice(0, 8);
+}
+
+function aggregateIntelligence(
+  briefs
+) {
+
+  if (
+    !briefs ||
+    briefs.length === 0
+  ) {
+
+    return {
+
+      week: null,
+
+      companyCount: 0,
+
+      executiveSummary: {
+
+        whatChanged: [],
+        whyItMatters: [],
+        signalsToWatch: []
+      },
+
+      companyBriefs: []
+    };
+  }
+
+  return {
+
+    week:
+      briefs[0].week,
+
+    companyCount:
+      briefs.length,
+
+    executiveSummary: {
+
+      whatChanged:
+        buildRankedSection(
+          briefs,
+          "whatChanged"
+        ),
+
+      whyItMatters:
+        buildRankedSection(
+          briefs,
+          "whyItMatters"
+        ),
+
+      signalsToWatch:
+        buildRankedSection(
+          briefs,
+          "signalsToWatch"
+        )
+    },
+
+    companyBriefs:
+      briefs
+  };
+}
+
+app.get(
+  "/api/intelligence/weekly",
+  async (req, res) => {
+
+    try {
+
+      const email =
+        req.query.email;
+
+      if (!email) {
+
+        return res.status(400).json({
+          error:
+            "email required"
+        });
+      }
+
+      const user =
+        await getUserByEmail(
+          email
+        );
+        
+      if (!user) {
+
+        return res.status(404).json({
+          error:
+            "user not found"
+        });
+      }
+
+      const companies =
+        user.preferences?.sources  || [];
+
+      const briefs =
+        await getCompanyWeeklyBriefs(
+          companies
+        );
+
+        
+      const result =
+        aggregateIntelligence(
+          briefs
+        );
+
+      res.json(result);
+
+    } catch (err) {
+
+      console.error(err);
+
+      res.status(500).json({
+        error:
+          err.message
+      });
+    }
+  }
+);
 
 /**
  * GET /api/news/:group
@@ -363,35 +594,69 @@ app.get("/", (req, res) => {
 // });
 
 // ─── Start ───────────────────────────────────────────────────────────────────
+// ─── Start ───────────────────────────────────────────────────────────────────
 app.listen(PORT, async () => {
-  console.log(`pulse.ai backend on http://0.0.0.0:${PORT}`);
 
-  try{
-  // Connect to MongoDB
-  await connect();
+  try {
 
-  // Load today's existing articles into cache (instant API response)
-  await warmCacheFromDB();
+    await connect();
 
-//populate the cache
-  await refreshAllNews(true);
-  // Start the 8 AM IST daily scheduler
-  startScheduler();
+    await warmCacheFromDB();
 
-console.log("Startup completed successfully");
-}
-catch(err) {
-console.error("Startup failed:", err);
-}
-  // If no articles exist yet for today, fetch immediately
-  const { hasTodaysArticles } = require("./db");
-  const hasData = await hasTodaysArticles();
+    
+    startScheduler();
 
-  if (!hasData) {
-    console.log("No articles for today yet — fetching now...");
-    runDailyFetch();
+    const {
+  runDailyPipeline,
+  runWeeklyPipeline
+} = require("./scheduler");
+
+console.log(
+  "\n=== TESTING DAILY PIPELINE ==="
+);
+
+await runDailyPipeline();
+
+console.log(
+  "\n=== TESTING WEEKLY PIPELINE ==="
+);
+
+await runWeeklyPipeline();
+
+    console.log(
+      "Startup completed successfully"
+    );
+
+  } catch (err) {
+
+    console.error(
+      "Startup failed:",
+      err
+    );
+
+    process.exit(1);
   }
 
-//ALWAYS refresh cache after startup 
-await refreshAllNews(true);
 });
+
+app.get(
+  "/api/intelligence/daily",
+  async (req, res) => {
+
+    const data =
+      await getLatestDailyIntelligence();
+
+    res.json(data);
+  }
+);
+
+app.get(
+  "/api/intelligence/weekly",
+  async (req, res) => {
+
+    const data =
+      await getLatestWeeklyIntelligence();
+
+    res.json(data);
+  }
+);

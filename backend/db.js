@@ -21,6 +21,22 @@ const articleSchema = new mongoose.Schema({
 
 const Article = mongoose.model("Article", articleSchema);
 
+const companyWeeklyBriefSchema =
+  new mongoose.Schema(
+    {},
+    {
+      strict: false
+    }
+  );
+
+const CompanyWeeklyBrief =
+  mongoose.models
+    .CompanyWeeklyBrief ||
+  mongoose.model(
+    "CompanyWeeklyBrief",
+    companyWeeklyBriefSchema,
+    "companyWeeklyBriefs"
+  );
 
 
 /**
@@ -81,23 +97,33 @@ async function getArticlesByDate(date) {
     .lean();
 }
 
-const userSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
+const userSchema =
+  new mongoose.Schema({
 
-  followedCompanies: {
-    type: [String],
-    default: [],
-  },
+    email: {
+      type: String,
+      required: true,
+      unique: true
+    },
 
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-});
+    preferences: {
+
+      groups: {
+        type: [String],
+        default: []
+      },
+
+      sources: {
+        type: [String],
+        default: []
+      }
+    },
+
+    createdAt: {
+      type: Date,
+      default: Date.now
+    }
+  });
 
 const User =
   mongoose.models.User ||
@@ -155,6 +181,24 @@ async function unfollowCompany(email, company) {
   return result;
 }
 
+
+
+async function getCompanyWeeklyBriefs(
+  companies
+) {
+
+  return CompanyWeeklyBrief.find({
+    company: {
+      $in: companies
+    }
+  })
+    .sort({
+      company: 1
+    })
+    .lean();
+}
+
+
 module.exports = {
   connect,
   getTodayIST,
@@ -164,5 +208,6 @@ module.exports = {
   getArticlesByDate,
   getUserByEmail,
   followCompany,
-  unfollowCompany
+  unfollowCompany,
+  getCompanyWeeklyBriefs
 };
