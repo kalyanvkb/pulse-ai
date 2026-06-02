@@ -310,6 +310,7 @@ export default function Dashboard() {
     return getSourcesForGroup(articles, activeGroup);
   }, [articles, activeGroup, following]);
 
+
   const groupCounts = useMemo(() => {
     const counts = { All: articles.length };
     counts["My Watchlist"] = articles.filter((a) => following.includes(a.source)).length;

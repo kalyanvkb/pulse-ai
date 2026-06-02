@@ -257,6 +257,7 @@ function buildRankedSection(
     .slice(0, 8);
 }
 
+
 function aggregateIntelligence(
   briefs
 ) {
@@ -355,11 +356,22 @@ app.get(
           companies
         );
 
-        
+        console.log(
+  "Followed Companies:",
+  companies.length,
+  companies
+);
+
+console.log(
+  "Weekly Brief Records:",
+  briefs.length
+);
       const result =
         aggregateIntelligence(
           briefs
         );
+        result.companyCount =
+  companies.length;
 
       res.json(result);
 
@@ -599,33 +611,15 @@ app.listen(PORT, async () => {
 
   try {
 
-    await connect();
+     await connect();
 
-    await warmCacheFromDB();
+  await warmCacheFromDB();
 
-    
-    startScheduler();
+  startScheduler();
 
-    const {
-  runDailyPipeline,
-  runWeeklyPipeline
-} = require("./scheduler");
-
-console.log(
-  "\n=== TESTING DAILY PIPELINE ==="
-);
-
-await runDailyPipeline();
-
-console.log(
-  "\n=== TESTING WEEKLY PIPELINE ==="
-);
-
-await runWeeklyPipeline();
-
-    console.log(
-      "Startup completed successfully"
-    );
+  console.log(
+    "Startup completed successfully"
+  );
 
   } catch (err) {
 
