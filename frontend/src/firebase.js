@@ -42,8 +42,6 @@ if (missingConfig.length > 0) {
   );
 }
 
-console.log("Firebase authDomain Kalyan:", firebaseConfig.authDomain);
-
 const app = initializeApp(firebaseConfig);
 
 

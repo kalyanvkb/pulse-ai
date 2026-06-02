@@ -7,8 +7,7 @@ const User = require("../models/User");
 router.post("/google-login", async (req, res) => {
   try {
     console.log("Google login API hit");
-    console.log(req.body);
-
+    
     const { token } = req.body;
 
     if (!token) {
@@ -22,8 +21,7 @@ router.post("/google-login", async (req, res) => {
     const decoded = await admin.auth().verifyIdToken(token);
 
     console.log("Token verified");
-    console.log(decoded);
-
+    
     const {
       uid,
       name,
