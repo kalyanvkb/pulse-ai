@@ -650,9 +650,20 @@ const {
                       <div className="intel-card-content">
                         {(weeklyData?.executiveSummary?.whyItMatters || []).map((item, idx) => (
                           <div className="intel-item" key={idx}>
-                            <span className="intel-company">{item.company}</span>
-                            <span className="intel-text">{item.text}</span>
-                          </div>
+
+                                    <div className="intel-row">
+
+                                      <span className="intel-company">
+                                        {item.company}
+                                      </span>
+
+                                      <span className="intel-text">
+                                        {item.text}
+                                      </span>
+
+                                    </div>
+
+                                  </div>
                         ))}
                       </div>
                     </div>
@@ -661,8 +672,14 @@ const {
                       <div className="intel-card-content">
                         {(weeklyData?.executiveSummary?.signalsToWatch || []).map((item, idx) => (
                           <div className="intel-item" key={idx}>
-                            <div className="intel-company">{item.company}</div>
-                            <div className="intel-text">{item.text}</div>
+                            <div className="intel-row">
+                              <span className="intel-company">
+                                {item.company}
+                              </span>
+                              <span className="intel-text">
+                                {item.text}
+                              </span>
+                            </div>
                           </div>
                         ))}
                       </div>
