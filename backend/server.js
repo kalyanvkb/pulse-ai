@@ -20,9 +20,11 @@ const {
   getUserByEmail,
   followCompany,
   unfollowCompany,
-  getCompanyWeeklyBriefs
+  getCompanyWeeklyBriefs,
+  getCompanyDailyBriefs
 } = require("./db");
 const { startScheduler, warmCacheFromDB } = require("./scheduler");
+
 
 const app = express();
 app.use(express.json());
@@ -229,23 +231,47 @@ function buildRankedSection(
   field
 ) {
 
-    return briefs
+  return briefs
 
-    .flatMap(
-      brief =>
+    .flatMap(brief =>
 
-        (brief[field] || [])
-          .map(item => ({
+      (brief[field] || [])
+
+        .map(item => {
+
+          if (
+            typeof item ===
+            "string"
+          ) {
+
+            return {
+
+              company:
+                brief.company,
+
+              importance: 5,
+
+              text: item
+            };
+          }
+
+          return {
 
             company:
               brief.company,
 
             importance:
-              item.importance,
+              item.importance || 5,
 
             text:
-              item.text
-          }))
+              item.text || ""
+          };
+        })
+    )
+
+    .filter(
+      item =>
+        item.text
     )
 
     .sort(
@@ -254,7 +280,7 @@ function buildRankedSection(
         a.importance
     )
 
-    .slice(0, 8);
+    .slice(0, 12);
 }
 
 
@@ -318,6 +344,62 @@ function aggregateIntelligence(
   };
 }
 
+function aggregateDailyIntelligence(
+  briefs
+) {
+
+  if (
+    !briefs ||
+    briefs.length === 0
+  ) {
+
+    return {
+
+      date: null,
+
+      companyCount: 0,
+
+      executiveSummary: {
+
+        whatsHappening: [],
+
+        whyItMatters: []
+      },
+
+      companyBriefs: []
+    };
+  }
+
+  return {
+
+    date:
+      briefs[0].date,
+
+    companyCount:
+      briefs.length,
+
+    executiveSummary: {
+
+      whatsHappening:
+        getTopItems(
+          briefs,
+          "whatsHappening",
+          12
+        ),
+
+      whyItMatters:
+        getTopItems(
+          briefs,
+          "whyItMatters",
+          12
+        )
+    },
+
+    companyBriefs:
+      briefs
+  };
+}
+
 app.get(
   "/api/intelligence/weekly",
   async (req, res) => {
@@ -366,6 +448,51 @@ console.log(
   "Weekly Brief Records:",
   briefs.length
 );
+
+async function getCompanyDailyBriefs(
+  companies
+) {
+
+  const db =
+    getDb();
+
+  const latest =
+    await db
+      .collection(
+        "companyBriefs"
+      )
+      .findOne(
+        {},
+        {
+          sort: {
+            date: -1
+          }
+        }
+      );
+
+  if (!latest) {
+
+    return [];
+  }
+
+  return db
+
+    .collection(
+      "companyBriefs"
+    )
+
+    .find({
+
+      company: {
+        $in: companies
+      },
+
+      date:
+        latest.date
+    })
+
+    .toArray();
+}
       const result =
         aggregateIntelligence(
           briefs
@@ -637,13 +764,69 @@ app.get(
   "/api/intelligence/daily",
   async (req, res) => {
 
-    const data =
-      await getLatestDailyIntelligence();
+    try {
 
-    res.json(data);
+      const email =
+        req.query.email;
+
+      if (!email) {
+
+        return res
+          .status(400)
+          .json({
+            error:
+              "email required"
+          });
+      }
+
+      const user =
+        await getUserByEmail(
+          email
+        );
+
+      if (!user) {
+
+        return res
+          .status(404)
+          .json({
+            error:
+              "user not found"
+          });
+      }
+
+      const companies =
+        user.preferences
+          ?.sources || [];
+
+      const briefs =
+        await getCompanyDailyBriefs(
+          companies
+        );
+
+      const intelligence =
+        aggregateDailyIntelligence(
+          briefs
+        );
+
+      res.json(
+        intelligence
+      );
+
+    } catch (err) {
+
+      console.error(
+        err
+      );
+
+      res.status(500)
+        .json({
+
+          error:
+            "Failed to load daily intelligence"
+        });
+    }
   }
 );
-
 app.get(
   "/api/intelligence/weekly",
   async (req, res) => {
@@ -652,5 +835,44 @@ app.get(
       await getLatestWeeklyIntelligence();
 
     res.json(data);
+  }
+);
+
+app.get(
+  "/api/intelligence/daily",
+
+  async (
+    req,
+    res
+  ) => {
+
+    try {
+
+      const {
+        email
+      } = req.query;
+
+      const result =
+        await getDailyIntelligence(
+          email
+        );
+
+      res.json(
+        result
+      );
+
+    } catch (err) {
+
+      console.error(
+        err
+      );
+
+      res.status(500)
+        .json({
+
+          error:
+            "Failed to load daily intelligence"
+        });
+    }
   }
 );

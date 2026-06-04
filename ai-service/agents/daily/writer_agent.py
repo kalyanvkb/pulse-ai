@@ -31,34 +31,93 @@ IMPACTS:
 {impacts}
 """
 
-    result = llm.invoke(prompt)
+    result = llm.invoke(
+        prompt
+    )
 
     try:
 
+        content = (
+            result.content
+            .strip()
+        )
+
+        if content.startswith(
+            "```json"
+        ):
+
+            content = (
+                content
+                .replace(
+                    "```json",
+                    ""
+                )
+                .replace(
+                    "```",
+                    ""
+                )
+                .strip()
+            )
+
+        elif content.startswith(
+            "```"
+        ):
+
+            content = (
+                content
+                .replace(
+                    "```",
+                    ""
+                )
+                .strip()
+            )
+
         output = json.loads(
+            content
+        )
+
+        state[
+            "whats_happening"
+        ] = output.get(
+            "whats_happening",
+            []
+        )
+
+        state[
+            "why_it_matters"
+        ] = output.get(
+            "why_it_matters",
+            []
+        )
+
+    except Exception as e:
+
+        print(
+            f"JSON PARSE FAILED: "
+            f"{state['company']}"
+        )
+
+        print(
             result.content
         )
 
-        state["whats_happening"] = (
-            output.get(
-                "whats_happening",
-                []
-            )
+        print(
+            repr(e)
         )
 
-        state["why_it_matters"] = (
-            output.get(
-                "why_it_matters",
-                []
-            )
-        )
-
-    except Exception:
-
-        state["whats_happening"] = [
-            result.content
+        state[
+            "whats_happening"
+        ] = [
+            {
+                "importance": 5,
+                "text": (
+                    result.content[:500]
+                )
+            }
         ]
 
-        state["why_it_matters"] = []
+        state[
+            "why_it_matters"
+        ] = []
 
     return state

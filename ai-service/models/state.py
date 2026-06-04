@@ -1,5 +1,13 @@
 from typing import TypedDict
 
+
+class RankedBullet(TypedDict):
+
+    importance: int
+
+    text: str
+
+
 class CompanyBriefState(TypedDict):
 
     company: str
@@ -12,6 +20,6 @@ class CompanyBriefState(TypedDict):
 
     impacts: list
 
-    whats_happening: list
+    whats_happening: list[RankedBullet]
 
-    why_it_matters: list
+    why_it_matters: list[RankedBullet]

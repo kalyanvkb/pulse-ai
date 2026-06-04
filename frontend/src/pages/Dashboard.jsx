@@ -9,6 +9,8 @@ import ContactModal from "../components/ContactModal";
 import AuthModal from "../components/AuthModal";
 import UserMenu from "../components/UserMenu";  
 import useWeeklyIntelligence from "../hooks/useWeeklyIntelligence";
+import useDailyIntelligence from "../hooks/useDailyIntelligence";
+
 import { auth, onAuthStateChanged } from "../firebase";
 
 const GROUPS = [
@@ -30,6 +32,8 @@ const GROUP_COLORS = {
   Developers: "#7a5cff",
   Robotics: "#ff6b6b",
 };
+
+
 
 function normalizeGroup(group) {
   if (!group) return "";
@@ -130,7 +134,7 @@ export default function Dashboard() {
   const [sortMode, setSortMode] = useState("latest");
   const [searchQuery, setSearchQuery] = useState("");
   const [showContact, setShowContact] = useState(false);
-  const [watchlistView, setWatchlistView] = useState("weekly");
+  const [watchlistView, setWatchlistView] = useState("daily");
 
   // Moved hook initialization to the top, before any useEffect hooks call its values
   const {
@@ -138,6 +142,14 @@ export default function Dashboard() {
     loading: weeklyLoading,
     reload: reloadWeeklyIntelligence
   } = useWeeklyIntelligence(user);
+
+const {
+  data: dailyData,
+  loading: dailyLoading,
+  error: dailyError,
+  reload: refreshDaily
+} = useDailyIntelligence(user);
+
 
   useEffect(() => {
 
@@ -432,6 +444,13 @@ export default function Dashboard() {
               Latest News
             </button>
             <button
+              className={`watchlist-btn ${watchlistView === "daily" ? "watchlist-btn-active" : ""}`}
+              onClick={() => setWatchlistView("daily")}
+            >
+              Daily Briefing
+            </button>
+
+            <button
               className={`watchlist-btn ${watchlistView === "weekly" ? "watchlist-btn-active" : ""}`}
               onClick={() => setWatchlistView("weekly")}
             >
@@ -470,10 +489,120 @@ export default function Dashboard() {
             <div className="watchlist-empty">
               <div className="watchlist-empty-icon">★</div>
               <h2>Build Your Watchlist</h2>
-              <p>Follow the companies that matter to you by clicking the ★ icon next to any company above.</p>
+              <p>Follow the companies that matter to you by clicking the ★ icon next to any company from the sources above.</p>
               <p>Your personalized daily and weekly intelligence will appear here.</p>
             </div>
-          ) : activeGroup === "My Watchlist" && watchlistView === "weekly" ? (
+          ) : activeGroup === "My Watchlist" && watchlistView === "daily" ? (
+
+  <div className="weekly-intelligence">
+
+    {dailyLoading ? (
+
+      <div>Loading intelligence...</div>
+
+    ) : (
+
+      <>
+
+        <div className="weekly-header">
+
+          <div className="weekly-meta">
+
+            <div className="weekly-pill">
+              {dailyData?.date}
+            </div>
+
+            <div className="weekly-pill">
+              {dailyData?.companyCount} Companies
+            </div>
+
+          </div>
+
+        </div>
+
+        <div className="intelligence-grid daily-grid">
+
+          <div className="intel-card">
+
+            <div className="intel-card-header">
+              🔥 Top Developments Today
+            </div>
+
+            <div className="intel-card-content">
+
+              {(dailyData?.executiveSummary?.whatsHappening || [])
+                .map((item, idx) => (
+
+                  <div
+                    className="intel-item"
+                    key={idx}
+                  >
+
+                    <div className="intel-row">
+
+                      <span className="intel-company">
+                        {item.company}
+                      </span>
+
+                      <span className="intel-text">
+                        {item.text}
+                      </span>
+
+                    </div>
+
+                  </div>
+
+                ))}
+
+            </div>
+
+          </div>
+
+          <div className="intel-card">
+
+            <div className="intel-card-header">
+              💡 Why It Matters
+            </div>
+
+            <div className="intel-card-content">
+
+              {(dailyData?.executiveSummary?.whyItMatters || [])
+                .map((item, idx) => (
+
+                  <div
+                    className="intel-item"
+                    key={idx}
+                  >
+
+                    <div className="intel-row">
+
+                      <span className="intel-company">
+                        {item.company}
+                      </span>
+
+                      <span className="intel-text">
+                        {item.text}
+                      </span>
+
+                    </div>
+
+                  </div>
+
+                ))}
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </>
+
+    )}
+
+  </div>
+
+) : activeGroup === "My Watchlist" && watchlistView === "weekly" ? (
             <div className="weekly-intelligence">
               {weeklyLoading ? (
                 <div>Loading intelligence...</div>

@@ -38,6 +38,22 @@ const CompanyWeeklyBrief =
     "companyWeeklyBriefs"
   );
 
+  const companyBriefSchema =
+  new mongoose.Schema(
+    {},
+    {
+      strict: false
+    }
+  );
+
+const CompanyBrief =
+  mongoose.models.CompanyBrief ||
+  mongoose.model(
+    "CompanyBrief",
+    companyBriefSchema,
+    "companyBriefs"
+  );
+
 
 /**
  * Connect to MongoDB
@@ -198,6 +214,44 @@ async function getCompanyWeeklyBriefs(
     .lean();
 }
 
+async function getCompanyDailyBriefs(
+  companies
+) {
+
+  const latestBrief =
+    await CompanyBrief
+      .findOne()
+      .sort({
+        date: -1
+      })
+      .lean();
+
+  if (!latestBrief) {
+
+    return [];
+  }
+
+  console.log(
+    "LATEST DAILY BRIEF DATE:",
+    latestBrief.date
+  );
+
+  return CompanyBrief.find({
+
+    company: {
+      $in: companies
+    },
+
+    date:
+      latestBrief.date
+
+  })
+    .sort({
+      company: 1
+    })
+    .lean();
+}
+
 
 module.exports = {
   connect,
@@ -209,5 +263,6 @@ module.exports = {
   getUserByEmail,
   followCompany,
   unfollowCompany,
-  getCompanyWeeklyBriefs
+  getCompanyWeeklyBriefs,
+  getCompanyDailyBriefs
 };
