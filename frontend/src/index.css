@@ -1294,19 +1294,6 @@ intelligence-grid
   border-bottom: none;
 }
 
-.intel-company {
-
-  color:
-    #7ca6ff;
-
-  font-size: 12px;
-
-  font-weight: 700;
-
-  white-space: nowrap;
-
-  min-width: 80px;
-}
 
 .intel-text {
 
@@ -1357,11 +1344,7 @@ intelligence-grid
 
 .intel-row {
 
-  display: flex;
-
-  align-items: flex-start;
-
-  gap: 10px;
+  display: block;
 }
 
 .intel-text {
@@ -1761,13 +1744,14 @@ body {
 }
 
 .intel-company {
-  font-size: 11px;
-  min-width: 70px;
+  display: inline;
+  font-weight: 600;
+  color: #6ea8ff;
+  margin-right: 8px;
 }
 
 .intel-text {
-  font-size: 12px;
-  line-height: 1.5;
+  display: inline;
 }
 
 .intel-rank {
@@ -1838,10 +1822,17 @@ body {
     font-size: 15px;
   }
 
-  .intel-text {
-    font-size: 12px;
+   .intel-company {
+
+    display: block;
+
+    margin-bottom: 4px;
   }
 
+  .intel-text {
+
+    display: block;
+  }
   .watchlist-empty h2 {
     font-size: 26px;
   }
