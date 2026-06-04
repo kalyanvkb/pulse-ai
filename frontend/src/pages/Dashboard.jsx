@@ -179,8 +179,8 @@ const {
 
   useEffect(() => {
     if (!authLoading && user?.email && following.length > 0 && activeGroup === "All") {
-      setActiveGroup("My Watchlist");
-      setWatchlistView("weekly");
+      //setActiveGroup("My Watchlist");
+      setWatchlistView("daily");
     }
   }, [authLoading, user, following]);
 
@@ -195,17 +195,34 @@ const {
   }, [authLoading, user, following, groupInitialized]);
 
   useEffect(() => {
-    const company = localStorage.getItem("pendingFollow");
-    if (user?.email && company) {
-      const autoFollow = async () => {
-        await follow(company);
-        localStorage.removeItem("pendingFollow");
-        setPendingCompany(null);
-        setActiveGroup("My Watchlist");
-      };
-      autoFollow();
-    }
-  }, [user]);
+
+  const company =
+    localStorage.getItem(
+      "pendingFollow"
+    );
+
+  if (user?.email && company) {
+
+    const autoFollow = async () => {
+
+      await follow(company);
+
+      localStorage.removeItem(
+        "pendingFollow"
+      );
+
+      setPendingCompany(null);
+
+      await Promise.all([
+        reloadWeeklyIntelligence(),
+        refreshDaily()
+      ]);
+    };
+
+    autoFollow();
+  }
+
+}, [user]);
 
   useEffect(() => {
     console.log("Dashboard mounted");

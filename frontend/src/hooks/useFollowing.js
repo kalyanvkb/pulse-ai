@@ -67,37 +67,58 @@ export default function useFollowing(user) {
       }
 
       await loadFollowing(user.email);
+
+      await Promise.all([
+      reloadWeeklyIntelligence(),
+      refreshDaily()
+    ]);
     } catch (err) {
       console.error("Error following company:", err);
     }
   };
 
   const unfollow = async (company) => {
-    if (!user?.email || !company) {
-      return;
-    }
 
-    try {
-      const response = await fetch("/api/users/unfollow", {
+  try {
+
+    const response = await fetch(
+      "/api/users/unfollow",
+      {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type":
+            "application/json",
         },
         body: JSON.stringify({
           email: user.email,
           company,
         }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to unfollow company");
       }
+    );
 
-      await loadFollowing(user.email);
-    } catch (err) {
-      console.error("Error unfollowing company:", err);
+    if (!response.ok) {
+      throw new Error(
+        "Failed to unfollow company"
+      );
     }
-  };
+
+    await loadFollowing(
+      user.email
+    );
+
+    await Promise.all([
+      reloadWeeklyIntelligence(),
+      refreshDaily()
+    ]);
+
+  } catch (err) {
+
+    console.error(
+      "Error unfollowing company:",
+      err
+    );
+  }
+};
 
   return {
     following,
