@@ -99,8 +99,32 @@ async function saveArticles(articles) {
  * Load today's articles from DB
  */
 async function getTodaysArticles() {
-  return Article.find({ fetchedDate: getTodayIST() })
-    .sort({ publishedAt: -1 })
+
+  const latestArticle =
+    await Article
+      .findOne()
+      .sort({
+        fetchedDate: -1
+      })
+      .lean();
+
+  if (!latestArticle) {
+
+    return [];
+  }
+
+  console.log(
+    "LATEST ARTICLE DATE:",
+    latestArticle.fetchedDate
+  );
+
+  return Article.find({
+    fetchedDate:
+      latestArticle.fetchedDate
+  })
+    .sort({
+      publishedAt: -1
+    })
     .lean();
 }
 
