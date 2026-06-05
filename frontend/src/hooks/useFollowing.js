@@ -68,10 +68,7 @@ export default function useFollowing(user) {
 
       await loadFollowing(user.email);
 
-      await Promise.all([
-      reloadWeeklyIntelligence(),
-      refreshDaily()
-    ]);
+      
     } catch (err) {
       console.error("Error following company:", err);
     }
@@ -106,11 +103,7 @@ export default function useFollowing(user) {
       user.email
     );
 
-    await Promise.all([
-      reloadWeeklyIntelligence(),
-      refreshDaily()
-    ]);
-
+    
   } catch (err) {
 
     console.error(

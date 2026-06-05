@@ -159,6 +159,15 @@ const {
   ) {
 
     reloadWeeklyIntelligence();
+    
+  }
+
+   if (
+    activeGroup === "My Watchlist" &&
+    refreshDaily
+  ) {
+
+    refreshDaily();
 
   }
 
@@ -441,6 +450,7 @@ const {
                       await follow(s.name);
                     }
                     reloadWeeklyIntelligence();
+                    refreshDaily();
                   }}
                 >
                   {isFollowing ? "★" : "☆"}
