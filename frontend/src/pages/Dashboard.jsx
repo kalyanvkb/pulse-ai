@@ -493,7 +493,7 @@ const {
       )}
 
       {/* ── TOOLBAR ── */}
-      {articles.length > 0 && !(activeGroup === "My Watchlist" && watchlistView === "weekly") && (
+      {articles.length > 0 && !(activeGroup === "My Watchlist" && (watchlistView === "weekly" || watchlistView === "daily")) && (
         <div className="toolbar">
           <span className="toolbar-label">Sort by</span>
           <button className={`sort-btn ${sortMode === "latest" ? "sort-active" : ""}`} onClick={() => setSortMode("latest")}>Latest</button>
