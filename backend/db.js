@@ -276,6 +276,17 @@ async function getCompanyDailyBriefs(
     .lean();
 }
 
+async function getDigestUsers() {
+
+  return User.find({
+
+    email: {
+      $exists: true
+    }
+
+  }).lean();
+}
+
 
 module.exports = {
   connect,
@@ -288,5 +299,6 @@ module.exports = {
   followCompany,
   unfollowCompany,
   getCompanyWeeklyBriefs,
-  getCompanyDailyBriefs
+  getCompanyDailyBriefs,
+  getDigestUsers
 };

@@ -3,6 +3,32 @@ from prompts.weekly.research_prompt import (
 )
 
 
+def normalize_items(items):
+
+    normalized = []
+
+    for item in items:
+
+        if isinstance(item, dict):
+
+            text = item.get(
+                "text"
+            )
+
+            if text:
+                normalized.append(
+                    text
+                )
+
+        elif item:
+
+            normalized.append(
+                str(item)
+            )
+
+    return normalized
+
+
 def research_agent(
     state,
     llm
@@ -17,17 +43,21 @@ DATE:
 
 WHAT HAPPENED:
 {chr(10).join(
-    brief.get(
-        'whatsHappening',
-        []
+    normalize_items(
+        brief.get(
+            'whatsHappening',
+            []
+        )
     )
 )}
 
 WHY IT MATTERS:
 {chr(10).join(
-    brief.get(
-        'whyItMatters',
-        []
+    normalize_items(
+        brief.get(
+            'whyItMatters',
+            []
+        )
     )
 )}
 """

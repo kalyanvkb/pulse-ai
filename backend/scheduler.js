@@ -9,6 +9,12 @@ const {
   refreshWeeklyIntelligence
 } = require("./intelligenceRefresher");
 
+const {
+  sendDailyDigest
+} = require(
+  "./jobs/sendDailyDigest"
+);
+
 /**
  * Fetch → Summarize → Save Articles
  */
@@ -115,6 +121,11 @@ function startScheduler() {
    */
   cron.schedule("0 8 * * 6", runWeeklyPipeline, { timezone });
   console.log("⏰ Weekly Intelligence: Saturday @ 8:00 AM IST");
+
+  cron.schedule("30 6 * * *", sendDailyDigest, { timezone }  );
+  //cron.schedule("*/2 * * * *", sendDailyDigest, { timezone }  );
+
+console.log("📧 Daily Digest: Every day @ 6:30 AM IST");
 }
 
 module.exports = {
@@ -122,5 +133,6 @@ module.exports = {
   runDailyFetch,
   runDailyPipeline,
   runWeeklyPipeline,
-  warmCacheFromDB
+  warmCacheFromDB,
+  sendDailyDigest
 };

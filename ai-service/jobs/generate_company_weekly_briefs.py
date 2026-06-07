@@ -19,7 +19,7 @@ from services.mongo_service import (
 )
 
 
-CURRENT_WEEKLY_VERSION = 1
+CURRENT_WEEKLY_VERSION = 2
 
 
 def generate_company_weekly_briefs():

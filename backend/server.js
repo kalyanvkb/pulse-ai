@@ -876,3 +876,21 @@ app.get(
     }
   }
 );
+
+const {
+  sendDailyDigest
+} = require(
+  "./jobs/sendDailyDigest"
+);
+
+app.post(
+  "/admin/send-digest",
+  async (req, res) => {
+
+    await sendDailyDigest();
+
+    res.json({
+      success: true
+    });
+  }
+);
