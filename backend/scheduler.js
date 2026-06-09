@@ -26,7 +26,12 @@ async function runDailyFetch() {
 
 await summarizeBatch(rawArticles);
 
-await saveArticles(rawArticles);
+const { isArticleStale } = require("./db");
+
+// Inside runDailyFetch(), before saveArticles():
+const freshArticles = rawArticles.filter(a => !isArticleStale(a));
+console.log(`  Filtered ${rawArticles.length - freshArticles.length} stale articles`);
+await saveArticles(freshArticles);
 
     setCache("all_articles", {
   articles: rawArticles,

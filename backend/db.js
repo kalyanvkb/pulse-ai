@@ -7,7 +7,7 @@ const articleSchema = new mongoose.Schema({
   id:          { type: String, required: true, unique: true },
   title:       String,
   url:         String,
-  publishedAt: String,
+  publishedAt: { type: Date },
   source:      String,
   group:       String,
   color:       String,
@@ -287,6 +287,17 @@ async function getDigestUsers() {
   }).lean();
 }
 
+/**
+ * Check if an article is older than 3 days
+ * @param {object} article
+ * @returns {boolean}
+ */
+function isArticleStale(article) {
+  if (!article.publishedAt) return false;
+  const published = new Date(article.publishedAt);
+  const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
+  return published < threeDaysAgo;
+}
 
 module.exports = {
   connect,
@@ -300,5 +311,6 @@ module.exports = {
   unfollowCompany,
   getCompanyWeeklyBriefs,
   getCompanyDailyBriefs,
-  getDigestUsers
+  getDigestUsers,
+  isArticleStale
 };

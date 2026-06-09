@@ -174,39 +174,162 @@ function normalizeItem(item, source) {
  * @returns {Promise<object[]>} - array of normalized articles
  */
 async function fetchRSS(source) {
+
   try {
-    // If no RSS URL provided, skip RSS parsing and let caller fall back to scraper
-     const rssUrl = source.rssUrl;
-     if (!rssUrl || typeof rssUrl !== "string" || !rssUrl.trim()) {
-       console.log(`  - ${source.name}: no rssUrl configured, skipping RSS`);
-       return null;
-     }
- 
-     if (!rssUrl.startsWith("http://") && !rssUrl.startsWith("https://")) {
-       console.log(`  - ${source.name}: invalid rssUrl format, skipping RSS`);
-       return null;
-     }
- 
-     const feed = await parser.parseURL(rssUrl);
-    const items = (feed.items || []).slice();
-    items.sort((a, b) => {
-      const da = new Date(a.isoDate || a.pubDate || 0).getTime() || 0;
-      const db = new Date(b.isoDate || b.pubDate || 0).getTime() || 0;
+
+    const rssUrls = source.rssUrls
+      || (source.rssUrl
+          ? [source.rssUrl]
+          : []);
+
+    if (rssUrls.length === 0) {
+
+      console.log(
+        `  - ${source.name}: no RSS URLs configured`
+      );
+
+      return null;
+    }
+
+    const allItems = [];
+
+    for (const rssUrl of rssUrls) {
+
+      if (
+        !rssUrl ||
+        typeof rssUrl !== "string"
+      ) {
+        continue;
+      }
+
+      if (
+        !rssUrl.startsWith("http://") &&
+        !rssUrl.startsWith("https://")
+      ) {
+
+        console.log(
+          `  - ${source.name}: invalid RSS URL ${rssUrl}`
+        );
+
+        continue;
+      }
+
+      try {
+
+        const feed =
+          await parser.parseURL(
+            rssUrl
+          );
+
+        allItems.push(
+          ...(feed.items || [])
+        );
+
+      } catch (err) {
+
+        console.warn(
+          `  ✗ ${source.name} RSS failed (${rssUrl}): ${err.message}`
+        );
+      }
+    }
+
+    if (
+      allItems.length === 0
+    ) {
+
+      return null;
+    }
+
+    allItems.sort((a, b) => {
+
+      const da =
+        new Date(
+          a.isoDate ||
+          a.pubDate ||
+          0
+        ).getTime() || 0;
+
+      const db =
+        new Date(
+          b.isoDate ||
+          b.pubDate ||
+          0
+        ).getTime() || 0;
+
       return db - da;
     });
 
-    // Normalize, filter out invalid entries and older-than-cutoff articles,
-    // then limit to MAX_ARTICLES_PER_SOURCE.
-    const cutoff = Date.now() - MAX_ARTICLE_AGE_DAYS * 24 * 60 * 60 * 1000;
-    const articles = items
-      .map((item) => normalizeItem(item, source))
-      .filter((a) => a.title && a.url && new Date(a.publishedAt).getTime() >= cutoff)
-      .slice(0, MAX_ARTICLES_PER_SOURCE);
-    console.log(`  ✓ ${source.name}: ${articles.length} articles (RSS)`);
+    const seenUrls =
+      new Set();
+
+    const cutoff =
+      Date.now()
+      - (
+          MAX_ARTICLE_AGE_DAYS
+          * 24
+          * 60
+          * 60
+          * 1000
+        );
+
+    const articles =
+      allItems
+
+        .map(
+          item =>
+            normalizeItem(
+              item,
+              source
+            )
+        )
+
+        .filter(article => {
+
+          if (
+            !article.title ||
+            !article.url
+          ) {
+            return false;
+          }
+
+          if (
+            seenUrls.has(
+              article.url
+            )
+          ) {
+            return false;
+          }
+
+          seenUrls.add(
+            article.url
+          );
+
+          return (
+            new Date(
+              article.publishedAt
+            ).getTime()
+            >= cutoff
+          );
+        })
+
+        .slice(
+          0,
+          MAX_ARTICLES_PER_SOURCE
+        );
+
+    console.log(
+      `  ✓ ${source.name}: ${articles.length} articles (${rssUrls.length} feeds)`
+    );
+
     return articles;
+
   } catch (err) {
-    console.warn(`  ✗ ${source.name} RSS failed: ${err.message}`);
-    return null; // signal to try scraper
+
+    console.warn(
+      `  ✗ ${source.name} RSS failed: ${err.message}`
+    );
+
+    return null;
   }
 }
 
