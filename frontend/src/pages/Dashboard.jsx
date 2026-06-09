@@ -379,7 +379,7 @@ export default function Dashboard() {
       {activeGroup === "My Watchlist" && following.length > 0 && (
         <div className="watchlist-tabs">
           <div className="watchlist-view-toggle">
-            <button className={`watchlist-btn ${watchlistView === "latest" ? "watchlist-btn-active" : ""}`} onClick={() => setWatchlistView("latest")}>Latest News</button>
+            <button className={`watchlist-btn ${watchlistView === "latest" ? "watchlist-btn-active" : ""}`} onClick={() => setWatchlistView("latest")}>Latest</button>
             <button className={`watchlist-btn ${watchlistView === "daily" ? "watchlist-btn-active" : ""}`} onClick={() => setWatchlistView("daily")}>Daily Briefing</button>
             <button className={`watchlist-btn ${watchlistView === "weekly" ? "watchlist-btn-active" : ""}`} onClick={() => setWatchlistView("weekly")}>Weekly Intelligence</button>
           </div>
