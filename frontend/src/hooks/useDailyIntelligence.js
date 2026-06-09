@@ -1,85 +1,95 @@
-import { useEffect, useState } from "react";
-import { auth } from "../firebase";
+import {
+  useEffect,
+  useState,
+  useCallback
+} from "react";
 
-export default function useDailyIntelligence( user ) {
+export default function useDailyIntelligence(user) {
 
   const [data, setData] =
     useState(null);
 
   const [loading, setLoading] =
-    useState(true);
+    useState(false);
 
   const [error, setError] =
     useState(null);
 
-  const load = async () => {
+  const load = useCallback(async () => {
 
-  try {
+    if (!user?.email) {
+      return;
+    }
 
-    console.log("DAILY LOAD STARTED");
+    try {
 
-     if (!user?.email) {
-
-    console.log(
-      "Daily intelligence waiting for user..."
-    );
-     setLoading(false);
-
-    return;
-  }
-
-
-
-    setLoading(true);
-
-    const response =
-      await fetch(
-        `/api/intelligence/daily?email=${encodeURIComponent(
-          user.email
-        )}`
+      console.log(
+        "DAILY LOAD STARTED"
       );
 
-    console.log(
-      "DAILY RESPONSE STATUS:",
-      response.status
-    );
+      setLoading(true);
 
-    const json =
-      await response.json();
+      setError(null);
 
-    console.log(
-      "DAILY RESPONSE:",
-      json
-    );
+      const response =
+        await fetch(
+          `/api/intelligence/daily?email=${encodeURIComponent(
+            user.email
+          )}`
+        );
 
-    setData(json);
+      console.log(
+        "DAILY RESPONSE STATUS:",
+        response.status
+      );
 
-  } catch (err) {
+      if (!response.ok) {
 
-    console.error(
-      "DAILY ERROR:",
-      err
-    );
+        const errorText =
+          await response.text();
 
-    setError(
-      "Failed to load daily intelligence"
-    );
+        throw new Error(
+          errorText
+        );
+      }
 
-  } finally {
+      const json =
+        await response.json();
 
-    console.log(
-      "SETTING DAILY LOADING FALSE"
-    );
+      console.log(
+        "DAILY RESPONSE:",
+        json
+      );
 
-    setLoading(false);
-  }
-};
+      setData(json);
+
+    } catch (err) {
+
+      console.error(
+        "DAILY ERROR:",
+        err
+      );
+
+      setError(
+        "Failed to load daily intelligence"
+      );
+
+    } finally {
+
+      console.log(
+        "SETTING DAILY LOADING FALSE"
+      );
+
+      setLoading(false);
+    }
+
+  }, [user?.email]);
 
   useEffect(() => {
 
-  load();
+    load();
 
-}, [user]);
+  }, [load]);
 
   return {
 

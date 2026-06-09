@@ -7,7 +7,7 @@ import NewsCard from "../components/NewsCard";
 import SkeletonCard from "../components/SkeletonCard";
 import ContactModal from "../components/ContactModal";
 import AuthModal from "../components/AuthModal";
-import UserMenu from "../components/UserMenu";  
+import UserMenu from "../components/UserMenu";
 import useWeeklyIntelligence from "../hooks/useWeeklyIntelligence";
 import useDailyIntelligence from "../hooks/useDailyIntelligence";
 
@@ -33,8 +33,6 @@ const GROUP_COLORS = {
   Robotics: "#ff6b6b",
 };
 
-
-
 function normalizeGroup(group) {
   if (!group) return "";
   const cleaned = group.trim();
@@ -52,29 +50,16 @@ function normalizeGroup(group) {
 
 function formatWeek(isoWeek) {
   if (!isoWeek) return "";
-
   const [year, week] = isoWeek.split("-W");
   const firstDay = new Date(Number(year), 0, 1 + (Number(week) - 1) * 7);
-
   const start = new Date(firstDay);
   const end = new Date(firstDay);
   end.setDate(end.getDate() + 6);
-
-  return `${start.toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric"
-  })} - ${end.toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric"
-  })}`;
+  return `${start.toLocaleDateString("en-US", { month: "short", day: "numeric" })} - ${end.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}`;
 }
 
 function getSourcesForGroup(articles, group) {
-  const filtered =
-    group === "All"
-      ? articles
-      : articles.filter((a) => normalizeGroup(a.group) === group);
+  const filtered = group === "All" ? articles : articles.filter((a) => normalizeGroup(a.group) === group);
   const seen = new Set();
   return filtered
     .map((a) => ({ name: a.source, color: a.color, group: a.group }))
@@ -106,13 +91,10 @@ function getDateFilterFromPath(path) {
 function getDateFilterValue(isoDate) {
   const date = new Date(isoDate);
   if (Number.isNaN(date.getTime())) return null;
-
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-
   const yesterday = new Date(today);
   yesterday.setDate(yesterday.getDate() - 1);
-
   if (date >= today) return "today";
   if (date >= yesterday && date < today) return "yesterday";
   return null;
@@ -126,56 +108,22 @@ export default function Dashboard() {
   const [pendingCompany, setPendingCompany] = useState(null);
   const { articles, loading, error, refresh, lastRefreshed, isRefreshing } = useNews();
   const navigate = useNavigate();
-
   const { following, follow, unfollow } = useFollowing(user);
-
   const [activeGroup, setActiveGroup] = useState("My Watchlist");
   const [activeSources, setActiveSources] = useState(new Set());
   const [sortMode, setSortMode] = useState("latest");
   const [searchQuery, setSearchQuery] = useState("");
   const [showContact, setShowContact] = useState(false);
   const [watchlistView, setWatchlistView] = useState("daily");
-
-  // Moved hook initialization to the top, before any useEffect hooks call its values
-  const {
-    data: weeklyData,
-    loading: weeklyLoading,
-    reload: reloadWeeklyIntelligence
-  } = useWeeklyIntelligence(user);
-
-const {
-  data: dailyData,
-  loading: dailyLoading,
-  error: dailyError,
-  reload: refreshDaily
-} = useDailyIntelligence(user);
-
+  const { data: weeklyData, loading: weeklyLoading, reload: reloadWeeklyIntelligence } = useWeeklyIntelligence(user);
+  const { data: dailyData, loading: dailyLoading, error: dailyError, reload: refreshDaily } = useDailyIntelligence(user);
 
   useEffect(() => {
-
-  if (
-    activeGroup === "My Watchlist" &&
-    reloadWeeklyIntelligence
-  ) {
-
-    reloadWeeklyIntelligence();
-    
-  }
-
-   if (
-    activeGroup === "My Watchlist" &&
-    refreshDaily
-  ) {
-
-    refreshDaily();
-
-  }
-
-}, [
-  following,
-  activeGroup,
-  reloadWeeklyIntelligence
-]);
+    if (activeGroup === "My Watchlist") {
+      if (reloadWeeklyIntelligence) reloadWeeklyIntelligence();
+      if (refreshDaily) refreshDaily();
+    }
+  }, [following, activeGroup, reloadWeeklyIntelligence, refreshDaily]);
 
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const debounceRef = useMemo(() => {
@@ -188,13 +136,11 @@ const {
 
   useEffect(() => {
     if (!authLoading && user?.email && following.length > 0 && activeGroup === "All") {
-      //setActiveGroup("My Watchlist");
       setWatchlistView("daily");
     }
   }, [authLoading, user, following]);
 
   const [groupInitialized, setGroupInitialized] = useState(false);
-
   useEffect(() => {
     if (groupInitialized || authLoading) return;
     if (user?.email && following.length > 0) {
@@ -204,46 +150,25 @@ const {
   }, [authLoading, user, following, groupInitialized]);
 
   useEffect(() => {
-
-  const company =
-    localStorage.getItem(
-      "pendingFollow"
-    );
-
-  if (user?.email && company) {
-
-    const autoFollow = async () => {
-
-      await follow(company);
-
-      localStorage.removeItem(
-        "pendingFollow"
-      );
-
-      setPendingCompany(null);
-
-      await Promise.all([
-        reloadWeeklyIntelligence(),
-        refreshDaily()
-      ]);
-    };
-
-    autoFollow();
-  }
-
-}, [user]);
+    const company = localStorage.getItem("pendingFollow");
+    if (user?.email && company) {
+      const autoFollow = async () => {
+        await follow(company);
+        localStorage.removeItem("pendingFollow");
+        setPendingCompany(null);
+        await Promise.all([
+          reloadWeeklyIntelligence ? reloadWeeklyIntelligence() : Promise.resolve(),
+          refreshDaily ? refreshDaily() : Promise.resolve()
+        ]);
+      };
+      autoFollow();
+    }
+  }, [user]);
 
   useEffect(() => {
-    console.log("Dashboard mounted");
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
-      console.log("onAuthStateChanged fired:", firebaseUser);
-      if (firebaseUser) {
-        console.log("User authenticated:", firebaseUser.email);
-        setUser(firebaseUser);
-      } else {
-        console.log("No authenticated user");
-        setUser(null);
-      }
+      if (firebaseUser) setUser(firebaseUser);
+      else setUser(null);
       setAuthLoading(false);
     });
     return () => unsubscribe();
@@ -272,12 +197,10 @@ const {
   };
 
   const clearSources = () => setActiveSources(new Set());
-
   const routeDateFilter = useMemo(() => getDateFilterFromPath(window.location.pathname), []);
 
   const filtered = useMemo(() => {
     let arr = [...articles];
-
     const seen = new Set();
     arr = arr.filter((a) => {
       if (seen.has(a.title)) return false;
@@ -295,6 +218,7 @@ const {
     if (activeSources.size > 0) {
       arr = arr.filter((a) => activeSources.has((a.source || "").trim()));
     }
+
     const searchTerm = debouncedSearch.trim().toLowerCase();
     if (searchTerm) {
       arr = arr.filter(
@@ -348,7 +272,6 @@ const {
     return getSourcesForGroup(articles, activeGroup);
   }, [articles, activeGroup, following]);
 
-
   const groupCounts = useMemo(() => {
     const counts = { All: articles.length };
     counts["My Watchlist"] = articles.filter((a) => following.includes(a.source)).length;
@@ -365,8 +288,6 @@ const {
   return (
     <div className="dashboard">
       <ContactModal isOpen={showContact} onClose={() => setShowContact(false)} />
-      
-      {/* ── NAV ── */}
       <nav className="nav">
         <div className="logo">pulse-ai</div>
         <div className="search-wrap">
@@ -387,7 +308,7 @@ const {
             disabled={isRefreshing}
           >
             <span className="refresh-icon">↻</span>
-            <span className="refresh-text">{isRefreshing ? "  Refreshing…" : "  Refresh"}</span>
+            <span className="refresh-text">{isRefreshing ? " Refreshing…" : " Refresh"}</span>
           </button>
           <button className="contact-btn" onClick={() => setContactOpen(true)}>Contact</button>
           <div className="auth-section">
@@ -399,7 +320,6 @@ const {
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
       <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
 
-      {/* ── TABS ── */}
       <div className="tabs">
         {GROUPS.map((g) => (
           <button
@@ -413,7 +333,6 @@ const {
         ))}
       </div>
 
-      {/* ── SOURCE CHIPS ── */}
       {!(activeGroup === "My Watchlist" && following.length === 0) && (
         <div className="source-filter">
           <div
@@ -431,11 +350,10 @@ const {
                 className={`source-chip ${activeSources.has(s.name) ? "chip-active" : ""} ${isFollowing ? "source-followed" : ""}`}
                 onClick={() => toggleSource(s.name)}
               >
-                <span className="source-dot" style={{ background: s.color }} />
+                <span className="source-dot" style={{ background: s.color || "#ccc" }} />
                 <span className="source-label">{s.name}</span>
                 <span
                   className={`follow-star ${isFollowing ? "followed" : ""}`}
-                  // Marked this handler as async to support 'await' inside it safely
                   onClick={async (e) => {
                     e.stopPropagation();
                     if (!user) {
@@ -444,13 +362,10 @@ const {
                       setAuthOpen(true);
                       return;
                     }
-                    if (isFollowing) {
-                      await unfollow(s.name);
-                    } else {
-                      await follow(s.name);
-                    }
-                    reloadWeeklyIntelligence();
-                    refreshDaily();
+                    if (isFollowing) await unfollow(s.name);
+                    else await follow(s.name);
+                    if (reloadWeeklyIntelligence) reloadWeeklyIntelligence();
+                    if (refreshDaily) refreshDaily();
                   }}
                 >
                   {isFollowing ? "★" : "☆"}
@@ -464,35 +379,17 @@ const {
       {activeGroup === "My Watchlist" && following.length > 0 && (
         <div className="watchlist-tabs">
           <div className="watchlist-view-toggle">
-            <button
-              className={`watchlist-btn ${watchlistView === "latest" ? "watchlist-btn-active" : ""}`}
-              onClick={() => setWatchlistView("latest")}
-            >
-              Latest News
-            </button>
-            <button
-              className={`watchlist-btn ${watchlistView === "daily" ? "watchlist-btn-active" : ""}`}
-              onClick={() => setWatchlistView("daily")}
-            >
-              Daily Briefing
-            </button>
-
-            <button
-              className={`watchlist-btn ${watchlistView === "weekly" ? "watchlist-btn-active" : ""}`}
-              onClick={() => setWatchlistView("weekly")}
-            >
-              Weekly Intelligence
-            </button>
+            <button className={`watchlist-btn ${watchlistView === "latest" ? "watchlist-btn-active" : ""}`} onClick={() => setWatchlistView("latest")}>Latest News</button>
+            <button className={`watchlist-btn ${watchlistView === "daily" ? "watchlist-btn-active" : ""}`} onClick={() => setWatchlistView("daily")}>Daily Briefing</button>
+            <button className={`watchlist-btn ${watchlistView === "weekly" ? "watchlist-btn-active" : ""}`} onClick={() => setWatchlistView("weekly")}>Weekly Intelligence</button>
           </div>
         </div>
       )}
 
-      {/* ── STATS BAR ── */}
       {(routeDateFilter === "today" || routeDateFilter === "yesterday") && (
         <div className="banner banner-info">Showing news fetched {routeDateFilter}.</div>
       )}
 
-      {/* ── TOOLBAR ── */}
       {articles.length > 0 && !(activeGroup === "My Watchlist" && (watchlistView === "weekly" || watchlistView === "daily")) && (
         <div className="toolbar">
           <span className="toolbar-label">Sort by</span>
@@ -502,12 +399,10 @@ const {
         </div>
       )}
 
-      {/* ── ERROR BANNER ── */}
       {error && (
         <div className="banner banner-error">⚠ Backend error: {error}. Is the backend running?</div>
       )}
 
-      {/* ── GRID ── */}
       <div className="grid-wrap">
         <div className="grid">
           {loading ? (
@@ -520,116 +415,87 @@ const {
               <p>Your personalized daily and weekly intelligence will appear here.</p>
             </div>
           ) : activeGroup === "My Watchlist" && watchlistView === "daily" ? (
-
-  <div className="weekly-intelligence">
-
-    {dailyLoading ? (
-
-      <div>Loading intelligence...</div>
-
-    ) : (
-
-      <>
-
-        <div className="weekly-header">
-
-          <div className="weekly-meta">
-
-            <div className="weekly-pill">
-              {dailyData?.date}
-            </div>
-
-            <div className="weekly-pill">
-              {dailyData?.companyCount} Companies
-            </div>
-
-          </div>
-
-        </div>
-
-        <div className="intelligence-grid daily-grid">
-
-          <div className="intel-card">
-
-            <div className="intel-card-header">
-              🔥 Top Developments Today
-            </div>
-
-            <div className="intel-card-content">
-
-              {(dailyData?.executiveSummary?.whatsHappening || [])
-                .map((item, idx) => (
-
-                  <div
-                    className="intel-item"
-                    key={idx}
-                  >
-
-                    <div className="intel-row">
-
-                      <span className="intel-company">
-                        {item.company}
-                      </span>
-
-                      <span className="intel-text">
-                        {item.text}
-                      </span>
-
+            <div className="weekly-intelligence">
+              {dailyLoading ? (
+                <div>Loading intelligence...</div>
+              ) : (
+                <>
+                  <div className="weekly-header">
+                    <div className="weekly-meta">
+                      <div className="weekly-pill">{dailyData?.date}</div>
+                      <div className="weekly-pill">{dailyData?.companyCount} Companies</div>
                     </div>
-
                   </div>
-
-                ))}
-
-            </div>
-
-          </div>
-
-          <div className="intel-card">
-
-            <div className="intel-card-header">
-              💡 Why It Matters
-            </div>
-
-            <div className="intel-card-content">
-
-              {(dailyData?.executiveSummary?.whyItMatters || [])
-                .map((item, idx) => (
-
-                  <div
-                    className="intel-item"
-                    key={idx}
-                  >
-
-                    <div className="intel-row">
-
-                      <span className="intel-company">
-                        {item.company}
-                      </span>
-
-                      <span className="intel-text">
-                        {item.text}
-                      </span>
-
+                  <div className="desktop-only">
+                    <div className="intelligence-grid daily-grid">
+                      <div className="intel-card">
+                        <div className="intel-card-header">🔥 Top Developments Today</div>
+                        <div className="intel-card-content">
+                          {(dailyData?.executiveSummary?.whatsHappening || []).map((item, idx) => (
+                            <div className="intel-item" key={idx}>
+                              <div className="intel-row">
+                                <span className="intel-company">{item.company}</span>
+                                <span className="intel-text">{item.text}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="intel-card">
+                        <div className="intel-card-header">💡 Why It Matters</div>
+                        <div className="intel-card-content">
+                          {(dailyData?.executiveSummary?.whyItMatters || []).map((item, idx) => (
+                            <div className="intel-item" key={idx}>
+                              <div className="intel-row">
+                                <span className="intel-company">{item.company}</span>
+                                <span className="intel-text">{item.text}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-
                   </div>
-
-                ))}
-
+                  <div className="mobile-only">
+                    <div className="intelligence-grid daily-grid">
+                      <details className="mobile-accordion" open>
+                        <summary className="mobile-accordion-header">
+                          🔥 Top Developments Today
+                          <span className="accordion-count">({(dailyData?.executiveSummary?.whatsHappening || []).length})</span>
+                        </summary>
+                        <div className="intel-card-content">
+                          {(dailyData?.executiveSummary?.whatsHappening || []).map((item, idx) => (
+                            <div className="intel-item" key={idx}>
+                              <div className="intel-row">
+                                <span className="intel-company">{item.company}</span>
+                                <span className="intel-text">{item.text}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </details>
+                      <details className="mobile-accordion">
+                        <summary className="mobile-accordion-header">
+                          💡 Why It Matters
+                          <span className="accordion-count">({(dailyData?.executiveSummary?.whyItMatters || []).length})</span>
+                        </summary>
+                        <div className="intel-card-content">
+                          {(dailyData?.executiveSummary?.whyItMatters || []).map((item, idx) => (
+                            <div className="intel-item" key={idx}>
+                              <div className="intel-row">
+                                <span className="intel-company">{item.company}</span>
+                                <span className="intel-text">{item.text}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </details>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
-
-          </div>
-
-        </div>
-
-      </>
-
-    )}
-
-  </div>
-
-) : activeGroup === "My Watchlist" && watchlistView === "weekly" ? (
+          ) : activeGroup === "My Watchlist" && watchlistView === "weekly" ? (
             <div className="weekly-intelligence">
               {weeklyLoading ? (
                 <div>Loading intelligence...</div>
@@ -641,58 +507,99 @@ const {
                       <div className="weekly-pill">{weeklyData?.companyCount} Companies</div>
                     </div>
                   </div>
-                  <div className="intelligence-grid">
-                    <div className="intel-card">
-                      <div className="intel-card-header">Top Moves</div>
-                      <div className="intel-card-content">
-                        {(weeklyData?.executiveSummary?.whatChanged || []).map((item, idx) => (
-                          <div className="intel-item" key={idx}>
-                            <div className="intel-row">
-                              <span className="intel-company">{item.company}</span>
-                              <span className="intel-text">{item.text}</span>
+                  <div className="desktop-only">
+                    <div className="intelligence-grid">
+                      <div className="intel-card">
+                        <div className="intel-card-header">🚀 Top Moves</div>
+                        <div className="intel-card-content">
+                          {(weeklyData?.executiveSummary?.whatChanged || []).map((item, idx) => (
+                            <div className="intel-item" key={idx}>
+                              <div className="intel-row">
+                                <span className="intel-company">{item.company}</span>
+                                <span className="intel-text">{item.text}</span>
+                              </div>
                             </div>
-                          </div>
-                        ))}
+                          ))}
+                        </div>
+                      </div>
+                      <div className="intel-card">
+                        <div className="intel-card-header">🧠 Why It Matters</div>
+                        <div className="intel-card-content">
+                          {(weeklyData?.executiveSummary?.whyItMatters || []).map((item, idx) => (
+                            <div className="intel-item" key={idx}>
+                              <div className="intel-row">
+                                <span className="intel-company">{item.company}</span>
+                                <span className="intel-text">{item.text}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="intel-card">
+                        <div className="intel-card-header">🔮 Signals To Watch</div>
+                        <div className="intel-card-content">
+                          {(weeklyData?.executiveSummary?.signalsToWatch || []).map((item, idx) => (
+                            <div className="intel-item" key={idx}>
+                              <div className="intel-row">
+                                <span className="intel-company">{item.company}</span>
+                                <span className="intel-text">{item.text}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                    <div className="intel-card">
-                      <div className="intel-card-header">Why It Matters</div>
-                      <div className="intel-card-content">
-                        {(weeklyData?.executiveSummary?.whyItMatters || []).map((item, idx) => (
-                          <div className="intel-item" key={idx}>
-
-                                    <div className="intel-row">
-
-                                      <span className="intel-company">
-                                        {item.company}
-                                      </span>
-
-                                      <span className="intel-text">
-                                        {item.text}
-                                      </span>
-
-                                    </div>
-
-                                  </div>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="intel-card">
-                      <div className="intel-card-header">Signals To Watch</div>
-                      <div className="intel-card-content">
-                        {(weeklyData?.executiveSummary?.signalsToWatch || []).map((item, idx) => (
-                          <div className="intel-item" key={idx}>
-                            <div className="intel-row">
-                              <span className="intel-company">
-                                {item.company}
-                              </span>
-                              <span className="intel-text">
-                                {item.text}
-                              </span>
+                  </div>
+                  <div className="mobile-only">
+                    <div className="intelligence-grid">
+                      <details className="mobile-accordion" open>
+                        <summary className="mobile-accordion-header">
+                          🚀 Top Moves
+                          <span className="accordion-count">({(weeklyData?.executiveSummary?.whatChanged || []).length})</span>
+                        </summary>
+                        <div className="intel-card-content">
+                          {(weeklyData?.executiveSummary?.whatChanged || []).map((item, idx) => (
+                            <div className="intel-item" key={idx}>
+                              <div className="intel-row">
+                                <span className="intel-company">{item.company}</span>
+                                <span className="intel-text">{item.text}</span>
+                              </div>
                             </div>
-                          </div>
-                        ))}
-                      </div>
+                          ))}
+                        </div>
+                      </details>
+                      <details className="mobile-accordion">
+                        <summary className="mobile-accordion-header">
+                          🧠 Why It Matters
+                          <span className="accordion-count">({(weeklyData?.executiveSummary?.whyItMatters || []).length})</span>
+                        </summary>
+                        <div className="intel-card-content">
+                          {(weeklyData?.executiveSummary?.whyItMatters || []).map((item, idx) => (
+                            <div className="intel-item" key={idx}>
+                              <div className="intel-row">
+                                <span className="intel-company">{item.company}</span>
+                                <span className="intel-text">{item.text}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </details>
+                      <details className="mobile-accordion">
+                        <summary className="mobile-accordion-header">
+                          🔮 Signals To Watch
+                          <span className="accordion-count">({(weeklyData?.executiveSummary?.signalsToWatch || []).length})</span>
+                        </summary>
+                        <div className="intel-card-content">
+                          {(weeklyData?.executiveSummary?.signalsToWatch || []).map((item, idx) => (
+                            <div className="intel-item" key={idx}>
+                              <div className="intel-row">
+                                <span className="intel-company">{item.company}</span>
+                                <span className="intel-text">{item.text}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </details>
                     </div>
                   </div>
                 </>

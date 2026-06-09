@@ -39,7 +39,7 @@ html, body, #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-   padding: 0 20px;
+  padding: 0 20px;
 }
 
 /* ── NAV ─────────────────────────────────────────────────────────────────── */
@@ -303,32 +303,22 @@ html, body, #root {
 }
 .grid {
   display: grid;
-
   grid-template-columns:
     repeat(auto-fill, minmax(300px, 1fr));
-
   gap: 14px;
-
   align-items: stretch;
 }
 
 /* ── NEWS CARD ───────────────────────────────────────────────────────────── */
 .news-card {
   background: var(--card-bg);
-
   border: 1px solid var(--border);
-
   border-radius: 14px;
-
   padding: 14px;
-
   display: flex;
   flex-direction: column;
-
   gap: 14px;
-
   transition: all 0.2s ease;
-
   animation: fadeUp 0.4s ease both;
 }
 .news-card:hover {
@@ -388,19 +378,12 @@ html, body, #root {
 
 .card-title {
   font-family: var(--font-display);
-
   font-size: 18px;
-
   line-height: 1.35;
-
   color: var(--text);
-
   text-decoration: none;
-
   display: block;
-
   transition: color 0.15s;
-
 }
 .card-title:hover { color: var(--accent); }
 
@@ -536,8 +519,6 @@ html, body, #root {
   margin-top: -12px;
 }
 
-intelligence-grid
-
 .modal-close {
   position: absolute;
   top: 14px;
@@ -644,29 +625,20 @@ intelligence-grid
   inset: 0;
   background: rgba(0,0,0,0.75);
   backdrop-filter: blur(6px);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   z-index: 9999;
 }
 
 .auth-modal {
   position: relative;
-
   width: 420px;
-
   background: #111827;
   border: 1px solid rgba(255,255,255,0.08);
-
   border-radius: 24px;
-
   padding: 32px;
-
-  box-shadow:
-    0 20px 60px rgba(0,0,0,0.45);
-
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
   animation: modalFade 0.2s ease;
 }
 
@@ -685,20 +657,13 @@ intelligence-grid
 
 .google-btn {
   width: 100%;
-
   border: none;
-
   background: white;
   color: black;
-
   padding: 14px;
-
   border-radius: 14px;
-
   font-weight: 600;
-
   cursor: pointer;
-
   transition: all 0.2s ease;
 }
 
@@ -708,19 +673,12 @@ intelligence-grid
 
 .guest-btn {
   width: 100%;
-
   margin-top: 14px;
-
   background: transparent;
-
   border: 1px solid rgba(255,255,255,0.1);
-
   color: white;
-
   padding: 14px;
-
   border-radius: 14px;
-
   cursor: pointer;
 }
 
@@ -730,27 +688,19 @@ intelligence-grid
 
 .auth-footer {
   margin-top: 18px;
-
   text-align: center;
-
   color: #6b7280;
-
   font-size: 13px;
 }
 
 .auth-close {
   position: absolute;
-
   top: 14px;
   right: 18px;
-
   background: transparent;
   border: none;
-
   color: #9ca3af;
-
   font-size: 22px;
-
   cursor: pointer;
 }
 
@@ -763,7 +713,6 @@ intelligence-grid
     opacity: 0;
     transform: translateY(10px) scale(0.98);
   }
-
   to {
     opacity: 1;
     transform: translateY(0px) scale(1);
@@ -778,101 +727,68 @@ intelligence-grid
 
 .welcome-text {
   color: white;
-
   font-size: 14px;
-
   display: flex;
   align-items: center;
-
   line-height: 1;
 }
 
 .avatar-wrapper {
   width: 36px;
   height: 36px;
-
   border-radius: 50%;
-
   overflow: hidden;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: linear-gradient(135deg, #5b8af0 0%, #3dd68c 100%);
-
   border: 1.5px solid rgba(255,255,255,0.15);
-
   flex-shrink: 0;
 }
 
 .user-avatar {
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-
   display: block;
 }
-
-
 
 .avatar-btn {
   width: 34px;
   height: 34px;
-
   border-radius: 50%;
-
   overflow: hidden;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   flex-shrink: 0;
-
   background: transparent;
-
   border: none;
-
   padding: 0;
-
   cursor: pointer;
 }
 
 .avatar-fallback {
   width: 100%;
   height: 100%;
-
   border-radius: 50%;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: #2563eb;
-
   color: white;
-
   font-size: 14px;
   font-weight: 600;
 }
 
 .signout-btn {
   background: transparent;
-
   border: 1px solid rgba(255,255,255,0.08);
-
   color: #d1d5db;
-
   padding: 6px 12px;
-
   border-radius: 999px;
-
   cursor: pointer;
-
   font-size: 13px;
-
   transition: all 0.2s ease;
 }
 
@@ -883,19 +799,12 @@ intelligence-grid
 
 .contact-btn {
   padding: 10px 18px;
-
   border-radius: 999px;
-
   border: 1px solid rgba(255,255,255,0.08);
-
   background: rgba(255,255,255,0.05);
-
   color: white;
-
   cursor: pointer;
-
   transition: all 0.2s ease;
-
   font-size: 14px;
 }
 
@@ -904,11 +813,9 @@ intelligence-grid
 }
 
 @media (max-width: 768px) {
-
   .refresh-btn {
     display: none;
   }
-
 }
 
 /* =========================
@@ -916,53 +823,37 @@ intelligence-grid
 ========================= */
 
 @media (max-width: 768px) {
-
   .refresh-btn {
     display: none;
   }
-
   .welcome-text {
     display: none;
   }
-
 }
 
 @media (max-width: 768px) {
-
   .refresh-text {
     display: none;
   }
-
 }
 
 .user-menu-wrapper {
   position: relative;
-
   display: flex;
   align-items: center;
-
   gap: 8px;
-
   white-space: nowrap;
 }
 
 .user-dropdown {
   position: absolute;
-
   top: calc(100% + 4px);
-
   right: 0;
-
   background: transparent;
-
   border: none;
-
   padding: 0;
-
   z-index: 9999;
-
   box-shadow: none;
-
   animation: dropdownFade 0.18s ease;
 }
 
@@ -971,7 +862,6 @@ intelligence-grid
     opacity: 0;
     transform: translateY(-6px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -980,92 +870,57 @@ intelligence-grid
 
 .dropdown-item {
   background: #111827;
-
   border: 1px solid rgba(255,255,255,0.12);
-
   color: white;
-
   padding: 7px 12px;
-
   border-radius: 999px;
-
   cursor: pointer;
-
   font-size: 13px;
   font-weight: 500;
-
   white-space: nowrap;
-
   transition: all 0.2s ease;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  box-shadow:
-    0 8px 24px rgba(0,0,0,0.35);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
 }
 .dropdown-item:hover {
   background: #1f2937;
 }
 
-
-
 @media (max-width: 450px) {
-
   .tabs {
     display: flex;
     flex-wrap: wrap;
-
     gap: 6px;
-
     align-items: center;
-
     overflow-x: hidden;
-
     padding: 6px 4px;
   }
-
   .tab {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
-
     gap: 3px;
-
     padding: 5px 8px;
-
     min-height: 28px;
-
     border-radius: 999px;
-
     font-size: 10px;
     font-weight: 600;
-
     line-height: 1;
-
     white-space: nowrap;
-
     flex-shrink: 0;
   }
-
   .count-badge {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
-
     min-width: 14px;
     height: 14px;
-
     padding: 0 4px;
-
     border-radius: 999px;
-
     font-size: 9px;
     font-weight: 700;
-
     line-height: 1;
   }
 }
@@ -1119,20 +974,15 @@ intelligence-grid
 /* Watchlist View Toggle            */
 /* -------------------------------- */
 
-
 .watchlist-btn {
   background: transparent;
   color: rgba(255,255,255,0.75);
   border: 1px solid rgba(255,255,255,0.12);
   padding: 8px 14px;
-
   border-radius: 999px;
-
   font-size: 13px;
   font-weight: 600;
-
   cursor: pointer;
-
   transition:
     background 0.2s ease,
     border-color 0.2s ease,
@@ -1147,25 +997,10 @@ intelligence-grid
 }
 
 .watchlist-btn-active {
-
-  background: rgba(
-    91,
-    138,
-    240,
-    0.18
-  );
-
+  background: rgba(91, 138, 240, 0.18);
   border-color: #5b8af0;
-
   color: #ffffff;
-
-  box-shadow:
-    0 0 0 1px rgba(
-      91,
-      138,
-      240,
-      0.2
-    );
+  box-shadow: 0 0 0 1px rgba(91, 138, 240, 0.2);
 }
 
 .weekly-header {
@@ -1179,13 +1014,9 @@ intelligence-grid
 }
 
 .weekly-meta {
-
   display: flex;
-
   gap: 10px;
-
   margin-top: 0;
-
   margin-bottom: 12px;
 }
 
@@ -1193,35 +1024,35 @@ intelligence-grid
 /* Weekly Intelligence                   */
 /* ===================================== */
 
+/* FIX: Added missing dot before intelligence-grid */
 .intelligence-grid {
-
   display: grid;
-
   grid-template-columns:
     repeat(
       3,
-      minmax(
-        0,
-        1fr
-      )
+      minmax(0, 1fr)
     );
-
   gap: 24px;
-
   margin-top: 20px;
-
   width: 100%;
 }
 
-.intel-card {
+/* FIX: Daily grid should be 2 columns */
+.daily-grid {
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+}
 
+.intel-card {
   background:
     linear-gradient(
       180deg,
       rgba(255,255,255,0.04),
       rgba(255,255,255,0.02)
     );
-
   border:
     1px solid rgba(
       255,
@@ -1229,25 +1060,17 @@ intelligence-grid
       255,
       0.08
     );
-
   border-radius: 18px;
-
   overflow: hidden;
-
   min-height: 700px;
 }
 
 .intel-card-header {
-
   padding:
     18px 20px;
-
   font-size: 20px;
-
   font-weight: 700;
-
   color: white;
-
   border-bottom:
     1px solid rgba(
       255,
@@ -1255,7 +1078,6 @@ intelligence-grid
       255,
       0.08
     );
-
   background:
     rgba(
       255,
@@ -1266,20 +1088,14 @@ intelligence-grid
 }
 
 .intel-card-content {
-
   padding: 12px 20px;
 }
 
 .intel-item {
-
   display: flex;
-
   align-items: flex-start;
-
   gap: 10px;
-
   padding: 14px 0;
-
   border-bottom:
     1px solid rgba(
       255,
@@ -1290,15 +1106,11 @@ intelligence-grid
 }
 
 .intel-item:last-child {
-
   border-bottom: none;
 }
 
-
 .intel-text {
-
   flex: 1;
-
   color:
     rgba(
       255,
@@ -1306,19 +1118,14 @@ intelligence-grid
       255,
       0.9
     );
-
   font-size: 14px;
-
   line-height: 1.65;
 }
 
 .weekly-pill {
-
   padding:
     8px 14px;
-
   border-radius: 999px;
-
   background:
     rgba(
       91,
@@ -1326,7 +1133,6 @@ intelligence-grid
       240,
       0.12
     );
-
   border:
     1px solid rgba(
       91,
@@ -1334,21 +1140,16 @@ intelligence-grid
       240,
       0.25
     );
-
   color: white;
-
   font-size: 13px;
-
   font-weight: 600;
 }
 
 .intel-row {
-
   display: block;
 }
 
 .intel-text {
-
   color:
     rgba(
       255,
@@ -1356,24 +1157,16 @@ intelligence-grid
       255,
       0.92
     );
-
   font-size: 14px;
-
   line-height: 1.6;
-
   flex: 1;
 }
 
 .intel-rank {
-
   width: 22px;
-
   min-width: 22px;
-
   height: 22px;
-
   border-radius: 50%;
-
   background:
     rgba(
       91,
@@ -1381,463 +1174,173 @@ intelligence-grid
       240,
       0.18
     );
-
   color:
     #7ca6ff;
-
   font-size: 11px;
-
   font-weight: 700;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   margin-top: 2px;
 }
 
-@media (max-width: 768px) {
+/* Mobile Intelligence Accordion - IMPROVED */
+.accordion-count {
+  color: #8ea6ff;
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.9;
+}
 
+.mobile-accordion summary {
+  list-style: none;
+}
+
+.mobile-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Desktop = normal card behavior */
+@media (min-width: 769px) {
+  .mobile-accordion {
+    display: none; /* Hide accordions on desktop */
+  }
+  
+  .desktop-only {
+    display: block;
+  }
+  
+  .mobile-only {
+    display: none;
+  }
+  
+  .intel-card {
+    display: block;
+  }
+}
+
+/* Mobile = accordion behavior */
+@media (max-width: 768px) {
+  /* Stack sections vertically */
   .intelligence-grid {
-
     display: flex;
-
     flex-direction: column;
-
-    gap: 8px;
-
-    width: 100%;
+    gap: 12px;
   }
-
-  .intel-card {
-
-    width: 100%;
-
-    min-height: auto;
-  }
-
-}
-
-@media (max-width: 768px) {
-
-  .weekly-intelligence {
-
-    padding: 0 12px;
-  }
-
-  .intel-card-header {
-
-    font-size: 18px;
-  }
-
-  .intel-text {
-
-    font-size: 15px;
-
-    line-height: 1.7;
-  }
-
-}
-
-@media (max-width: 768px) {
-
-  .intel-card {
-
-    border-radius: 14px;
-
-    margin-bottom: 8px;
-  }
-
-}
-
-.watchlist-tabs {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  margin-left: 14px;
-
-  margin-top: 4px;
-
-  margin-bottom: 4px;
-}
-
-.watchlist-view-toggle {
-
-  display: flex;
-
-  gap: 10px;
-
-  margin-left: 0;
-
-  margin-top: 4px;
-
-  margin-bottom: 4px;
-}
-
-.watchlist-empty {
-
-  grid-column: 1 / -1;
-
-  width: 100%;
-
-  min-height: calc(
-    100vh - 220px
-  );
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-
-  align-items: center;
-
-  text-align: center;
-
-  padding: 40px;
-}
-.watchlist-empty-icon {
-
-  font-size: 64px;
-
-  color: #f5c84c;
-
-  margin-bottom: 24px;
-}
-
-.watchlist-empty h2 {
-
-  color: white;
-
-  font-size: 42px;
-
-  font-weight: 700;
-
-  margin-bottom: 14px;
-}
-
-.watchlist-empty p {
-
-  max-width: 800px;
-
-  white-space: nowrap;
-
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.75
-    );
-
-  font-size: 18px;
-
-  line-height: 1.8;
-}
-@media (max-width: 768px) {
-
-  .watchlist-empty {
-
-    min-height: calc(
-      100vh - 180px
-    );
-
-    padding: 20px;
-  }
-
-  .watchlist-empty-icon {
-
-    font-size: 56px;
-  }
-
-  .watchlist-empty h2 {
-
-    font-size: 32px;
-  }
-
-  .watchlist-empty p {
-
-    white-space: normal;
-
-    max-width: 320px;
-  }
-}
-
-.daily-grid {
-
-  grid-template-columns:
-    repeat(
-      2,
-      minmax(0, 1fr)
-    );
-}
-
-@media (max-width: 768px) {
-
+  
   .daily-grid {
-
     display: flex;
-
     flex-direction: column;
+    gap: 12px;
   }
-
-}
-
-/* =========================================
-   PULSE-AI COMPACT MODE
-   Add at END of index.css
-========================================= */
-
-/* Global */
-body {
-  font-size: 13px;
-}
-
-/* Dashboard spacing */
-.dashboard {
-  padding: 0 16px;
-}
-
-/* Navigation */
-.nav {
-  height: 48px;
-}
-
-.logo {
-  font-size: 19px;
-}
-
-.search-input {
-  font-size: 12px;
-  padding: 6px 12px 6px 30px;
-}
-
-.btn {
-  font-size: 11px;
-  padding: 5px 12px;
-}
-
-.last-updated {
-  font-size: 10px;
-}
-
-/* Top tabs */
-.tab {
-  font-size: 12px;
-  padding: 8px 16px 9px;
-}
-
-.count-badge {
-  font-size: 10px;
-}
-
-/* Company chips */
-.source-filter {
-  padding: 8px 24px;
-}
-
-.source-chip {
-  font-size: 10px;
-  padding: 4px 10px;
-}
-
-.follow-star {
-  font-size: 11px;
-}
-
-/* Toolbar */
-.toolbar {
-  padding: 6px 24px;
-}
-
-.toolbar-label,
-.sort-btn,
-.total-label {
-  font-size: 10px;
-}
-
-/* Grid */
-.grid-wrap {
-  padding: 10px 24px 32px;
-}
-
-.grid {
-  gap: 12px;
-}
-
-/* News cards */
-.news-card {
-  padding: 12px;
-  gap: 12px;
-}
-
-.card-title {
-  font-size: 16px;
-  line-height: 1.3;
-}
-
-.bullet {
-  font-size: 11.5px;
-  line-height: 1.5;
-}
-
-.card-time,
-.footer-source {
-  font-size: 9px;
-}
-
-.read-link {
-  font-size: 10px;
-}
-
-.source-name {
-  font-size: 10px;
-}
-
-.group-tag {
-  font-size: 9px;
-}
-
-/* Watchlist buttons */
-.watchlist-btn {
-  font-size: 12px;
-  padding: 7px 12px;
-}
-
-/* Weekly / Daily Intelligence */
-.weekly-header {
-  margin-bottom: 16px;
-}
-
-.weekly-pill {
-  font-size: 11px;
-  padding: 6px 12px;
-}
-
-.intelligence-grid {
-  gap: 18px;
-  margin-top: 12px;
-}
-
-.intel-card {
-  min-height: 560px;
-  border-radius: 14px;
-}
-
-.intel-card-header {
-  padding: 14px 16px;
-  font-size: 16px;
-}
-
-.intel-card-content {
-  padding: 8px 16px;
-}
-
-.intel-item {
-  padding: 10px 0;
-}
-
-.intel-company {
-  display: inline;
-  font-weight: 600;
-  color: #6ea8ff;
-  margin-right: 8px;
-}
-
-.intel-text {
-  display: inline;
-}
-
-.intel-rank {
-  width: 18px;
-  min-width: 18px;
-  height: 18px;
-  font-size: 9px;
-}
-
-/* Empty watchlist */
-.watchlist-empty-icon {
-  font-size: 48px;
-  margin-bottom: 18px;
-}
-
-.watchlist-empty h2 {
-  font-size: 30px;
-}
-
-.watchlist-empty p {
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-/* Modal */
-.contact-header {
-  font-size: 20px;
-}
-
-.auth-title {
-  font-size: 24px;
-}
-
-.auth-subtitle {
-  font-size: 13px;
-}
-
-.info-value,
-.info-link {
-  font-size: 12px;
-}
-
-.auth-footer {
-  font-size: 11px;
-}
-
-/* User menu */
-.welcome-text {
-  font-size: 12px;
-}
-
-.contact-btn {
-  font-size: 12px;
-}
-
-.signout-btn {
-  font-size: 11px;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-
-  .card-title {
-    font-size: 15px;
+  
+  /* Hide desktop cards on mobile */
+  .desktop-only {
+    display: none;
   }
-
-  .intel-card-header {
-    font-size: 15px;
-  }
-
-   .intel-company {
-
-    display: block;
-
-    margin-bottom: 4px;
-  }
-
-  .intel-text {
-
+  
+  .mobile-only {
     display: block;
   }
-  .watchlist-empty h2 {
-    font-size: 26px;
+  
+  /* Remove card styling from accordion wrappers */
+  .intel-card {
+    display: none; /* Hide desktop cards */
   }
-
-  .watchlist-empty p {
+  
+  .mobile-accordion {
+    background: #0b1220;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    min-height: unset !important;
+    height: auto !important;
+  }
+  
+  /* Collapsed accordion - show only header */
+  .mobile-accordion:not([open]) {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  
+  .mobile-accordion:not([open]) .intel-card-content {
+    display: none !important;
+  }
+  
+  .mobile-accordion-header {
+    background: linear-gradient(
+      90deg,
+      #16213e,
+      #1b2745
+    );
+    color: #ffffff;
+    padding: 16px 18px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  
+  .mobile-accordion-header:hover {
+    background: linear-gradient(
+      90deg,
+      #1a274a,
+      #223154
+    );
+  }
+  
+  /* Arrow indicator */
+  .mobile-accordion-header::before {
+    content: "▸";
+    margin-right: 10px;
+    transition: transform 0.2s ease;
     font-size: 14px;
   }
+  
+  .mobile-accordion[open]
+  .mobile-accordion-header::before {
+    transform: rotate(90deg);
+  }
+  
+  .mobile-accordion .intel-card-content {
+    padding: 12px 18px 16px;
+    min-height: unset !important;
+    height: auto !important;
+  }
+  
+  .mobile-accordion .intel-item {
+    padding: 12px 0;
+  }
+  
+  .mobile-accordion .intel-text {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .mobile-accordion .intel-company {
+    color: #6ea8ff;
+    font-weight: 600;
+    margin-right: 8px;
+  }
+  
+  .weekly-intelligence {
+    padding: 0 8px;
+  }
+  
+  .mobile-accordion-header {
+    font-size: 15px;
+    padding: 14px 16px;
+  }
+}
+
+/* FIX: Ensure weekly intelligence takes full width */
+.weekly-intelligence {
+  width: 100%;
+  grid-column: 1 / -1;
+  margin-top: -12px;
 }

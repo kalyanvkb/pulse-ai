@@ -65,7 +65,10 @@ const SOURCES = [
   {
     name: "OpenAI",
     group: "Models",
-    rssUrl: "https://openai.com/blog/rss.xml",
+    rssUrls: [
+      "https://openai.com/blog/rss.xml",
+      "https://news.google.com/rss/search?q=OpenAI+AI+news&hl=en-US&gl=US&ceid=US:en"
+    ],
     fallbackScrapeUrl: "https://openai.com/blog",
     logoUrl: "https://openai.com/favicon.ico",
     color: "#10a37f",
@@ -73,7 +76,9 @@ const SOURCES = [
   {
     name: "Anthropic",
     group: "Models",
-    rssUrl: null, // No public RSS — using proxy scraper for Anthropic News
+    rssUrls: [
+      "https://news.google.com/rss/search?q=Anthropic+AI+news&hl=en-US&gl=US&ceid=US:en"
+    ],
     fallbackScrapeUrl: "https://r.jina.ai/http://www.anthropic.com/news",
     logoUrl: "https://www.anthropic.com/favicon.ico",
     color: "#d4612a",
@@ -81,7 +86,10 @@ const SOURCES = [
   {
     name: "Google DeepMind",
     group: "Models",
-    rssUrl: "https://deepmind.google/blog/rss.xml",
+    rssUrls: [
+      "https://deepmind.google/blog/rss.xml",
+      "https://news.google.com/rss/search?q=Google+DeepMind+AI+news&hl=en-US&gl=US&ceid=US:en"
+    ],
     fallbackScrapeUrl: "https://deepmind.google/discover/blog/",
     logoUrl: "https://deepmind.google/favicon.ico",
     color: "#1a73e8",
@@ -89,7 +97,7 @@ const SOURCES = [
   {
     name: "Perplexity",
     group: "Enterprise",
-    rssUrl: null, // No RSS — using proxy scraper due to Cloudflare protection
+    rssUrl: "https://news.google.com/rss/search?q=Perplexity+AI+news&hl=en-US&gl=US&ceid=US:en",
     fallbackScrapeUrl: "https://r.jina.ai/http://blog.perplexity.ai",
     logoUrl: "https://www.perplexity.ai/favicon.ico",
     color: "#20b2aa",
@@ -97,7 +105,7 @@ const SOURCES = [
   {
     name: "Mistral",
     group: "Models",
-    rssUrl: null, // No RSS — using scraper
+    rssUrl: "https://news.google.com/rss/search?q=Mistral+AI+news&hl=en-US&gl=US&ceid=US:en",
     fallbackScrapeUrl: "https://mistral.ai/news",
     logoUrl: "https://mistral.ai/favicon.ico",
     color: "#ff7000",
@@ -157,7 +165,10 @@ const SOURCES = [
   {
     name: "Meta AI",
     group: "Models",
-    rssUrl: "https://about.meta.com/blog/rss",
+    rssUrl: [
+      "https://about.meta.com/blog/rss",
+      "https://news.google.com/rss/search?q=Meta+AI+news&hl=en-US&gl=US&ceid=US:en"
+    ],
     fallbackScrapeUrl: "https://about.meta.com/",
     logoUrl: "https://meta.com/favicon.ico",
     color: "#0b5fff",
@@ -165,7 +176,7 @@ const SOURCES = [
   {
     name: "xAI",
     group: "Models",
-    rssUrl: null,
+    rssUrl: "https://news.google.com/rss/search?q=xAI+AI+news&hl=en-US&gl=US&ceid=US:en",
     fallbackScrapeUrl: "https://x.ai/",
     logoUrl: "https://x.ai/favicon.ico",
     color: "#000000",
@@ -173,7 +184,7 @@ const SOURCES = [
   {
     name: "Cohere",
     group: "Models",
-    rssUrl: null,
+    rssUrl: "https://news.google.com/rss/search?q=Cohere+AI+news&hl=en-US&gl=US&ceid=US:en",
     fallbackScrapeUrl: "https://cohere.ai/",
     logoUrl: "https://cohere.ai/favicon.ico",
     color: "#00b3a6",
@@ -181,7 +192,7 @@ const SOURCES = [
   {
     name: "AI21 Labs",
     group: "Models",
-    rssUrl: null,
+    rssUrl: "https://news.google.com/rss/search?q=AI21+Labs+AI+news&hl=en-US&gl=US&ceid=US:en",
     fallbackScrapeUrl: "https://www.ai21.com/",
     logoUrl: "https://www.ai21.com/favicon.ico",
     color: "#ff6b6b",
@@ -293,7 +304,7 @@ const SOURCES = [
   {
     name: "Groq",
     group: "Hardware",
-    rssUrl: null,
+    rssUrl: "https://news.google.com/rss/search?q=Groq+AI+news&hl=en-US&gl=US&ceid=US:en",
     fallbackScrapeUrl: "https://www.groq.com/",
     logoUrl: "https://www.groq.com/favicon.ico",
     color: "#00b050",
@@ -453,7 +464,7 @@ const SOURCES = [
   {
     name: "Figure",
     group: "Robotics",
-    rssUrl: null,
+    rssUrl: "https://news.google.com/rss/search?q=Figure+AI+news&hl=en-US&gl=US&ceid=US:en",
     fallbackScrapeUrl: "https://figure.ai/news",
     logoUrl: "https://figure.ai/favicon.ico",
     color: "#0f172a",
@@ -493,4 +504,3 @@ const SOURCES = [
 ];
 
 module.exports = SOURCES;
-
