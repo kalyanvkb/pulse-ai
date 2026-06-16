@@ -137,7 +137,7 @@ function startScheduler() {
   //cron.schedule("*/2 * * * *", sendDailyDigest, { timezone }  );
 
 console.log("📧 Daily Digest: Every day @ 6:30 AM IST");
-}
+
 
 
 cron.schedule(
@@ -165,6 +165,8 @@ cron.schedule(
   },
   { timezone }
 );
+}
+
 
 module.exports = {
   startScheduler,
