@@ -54,6 +54,54 @@ const CompanyBrief =
     "companyBriefs"
   );
 
+const shareCardSchema =
+  new mongoose.Schema({
+    title: String,
+    subtitle: String,
+    period: String,
+    sectionType: String,
+    items: [
+      {
+        company: String,
+        text: String
+      }
+    ],
+    userEmail: String,
+    imageUrl: String, // URL where the image is stored or served from
+    createdAt: {
+      type: Date,
+      default: Date.now
+    }
+  });
+
+const ShareCard =
+  mongoose.models.ShareCard ||
+  mongoose.model(
+    "ShareCard",
+    shareCardSchema
+  );
+
+const shareEventSchema =
+  new mongoose.Schema({
+    cardId: String,
+    action: String,
+    sectionType: String,
+    userEmail: String,
+    referrer: String,
+    userAgent: String,
+    createdAt: {
+      type: Date,
+      default: Date.now
+    }
+  });
+
+const ShareEvent =
+  mongoose.models.ShareEvent ||
+  mongoose.model(
+    "ShareEvent",
+    shareEventSchema
+  );
+
 
 /**
  * Connect to MongoDB
@@ -287,6 +335,40 @@ async function getDigestUsers() {
   }).lean();
 }
 
+async function createShareCard(card) {
+  const doc =
+    await ShareCard.create({
+      title: card.title,
+      subtitle: card.subtitle,
+      period: card.period,
+      sectionType: card.sectionType,
+      items: card.items || [],
+      userEmail: card.userEmail,
+      imageUrl: card.imageUrl || null
+    });
+
+  return doc.toObject();
+}
+
+async function getShareCardById(id) {
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return null;
+  }
+
+  return ShareCard.findById(id).lean();
+}
+
+async function recordShareEvent(event) {
+  return ShareEvent.create({
+    cardId: event.cardId,
+    action: event.action,
+    sectionType: event.sectionType,
+    userEmail: event.userEmail,
+    referrer: event.referrer,
+    userAgent: event.userAgent
+  });
+}
+
 /**
  * Check if an article is older than 3 days
  * @param {object} article
@@ -312,5 +394,8 @@ module.exports = {
   getCompanyWeeklyBriefs,
   getCompanyDailyBriefs,
   getDigestUsers,
+  createShareCard,
+  getShareCardById,
+  recordShareEvent,
   isArticleStale
 };

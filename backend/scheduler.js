@@ -1,3 +1,9 @@
+const {
+  sendStrategyMeeting
+} = require(
+  "./jobs/sendStrategyMeeting"
+);
+
 const cron = require("node-cron");
 const SOURCES = require("../sources.config");
 const { fetchAllSources } = require("./fetcher");
@@ -132,6 +138,33 @@ function startScheduler() {
 
 console.log("📧 Daily Digest: Every day @ 6:30 AM IST");
 }
+
+
+cron.schedule(
+  "0 7 * * 0",
+  async () => {
+
+    const reference =
+      new Date("2026-01-04");
+
+    const today =
+      new Date();
+
+    const weeks =
+      Math.floor(
+        (today - reference) /
+        (1000 * 60 * 60 * 24 * 7)
+      );
+
+    if (weeks % 2 === 0) {
+
+      await sendStrategyMeeting();
+
+    }
+
+  },
+  { timezone }
+);
 
 module.exports = {
   startScheduler,
