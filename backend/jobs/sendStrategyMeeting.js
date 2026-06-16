@@ -39,12 +39,16 @@ ${finalReport}
       </pre>
     `;
 
-    await sendEmail({
-      to: "kalyanvkb@gmail.com",
-      subject:
-        "Pulse-AI Executive Strategy Meeting",
-      html
-    });
+    console.log(
+  "Sending strategy email to:",
+  "kalyanvkb@gmail.com"
+);
+
+    await sendEmail(
+  "kalyanvkb@gmail.com",
+  "Pulse-AI Executive Strategy Meeting",
+  html
+);
 
     console.log(
       "✅ Strategy email sent"
