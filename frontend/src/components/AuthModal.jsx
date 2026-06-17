@@ -1,12 +1,21 @@
 import React from "react";
 import { loginWithGoogle } from "../firebase";
 
+useEffect(() => {
+  console.log("USER AGENT:", navigator.userAgent);
+}, []);
+
 export default function AuthModal({ open, onClose }) {
 
   if (!open) return null;
 
 const handleGoogleLogin = async () => {
   try {
+
+    console.log("========== USER AGENT ==========");
+    console.log(navigator.userAgent);
+    console.log("================================");
+
     const result = await loginWithGoogle();
 
     console.log("Firebase login success");
@@ -16,8 +25,6 @@ const handleGoogleLogin = async () => {
 
     localStorage.setItem("token", token);
 
-    console.log("Calling backend sync...");
-
     const response = await fetch("/api/auth/google-login", {
       method: "POST",
       headers: {
@@ -26,11 +33,9 @@ const handleGoogleLogin = async () => {
       body: JSON.stringify({ token }),
     });
 
-    console.log("Backend response status:", response.status);
-
     const data = await response.json();
 
-    console.log("Backend response data:", data);
+    console.log(data);
 
     onClose();
 
