@@ -9,7 +9,6 @@ import {
   signOut
 } from "firebase/auth";
 
-// Load Firebase config from environment variables
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -20,40 +19,37 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
-// Validate that all required Firebase config values are present
-const requiredFirebaseConfig = [
-  "apiKey",
-  "authDomain",
-  "projectId",
-  "storageBucket",
-  "messagingSenderId",
-  "appId",
-];
-const missingConfig = requiredFirebaseConfig.filter(
-  (key) => !firebaseConfig[key]
-);
+const requiredFirebaseConfig = ["apiKey", "authDomain", "projectId", "storageBucket", "messagingSenderId", "appId"];
+const missingConfig = requiredFirebaseConfig.filter((key) => !firebaseConfig[key]);
 
 if (missingConfig.length > 0) {
-  console.error(
-    `❌ Missing Firebase configuration: ${missingConfig.join(", ")}. 
-    Make sure these environment variables are set in .env.local: 
-    VITE_FIREBASE_API_KEY, VITE_FIREBASE_AUTH_DOMAIN, VITE_FIREBASE_PROJECT_ID, 
-    VITE_FIREBASE_STORAGE_BUCKET, VITE_FIREBASE_MESSAGING_SENDER_ID, VITE_FIREBASE_APP_ID`
-  );
+  console.error(`❌ Missing Firebase configuration: ${missingConfig.join(", ")}`);
 }
 
 const app = initializeApp(firebaseConfig);
-
-
-
 const auth = getAuth(app);
-
 const provider = new GoogleAuthProvider();
 
+// Utility helper to detect restricted in-app WebViews
+const isRestrictedWebView = () => {
+  const ua = navigator.userAgent || navigator.vendor || window.opera;
+  return (
+    /LinkedInApp/i.test(ua) || 
+    /FBAN/i.test(ua) || 
+    /FBAV/i.test(ua) || 
+    /Instagram/i.test(ua) ||
+    ((/iPhone|iPod|iPad/i.test(ua)) && !/Safari/i.test(ua))
+  );
+};
+
 export const loginWithGoogle = async () => {
+  if (isRestrictedWebView()) {
+    console.log("In-App WebView detected. Switching to Redirect Auth Flow...");
+    // This redirects the entire browser window context out to Google and back
+    return signInWithRedirect(auth, provider);
+  }
 
-  console.log("Using popup login");
-
+  console.log("Standard browser detected. Using popup login...");
   return signInWithPopup(auth, provider);
 };
 
