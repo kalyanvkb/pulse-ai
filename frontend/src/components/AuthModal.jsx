@@ -1,9 +1,6 @@
 import React from "react";
 import { loginWithGoogle } from "../firebase";
 
-useEffect(() => {
-  console.log("USER AGENT:", navigator.userAgent);
-}, []);
 
 export default function AuthModal({ open, onClose }) {
 
