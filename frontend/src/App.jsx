@@ -5,7 +5,7 @@ import AuthLayout from "./layouts/AuthLayout"; // Adjust path if you saved it el
 import Dashboard from "./pages/Dashboard";
 import DailyIntelligence from "./pages/DailyIntelligence";
 import WeeklyIntelligence from "./pages/WeeklyIntelligence";
-import SharedInsight from "./pages/SharedInsight";
+//import SharedInsight from "./pages/SharedInsight";
 
 function App() {
   return (
@@ -28,10 +28,7 @@ function App() {
             element={<WeeklyIntelligence />}
           />
 
-          <Route
-            path="/shared-insight/:id"
-            element={<SharedInsight />}
-          />
+          
         </Route>
       </Routes>
     </BrowserRouter>
