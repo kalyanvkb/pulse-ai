@@ -1,131 +1,69 @@
-// frontend/src/Dashboard.jsx — Main layout with nav, filters, grid
-import { useNavigate } from "react-router-dom";
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
+//import { useNavigate } from "react-router-dom";
+
 import useNews from "../hooks/useNews";
 import useFollowing from "../hooks/useFollowing";
-import NewsCard from "../components/NewsCard";
-import SkeletonCard from "../components/SkeletonCard";
-import ContactModal from "../components/ContactModal";
-import AuthModal from "../components/AuthModal";
-import UserMenu from "../components/UserMenu";
 import useWeeklyIntelligence from "../hooks/useWeeklyIntelligence";
 import useDailyIntelligence from "../hooks/useDailyIntelligence";
 
+import ContactModal from "../components/ContactModal";
+import AuthModal from "../components/AuthModal";
+
 import { auth, onAuthStateChanged } from "../firebase";
 
-const GROUPS = [
-  "All",
-  "My Watchlist",
-  "Models",
-  "Platforms",
-  "Hardware",
-  "Enterprise",
-  "Developers",
-  "Robotics"
-];
+import {
+  GROUPS,
+  normalizeGroup,
+  getSourcesForGroup,
+  getDateFilterFromPath,
+  getDateFilterValue,
+} from "./dashboard/dashboardUtils";
 
-const GROUP_COLORS = {
-  Models: "#5b8af0",
-  Platforms: "#3dd68c",
-  Hardware: "#ff9f43",
-  Enterprise: "#f0a04b",
-  Developers: "#7a5cff",
-  Robotics: "#ff6b6b",
-};
-
-function normalizeGroup(group) {
-  if (!group) return "";
-  const cleaned = group.trim();
-  const mapping = {
-    "Model Builders": "Models",
-    "Infra & Platforms": "Platforms",
-    "Infra & platforms": "Platforms",
-    "Semiconductor & Hardware": "Hardware",
-    "Enterprise AI": "Enterprise",
-    "Coding and Developer Assistants": "Developers",
-    "Robotics": "Robotics",
-  };
-  return mapping[cleaned] || cleaned;
-}
-
-function formatWeek(isoWeek) {
-  if (!isoWeek) return "";
-  const [year, week] = isoWeek.split("-W");
-  const firstDay = new Date(Number(year), 0, 1 + (Number(week) - 1) * 7);
-  const start = new Date(firstDay);
-  const end = new Date(firstDay);
-  end.setDate(end.getDate() + 6);
-  return `${start.toLocaleDateString("en-US", { month: "short", day: "numeric" })} - ${end.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}`;
-}
-
-function getSourcesForGroup(articles, group) {
-  const filtered = group === "All" ? articles : articles.filter((a) => normalizeGroup(a.group) === group);
-  const seen = new Set();
-  return filtered
-    .map((a) => ({ name: a.source, color: a.color, group: a.group }))
-    .filter((s) => {
-      if (seen.has(s.name)) return false;
-      seen.add(s.name);
-      return true;
-    })
-    .sort((a, b) => a.name.localeCompare(b.name));
-}
-
-function formatRefreshed(iso) {
-  if (!iso) return "Not loaded";
-  const d = new Date(iso);
-  return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-}
-
-function normalizeRoute(path) {
-  return path.replace(/\/+$/, "").toLowerCase();
-}
-
-function getDateFilterFromPath(path) {
-  const normalized = normalizeRoute(path);
-  if (normalized === "/yesterday") return "yesterday";
-  if (normalized === "/today") return "today";
-  return null;
-}
-
-function getDateFilterValue(isoDate) {
-  const date = new Date(isoDate);
-  if (Number.isNaN(date.getTime())) return null;
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const yesterday = new Date(today);
-  yesterday.setDate(yesterday.getDate() - 1);
-  if (date >= today) return "today";
-  if (date >= yesterday && date < today) return "yesterday";
-  return null;
-}
+import DashboardHeader from "./dashboard/components/DashboardHeader";
+import DashboardTabs from "./dashboard/components/DashboardTabs";
+import SourceFilterBar from "./dashboard/components/SourceFilterBar";
+import WatchlistViewTabs from "./dashboard/components/WatchlistViewTabs";
+import DailyBriefingView from "./dashboard/components/DailyBriefingView";
+import WeeklyIntelligenceView from "./dashboard/components/WeeklyIntelligenceView";
+import ArticleGrid from "./dashboard/components/ArticleGrid";
+import WatchlistEmptyState from "./dashboard/components/WatchlistEmptyState";
 
 export default function Dashboard() {
+  //const navigate = useNavigate();
+
   const [user, setUser] = useState(null);
   const [authLoading, setAuthLoading] = useState(true);
+
   const [contactOpen, setContactOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const [pendingCompany, setPendingCompany] = useState(null);
-  const { articles, loading, error, refresh, lastRefreshed, isRefreshing } = useNews();
-  const navigate = useNavigate();
+
+  const { articles, loading, error, refresh, lastRefreshed, isRefreshing } =
+    useNews();
+
   const { following, follow, unfollow } = useFollowing(user);
+
   const [activeGroup, setActiveGroup] = useState("My Watchlist");
   const [activeSources, setActiveSources] = useState(new Set());
   const [sortMode, setSortMode] = useState("latest");
   const [searchQuery, setSearchQuery] = useState("");
-  const [showContact, setShowContact] = useState(false);
   const [watchlistView, setWatchlistView] = useState("daily");
-  const { data: weeklyData, loading: weeklyLoading, reload: reloadWeeklyIntelligence } = useWeeklyIntelligence(user);
-  const { data: dailyData, loading: dailyLoading, error: dailyError, reload: refreshDaily } = useDailyIntelligence(user);
 
-  useEffect(() => {
-    if (activeGroup === "My Watchlist") {
-      if (reloadWeeklyIntelligence) reloadWeeklyIntelligence();
-      if (refreshDaily) refreshDaily();
-    }
-  }, [following, activeGroup, reloadWeeklyIntelligence, refreshDaily]);
+  const {
+    data: weeklyData,
+    loading: weeklyLoading,
+    reload: reloadWeeklyIntelligence,
+  } = useWeeklyIntelligence(user);
+
+  const {
+    data: dailyData,
+    loading: dailyLoading,
+    error: dailyError,
+    reload: refreshDaily,
+  } = useDailyIntelligence(user);
 
   const [debouncedSearch, setDebouncedSearch] = useState("");
+
   const debounceRef = useMemo(() => {
     let timer = null;
     return (val) => {
@@ -134,36 +72,56 @@ export default function Dashboard() {
     };
   }, []);
 
+  const [groupInitialized, setGroupInitialized] = useState(false);
+
+  const routeDateFilter = useMemo(
+    () => getDateFilterFromPath(window.location.pathname),
+    []
+  );
+
+  useEffect(() => {
+    if (activeGroup === "My Watchlist") {
+      if (reloadWeeklyIntelligence) reloadWeeklyIntelligence();
+      if (refreshDaily) refreshDaily();
+    }
+  }, [following, activeGroup, reloadWeeklyIntelligence, refreshDaily]);
+
   useEffect(() => {
     if (!authLoading && user?.email && following.length > 0 && activeGroup === "All") {
       setWatchlistView("daily");
     }
-  }, [authLoading, user, following]);
+  }, [authLoading, user, following, activeGroup]);
 
-  const [groupInitialized, setGroupInitialized] = useState(false);
   useEffect(() => {
     if (groupInitialized || authLoading) return;
+
     if (user?.email && following.length > 0) {
       setActiveGroup("My Watchlist");
     }
+
     setGroupInitialized(true);
   }, [authLoading, user, following, groupInitialized]);
 
   useEffect(() => {
     const company = localStorage.getItem("pendingFollow");
+
     if (user?.email && company) {
       const autoFollow = async () => {
         await follow(company);
         localStorage.removeItem("pendingFollow");
         setPendingCompany(null);
+
         await Promise.all([
-          reloadWeeklyIntelligence ? reloadWeeklyIntelligence() : Promise.resolve(),
-          refreshDaily ? refreshDaily() : Promise.resolve()
+          reloadWeeklyIntelligence
+            ? reloadWeeklyIntelligence()
+            : Promise.resolve(),
+          refreshDaily ? refreshDaily() : Promise.resolve(),
         ]);
       };
+
       autoFollow();
     }
-  }, [user]);
+  }, [user, follow, reloadWeeklyIntelligence, refreshDaily]);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
@@ -171,6 +129,7 @@ export default function Dashboard() {
       else setUser(null);
       setAuthLoading(false);
     });
+
     return () => unsubscribe();
   }, []);
 
@@ -180,14 +139,15 @@ export default function Dashboard() {
     debounceRef(value.trim().toLowerCase());
   };
 
-  const handleGroupChange = (g) => {
-    setActiveGroup(g);
+  const handleGroupChange = (group) => {
+    setActiveGroup(group);
     setActiveSources(new Set());
   };
 
   const toggleSource = (name) => {
     const sourceName = name?.trim();
     if (!sourceName) return;
+
     setActiveSources((prev) => {
       const next = new Set(prev);
       if (next.has(sourceName)) next.delete(sourceName);
@@ -197,10 +157,10 @@ export default function Dashboard() {
   };
 
   const clearSources = () => setActiveSources(new Set());
-  const routeDateFilter = useMemo(() => getDateFilterFromPath(window.location.pathname), []);
 
   const filtered = useMemo(() => {
     let arr = [...articles];
+
     const seen = new Set();
     arr = arr.filter((a) => {
       if (seen.has(a.title)) return false;
@@ -209,10 +169,12 @@ export default function Dashboard() {
     });
 
     if (activeGroup === "My Watchlist") {
-      const followedSet = new Set(following.map(s => s.trim().toLowerCase()));
-      arr = arr.filter(a => followedSet.has((a.source || "").trim().toLowerCase()));
+      const followedSet = new Set(following.map((s) => s.trim().toLowerCase()));
+      arr = arr.filter((a) =>
+        followedSet.has((a.source || "").trim().toLowerCase())
+      );
     } else if (activeGroup !== "All") {
-      arr = arr.filter(a => normalizeGroup(a.group) === activeGroup);
+      arr = arr.filter((a) => normalizeGroup(a.group) === activeGroup);
     }
 
     if (activeSources.size > 0) {
@@ -237,7 +199,9 @@ export default function Dashboard() {
 
     const hasSummary = (article) => {
       if (!article.summary) return false;
-      return Array.isArray(article.summary) ? article.summary.length > 0 : Boolean(article.summary);
+      return Array.isArray(article.summary)
+        ? article.summary.length > 0
+        : Boolean(article.summary);
     };
 
     const compareSummary = (a, b) => {
@@ -263,21 +227,36 @@ export default function Dashboard() {
     }
 
     return arr;
-  }, [articles, activeGroup, activeSources, debouncedSearch, sortMode, routeDateFilter, following]);
+  }, [
+    articles,
+    activeGroup,
+    activeSources,
+    debouncedSearch,
+    sortMode,
+    routeDateFilter,
+    following,
+  ]);
 
   const sourcesForFilter = useMemo(() => {
     if (activeGroup === "My Watchlist") {
-      return getSourcesForGroup(articles.filter((a) => following.includes(a.source)), "All");
+      return getSourcesForGroup(
+        articles.filter((a) => following.includes(a.source)),
+        "All"
+      );
     }
     return getSourcesForGroup(articles, activeGroup);
   }, [articles, activeGroup, following]);
 
   const groupCounts = useMemo(() => {
     const counts = { All: articles.length };
-    counts["My Watchlist"] = articles.filter((a) => following.includes(a.source)).length;
+    counts["My Watchlist"] = articles.filter((a) =>
+      following.includes(a.source)
+    ).length;
+
     GROUPS.slice(2).forEach((g) => {
       counts[g] = articles.filter((a) => normalizeGroup(a.group) === g).length;
     });
+
     return counts;
   }, [articles, following]);
 
@@ -285,332 +264,118 @@ export default function Dashboard() {
     return <div className="loading-screen">Loading...</div>;
   }
 
+  const showWatchlistTabs =
+    activeGroup === "My Watchlist" && following.length > 0;
+
+  const showToolbar =
+    articles.length > 0 &&
+    !(
+      activeGroup === "My Watchlist" &&
+      (watchlistView === "weekly" || watchlistView === "daily")
+    );
+
   return (
     <div className="dashboard">
-      <ContactModal isOpen={showContact} onClose={() => setShowContact(false)} />
-      <nav className="nav">
-        <div className="logo">pulse-ai</div>
-        <div className="search-wrap">
-          <span className="search-icon">⌕</span>
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Search news…"
-            value={searchQuery}
-            onChange={handleSearch}
-          />
-        </div>
-        <div className="nav-right">
-          <span className="last-updated">Updated {formatRefreshed(lastRefreshed)}</span>
-          <button
-            className={`btn refresh-btn ${isRefreshing ? "btn-loading" : ""}`}
-            onClick={refresh}
-            disabled={isRefreshing}
-          >
-            <span className="refresh-icon">↻</span>
-            <span className="refresh-text">{isRefreshing ? " Refreshing…" : " Refresh"}</span>
-          </button>
-          <button className="contact-btn" onClick={() => setContactOpen(true)}>Contact</button>
-          <div className="auth-section">
-            {user ? <UserMenu user={user} /> : <button onClick={() => setAuthOpen(true)} className="auth-btn">Login / Register</button>}
-          </div>
-        </div>
-      </nav>
-
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
       <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
 
-      <div className="tabs">
-        {GROUPS.map((g) => (
-          <button
-            key={g}
-            className={`tab ${activeGroup === g ? "tab-active" : ""}`}
-            onClick={() => handleGroupChange(g)}
-          >
-            {g}
-            <span className="count-badge">{groupCounts[g] || 0}</span>
-          </button>
-        ))}
-      </div>
+      <DashboardHeader
+        searchQuery={searchQuery}
+        onSearchChange={handleSearch}
+        lastRefreshed={lastRefreshed}
+        isRefreshing={isRefreshing}
+        onRefresh={refresh}
+        user={user}
+        onOpenAuth={() => setAuthOpen(true)}
+        onOpenContact={() => setContactOpen(true)}
+      />
 
-      {!(activeGroup === "My Watchlist" && following.length === 0) && (
-        <div className="source-filter">
-          <div
-            className={`source-chip ${activeSources.size === 0 ? "chip-active" : ""}`}
-            onClick={clearSources}
-            style={activeSources.size === 0 ? { background: "rgba(255,255,255,0.1)" } : {}}
-          >
-            All sources
-          </div>
-          {sourcesForFilter.map((s) => {
-            const isFollowing = following.includes(s.name);
-            return (
-              <div
-                key={s.name}
-                className={`source-chip ${activeSources.has(s.name) ? "chip-active" : ""} ${isFollowing ? "source-followed" : ""}`}
-                onClick={() => toggleSource(s.name)}
-              >
-                <span className="source-dot" style={{ background: s.color || "#ccc" }} />
-                <span className="source-label">{s.name}</span>
-                <span
-                  className={`follow-star ${isFollowing ? "followed" : ""}`}
-                  onClick={async (e) => {
-                    e.stopPropagation();
-                    if (!user) {
-                      localStorage.setItem("pendingFollow", s.name);
-                      setPendingCompany(s.name);
-                      setAuthOpen(true);
-                      return;
-                    }
-                    if (isFollowing) await unfollow(s.name);
-                    else await follow(s.name);
-                    if (reloadWeeklyIntelligence) reloadWeeklyIntelligence();
-                    if (refreshDaily) refreshDaily();
-                  }}
-                >
-                  {isFollowing ? "★" : "☆"}
-                </span>
-              </div>
-            );
-          })}
-        </div>
-      )}
+      <DashboardTabs
+        groups={GROUPS}
+        activeGroup={activeGroup}
+        groupCounts={groupCounts}
+        onChange={handleGroupChange}
+      />
 
-      {activeGroup === "My Watchlist" && following.length > 0 && (
-        <div className="watchlist-tabs">
-          <div className="watchlist-view-toggle">
-            <button className={`watchlist-btn ${watchlistView === "latest" ? "watchlist-btn-active" : ""}`} onClick={() => setWatchlistView("latest")}>Latest</button>
-            <button className={`watchlist-btn ${watchlistView === "daily" ? "watchlist-btn-active" : ""}`} onClick={() => setWatchlistView("daily")}>Daily Briefing</button>
-            <button className={`watchlist-btn ${watchlistView === "weekly" ? "watchlist-btn-active" : ""}`} onClick={() => setWatchlistView("weekly")}>Weekly Intelligence</button>
-          </div>
-        </div>
+      <SourceFilterBar
+        activeGroup={activeGroup}
+        following={following}
+        sourcesForFilter={sourcesForFilter}
+        activeSources={activeSources}
+        onToggleSource={toggleSource}
+        onClearSources={clearSources}
+        user={user}
+        follow={follow}
+        unfollow={unfollow}
+        setAuthOpen={setAuthOpen}
+        setPendingCompany={setPendingCompany}
+        reloadWeeklyIntelligence={reloadWeeklyIntelligence}
+        refreshDaily={refreshDaily}
+      />
+
+      {showWatchlistTabs && (
+        <WatchlistViewTabs
+          watchlistView={watchlistView}
+          onChange={setWatchlistView}
+        />
       )}
 
       {(routeDateFilter === "today" || routeDateFilter === "yesterday") && (
-        <div className="banner banner-info">Showing news fetched {routeDateFilter}.</div>
+        <div className="banner banner-info">
+          Showing news fetched {routeDateFilter}.
+        </div>
       )}
 
-      {articles.length > 0 && !(activeGroup === "My Watchlist" && (watchlistView === "weekly" || watchlistView === "daily")) && (
+      {showToolbar && (
         <div className="toolbar">
           <span className="toolbar-label">Sort by</span>
-          <button className={`sort-btn ${sortMode === "latest" ? "sort-active" : ""}`} onClick={() => setSortMode("latest")}>Latest</button>
-          <button className={`sort-btn ${sortMode === "source" ? "sort-active" : ""}`} onClick={() => setSortMode("source")}>Source</button>
+
+          <button
+            className={`sort-btn ${sortMode === "latest" ? "sort-active" : ""}`}
+            onClick={() => setSortMode("latest")}
+          >
+            Latest
+          </button>
+
+          <button
+            className={`sort-btn ${sortMode === "source" ? "sort-active" : ""}`}
+            onClick={() => setSortMode("source")}
+          >
+            Source
+          </button>
+
           <span className="total-label">{filtered.length} articles</span>
         </div>
       )}
 
       {error && (
-        <div className="banner banner-error">⚠ Backend error: {error}. Is the backend running?</div>
+        <div className="banner banner-error">
+          ⚠ Backend error: {error}. Is the backend running?
+        </div>
       )}
 
       <div className="grid-wrap">
         <div className="grid">
-          {loading ? (
-            Array(9).fill(null).map((_, i) => <SkeletonCard key={i} />)
-          ) : activeGroup === "My Watchlist" && following.length === 0 ? (
-            <div className="watchlist-empty">
-              <div className="watchlist-empty-icon">★</div>
-              <h2>Build Your Watchlist</h2>
-              <p>Follow the companies that matter to you by clicking the ★ icon next to any company from the sources above.</p>
-              <p>Your personalized daily and weekly intelligence will appear here.</p>
-            </div>
+          {activeGroup === "My Watchlist" && following.length === 0 ? (
+            <WatchlistEmptyState />
           ) : activeGroup === "My Watchlist" && watchlistView === "daily" ? (
-            <div className="weekly-intelligence">
-              {dailyLoading ? (
-                <div>Loading intelligence...</div>
-              ) : (
-                <>
-                  <div className="weekly-header">
-                    <div className="weekly-meta">
-                      <div className="weekly-pill">{dailyData?.date}</div>
-                      <div className="weekly-pill">{dailyData?.companyCount} Companies</div>
-                    </div>
-                  </div>
-                  <div className="desktop-only">
-                    <div className="intelligence-grid daily-grid">
-                      <div className="intel-card">
-                        <div className="intel-card-header">🔥 Top Developments Today</div>
-                        <div className="intel-card-content">
-                          {(dailyData?.executiveSummary?.whatsHappening || []).map((item, idx) => (
-                            <div className="intel-item" key={idx}>
-                              <div className="intel-row">
-                                <span className="intel-company">{item.company}</span>
-                                <span className="intel-text">{item.text}</span>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                      <div className="intel-card">
-                        <div className="intel-card-header">💡 Why It Matters</div>
-                        <div className="intel-card-content">
-                          {(dailyData?.executiveSummary?.whyItMatters || []).map((item, idx) => (
-                            <div className="intel-item" key={idx}>
-                              <div className="intel-row">
-                                <span className="intel-company">{item.company}</span>
-                                <span className="intel-text">{item.text}</span>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mobile-only">
-                    <div className="intelligence-grid daily-grid">
-                      <details className="mobile-accordion" open>
-                        <summary className="mobile-accordion-header">
-                          🔥 Top Developments Today
-                          <span className="accordion-count">({(dailyData?.executiveSummary?.whatsHappening || []).length})</span>
-                        </summary>
-                        <div className="intel-card-content">
-                          {(dailyData?.executiveSummary?.whatsHappening || []).map((item, idx) => (
-                            <div className="intel-item" key={idx}>
-                              <div className="intel-row">
-                                <span className="intel-company">{item.company}</span>
-                                <span className="intel-text">{item.text}</span>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </details>
-                      <details className="mobile-accordion">
-                        <summary className="mobile-accordion-header">
-                          💡 Why It Matters
-                          <span className="accordion-count">({(dailyData?.executiveSummary?.whyItMatters || []).length})</span>
-                        </summary>
-                        <div className="intel-card-content">
-                          {(dailyData?.executiveSummary?.whyItMatters || []).map((item, idx) => (
-                            <div className="intel-item" key={idx}>
-                              <div className="intel-row">
-                                <span className="intel-company">{item.company}</span>
-                                <span className="intel-text">{item.text}</span>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </details>
-                    </div>
-                  </div>
-                </>
-              )}
-            </div>
+            <DailyBriefingView
+              loading={dailyLoading}
+              data={dailyData}
+              userEmail={user?.email}
+            />
           ) : activeGroup === "My Watchlist" && watchlistView === "weekly" ? (
-            <div className="weekly-intelligence">
-              {weeklyLoading ? (
-                <div>Loading intelligence...</div>
-              ) : (
-                <>
-                  <div className="weekly-header">
-                    <div className="weekly-meta">
-                      <div className="weekly-pill">{formatWeek(weeklyData?.week)}</div>
-                      <div className="weekly-pill">{weeklyData?.companyCount} Companies</div>
-                    </div>
-                  </div>
-                  <div className="desktop-only">
-                    <div className="intelligence-grid">
-                      <div className="intel-card">
-                        <div className="intel-card-header">🚀 Top Moves</div>
-                        <div className="intel-card-content">
-                          {(weeklyData?.executiveSummary?.whatChanged || []).map((item, idx) => (
-                            <div className="intel-item" key={idx}>
-                              <div className="intel-row">
-                                <span className="intel-company">{item.company}</span>
-                                <span className="intel-text">{item.text}</span>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                      <div className="intel-card">
-                        <div className="intel-card-header">🧠 Why It Matters</div>
-                        <div className="intel-card-content">
-                          {(weeklyData?.executiveSummary?.whyItMatters || []).map((item, idx) => (
-                            <div className="intel-item" key={idx}>
-                              <div className="intel-row">
-                                <span className="intel-company">{item.company}</span>
-                                <span className="intel-text">{item.text}</span>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                      <div className="intel-card">
-                        <div className="intel-card-header">🔮 Signals To Watch</div>
-                        <div className="intel-card-content">
-                          {(weeklyData?.executiveSummary?.signalsToWatch || []).map((item, idx) => (
-                            <div className="intel-item" key={idx}>
-                              <div className="intel-row">
-                                <span className="intel-company">{item.company}</span>
-                                <span className="intel-text">{item.text}</span>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mobile-only">
-                    <div className="intelligence-grid">
-                      <details className="mobile-accordion" open>
-                        <summary className="mobile-accordion-header">
-                          🚀 Top Moves
-                          <span className="accordion-count">({(weeklyData?.executiveSummary?.whatChanged || []).length})</span>
-                        </summary>
-                        <div className="intel-card-content">
-                          {(weeklyData?.executiveSummary?.whatChanged || []).map((item, idx) => (
-                            <div className="intel-item" key={idx}>
-                              <div className="intel-row">
-                                <span className="intel-company">{item.company}</span>
-                                <span className="intel-text">{item.text}</span>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </details>
-                      <details className="mobile-accordion">
-                        <summary className="mobile-accordion-header">
-                          🧠 Why It Matters
-                          <span className="accordion-count">({(weeklyData?.executiveSummary?.whyItMatters || []).length})</span>
-                        </summary>
-                        <div className="intel-card-content">
-                          {(weeklyData?.executiveSummary?.whyItMatters || []).map((item, idx) => (
-                            <div className="intel-item" key={idx}>
-                              <div className="intel-row">
-                                <span className="intel-company">{item.company}</span>
-                                <span className="intel-text">{item.text}</span>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </details>
-                      <details className="mobile-accordion">
-                        <summary className="mobile-accordion-header">
-                          🔮 Signals To Watch
-                          <span className="accordion-count">({(weeklyData?.executiveSummary?.signalsToWatch || []).length})</span>
-                        </summary>
-                        <div className="intel-card-content">
-                          {(weeklyData?.executiveSummary?.signalsToWatch || []).map((item, idx) => (
-                            <div className="intel-item" key={idx}>
-                              <div className="intel-row">
-                                <span className="intel-company">{item.company}</span>
-                                <span className="intel-text">{item.text}</span>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </details>
-                    </div>
-                  </div>
-                </>
-              )}
-            </div>
-          ) : debouncedSearch && filtered.length === 0 ? (
-            <div className="empty">No articles matched your search.</div>
+            <WeeklyIntelligenceView
+              loading={weeklyLoading}
+              data={weeklyData}
+              userEmail={user?.email}
+            />
           ) : (
-            filtered.map((a, i) => (
-              <NewsCard key={`${a.id}-${i}`} article={a} index={i} />
-            ))
+            <ArticleGrid
+              loading={loading}
+              filtered={filtered}
+              debouncedSearch={debouncedSearch}
+            />
           )}
         </div>
       </div>

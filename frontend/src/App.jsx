@@ -5,6 +5,7 @@ import AuthLayout from "./layouts/AuthLayout"; // Adjust path if you saved it el
 import Dashboard from "./pages/Dashboard";
 import DailyIntelligence from "./pages/DailyIntelligence";
 import WeeklyIntelligence from "./pages/WeeklyIntelligence";
+import SharePage from "./pages/SharePage";
 //import SharedInsight from "./pages/SharedInsight";
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
             path="/weekly-intelligence"
             element={<WeeklyIntelligence />}
           />
+
+          <Route path="/share/:shareSlug" element={<SharePage />} />
 
           
         </Route>
