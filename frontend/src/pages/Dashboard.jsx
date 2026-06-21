@@ -112,9 +112,7 @@ export default function Dashboard() {
         setPendingCompany(null);
 
         await Promise.all([
-          reloadWeeklyIntelligence
-            ? reloadWeeklyIntelligence()
-            : Promise.resolve(),
+          reloadWeeklyIntelligence ? reloadWeeklyIntelligence() : Promise.resolve(),
           refreshDaily ? refreshDaily() : Promise.resolve(),
         ]);
       };
@@ -142,6 +140,10 @@ export default function Dashboard() {
   const handleGroupChange = (group) => {
     setActiveGroup(group);
     setActiveSources(new Set());
+    // Safe fallback so viewing other metrics resets cleanly
+    if (group !== "My Watchlist") {
+      setWatchlistView("daily");
+    }
   };
 
   const toggleSource = (name) => {
@@ -239,8 +241,9 @@ export default function Dashboard() {
 
   const sourcesForFilter = useMemo(() => {
     if (activeGroup === "My Watchlist") {
+      const followedSet = new Set(following.map((s) => s.trim().toLowerCase()));
       return getSourcesForGroup(
-        articles.filter((a) => following.includes(a.source)),
+        articles.filter((a) => followedSet.has((a.source || "").trim().toLowerCase())),
         "All"
       );
     }
@@ -354,30 +357,33 @@ export default function Dashboard() {
         </div>
       )}
 
+      {/* --- FIXED LAYOUT WRAPPING --- */}
       <div className="grid-wrap">
-        <div className="grid">
-          {activeGroup === "My Watchlist" && following.length === 0 ? (
-            <WatchlistEmptyState />
-          ) : activeGroup === "My Watchlist" && watchlistView === "daily" ? (
-            <DailyBriefingView
-              loading={dailyLoading}
-              data={dailyData}
-              userEmail={user?.email}
-            />
-          ) : activeGroup === "My Watchlist" && watchlistView === "weekly" ? (
-            <WeeklyIntelligenceView
-              loading={weeklyLoading}
-              data={weeklyData}
-              userEmail={user?.email}
-            />
-          ) : (
-            <ArticleGrid
-              loading={loading}
-              filtered={filtered}
-              debouncedSearch={debouncedSearch}
-            />
-          )}
-        </div>
+        {activeGroup === "My Watchlist" && following.length === 0 ? (
+          <WatchlistEmptyState />
+        ) : (
+          <div className="grid">
+            {activeGroup === "My Watchlist" && watchlistView === "daily" ? (
+              <DailyBriefingView
+                loading={dailyLoading}
+                data={dailyData}
+                userEmail={user?.email}
+              />
+            ) : activeGroup === "My Watchlist" && watchlistView === "weekly" ? (
+              <WeeklyIntelligenceView
+                loading={weeklyLoading}
+                data={weeklyData}
+                userEmail={user?.email}
+              />
+            ) : (
+              <ArticleGrid
+                loading={loading}
+                filtered={filtered}
+                debouncedSearch={debouncedSearch}
+              />
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
