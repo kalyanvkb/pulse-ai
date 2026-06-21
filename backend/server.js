@@ -52,6 +52,64 @@ app.use(express.json());
 //const cors = require("cors");
 
 app.use("/api/share-cards", shareCardsRouter);
+
+const fs = require("fs");
+const path = require("path");
+const ShareCard = require("./models/ShareCard");
+
+const FRONTEND_BASE_URL =
+  process.env.FRONTEND_BASE_URL || "https://pulse-ai.in";
+
+const FRONTEND_INDEX_PATH =
+  process.env.FRONTEND_INDEX_PATH ||
+  path.resolve(__dirname, "../frontend/dist/index.html");
+
+function escapeHtml(str = "") {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function buildDescription(shareCard) {
+  if (shareCard?.subtitle) return shareCard.subtitle;
+  const firstItem = shareCard?.payload?.items?.[0];
+  if (firstItem?.text) return firstItem.text.slice(0, 180);
+  return "AI intelligence, curated by Pulse-AI.";
+}
+
+function injectShareOgTags(indexHtml, shareCard) {
+  const title = escapeHtml(shareCard?.title || "Pulse-AI");
+  const description = escapeHtml(buildDescription(shareCard));
+  const shareUrl = `${FRONTEND_BASE_URL}/share/${shareCard.shareSlug}`;
+  const imageUrl = `${FRONTEND_BASE_URL}/api/share-cards/${shareCard.shareSlug}/image.svg`;
+
+  const ogTags = `
+    <title>${title} | Pulse-AI</title>
+    <meta name="description" content="${description}" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Pulse-AI" />
+    <meta property="og:title" content="${title}" />
+    <meta property="og:description" content="${description}" />
+    <meta property="og:url" content="${shareUrl}" />
+    <meta property="og:image" content="${imageUrl}" />
+    <meta property="og:image:secure_url" content="${imageUrl}" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${title}" />
+    <meta name="twitter:description" content="${description}" />
+    <meta name="twitter:image" content="${imageUrl}" />
+  `;
+
+  return indexHtml.replace("</head>", `${ogTags}\n</head>`);
+}
+
 const PORT = process.env.PORT || 3001;
 const PUBLIC_BASE_URL =
   process.env.PUBLIC_BASE_URL ||
@@ -1258,6 +1316,34 @@ app.post(
   }
 );
 
+/* ===========================
+   ADD THE NEW SHARE ROUTE HERE
+   =========================== */
+app.get("/share/:shareSlug", async (req, res) => {
+  try {
+    const { shareSlug } = req.params;
+    const doc = await ShareCard.findOne({ shareSlug }).lean();
+
+    if (!doc) {
+      return res.status(404).send("Share card not found");
+    }
+
+    if (!fs.existsSync(FRONTEND_INDEX_PATH)) {
+      console.error("Frontend index.html not found at:", FRONTEND_INDEX_PATH);
+      return res.status(500).send("Frontend build not found");
+    }
+
+    const indexHtml = fs.readFileSync(FRONTEND_INDEX_PATH, "utf8");
+    const html = injectShareOgTags(indexHtml, doc);
+
+    return res.send(html);
+  } catch (err) {
+    console.error("share page render failed", err);
+    return res.status(500).send("Failed to render share page");
+  }
+});
+
+/* KEEP THIS LAST */
 app.get("*", (req, res) => {
   if (
     req.path.startsWith("/api") ||
