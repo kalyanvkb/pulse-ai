@@ -54,7 +54,6 @@ app.use(express.json());
 app.use("/api/share-cards", shareCardsRouter);
 
 const fs = require("fs");
-const path = require("path");
 const ShareCard = require("./models/ShareCard");
 
 const FRONTEND_BASE_URL =
@@ -1129,17 +1128,6 @@ app.get("/shared-insight/:id", async (req, res) => {
   }
 });
 
-// ─── Helper function to escape HTML ────────────────────────────────────────
-function escapeHtml(text) {
-  const map = {
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#039;"
-  };
-  return text ? text.replace(/[&<>"']/g, m => map[m]) : "";
-}
 
 // ─── React Frontend Fallback ────────────────────────────────────────────────
 // Any non-API route should load the React app
