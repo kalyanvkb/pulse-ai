@@ -59,7 +59,7 @@ export default function SharePage() {
     );
   }
 
-  const items = shareCard?.payload?.items || [];
+  const items = (shareCard?.payload?.items || []).slice(0, 5);
 
   return (
     <div className="share-page-shell">
@@ -75,24 +75,16 @@ export default function SharePage() {
         </div>
 
         <h1 className="share-page-title">{shareCard.title}</h1>
+
         {shareCard.subtitle ? (
           <div className="share-page-subtitle">{shareCard.subtitle}</div>
-        ) : null}
-
-        {shareCard.imageDataUrl ? (
-          <div className="share-page-image-wrap">
-            <img
-              src={shareCard.imageDataUrl}
-              alt={shareCard.title}
-              className="share-page-image"
-            />
-          </div>
         ) : null}
 
         <div className="share-page-items">
           {items.map((item, idx) => (
             <div className="share-page-item" key={idx}>
               <div className="share-page-index">{idx + 1}</div>
+
               <div className="share-page-copy">
                 {item.company ? (
                   <div className="share-page-company">{item.company}</div>
@@ -103,9 +95,14 @@ export default function SharePage() {
           ))}
         </div>
 
-        <div className="share-page-cta">
-          Want more AI intelligence like this? Explore Pulse-AI.
-        </div>
+        <a
+          href="https://pulse-ai.in"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="share-page-cta"
+        >
+          Explore more AI intelligence on Pulse-AI
+        </a>
       </div>
     </div>
   );
