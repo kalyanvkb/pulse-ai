@@ -92,7 +92,7 @@ ${articleList}`;
 
   try {
     const message = await ai.messages.create({
-      model: "claude-sonnet-4-20250514",
+      model: "claude-sonnet-4-6",
       max_tokens: Math.min(toSummarize.length * 150, 8000),
       messages: [{ role: "user", content: prompt }],
     });
