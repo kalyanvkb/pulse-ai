@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-06-27T18:19:48.133521",
+  "payload": [
+    {
+      "fact_id": "fact_001",
+      "company": "Mistral",
+      "event_type": "Other",
+      "title": "Mistral AI selects Montréal for its Canadian hub - Montréal International",
+      "fact": "Mistral AI selected Montréal as the location for its Canadian hub.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Mistral AI selects Montréal for its Canadian hub Montréal International"
+      ]
+    },
+    {
+      "fact_id": "fact_002",
+      "company": "Mistral",
+      "event_type": "Product Launch",
+      "title": "Mistral launches OCR 4, turning document extraction into a full enterprise AI play - VentureBeat",
+      "fact": "Mistral launched OCR 4, a product aimed at document extraction for enterprise AI applications.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Mistral launches OCR 4, turning document extraction into a full enterprise AI play VentureBeat"
+      ]
+    }
+  ]
+}

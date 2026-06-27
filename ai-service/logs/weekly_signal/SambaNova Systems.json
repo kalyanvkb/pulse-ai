@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-06-27T18:49:53.614480",
+  "payload": [
+    {
+      "signal_id": "sig_001",
+      "signal": "AI infrastructure investment increasing",
+      "description": "Industry focus is shifting towards developing AI infrastructure that supports multi-model flexibility, improved energy efficiency, and scalable high-performance inference, reflecting growing prioritization of optimized AI hardware and software stacks.",
+      "signal_strength": 8,
+      "trajectory": "Increasing",
+      "confidence": 80,
+      "beneficiaries": [
+        "SambaNova Systems",
+        "NVIDIA",
+        "Google",
+        "Amazon Web Services",
+        "Microsoft"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_001",
+        "trend_001"
+      ],
+      "watch_next_week": "Monitor announcements of new AI infrastructure products emphasizing multi-model support and energy efficiency."
+    }
+  ]
+}

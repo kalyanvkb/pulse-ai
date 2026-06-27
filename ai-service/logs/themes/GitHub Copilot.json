@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-27T17:06:36.792140",
+  "payload": [
+    {
+      "theme": "Open Source as a Catalyst for Development in Emerging Markets",
+      "description": "The use of open source software is increasingly leveraged to address development priorities in emerging economies, highlighting a trend of technology democratization and collaborative innovation for social impact.",
+      "confidence": 0.8
+    },
+    {
+      "theme": "Integration and Standardization of AI Development Tools",
+      "description": "There is a movement towards creating unified, shared components and SDKs that power multiple AI-driven developer tools and experiences, improving efficiency and consistency across platforms.",
+      "confidence": 0.75
+    }
+  ]
+}

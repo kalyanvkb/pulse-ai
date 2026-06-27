@@ -1,0 +1,107 @@
+{
+  "generated_at": "2026-06-27T18:20:19.995520",
+  "payload": [
+    {
+      "fact_id": "fact_001",
+      "company": "Apple",
+      "event_type": "Other",
+      "title": "Apple price increases for MacBook Pro and iPad Air",
+      "fact": "Apple increased the price of the 16-inch MacBook Pro by $300.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "The 16-inch MacBook Pro saw its price go up by $300"
+      ]
+    },
+    {
+      "fact_id": "fact_002",
+      "company": "Apple",
+      "event_type": "Other",
+      "title": "Apple price increases for MacBook Pro and iPad Air",
+      "fact": "Apple increased the price of the 11-inch iPad Air from $599 to $749.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "The 11-inch iPad Air went from $599 to $749"
+      ]
+    },
+    {
+      "fact_id": "fact_003",
+      "company": "Anthropic",
+      "event_type": "Other",
+      "title": "Anthropic's Mythos 5 model partially restored",
+      "fact": "Anthropic's Mythos 5 model was restored for a select group of organizations after a two-week negotiation with the Trump administration.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "Anthropic's Mythos 5 is finally back in action - at least, somewhat, for a select group of organizations",
+        "After a rollercoaster negotiation process with the Trump administration that dragged on for two weeks"
+      ]
+    },
+    {
+      "fact_id": "fact_004",
+      "company": "Anthropic",
+      "event_type": "Other",
+      "title": "Anthropic's Mythos-class public model remains unavailable",
+      "fact": "Anthropic's public-facing Mythos-class model, Fable 5, remains unavailable with no timeline for rollout.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "Fable 5, however - the public-facing Mythos-class model - appears to still be in limbo, with no apparent timeline for a rollout agreement"
+      ]
+    },
+    {
+      "fact_id": "fact_005",
+      "company": "OpenAI",
+      "event_type": "Model Release",
+      "title": "OpenAI unveils GPT-5.6 model suite",
+      "fact": "OpenAI unveiled a limited preview of its GPT-5.6 model suite including Sol, Terra, and Luna models.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "On Friday, the company unveiled the limited preview of its new GPT 5.6 model suite: Sol, the flagship; Terra, a medium-tier model for \"high-volume work\"; and Luna, a \"fast and affordable\" everyday model"
+      ]
+    },
+    {
+      "fact_id": "fact_006",
+      "company": "OpenAI",
+      "event_type": "Model Release",
+      "title": "OpenAI delays GPT-5.6 release after government request",
+      "fact": "OpenAI delayed the full release of GPT-5.6 and agreed to stagger its rollout at the request of the Trump administration.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "The Trump administration ... has reportedly asked OpenAI to stagger the release of its next big-ticket model, GPT-5",
+        "OpenAI CEO Sam Altman told employees ... it would release GPT-5.6 in limited preview form ... in compliance with a request from the federal government"
+      ]
+    },
+    {
+      "fact_id": "fact_007",
+      "company": "Ford",
+      "event_type": "Hiring",
+      "title": "Ford rehired former engineers to fix automated system errors",
+      "fact": "Ford rehired former engineers and technicians to correct errors made by its automated production and design systems.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "Ford ... required ... hiring experienced technicians - sometimes bringing back former employees - to correct errors made by the company's robots"
+      ]
+    },
+    {
+      "fact_id": "fact_008",
+      "company": "Meta",
+      "event_type": "Product Launch",
+      "title": "Meta relaunches Facebook Creator Studio as AI companion app",
+      "fact": "Meta relaunched the Facebook Creator Studio page manager as a standalone AI companion app.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "Meta is bringing back the Facebook Creator Studio page manager, now \"reimagined\" as a standalone AI companion app"
+      ]
+    },
+    {
+      "fact_id": "fact_009",
+      "company": "Anna Paulina Luna",
+      "event_type": "Other",
+      "title": "Congresswoman denies AI use in drafting legislation",
+      "fact": "Congresswoman Anna Paulina Luna stated her staff only used AI for spellcheck in an amendment summary and denied AI was used to draft the bill text.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "Anna Paulina Luna ... says her staff used AI for \"spellcheck\" in an amendment summary ... but denies it was used for the bill text itself",
+        "\"NO Legislation is ever drafted with AI\""
+      ]
+    }
+  ]
+}

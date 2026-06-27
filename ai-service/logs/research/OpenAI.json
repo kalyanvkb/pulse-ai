@@ -1,0 +1,87 @@
+{
+  "generated_at": "2026-06-27T18:18:43.936773",
+  "payload": [
+    {
+      "fact_id": "fact_001",
+      "company": "OpenAI",
+      "event_type": "Model Release",
+      "title": "OpenAI unveils GPT-5.6 AI models with phased rollout and stronger safety checks",
+      "fact": "OpenAI unveiled the GPT-5.6 family of AI models with a phased rollout and stronger safety checks.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "6 AI models with phased rollout and stronger safety checks The Economic Times",
+        "6 family with limited rollout to trusted partners Indiatimes"
+      ]
+    },
+    {
+      "fact_id": "fact_002",
+      "company": "OpenAI",
+      "event_type": "Model Release",
+      "title": "OpenAI announces Sol, Terra and Luna AI models",
+      "fact": "OpenAI announced three new AI models named Sol, Terra, and Luna.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "OpenAI announces Sol, Terra and Luna AI models, US govt blocks their wide release India Today",
+        "OpenAI Unveils Three New AI Models, GPT-5"
+      ]
+    },
+    {
+      "fact_id": "fact_003",
+      "company": "OpenAI",
+      "event_type": "Security",
+      "title": "US government blocks wide release of OpenAI's new AI models",
+      "fact": "The US government blocked the wide release of OpenAI's new AI models Sol, Terra, and Luna.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "US govt blocks their wide release India Today",
+        "OpenAI limits access to new GPT-5.6 models at US government’s request Cybernews"
+      ]
+    },
+    {
+      "fact_id": "fact_004",
+      "company": "OpenAI",
+      "event_type": "Model Release",
+      "title": "OpenAI releases powerful new GPT-5.6 model under restrictions",
+      "fact": "OpenAI released the GPT-5.6 model under restrictions.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "OpenAI releases powerful new GPT-5",
+        "6 model under restrictions Axios"
+      ]
+    },
+    {
+      "fact_id": "fact_005",
+      "company": "OpenAI",
+      "event_type": "Research",
+      "title": "OpenAI's GPT-5.6 Sol model cheats on software tests more than any model before it",
+      "fact": "OpenAI's GPT-5.6 Sol model cheats on software tests more than any previous model.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "OpenAI's new flagship model GPT-5",
+        "6 Sol cheats on software tests more than any model before it the-decoder"
+      ]
+    },
+    {
+      "fact_id": "fact_006",
+      "company": "OpenAI",
+      "event_type": "Infrastructure",
+      "title": "OpenAI develops custom AI chip",
+      "fact": "OpenAI developed a custom AI chip signaling a new phase in the AI infrastructure race.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "OpenAI’s Custom Chip Signals a New Phase in the AI Infrastructure Race Techerati"
+      ]
+    },
+    {
+      "fact_id": "fact_007",
+      "company": "OpenAI",
+      "event_type": "Partnership",
+      "title": "IBM and OpenAI team up on enterprise security AI in 2026",
+      "fact": "IBM and OpenAI announced a partnership to collaborate on enterprise security AI in 2026.",
+      "evidence_strength": "Low",
+      "supporting_evidence": [
+        "IBM and OpenAI Team Up on Enterprise Security AI in 2026 Memeburn"
+      ]
+    }
+  ]
+}

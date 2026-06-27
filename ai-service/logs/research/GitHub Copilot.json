@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-06-27T17:06:35.082812",
+  "payload": [
+    {
+      "company": "GitHub, UNDP",
+      "event_type": "Partnership",
+      "title": "GitHub and UNDP team up to advance development priorities in Ghana with open source",
+      "fact": "GitHub and UNDP have formed a partnership to advance development priorities in Ghana using open source software.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "GitHub and UNDP team up to advance development priorities in Ghana with open source"
+      ]
+    },
+    {
+      "company": "GitHub",
+      "event_type": "Research",
+      "title": "Evaluating performance and efficiency of the GitHub Copilot agentic harness across models and tasks",
+      "fact": "GitHub conducted research evaluating the performance and efficiency of the GitHub Copilot agentic harness, a shared component of the GitHub Copilot SDK that powers multiple GitHub Copilot experiences.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Evaluating performance and efficiency of the GitHub Copilot agentic harness across models and tasks",
+        "The GitHub Copilot agentic harness is a single shared component of the GitHub Copilot SDK, which powers the GitHub Copilot CLI, GitHub Copilot app, and Copilot code review, along with a wide variety of experiences across GitHub and Microsoft"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-06-27T16:57:50.294057",
+  "payload": [
+    {
+      "company": "Notion",
+      "event_type": "Product Launch",
+      "title": "Introducing Notion’s Developer Platform",
+      "fact": "Notion launched a Developer Platform.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "TITLE: Introducing Notion’s Developer Platform"
+      ]
+    },
+    {
+      "company": "Notion",
+      "event_type": "Enterprise Adoption",
+      "title": "Notion is expanding data residency to Japan and South Korea",
+      "fact": "Notion is expanding data residency to Japan and South Korea.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "TITLE: Notion is expanding data residency to Japan and South Korea"
+      ]
+    },
+    {
+      "company": "Notion",
+      "event_type": "Infrastructure",
+      "title": "Enabling Multi-Region Data Systems at Notion",
+      "fact": "Notion enabled multi-region data systems.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "TITLE: Enabling Multi-Region Data Systems at Notion"
+      ]
+    },
+    {
+      "company": "Notion",
+      "event_type": "Research",
+      "title": "How Notion catches breaking schema changes before they reach production",
+      "fact": "Notion developed methods to catch breaking schema changes before they reach production.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "TITLE: How Notion catches breaking schema changes before they reach production"
+      ]
+    },
+    {
+      "company": "Notion",
+      "event_type": "Infrastructure",
+      "title": "Building observability into Notion’s dead-letter queue",
+      "fact": "Notion built observability features into its dead-letter queue.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "TITLE: Building observability into Notion’s dead-letter queue"
+      ]
+    },
+    {
+      "company": "Notion",
+      "event_type": "Leadership",
+      "title": "Meet Notion’s Board of Directors",
+      "fact": "Notion announced its Board of Directors.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "TITLE: Meet Notion’s Board of Directors"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-06-27T18:16:32.710639",
+  "payload": [
+    {
+      "fact_id": "fact_001",
+      "company": "Writer",
+      "event_type": "Product Launch",
+      "title": "New at WRITER: Brand systems built for an AI era",
+      "fact": "Writer launched brand systems featuring unified voice profiles, terminology lists, style guides, connected workflows, and shared Projects for teams.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Scale brand consistency in WRITER with unified voice profiles, terminology lists, style guides, connected workflows, and shared Projects for every team"
+      ]
+    },
+    {
+      "fact_id": "fact_002",
+      "company": "Writer",
+      "event_type": "Product Launch",
+      "title": "Use this agent to optimize and update your blog SEO…daily",
+      "fact": "Writer launched five AI agents that use live Semrush data to analyze, plan, create, publish SEO-optimized blog content, and review performance data for improvements.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "These five agents uses live Semrush data to analyze, plan, create, and publish SEO optimized blog content, then review performance data to improve the next run"
+      ]
+    },
+    {
+      "fact_id": "fact_003",
+      "company": "Writer",
+      "event_type": "Research",
+      "title": "Personalized AI might be taking your side over the truth",
+      "fact": "Writer's research found that personalized AI models can lose up to 71% accuracy in finance and healthcare sectors.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "WRITER’s research reveals that personalised AI models can lose up to 71% accuracy in finance and healthcare"
+      ]
+    },
+    {
+      "fact_id": "fact_004",
+      "company": "Writer",
+      "event_type": "Enterprise Adoption",
+      "title": "Bankers mostly skipped SaaS. They’re all in on AI now.",
+      "fact": "Bankers are adopting Agentic AI to assist with prospecting, preparation, and pitching new business.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Bankers are getting a lift from Agentic AI"
+      ]
+    },
+    {
+      "fact_id": "fact_005",
+      "company": "Writer",
+      "event_type": "Product Launch",
+      "title": "Automate your podcast production without losing your voice",
+      "fact": "Writer launched AI agents to automate podcast production tasks including interview preparation, show notes, and social promotion.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Learn how to automate your podcast production, from interview prep to show notes to social promotion, using AI agents"
+      ]
+    }
+  ]
+}

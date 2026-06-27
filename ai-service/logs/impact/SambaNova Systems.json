@@ -1,0 +1,52 @@
+{
+  "generated_at": "2026-06-27T18:16:19.416884",
+  "payload": [
+    {
+      "id": "evt_001",
+      "importance": 8,
+      "development": "SambaNova Systems advances AI infrastructure with SambaStack enabling multi-model switching on a single node, highest token-per-watt efficiency, and groundbreaking dataflow technology for scalable inference.",
+      "market_impact": {
+        "business_score": 8,
+        "competition_score": 7,
+        "technology_score": 9,
+        "enterprise_score": 8,
+        "ecosystem_score": 7,
+        "confidence": 80,
+        "rationale": "SambaNova's innovations address critical AI infrastructure needs: performance, energy efficiency, and flexible multi-model workflows, supporting large-scale AI adoption and operational scalability.",
+        "counterarguments": [
+          "Competitors may quickly replicate or surpass these infrastructure advances.",
+          "Adoption depends on enterprise readiness to integrate new hardware.",
+          "Energy efficiency claims need independent validation at scale."
+        ],
+        "affected_companies": [
+          {
+            "company": "SambaNova Systems",
+            "impact": "Very Positive",
+            "confidence": 85,
+            "reason": "Direct beneficiary of infrastructure innovation driving competitive differentiation and enterprise adoption."
+          },
+          {
+            "company": "NVIDIA",
+            "impact": "Negative",
+            "confidence": 75,
+            "reason": "Potential competitive pressure from SambaNova's differentiated architecture and efficiency."
+          },
+          {
+            "company": "AMD",
+            "impact": "Negative",
+            "confidence": 70,
+            "reason": "May face increased competition in AI accelerator market from SambaNova's technology."
+          },
+          {
+            "company": "Google",
+            "impact": "Neutral",
+            "confidence": 70,
+            "reason": "Owns TPU infrastructure but may face competitive pressure in multi-model flexibility."
+          }
+        ],
+        "overall_score": 7.75,
+        "rating": "Positive"
+      }
+    }
+  ]
+}

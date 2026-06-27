@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-06-27T18:49:43.779630",
+  "payload": [
+    {
+      "signal_id": "sig_001",
+      "signal": "Enterprise AI adoption accelerating",
+      "description": "Production-grade AI agent deployments are expanding in regulated industries such as financial services, demonstrating increased enterprise trust and integration of AI systems with human oversight.",
+      "signal_strength": 9,
+      "trajectory": "Increasing",
+      "confidence": 90,
+      "beneficiaries": [
+        "Amazon Web Services",
+        "Stripe"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_001",
+        "trend_001"
+      ],
+      "watch_next_week": "Monitor additional enterprise production deployments and customer announcements in regulated sectors."
+    },
+    {
+      "signal_id": "sig_002",
+      "signal": "AI infrastructure investment increasing",
+      "description": "Cloud providers are upgrading AI infrastructure by integrating next-generation GPUs and optimizing model training platforms, enabling more efficient and scalable AI development.",
+      "signal_strength": 7,
+      "trajectory": "Increasing",
+      "confidence": 75,
+      "beneficiaries": [
+        "Amazon Web Services",
+        "NVIDIA"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_002",
+        "trend_002"
+      ],
+      "watch_next_week": "Track further infrastructure enhancements and GPU integrations announced by cloud providers."
+    }
+  ]
+}

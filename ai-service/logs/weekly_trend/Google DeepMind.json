@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-27T18:52:02.559056",
+  "payload": [
+    {
+      "trend_id": "trend_001",
+      "trend": "AI integration expanding into non-traditional industries",
+      "description": "AI partnerships and deployments are increasingly extending beyond traditional technology sectors into industries such as entertainment, signaling a broadening scope of AI application.",
+      "importance": 7,
+      "confidence": 65,
+      "supporting_findings": [
+        "wkf_001"
+      ]
+    }
+  ]
+}

@@ -16,6 +16,8 @@ venv/
 # Logs
 
 *.log
+logs/
+
 
 # OS
 

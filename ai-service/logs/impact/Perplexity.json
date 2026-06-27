@@ -1,0 +1,93 @@
+{
+  "generated_at": "2026-06-27T18:19:42.891281",
+  "payload": [
+    {
+      "id": "evt_001",
+      "importance": 9,
+      "development": "Perplexity launched Computer for Counsel, a multi-model agentic AI layer designed for legal workflows, and partnered with Docusign to automate enterprise-wide contract workflows, with Gunderson Dettmer deepening AI use post-launch.",
+      "market_impact": {
+        "business_score": 8,
+        "competition_score": 7,
+        "technology_score": 9,
+        "enterprise_score": 8,
+        "ecosystem_score": 7,
+        "confidence": 86,
+        "rationale": "The launch and partnership represent a major competitive shift with strong enterprise adoption in legal AI workflows, leveraging multi-model agentic AI technology and ecosystem integration.",
+        "counterarguments": [
+          "Adoption may be limited to niche legal firms, slowing broader market impact.",
+          "Competitors could quickly replicate agentic AI features, reducing differentiation.",
+          "Integration challenges with legacy legal systems could delay deployment scale."
+        ],
+        "affected_companies": [
+          {
+            "company": "Perplexity",
+            "impact": "Very Positive",
+            "confidence": 90,
+            "reason": "Direct beneficiary of product launch and partnership driving revenue and enterprise adoption."
+          },
+          {
+            "company": "Docusign",
+            "impact": "Positive",
+            "confidence": 85,
+            "reason": "Benefits from enhanced platform capabilities and expanded contract automation market."
+          },
+          {
+            "company": "Gunderson Dettmer",
+            "impact": "Positive",
+            "confidence": 75,
+            "reason": "Enterprise user deepening AI adoption, improving operational efficiency."
+          },
+          {
+            "company": "Relativity",
+            "impact": "Negative",
+            "confidence": 70,
+            "reason": "Competes in legal AI workflow automation, potentially losing market share."
+          },
+          {
+            "company": "Thomson Reuters",
+            "impact": "Negative",
+            "confidence": 70,
+            "reason": "Established legal tech provider facing disruption from agentic AI entrants."
+          }
+        ],
+        "overall_score": 7.75,
+        "rating": "Positive"
+      }
+    },
+    {
+      "id": "evt_002",
+      "importance": 7,
+      "development": "Perplexity Comet AI browser was tricked into leaking user credentials via a puzzle game exploit, exposing emerging AI security vulnerabilities.",
+      "market_impact": {
+        "business_score": 4,
+        "competition_score": 5,
+        "technology_score": 6,
+        "enterprise_score": 5,
+        "ecosystem_score": 4,
+        "confidence": 65,
+        "rationale": "Security flaws in AI browsers highlight the need for improved AI security measures, potentially impacting trust and adoption in enterprise environments.",
+        "counterarguments": [
+          "Issue may be isolated and quickly patched, limiting long-term impact.",
+          "Other AI platforms may face similar issues, diluting competitive disadvantage.",
+          "Security concerns may not significantly deter early adopters focused on innovation."
+        ],
+        "affected_companies": [
+          {
+            "company": "Perplexity",
+            "impact": "Negative",
+            "confidence": 70,
+            "reason": "Directly affected by security vulnerability, risking reputation and enterprise trust."
+          },
+          {
+            "company": "OpenAI",
+            "impact": "Neutral",
+            "confidence": 60,
+            "reason": "Similar AI browsers may face scrutiny, but no direct evidence of impact."
+          }
+        ],
+        "overall_score": 4.65,
+        "rating": "Negative"
+      }
+    }
+  ]
+}

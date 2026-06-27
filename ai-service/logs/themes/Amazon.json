@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-06-27T18:17:55.235026",
+  "payload": [
+    {
+      "theme_id": "theme_001",
+      "theme": "Digital Transformation of Small Businesses in Emerging Markets",
+      "description": "Large technology companies are driving the digitization and integration of millions of small businesses in emerging economies, enabling new economic participation and growth opportunities.",
+      "importance": 8,
+      "confidence": 80,
+      "supporting_facts": [
+        "fact_003",
+        "fact_004"
+      ]
+    },
+    {
+      "theme_id": "theme_002",
+      "theme": "Corporate Investment in Workforce Development for Future Jobs",
+      "description": "Major corporations are proactively investing in workforce training and partnerships to prepare workers for AI-driven and technology-enabled future job markets.",
+      "importance": 7,
+      "confidence": 75,
+      "supporting_facts": [
+        "fact_002"
+      ]
+    },
+    {
+      "theme_id": "theme_003",
+      "theme": "Corporate Social Responsibility in Crisis Response",
+      "description": "Tech companies are increasingly engaging in social impact initiatives by supporting nonprofits and relief efforts during humanitarian crises.",
+      "importance": 6,
+      "confidence": 65,
+      "supporting_facts": [
+        "fact_001"
+      ]
+    }
+  ]
+}

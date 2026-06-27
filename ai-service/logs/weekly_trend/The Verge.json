@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-06-27T18:53:13.024767",
+  "payload": [
+    {
+      "trend_id": "trend_001",
+      "trend": "Government regulation and intervention shaping AI deployment",
+      "description": "Federal and legislative bodies are actively intervening to delay, restrict, or cautiously limit the deployment and use of advanced AI models, reflecting growing regulatory scrutiny and control over AI technologies.",
+      "importance": 9,
+      "confidence": 90,
+      "supporting_findings": [
+        "wkf_001",
+        "wkf_006"
+      ]
+    },
+    {
+      "trend_id": "trend_002",
+      "trend": "AI model tiering to address diverse enterprise use cases",
+      "description": "AI providers are launching tiered model suites with differentiated performance and cost profiles to better serve varied customer needs, indicating maturation and segmentation in AI product offerings.",
+      "importance": 8,
+      "confidence": 95,
+      "supporting_findings": [
+        "wkf_002"
+      ]
+    },
+    {
+      "trend_id": "trend_003",
+      "trend": "AI-powered productivity tools expanding into standalone applications",
+      "description": "Companies are transforming AI features embedded in existing platforms into dedicated AI companion apps to enhance user engagement and productivity, signaling a shift toward specialized AI-driven user experiences.",
+      "importance": 7,
+      "confidence": 90,
+      "supporting_findings": [
+        "wkf_003"
+      ]
+    },
+    {
+      "trend_id": "trend_004",
+      "trend": "Current limitations in automation reliability impacting industrial adoption",
+      "description": "Operational challenges in automated production systems are causing firms to rehire human experts to address errors, highlighting ongoing reliability and trust issues in industrial AI and automation deployments.",
+      "importance": 7,
+      "confidence": 90,
+      "supporting_findings": [
+        "wkf_004"
+      ]
+    },
+    {
+      "trend_id": "trend_005",
+      "trend": "Pricing pressures amid AI integration and supply chain challenges",
+      "description": "Hardware manufacturers are increasing prices on flagship devices, reflecting cost pressures potentially linked to AI integration efforts and broader supply chain dynamics.",
+      "importance": 6,
+      "confidence": 90,
+      "supporting_findings": [
+        "wkf_005"
+      ]
+    }
+  ]
+}

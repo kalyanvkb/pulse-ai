@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-06-27T18:50:31.553517",
+  "payload": [
+    {
+      "trend_id": "trend_001",
+      "trend": "Agentic AI becoming production-ready",
+      "description": "AI agents are advancing rapidly toward production readiness with enhanced self-evaluation, autonomous correction, lifecycle monitoring, and debugging capabilities, enabling more reliable and scalable deployments.",
+      "importance": 9,
+      "confidence": 88,
+      "supporting_findings": [
+        "wkf_002",
+        "wkf_003"
+      ]
+    },
+    {
+      "trend_id": "trend_002",
+      "trend": "Enterprise AI adoption accelerating",
+      "description": "Enterprises are accelerating AI adoption by leveraging self-serve AI agent platforms that significantly reduce development time and operational complexity, enabling faster deployment across industries.",
+      "importance": 9,
+      "confidence": 80,
+      "supporting_findings": [
+        "wkf_001"
+      ]
+    },
+    {
+      "trend_id": "trend_003",
+      "trend": "AI infrastructure evolving to support scalable agent observability",
+      "description": "New infrastructure solutions like distributed databases optimized for AI agent observability are emerging to meet the performance and portability demands of complex, scalable AI agent deployments.",
+      "importance": 8,
+      "confidence": 88,
+      "supporting_findings": [
+        "wkf_004"
+      ]
+    },
+    {
+      "trend_id": "trend_004",
+      "trend": "Increasing complexity in AI agent execution environments",
+      "description": "AI agents are evolving to operate in more realistic and complex execution environments that include filesystem access, shell commands, package management, and persistent state, enabling more sophisticated task execution.",
+      "importance": 7,
+      "confidence": 80,
+      "supporting_findings": [
+        "wkf_005"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-27T18:52:53.011041",
+  "payload": [
+    {
+      "trend_id": "trend_001",
+      "trend": "AI hardware innovation advancing transistor density",
+      "description": "The development of prototype chips with significantly increased transistor density indicates ongoing progress in AI hardware capabilities, potentially extending Moore's Law and enabling more powerful AI processing.",
+      "importance": 8,
+      "confidence": 90,
+      "supporting_findings": [
+        "wkf_001"
+      ]
+    }
+  ]
+}

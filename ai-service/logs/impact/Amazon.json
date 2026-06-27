@@ -1,0 +1,104 @@
+{
+  "generated_at": "2026-06-27T18:18:01.668393",
+  "payload": [
+    {
+      "id": "evt_001",
+      "importance": 8,
+      "development": "Amazon announced a $48 billion investment in India by 2030 and has digitized 12 million small businesses in the country.",
+      "market_impact": {
+        "business_score": 9,
+        "competition_score": 8,
+        "technology_score": 7,
+        "enterprise_score": 8,
+        "ecosystem_score": 8,
+        "confidence": 80,
+        "rationale": "Amazon's massive capital commitment and extensive small business digitization in India significantly expand its market presence and ecosystem influence in a key emerging market.",
+        "counterarguments": [
+          "Regulatory or political challenges in India could delay or reduce investment impact.",
+          "Local competitors or government initiatives might limit Amazon's market share growth.",
+          "Economic downturns in India could reduce small business adoption and revenue growth."
+        ],
+        "affected_companies": [
+          {
+            "company": "Amazon",
+            "impact": "Very Positive",
+            "confidence": 85,
+            "reason": "Direct beneficiary of large-scale investment and digitization efforts in a high-growth emerging market."
+          },
+          {
+            "company": "Flipkart",
+            "impact": "Negative",
+            "confidence": 75,
+            "reason": "Amazon's aggressive investment and digitization efforts intensify competition in India's e-commerce market."
+          },
+          {
+            "company": "Reliance Retail",
+            "impact": "Negative",
+            "confidence": 70,
+            "reason": "Amazon's expansion challenges Reliance's growing digital commerce and retail ecosystem in India."
+          }
+        ],
+        "overall_score": 8.25,
+        "rating": "Positive"
+      }
+    },
+    {
+      "id": "evt_002",
+      "importance": 7,
+      "development": "Amazon joined RAISE US as a founding member to help workers prepare for AI-driven future jobs.",
+      "market_impact": {
+        "business_score": 6,
+        "competition_score": 5,
+        "technology_score": 6,
+        "enterprise_score": 6,
+        "ecosystem_score": 7,
+        "confidence": 75,
+        "rationale": "Amazon's participation in workforce development initiatives strengthens its talent pipeline and positions it as a leader in AI workforce readiness.",
+        "counterarguments": [
+          "Workforce development impact may take years to materialize.",
+          "Other companies may also join, diluting Amazon's relative advantage.",
+          "Effect on Amazon's core business revenue and profitability is indirect and limited."
+        ],
+        "affected_companies": [
+          {
+            "company": "Amazon",
+            "impact": "Positive",
+            "confidence": 75,
+            "reason": "Improves future talent availability and corporate positioning in AI workforce development."
+          }
+        ],
+        "overall_score": 5.85,
+        "rating": "Neutral"
+      }
+    },
+    {
+      "id": "evt_003",
+      "importance": 6,
+      "development": "Amazon is supporting nonprofits on the ground after devastating earthquakes hit northern Venezuela.",
+      "market_impact": {
+        "business_score": 3,
+        "competition_score": 2,
+        "technology_score": 1,
+        "enterprise_score": 2,
+        "ecosystem_score": 3,
+        "confidence": 65,
+        "rationale": "Amazon's humanitarian support enhances corporate social responsibility profile but has limited direct business or market impact.",
+        "counterarguments": [
+          "CSR efforts may improve brand loyalty and indirectly support business.",
+          "Scale of disaster response is limited relative to Amazon's global operations.",
+          "Other companies' CSR efforts could overshadow Amazon's impact."
+        ],
+        "affected_companies": [
+          {
+            "company": "Amazon",
+            "impact": "Neutral",
+            "confidence": 65,
+            "reason": "CSR initiative with limited direct commercial or competitive impact."
+          }
+        ],
+        "overall_score": 2.35,
+        "rating": "Very Negative"
+      }
+    }
+  ]
+}

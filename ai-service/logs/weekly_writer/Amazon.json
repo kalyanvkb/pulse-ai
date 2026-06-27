@@ -1,0 +1,146 @@
+{
+  "generated_at": "2026-06-27T18:51:13.521106",
+  "payload": {
+    "what_changed": [
+      {
+        "source_id": "sig_001",
+        "importance": 9,
+        "text": "Enterprise AI adoption is accelerating with increased investments in AI-driven workforce development and digital transformation.",
+        "company": "Amazon",
+        "strategic_signal": {
+          "signal_id": "sig_001",
+          "signal": "Enterprise AI adoption accelerating",
+          "description": "Enterprises are increasingly investing in AI-driven workforce development and digital transformation initiatives, signaling broader adoption of AI technologies to enhance business capabilities and prepare for future job markets.",
+          "signal_strength": 9,
+          "trajectory": "Increasing",
+          "confidence": 80,
+          "beneficiaries": [
+            "Amazon"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_001",
+            "wkf_002"
+          ],
+          "watch_next_week": "Monitor additional enterprise AI workforce development initiatives and digital transformation announcements."
+        }
+      },
+      {
+        "source_id": "sig_002",
+        "importance": 6,
+        "text": "AI is being integrated into corporate social responsibility and disaster response efforts, marking an emerging trend in social impact applications.",
+        "company": "Amazon",
+        "strategic_signal": {
+          "signal_id": "sig_002",
+          "signal": "AI integration into corporate social responsibility and disaster response",
+          "description": "Corporations are increasingly leveraging AI and digital resources to support disaster relief and nonprofit efforts, reflecting a trend of embedding AI capabilities into social impact and crisis management strategies.",
+          "signal_strength": 6,
+          "trajectory": "Emerging",
+          "confidence": 65,
+          "beneficiaries": [
+            "Amazon"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_003"
+          ],
+          "watch_next_week": "Track new examples of AI-enabled corporate social responsibility and disaster response initiatives."
+        }
+      }
+    ],
+    "why_it_matters": [
+      {
+        "source_id": "sig_001",
+        "importance": 9,
+        "text": "Widespread AI adoption enhances operational efficiency and workforce readiness, creating competitive advantages for enterprises.",
+        "company": "Amazon",
+        "strategic_signal": {
+          "signal_id": "sig_001",
+          "signal": "Enterprise AI adoption accelerating",
+          "description": "Enterprises are increasingly investing in AI-driven workforce development and digital transformation initiatives, signaling broader adoption of AI technologies to enhance business capabilities and prepare for future job markets.",
+          "signal_strength": 9,
+          "trajectory": "Increasing",
+          "confidence": 80,
+          "beneficiaries": [
+            "Amazon"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_001",
+            "wkf_002"
+          ],
+          "watch_next_week": "Monitor additional enterprise AI workforce development initiatives and digital transformation announcements."
+        }
+      },
+      {
+        "source_id": "sig_002",
+        "importance": 6,
+        "text": "Embedding AI in social responsibility initiatives strengthens corporate reputation and expands the strategic role of technology in crisis management.",
+        "company": "Amazon",
+        "strategic_signal": {
+          "signal_id": "sig_002",
+          "signal": "AI integration into corporate social responsibility and disaster response",
+          "description": "Corporations are increasingly leveraging AI and digital resources to support disaster relief and nonprofit efforts, reflecting a trend of embedding AI capabilities into social impact and crisis management strategies.",
+          "signal_strength": 6,
+          "trajectory": "Emerging",
+          "confidence": 65,
+          "beneficiaries": [
+            "Amazon"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_003"
+          ],
+          "watch_next_week": "Track new examples of AI-enabled corporate social responsibility and disaster response initiatives."
+        }
+      }
+    ],
+    "signals_to_watch": [
+      {
+        "source_id": "sig_001",
+        "importance": 9,
+        "text": "Monitor additional enterprise AI workforce development initiatives and digital transformation announcements.",
+        "company": "Amazon",
+        "strategic_signal": {
+          "signal_id": "sig_001",
+          "signal": "Enterprise AI adoption accelerating",
+          "description": "Enterprises are increasingly investing in AI-driven workforce development and digital transformation initiatives, signaling broader adoption of AI technologies to enhance business capabilities and prepare for future job markets.",
+          "signal_strength": 9,
+          "trajectory": "Increasing",
+          "confidence": 80,
+          "beneficiaries": [
+            "Amazon"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_001",
+            "wkf_002"
+          ],
+          "watch_next_week": "Monitor additional enterprise AI workforce development initiatives and digital transformation announcements."
+        }
+      },
+      {
+        "source_id": "sig_002",
+        "importance": 6,
+        "text": "Track new examples of AI-enabled corporate social responsibility and disaster response initiatives.",
+        "company": "Amazon",
+        "strategic_signal": {
+          "signal_id": "sig_002",
+          "signal": "AI integration into corporate social responsibility and disaster response",
+          "description": "Corporations are increasingly leveraging AI and digital resources to support disaster relief and nonprofit efforts, reflecting a trend of embedding AI capabilities into social impact and crisis management strategies.",
+          "signal_strength": 6,
+          "trajectory": "Emerging",
+          "confidence": 65,
+          "beneficiaries": [
+            "Amazon"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_003"
+          ],
+          "watch_next_week": "Track new examples of AI-enabled corporate social responsibility and disaster response initiatives."
+        }
+      }
+    ]
+  }
+}

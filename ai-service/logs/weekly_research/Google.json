@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-06-27T18:51:18.616867",
+  "payload": [
+    {
+      "finding_id": "wkf_001",
+      "title": "Google expanded AI integration in education with Gemini and related tools",
+      "summary": "Google advanced AI adoption in education through the deployment of Gemini for Education and other AI tools, supported by funding initiatives and adoption by public school systems to address achievement gaps and personalize learning.",
+      "importance": 9,
+      "confidence": 85,
+      "supporting_daily_events": [
+        "fact_003",
+        "fact_007",
+        "fact_008",
+        "fact_009",
+        "evt_001"
+      ]
+    },
+    {
+      "finding_id": "wkf_002",
+      "title": "Google diversified consumer AI assistance applications",
+      "summary": "Google launched multiple AI-powered consumer tools including Career Dreamer, NotebookLM, and Gemini Live to assist with job search, personal productivity, and lifestyle management, reflecting a broadening of AI use cases beyond enterprise.",
+      "importance": 7,
+      "confidence": 75,
+      "supporting_daily_events": [
+        "fact_005",
+        "fact_006",
+        "fact_004",
+        "evt_002"
+      ]
+    },
+    {
+      "finding_id": "wkf_003",
+      "title": "Google.org funded AI-driven public sector and social impact initiatives",
+      "summary": "Google.org committed $5 million to scale Ukraine's national AI job platform Obrii and announced additional funding to support long-term education and AI partners, reinforcing AI's role in public sector and social impact projects.",
+      "importance": 7,
+      "confidence": 80,
+      "supporting_daily_events": [
+        "fact_002",
+        "fact_009",
+        "evt_003"
+      ]
+    },
+    {
+      "finding_id": "wkf_004",
+      "title": "Google launched AI-powered Google Finance Android app",
+      "summary": "Google introduced a new AI-enhanced Google Finance app for Android as the service exited beta, aiming to improve consumer financial services interfaces and engagement.",
+      "importance": 6,
+      "confidence": 65,
+      "supporting_daily_events": [
+        "fact_001",
+        "evt_004"
+      ]
+    },
+    {
+      "finding_id": "wkf_005",
+      "title": "Google introduced AI tools to enhance YouTube digital marketing campaigns",
+      "summary": "Google launched the June Demand Gen Drop offering new AI-driven features to improve campaign performance and viewer engagement on YouTube, supporting digital marketing evolution.",
+      "importance": 6,
+      "confidence": 65,
+      "supporting_daily_events": [
+        "fact_010",
+        "evt_005"
+      ]
+    }
+  ]
+}

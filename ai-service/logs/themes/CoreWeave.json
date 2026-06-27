@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-27T18:17:30.934023",
+  "payload": [
+    {
+      "theme_id": "theme_001",
+      "theme": "AI Infrastructure Race Intensifying",
+      "description": "Emerging innovations in AI hardware and data center technologies are driving the development of specialized infrastructure to support increasingly complex and agentic AI workloads.",
+      "importance": 8,
+      "confidence": 65,
+      "supporting_facts": [
+        "fact_001"
+      ]
+    }
+  ]
+}

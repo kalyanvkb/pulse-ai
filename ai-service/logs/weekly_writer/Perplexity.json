@@ -1,0 +1,140 @@
+{
+  "generated_at": "2026-06-27T18:52:36.129741",
+  "payload": {
+    "what_changed": [
+      {
+        "source_id": "sig_001",
+        "importance": 8,
+        "text": "Agentic AI systems integrating multiple models advanced from experimental stages to production, notably in specialized enterprise workflows like legal services.",
+        "company": "Perplexity",
+        "strategic_signal": {
+          "signal_id": "sig_001",
+          "signal": "Agentic AI moving into production",
+          "description": "Agentic AI systems that integrate multiple models are transitioning from experimental to production use, especially in specialized enterprise workflows such as legal services.",
+          "signal_strength": 8,
+          "trajectory": "Increasing",
+          "confidence": 86,
+          "beneficiaries": [
+            "Perplexity",
+            "DocuSign"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_001"
+          ],
+          "watch_next_week": "Track additional enterprise deployments of multi-model agentic AI and partnerships in regulated industries."
+        }
+      },
+      {
+        "source_id": "sig_002",
+        "importance": 7,
+        "text": "Emerging AI security vulnerabilities were identified in applications embedded within enterprise workflows.",
+        "company": "Perplexity",
+        "strategic_signal": {
+          "signal_id": "sig_002",
+          "signal": "AI security vulnerabilities emerging in workflow-integrated applications",
+          "description": "As AI applications become embedded in enterprise workflows, new security vulnerabilities are being identified, signaling a growing need for specialized AI security solutions.",
+          "signal_strength": 7,
+          "trajectory": "Emerging",
+          "confidence": 65,
+          "beneficiaries": [],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_002"
+          ],
+          "watch_next_week": "Monitor developments in AI security measures and responses to newly discovered vulnerabilities in AI-integrated workflows."
+        }
+      }
+    ],
+    "why_it_matters": [
+      {
+        "source_id": "sig_001",
+        "importance": 8,
+        "text": "The shift to production-ready agentic AI enables enterprises to enhance workflow automation and competitive differentiation in regulated sectors.",
+        "company": "Perplexity",
+        "strategic_signal": {
+          "signal_id": "sig_001",
+          "signal": "Agentic AI moving into production",
+          "description": "Agentic AI systems that integrate multiple models are transitioning from experimental to production use, especially in specialized enterprise workflows such as legal services.",
+          "signal_strength": 8,
+          "trajectory": "Increasing",
+          "confidence": 86,
+          "beneficiaries": [
+            "Perplexity",
+            "DocuSign"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_001"
+          ],
+          "watch_next_week": "Track additional enterprise deployments of multi-model agentic AI and partnerships in regulated industries."
+        }
+      },
+      {
+        "source_id": "sig_002",
+        "importance": 7,
+        "text": "New security risks in AI-integrated workflows increase the urgency for robust AI-specific cybersecurity strategies to protect enterprise operations.",
+        "company": "Perplexity",
+        "strategic_signal": {
+          "signal_id": "sig_002",
+          "signal": "AI security vulnerabilities emerging in workflow-integrated applications",
+          "description": "As AI applications become embedded in enterprise workflows, new security vulnerabilities are being identified, signaling a growing need for specialized AI security solutions.",
+          "signal_strength": 7,
+          "trajectory": "Emerging",
+          "confidence": 65,
+          "beneficiaries": [],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_002"
+          ],
+          "watch_next_week": "Monitor developments in AI security measures and responses to newly discovered vulnerabilities in AI-integrated workflows."
+        }
+      }
+    ],
+    "signals_to_watch": [
+      {
+        "source_id": "sig_001",
+        "importance": 8,
+        "text": "Monitor further enterprise deployments of multi-model agentic AI and emerging partnerships in regulated industries.",
+        "company": "Perplexity",
+        "strategic_signal": {
+          "signal_id": "sig_001",
+          "signal": "Agentic AI moving into production",
+          "description": "Agentic AI systems that integrate multiple models are transitioning from experimental to production use, especially in specialized enterprise workflows such as legal services.",
+          "signal_strength": 8,
+          "trajectory": "Increasing",
+          "confidence": 86,
+          "beneficiaries": [
+            "Perplexity",
+            "DocuSign"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_001"
+          ],
+          "watch_next_week": "Track additional enterprise deployments of multi-model agentic AI and partnerships in regulated industries."
+        }
+      },
+      {
+        "source_id": "sig_002",
+        "importance": 7,
+        "text": "Track developments in AI security measures and responses to vulnerabilities in AI-integrated workflows.",
+        "company": "Perplexity",
+        "strategic_signal": {
+          "signal_id": "sig_002",
+          "signal": "AI security vulnerabilities emerging in workflow-integrated applications",
+          "description": "As AI applications become embedded in enterprise workflows, new security vulnerabilities are being identified, signaling a growing need for specialized AI security solutions.",
+          "signal_strength": 7,
+          "trajectory": "Emerging",
+          "confidence": 65,
+          "beneficiaries": [],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_002"
+          ],
+          "watch_next_week": "Monitor developments in AI security measures and responses to newly discovered vulnerabilities in AI-integrated workflows."
+        }
+      }
+    ]
+  }
+}

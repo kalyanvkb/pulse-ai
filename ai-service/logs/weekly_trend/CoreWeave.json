@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-27T18:50:46.236474",
+  "payload": [
+    {
+      "trend_id": "trend_001",
+      "trend": "AI infrastructure investment increasing",
+      "description": "The industry is seeing a sustained focus on advancing AI hardware and infrastructure, including innovations in cooling, networking, and full-stack solutions to support growing AI workloads.",
+      "importance": 8,
+      "confidence": 75,
+      "supporting_findings": [
+        "wkf_001"
+      ]
+    }
+  ]
+}

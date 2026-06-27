@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-06-27T18:53:37.305790",
+  "payload": [
+    {
+      "trend_id": "trend_001",
+      "trend": "AI infrastructure investment increasing",
+      "description": "Leading AI organizations are investing in custom hardware and talent acquisition to reduce dependency on external suppliers and enhance AI model performance, signaling a strategic focus on proprietary infrastructure development.",
+      "importance": 9,
+      "confidence": 95,
+      "supporting_findings": [
+        "wkf_001"
+      ]
+    },
+    {
+      "trend_id": "trend_002",
+      "trend": "AI governance and regulation shaping enterprise adoption",
+      "description": "Government regulations and export controls are significantly influencing AI model deployment and enterprise adoption patterns, with some models restricted while others gain broader adoption due to regulatory allowances.",
+      "importance": 9,
+      "confidence": 90,
+      "supporting_findings": [
+        "wkf_002"
+      ]
+    },
+    {
+      "trend_id": "trend_003",
+      "trend": "Regional AI ecosystems expanding and localizing",
+      "description": "AI providers are expanding into emerging markets through strategic local leadership and partnerships, while regional startups develop competitive models to bypass export restrictions, indicating a diversification and localization of AI ecosystems.",
+      "importance": 8,
+      "confidence": 80,
+      "supporting_findings": [
+        "wkf_003",
+        "wkf_004"
+      ]
+    },
+    {
+      "trend_id": "trend_004",
+      "trend": "AI integration into personalized healthcare advancing",
+      "description": "AI applications are increasingly integrating diverse personal health data streams to enable individualized disease management, demonstrating a meaningful shift toward personalized medicine powered by AI.",
+      "importance": 7,
+      "confidence": 70,
+      "supporting_findings": [
+        "wkf_005"
+      ]
+    }
+  ]
+}

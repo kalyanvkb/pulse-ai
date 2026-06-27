@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-06-27T18:52:57.122535",
+  "payload": [
+    {
+      "signal_id": "sig_001",
+      "signal": "AI hardware innovation advancing transistor density",
+      "description": "Prototype chips with doubled transistor density demonstrate continued progress in semiconductor technology, enabling more powerful and efficient AI processing capabilities and potentially extending Moore's Law.",
+      "signal_strength": 8,
+      "trajectory": "Increasing",
+      "confidence": 90,
+      "beneficiaries": [
+        "IBM",
+        "NVIDIA",
+        "Intel",
+        "TSMC",
+        "Samsung"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_001",
+        "trend_001"
+      ],
+      "watch_next_week": "Monitor announcements of new AI chip prototypes and manufacturing advancements from leading semiconductor firms."
+    }
+  ]
+}

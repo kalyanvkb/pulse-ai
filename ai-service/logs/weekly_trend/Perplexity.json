@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-06-27T18:52:14.342734",
+  "payload": [
+    {
+      "trend_id": "trend_001",
+      "trend": "Agentic AI becoming production-ready",
+      "description": "Agentic AI systems integrating multiple models are being deployed in enterprise workflows, particularly in specialized domains such as legal services, demonstrating readiness for production use.",
+      "importance": 8,
+      "confidence": 86,
+      "supporting_findings": [
+        "wkf_001"
+      ]
+    },
+    {
+      "trend_id": "trend_002",
+      "trend": "AI security vulnerabilities emerging in workflow-integrated applications",
+      "description": "As AI applications become embedded in enterprise workflows, new security vulnerabilities are being discovered, highlighting the need for enhanced AI security measures.",
+      "importance": 7,
+      "confidence": 65,
+      "supporting_findings": [
+        "wkf_002"
+      ]
+    }
+  ]
+}

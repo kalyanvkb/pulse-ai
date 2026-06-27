@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-06-27T16:57:52.224077",
+  "payload": [
+    {
+      "theme": "Expansion of Multi-Region and Data Residency Infrastructure",
+      "description": "There is a clear trend towards building and expanding multi-region data systems and localized data residency to comply with regional regulations and improve performance.",
+      "confidence": 0.95
+    },
+    {
+      "theme": "Increasing Focus on Developer Ecosystems and Platform Enablement",
+      "description": "Organizations are launching developer platforms to foster third-party integrations and ecosystem growth, enabling extensibility and customization.",
+      "confidence": 0.9
+    },
+    {
+      "theme": "Enhanced Observability and Proactive Data Quality Management",
+      "description": "There is a growing emphasis on observability within infrastructure components and proactive detection of schema changes to prevent production issues.",
+      "confidence": 0.85
+    }
+  ]
+}

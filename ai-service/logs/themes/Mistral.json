@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-06-27T18:19:50.350785",
+  "payload": [
+    {
+      "theme_id": "theme_001",
+      "theme": "Enterprise AI Adoption Accelerating",
+      "description": "Enterprises are increasingly adopting AI-driven solutions for automating complex business processes such as document extraction, signaling a shift towards integrated AI applications in operational workflows.",
+      "importance": 9,
+      "confidence": 80,
+      "supporting_facts": [
+        "fact_002"
+      ]
+    },
+    {
+      "theme_id": "theme_002",
+      "theme": "Geographic Expansion of AI Hubs",
+      "description": "AI companies are strategically establishing regional hubs to tap into local talent pools and ecosystems, indicating a trend of geographic diversification in AI innovation and development.",
+      "importance": 7,
+      "confidence": 65,
+      "supporting_facts": [
+        "fact_001"
+      ]
+    }
+  ]
+}

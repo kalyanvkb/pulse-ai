@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-06-27T18:19:26.483727",
+  "payload": [
+    {
+      "id": "evt_001",
+      "importance": 7,
+      "development": "Google DeepMind entered into a $75 million AI partnership with A24, a non-technology entertainment company.",
+      "market_impact": {
+        "business_score": 7,
+        "competition_score": 6,
+        "technology_score": 6,
+        "enterprise_score": 7,
+        "ecosystem_score": 5,
+        "confidence": 65,
+        "rationale": "This partnership exemplifies AI's expansion into new industry verticals, enhancing Google DeepMind's enterprise adoption and revenue diversification while signaling broader AI integration beyond traditional tech sectors.",
+        "counterarguments": [
+          "The partnership's impact may be limited if A24's AI use cases remain niche or experimental.",
+          "Backlash against the partnership could hinder its execution or scale.",
+          "The $75 million investment, while significant, may not translate into immediate large-scale revenue or market shifts."
+        ],
+        "affected_companies": [
+          {
+            "company": "Google DeepMind",
+            "impact": "Positive",
+            "confidence": 70,
+            "reason": "Secures a sizable partnership expanding AI applications beyond tech, enhancing enterprise adoption and revenue potential."
+          },
+          {
+            "company": "A24",
+            "impact": "Positive",
+            "confidence": 65,
+            "reason": "Access to advanced AI capabilities may improve product innovation and operational efficiency in entertainment."
+          }
+        ],
+        "overall_score": 6.45,
+        "rating": "Neutral"
+      }
+    }
+  ]
+}

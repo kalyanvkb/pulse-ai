@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-06-27T18:50:48.311421",
+  "payload": [
+    {
+      "signal_id": "sig_001",
+      "signal": "AI infrastructure investment increasing",
+      "description": "There is growing momentum in developing advanced AI hardware and full-stack infrastructure solutions, including innovations in cooling and networking, to support expanding AI workloads and performance demands.",
+      "signal_strength": 8,
+      "trajectory": "Increasing",
+      "confidence": 75,
+      "beneficiaries": [
+        "NVIDIA",
+        "CoreWeave"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_001"
+      ],
+      "watch_next_week": "Track announcements of new AI infrastructure deployments and innovations in hardware scalability."
+    }
+  ]
+}

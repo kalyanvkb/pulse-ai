@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-27T18:52:50.138183",
+  "payload": [
+    {
+      "finding_id": "wkf_001",
+      "title": "IBM unveils prototype chip doubling transistor density",
+      "summary": "IBM introduced a new prototype chip featuring approximately 100 billion transistors on a fingernail-sized area, doubling the transistor density compared to its 2021 technology and potentially extending Moore's Law by another decade.",
+      "importance": 9,
+      "confidence": 90,
+      "supporting_daily_events": [
+        "evt_001"
+      ]
+    }
+  ]
+}

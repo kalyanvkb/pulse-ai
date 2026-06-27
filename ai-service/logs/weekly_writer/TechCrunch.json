@@ -1,0 +1,296 @@
+{
+  "generated_at": "2026-06-27T18:53:47.382726",
+  "payload": {
+    "what_changed": [
+      {
+        "source_id": "sig_001",
+        "importance": 9,
+        "text": "Leading AI organizations increased investments in custom hardware and talent to build proprietary AI infrastructure.",
+        "company": "TechCrunch",
+        "strategic_signal": {
+          "signal_id": "sig_001",
+          "signal": "AI infrastructure investment increasing",
+          "description": "Leading AI organizations are investing in custom hardware and acquiring specialized talent to reduce dependency on external suppliers and enhance AI model performance, signaling a strategic focus on proprietary infrastructure development.",
+          "signal_strength": 9,
+          "trajectory": "Increasing",
+          "confidence": 95,
+          "beneficiaries": [
+            "OpenAI",
+            "Broadcom"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_001",
+            "trend_001"
+          ],
+          "watch_next_week": "Monitor announcements of new custom AI hardware and related talent acquisitions."
+        }
+      },
+      {
+        "source_id": "sig_002",
+        "importance": 9,
+        "text": "Regulatory and export controls are increasingly shaping enterprise AI adoption and market access.",
+        "company": "TechCrunch",
+        "strategic_signal": {
+          "signal_id": "sig_002",
+          "signal": "AI governance and regulation shaping enterprise adoption",
+          "description": "Government regulations and export controls are increasingly determining which AI models enterprises can deploy, influencing adoption patterns and creating differentiated market access.",
+          "signal_strength": 9,
+          "trajectory": "Increasing",
+          "confidence": 90,
+          "beneficiaries": [
+            "Anthropic"
+          ],
+          "companies_under_pressure": [
+            "OpenAI"
+          ],
+          "evidence": [
+            "wkf_002",
+            "trend_002"
+          ],
+          "watch_next_week": "Track regulatory developments and their impact on AI model availability and enterprise adoption."
+        }
+      },
+      {
+        "source_id": "sig_003",
+        "importance": 8,
+        "text": "AI providers expanded regional ecosystems through local leadership and partnerships, fostering ecosystem localization.",
+        "company": "TechCrunch",
+        "strategic_signal": {
+          "signal_id": "sig_003",
+          "signal": "Regional AI ecosystems expanding and localizing",
+          "description": "AI providers are strategically expanding into emerging markets through local leadership hires and partnerships, while regional startups develop competitive models to bypass export restrictions, driving ecosystem diversification and localization.",
+          "signal_strength": 8,
+          "trajectory": "Increasing",
+          "confidence": 80,
+          "beneficiaries": [
+            "OpenAI",
+            "Asian AI startups"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_003",
+            "wkf_004",
+            "trend_003"
+          ],
+          "watch_next_week": "Observe new regional AI model launches and local market expansion moves."
+        }
+      },
+      {
+        "source_id": "sig_004",
+        "importance": 7,
+        "text": "AI integration into personalized healthcare advanced by combining diverse personal health data for individualized disease management.",
+        "company": "TechCrunch",
+        "strategic_signal": {
+          "signal_id": "sig_004",
+          "signal": "AI integration into personalized healthcare advancing",
+          "description": "AI is increasingly applied to integrate diverse personal health data streams, enabling individualized disease management and signaling a shift toward personalized medicine powered by AI.",
+          "signal_strength": 7,
+          "trajectory": "Increasing",
+          "confidence": 70,
+          "beneficiaries": [],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_005",
+            "trend_004"
+          ],
+          "watch_next_week": "Monitor new AI healthcare applications integrating multi-source personal data."
+        }
+      }
+    ],
+    "why_it_matters": [
+      {
+        "source_id": "sig_001",
+        "importance": 9,
+        "text": "Proprietary AI infrastructure investments reduce supplier dependency and enhance model performance, creating competitive differentiation.",
+        "company": "TechCrunch",
+        "strategic_signal": {
+          "signal_id": "sig_001",
+          "signal": "AI infrastructure investment increasing",
+          "description": "Leading AI organizations are investing in custom hardware and acquiring specialized talent to reduce dependency on external suppliers and enhance AI model performance, signaling a strategic focus on proprietary infrastructure development.",
+          "signal_strength": 9,
+          "trajectory": "Increasing",
+          "confidence": 95,
+          "beneficiaries": [
+            "OpenAI",
+            "Broadcom"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_001",
+            "trend_001"
+          ],
+          "watch_next_week": "Monitor announcements of new custom AI hardware and related talent acquisitions."
+        }
+      },
+      {
+        "source_id": "sig_002",
+        "importance": 9,
+        "text": "Regulatory influence on AI deployment affects enterprise strategies and market positioning amid evolving compliance requirements.",
+        "company": "TechCrunch",
+        "strategic_signal": {
+          "signal_id": "sig_002",
+          "signal": "AI governance and regulation shaping enterprise adoption",
+          "description": "Government regulations and export controls are increasingly determining which AI models enterprises can deploy, influencing adoption patterns and creating differentiated market access.",
+          "signal_strength": 9,
+          "trajectory": "Increasing",
+          "confidence": 90,
+          "beneficiaries": [
+            "Anthropic"
+          ],
+          "companies_under_pressure": [
+            "OpenAI"
+          ],
+          "evidence": [
+            "wkf_002",
+            "trend_002"
+          ],
+          "watch_next_week": "Track regulatory developments and their impact on AI model availability and enterprise adoption."
+        }
+      },
+      {
+        "source_id": "sig_003",
+        "importance": 8,
+        "text": "Regional ecosystem growth enables market diversification and resilience against export restrictions, opening new business opportunities.",
+        "company": "TechCrunch",
+        "strategic_signal": {
+          "signal_id": "sig_003",
+          "signal": "Regional AI ecosystems expanding and localizing",
+          "description": "AI providers are strategically expanding into emerging markets through local leadership hires and partnerships, while regional startups develop competitive models to bypass export restrictions, driving ecosystem diversification and localization.",
+          "signal_strength": 8,
+          "trajectory": "Increasing",
+          "confidence": 80,
+          "beneficiaries": [
+            "OpenAI",
+            "Asian AI startups"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_003",
+            "wkf_004",
+            "trend_003"
+          ],
+          "watch_next_week": "Observe new regional AI model launches and local market expansion moves."
+        }
+      },
+      {
+        "source_id": "sig_004",
+        "importance": 7,
+        "text": "Advances in AI-driven personalized healthcare promise improved patient outcomes and new value propositions for health tech providers.",
+        "company": "TechCrunch",
+        "strategic_signal": {
+          "signal_id": "sig_004",
+          "signal": "AI integration into personalized healthcare advancing",
+          "description": "AI is increasingly applied to integrate diverse personal health data streams, enabling individualized disease management and signaling a shift toward personalized medicine powered by AI.",
+          "signal_strength": 7,
+          "trajectory": "Increasing",
+          "confidence": 70,
+          "beneficiaries": [],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_005",
+            "trend_004"
+          ],
+          "watch_next_week": "Monitor new AI healthcare applications integrating multi-source personal data."
+        }
+      }
+    ],
+    "signals_to_watch": [
+      {
+        "source_id": "sig_001",
+        "importance": 9,
+        "text": "Monitor announcements of new custom AI hardware and talent acquisitions.",
+        "company": "TechCrunch",
+        "strategic_signal": {
+          "signal_id": "sig_001",
+          "signal": "AI infrastructure investment increasing",
+          "description": "Leading AI organizations are investing in custom hardware and acquiring specialized talent to reduce dependency on external suppliers and enhance AI model performance, signaling a strategic focus on proprietary infrastructure development.",
+          "signal_strength": 9,
+          "trajectory": "Increasing",
+          "confidence": 95,
+          "beneficiaries": [
+            "OpenAI",
+            "Broadcom"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_001",
+            "trend_001"
+          ],
+          "watch_next_week": "Monitor announcements of new custom AI hardware and related talent acquisitions."
+        }
+      },
+      {
+        "source_id": "sig_002",
+        "importance": 9,
+        "text": "Track regulatory developments impacting AI model availability and enterprise adoption.",
+        "company": "TechCrunch",
+        "strategic_signal": {
+          "signal_id": "sig_002",
+          "signal": "AI governance and regulation shaping enterprise adoption",
+          "description": "Government regulations and export controls are increasingly determining which AI models enterprises can deploy, influencing adoption patterns and creating differentiated market access.",
+          "signal_strength": 9,
+          "trajectory": "Increasing",
+          "confidence": 90,
+          "beneficiaries": [
+            "Anthropic"
+          ],
+          "companies_under_pressure": [
+            "OpenAI"
+          ],
+          "evidence": [
+            "wkf_002",
+            "trend_002"
+          ],
+          "watch_next_week": "Track regulatory developments and their impact on AI model availability and enterprise adoption."
+        }
+      },
+      {
+        "source_id": "sig_003",
+        "importance": 8,
+        "text": "Observe new regional AI model launches and local market expansion initiatives.",
+        "company": "TechCrunch",
+        "strategic_signal": {
+          "signal_id": "sig_003",
+          "signal": "Regional AI ecosystems expanding and localizing",
+          "description": "AI providers are strategically expanding into emerging markets through local leadership hires and partnerships, while regional startups develop competitive models to bypass export restrictions, driving ecosystem diversification and localization.",
+          "signal_strength": 8,
+          "trajectory": "Increasing",
+          "confidence": 80,
+          "beneficiaries": [
+            "OpenAI",
+            "Asian AI startups"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_003",
+            "wkf_004",
+            "trend_003"
+          ],
+          "watch_next_week": "Observe new regional AI model launches and local market expansion moves."
+        }
+      },
+      {
+        "source_id": "sig_004",
+        "importance": 7,
+        "text": "Monitor new AI healthcare applications integrating multi-source personal data.",
+        "company": "TechCrunch",
+        "strategic_signal": {
+          "signal_id": "sig_004",
+          "signal": "AI integration into personalized healthcare advancing",
+          "description": "AI is increasingly applied to integrate diverse personal health data streams, enabling individualized disease management and signaling a shift toward personalized medicine powered by AI.",
+          "signal_strength": 7,
+          "trajectory": "Increasing",
+          "confidence": 70,
+          "beneficiaries": [],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_005",
+            "trend_004"
+          ],
+          "watch_next_week": "Monitor new AI healthcare applications integrating multi-source personal data."
+        }
+      }
+    ]
+  }
+}

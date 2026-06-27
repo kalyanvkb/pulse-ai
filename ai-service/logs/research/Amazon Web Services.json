@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-06-27T18:12:11.428990",
+  "payload": [
+    {
+      "fact_id": "fact_001",
+      "company": "Amazon Web Services",
+      "event_type": "Enterprise Adoption",
+      "title": "Production-grade AI agents for financial compliance: Lessons from Stripe",
+      "fact": "Stripe built a production-grade AI agent system on AWS using Amazon Bedrock that reduced review handling time by 26 percent while maintaining human oversight.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "Stripe built a production-grade AI agent system on AWS using Amazon Bedrock",
+        "Reduced review handling time by 26 percent",
+        "Maintained human oversight"
+      ]
+    },
+    {
+      "fact_id": "fact_002",
+      "company": "Amazon Web Services",
+      "event_type": "Product Launch",
+      "title": "Optimize model training on Amazon SageMaker AI with NVIDIA Blackwell",
+      "fact": "Amazon Web Services optimized model training on Amazon SageMaker AI using NVIDIA Blackwell GPUs.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Optimizing model training on Amazon SageMaker AI with NVIDIA Blackwell GPUs",
+        "Blackwell’s expanded memory and new precision formats reduce constraints"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-27T18:19:21.945726",
+  "payload": [
+    {
+      "theme_id": "theme_001",
+      "theme": "Strategic AI Partnerships Expanding Across Industries",
+      "description": "Leading AI companies are increasingly forming high-value partnerships with firms outside traditional tech sectors, signaling a broadening of AI integration and investment across diverse industries.",
+      "importance": 7,
+      "confidence": 65,
+      "supporting_facts": [
+        "fact_001"
+      ]
+    }
+  ]
+}

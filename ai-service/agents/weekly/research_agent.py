@@ -1,32 +1,51 @@
+import json
+
 from prompts.weekly.research_prompt import (
     RESEARCH_PROMPT
 )
 
+from utils.json_parser import (
+    parse_llm_json
+)
 
-def normalize_items(items):
+from utils.prompt_logger import (
+    log_stage
+)
 
-    normalized = []
 
-    for item in items:
+def build_weekly_input(daily_briefs):
 
-        if isinstance(item, dict):
+    sections = []
 
-            text = item.get(
-                "text"
+    for brief in daily_briefs:
+
+        section = {
+
+            "date": brief.get("date"),
+
+            "facts": brief.get(
+                "facts",
+                []
+            ),
+
+            "themes": brief.get(
+                "themes",
+                []
+            ),
+
+            "market_intelligence": brief.get(
+                "impacts",
+                []
             )
 
-            if text:
-                normalized.append(
-                    text
-                )
+        }
 
-        elif item:
+        sections.append(section)
 
-            normalized.append(
-                str(item)
-            )
-
-    return normalized
+    return json.dumps(
+        sections,
+        indent=2
+    )
 
 
 def research_agent(
@@ -34,60 +53,41 @@ def research_agent(
     llm
 ):
 
-    brief_text = "\n\n".join(
+    weekly_input = build_weekly_input(
 
-        [
-            f"""
-DATE:
-{brief.get('date')}
+        state["daily_briefs"]
 
-WHAT HAPPENED:
-{chr(10).join(
-    normalize_items(
-        brief.get(
-            'whatsHappening',
-            []
-        )
-    )
-)}
-
-WHY IT MATTERS:
-{chr(10).join(
-    normalize_items(
-        brief.get(
-            'whyItMatters',
-            []
-        )
-    )
-)}
-"""
-            for brief in state[
-                "daily_briefs"
-            ]
-        ]
     )
 
     prompt = f"""
 {RESEARCH_PROMPT}
 
-WEEKLY BRIEFS:
+WEEKLY DAILY INTELLIGENCE
 
-{brief_text}
+{weekly_input}
 """
 
     result = llm.invoke(
         prompt
     )
 
-    state["findings"] = [
+    output = parse_llm_json(
+        result.content
+    )
 
-        line.strip()
+    state["weekly_findings"] = output.get(
+        "weekly_findings",
+        []
+    )
 
-        for line in result.content.split(
-            "\n"
-        )
+    log_stage(
 
-        if line.strip()
-    ]
+        state["company"],
+
+        "weekly_research",
+
+        state["weekly_findings"]
+
+    )
 
     return state

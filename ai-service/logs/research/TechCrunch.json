@@ -1,0 +1,84 @@
+{
+  "generated_at": "2026-06-27T18:20:55.674774",
+  "payload": [
+    {
+      "fact_id": "fact_001",
+      "company": "TechCrunch",
+      "event_type": "Other",
+      "title": "Connor Christou used AI to fight cancer",
+      "fact": "Connor Christou fed blood results, scan data, wearable output, and journal entries into Claude to fight cancer.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Connor Christou fed everything tied tied to his regime — blood results, scan data, wearable output, journal entries — into Claude"
+      ]
+    },
+    {
+      "fact_id": "fact_002",
+      "company": "TechCrunch",
+      "event_type": "Model Release",
+      "title": "Asian AI startups launch Mythos-like models",
+      "fact": "Asian AI startups launched new models with Mythos-like capabilities.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "New models are launching in Asia that promise Mythos-like capabilities without fear of an export ban"
+      ]
+    },
+    {
+      "fact_id": "fact_003",
+      "company": "TechCrunch",
+      "event_type": "Enterprise Adoption",
+      "title": "Anthropic Mythos authorized for use by US companies and agencies",
+      "fact": "More than 100 US companies and government agencies are authorized to use Anthropic Mythos 5, including their non-American employees.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Over 100 companies and government agencies are reportedly authorized to use Mythos 5, including their non-American employees"
+      ]
+    },
+    {
+      "fact_id": "fact_004",
+      "company": "OpenAI",
+      "event_type": "Model Release",
+      "title": "OpenAI limits GPT-5.6 rollout after government request",
+      "fact": "OpenAI limited the rollout of GPT-5.6 following a government request.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "OpenAI limits GPT-5.6 rollout after government request"
+      ]
+    },
+    {
+      "fact_id": "fact_005",
+      "company": "OpenAI",
+      "event_type": "Hiring",
+      "title": "OpenAI hires Uber India chief",
+      "fact": "OpenAI hired the Uber India chief to lead its biggest market outside the US.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "OpenAI poaches Uber India chief to lead its biggest market outside the US",
+        "The hire marks OpenAI's latest push into India, expanding offices, partnerships and hiring"
+      ]
+    },
+    {
+      "fact_id": "fact_006",
+      "company": "OpenAI",
+      "event_type": "Infrastructure",
+      "title": "OpenAI develops Jalapeño custom inference chip",
+      "fact": "OpenAI developed Jalapeño, a custom inference chip built with Broadcom.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "OpenAI just shared its plans to spice things up with Jalapeño, its custom inference chip built with Broadcom",
+        "Joining Google, Apple, and SpaceX in a growing list of companies building their way out of single-supplier risk"
+      ]
+    },
+    {
+      "fact_id": "fact_007",
+      "company": "OpenAI",
+      "event_type": "Hiring",
+      "title": "Apple Vision Pro exec Paul Meade leaving for OpenAI",
+      "fact": "Paul Meade, Apple vice president in charge of the Vision Pro headset, is leaving Apple to join OpenAI’s hardware team.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Paul Meade, the Apple vice president in charge of the Vision Pro headset, is reportedly leaving the company to join OpenAI’s hardware team"
+      ]
+    }
+  ]
+}

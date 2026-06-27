@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-06-27T18:52:44.997963",
+  "payload": [
+    {
+      "signal_id": "sig_001",
+      "signal": "Enterprise AI adoption accelerating",
+      "description": "Enterprises are increasingly deploying AI solutions to automate business workflows, particularly in areas like advanced document extraction, reflecting growing demand for operational efficiency.",
+      "signal_strength": 9,
+      "trajectory": "Increasing",
+      "confidence": 80,
+      "beneficiaries": [
+        "Amazon Web Services",
+        "Microsoft",
+        "NVIDIA"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_001",
+        "trend_001"
+      ],
+      "watch_next_week": "Monitor additional enterprise AI deployments and new product launches targeting business workflow automation."
+    },
+    {
+      "signal_id": "sig_002",
+      "signal": "AI regional innovation hubs expanding",
+      "description": "AI firms are establishing new regional hubs to tap into local talent and foster innovation ecosystems, signaling a strategic shift toward geographic diversification and enhanced talent acquisition.",
+      "signal_strength": 7,
+      "trajectory": "Emerging",
+      "confidence": 65,
+      "beneficiaries": [
+        "Mistral"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_002",
+        "trend_002"
+      ],
+      "watch_next_week": "Track announcements of new AI hubs and regional talent initiatives."
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-06-27T18:21:00.060093",
+  "payload": [
+    {
+      "theme_id": "theme_001",
+      "theme": "AI Infrastructure Race Intensifying",
+      "description": "Leading AI companies are investing heavily in custom hardware and talent acquisition to reduce dependency on external suppliers and optimize AI model performance.",
+      "importance": 9,
+      "confidence": 90,
+      "supporting_facts": [
+        "fact_006",
+        "fact_007"
+      ]
+    },
+    {
+      "theme_id": "theme_002",
+      "theme": "Geopolitical and Regulatory Influence on AI Deployment",
+      "description": "Government regulations and export controls are shaping AI model availability and deployment strategies, influencing how companies roll out and authorize AI technologies globally.",
+      "importance": 9,
+      "confidence": 85,
+      "supporting_facts": [
+        "fact_003",
+        "fact_004",
+        "fact_002"
+      ]
+    },
+    {
+      "theme_id": "theme_003",
+      "theme": "AI Adoption Expanding in Emerging Markets",
+      "description": "AI companies are strategically expanding into emerging markets like India by hiring local leadership and building partnerships to capture new growth opportunities outside traditional Western markets.",
+      "importance": 7,
+      "confidence": 80,
+      "supporting_facts": [
+        "fact_005"
+      ]
+    },
+    {
+      "theme_id": "theme_004",
+      "theme": "AI Empowering Personalized Healthcare",
+      "description": "AI is increasingly being used to integrate diverse personal health data streams for individualized disease management and treatment, signaling a shift towards personalized medicine.",
+      "importance": 7,
+      "confidence": 70,
+      "supporting_facts": [
+        "fact_001"
+      ]
+    }
+  ]
+}

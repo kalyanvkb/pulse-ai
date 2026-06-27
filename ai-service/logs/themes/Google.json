@@ -1,0 +1,61 @@
+{
+  "generated_at": "2026-06-27T18:18:21.349651",
+  "payload": [
+    {
+      "theme_id": "theme_001",
+      "theme": "AI Integration in Education Expanding",
+      "description": "The deployment of AI tools and platforms in educational settings is growing, aiming to personalize learning, close achievement gaps, and support educators and students effectively.",
+      "importance": 8,
+      "confidence": 80,
+      "supporting_facts": [
+        "fact_003",
+        "fact_007",
+        "fact_008",
+        "fact_009"
+      ]
+    },
+    {
+      "theme_id": "theme_002",
+      "theme": "Consumer AI Assistance Diversifying",
+      "description": "AI-powered applications are increasingly targeting everyday consumer needs such as job search assistance, personal productivity, and lifestyle management, reflecting broader AI adoption beyond enterprise.",
+      "importance": 7,
+      "confidence": 75,
+      "supporting_facts": [
+        "fact_005",
+        "fact_006",
+        "fact_004"
+      ]
+    },
+    {
+      "theme_id": "theme_003",
+      "theme": "AI-Driven Public Sector and Social Impact Initiatives",
+      "description": "AI funding and platform scaling efforts are being directed towards public sector and social impact projects, including national job platforms and educational partnerships, highlighting AI's role in societal development.",
+      "importance": 7,
+      "confidence": 80,
+      "supporting_facts": [
+        "fact_002",
+        "fact_009"
+      ]
+    },
+    {
+      "theme_id": "theme_004",
+      "theme": "AI-Enhanced Financial Services Interfaces Emerging",
+      "description": "New AI-powered applications are being launched in the financial services domain, indicating a trend towards more interactive and accessible financial management tools for consumers.",
+      "importance": 6,
+      "confidence": 65,
+      "supporting_facts": [
+        "fact_001"
+      ]
+    },
+    {
+      "theme_id": "theme_005",
+      "theme": "AI Tools Supporting Digital Marketing Evolution",
+      "description": "AI is being integrated into digital marketing platforms to improve campaign performance and viewer engagement, signaling a shift towards more intelligent and automated marketing solutions.",
+      "importance": 6,
+      "confidence": 65,
+      "supporting_facts": [
+        "fact_010"
+      ]
+    }
+  ]
+}

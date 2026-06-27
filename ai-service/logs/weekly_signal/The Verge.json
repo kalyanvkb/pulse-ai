@@ -1,0 +1,101 @@
+{
+  "generated_at": "2026-06-27T18:53:19.689394",
+  "payload": [
+    {
+      "signal_id": "sig_001",
+      "signal": "Government regulation increasingly shaping AI deployment",
+      "description": "Federal and legislative bodies are actively intervening to delay, restrict, or cautiously limit the deployment and use of advanced AI models, signaling growing regulatory scrutiny and control over AI technologies.",
+      "signal_strength": 9,
+      "trajectory": "Increasing",
+      "confidence": 90,
+      "beneficiaries": [
+        "AI compliance and governance solution providers",
+        "Consulting firms specializing in regulatory strategy"
+      ],
+      "companies_under_pressure": [
+        "OpenAI",
+        "Anthropic"
+      ],
+      "evidence": [
+        "wkf_001",
+        "wkf_006",
+        "trend_001"
+      ],
+      "watch_next_week": "Monitor new regulatory announcements and government actions impacting AI model releases."
+    },
+    {
+      "signal_id": "sig_002",
+      "signal": "AI model tiering accelerating to address diverse enterprise needs",
+      "description": "AI providers are launching tiered model suites with differentiated performance and cost profiles, reflecting maturation and segmentation in AI product offerings to better serve varied customer use cases.",
+      "signal_strength": 8,
+      "trajectory": "Increasing",
+      "confidence": 95,
+      "beneficiaries": [
+        "OpenAI",
+        "Microsoft",
+        "Google"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_002",
+        "trend_002"
+      ],
+      "watch_next_week": "Track additional tiered model launches and enterprise adoption patterns."
+    },
+    {
+      "signal_id": "sig_003",
+      "signal": "Expansion of AI-powered productivity tools into standalone applications",
+      "description": "Companies are evolving AI features embedded in existing platforms into dedicated AI companion apps, signaling a shift toward specialized AI-driven user experiences and enhanced engagement.",
+      "signal_strength": 7,
+      "trajectory": "Increasing",
+      "confidence": 90,
+      "beneficiaries": [
+        "Meta",
+        "Microsoft",
+        "Adobe"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_003",
+        "trend_003"
+      ],
+      "watch_next_week": "Observe new standalone AI app launches and user adoption metrics."
+    },
+    {
+      "signal_id": "sig_004",
+      "signal": "Reliability challenges in automation slowing industrial AI adoption",
+      "description": "Operational issues in automated production systems are causing firms to rehire human experts to address errors, highlighting ongoing trust and reliability limitations in industrial AI and automation deployments.",
+      "signal_strength": 7,
+      "trajectory": "Stable",
+      "confidence": 90,
+      "beneficiaries": [
+        "Human labor and engineering service providers"
+      ],
+      "companies_under_pressure": [
+        "Ford"
+      ],
+      "evidence": [
+        "wkf_004",
+        "trend_004"
+      ],
+      "watch_next_week": "Monitor industrial automation error rates and corrective staffing trends."
+    },
+    {
+      "signal_id": "sig_005",
+      "signal": "Pricing pressures rising amid AI integration and supply chain challenges",
+      "description": "Hardware manufacturers are increasing prices on flagship devices, reflecting cost pressures potentially linked to AI integration efforts and broader supply chain dynamics.",
+      "signal_strength": 6,
+      "trajectory": "Increasing",
+      "confidence": 90,
+      "beneficiaries": [
+        "Apple"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_005",
+        "trend_005"
+      ],
+      "watch_next_week": "Watch for further hardware price adjustments and supply chain updates."
+    }
+  ]
+}

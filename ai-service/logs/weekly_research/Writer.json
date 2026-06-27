@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-06-27T18:50:00.188360",
+  "payload": [
+    {
+      "finding_id": "wkf_001",
+      "title": "Agentic AI Achieves Production Readiness Across Multiple Workflows",
+      "summary": "Agentic AI deployments matured this week with practical automation of complex professional workflows including SEO content creation, podcast production, and business prospecting, demonstrating broad enterprise applicability.",
+      "importance": 9,
+      "confidence": 85,
+      "supporting_daily_events": [
+        "evt_001"
+      ]
+    },
+    {
+      "finding_id": "wkf_002",
+      "title": "Enterprise AI Adoption Accelerates in Conservative Sectors Like Banking",
+      "summary": "Banking and other traditionally conservative industries are rapidly adopting AI-driven solutions, particularly Agentic AI, to enhance productivity in prospecting, preparation, and pitching new business opportunities.",
+      "importance": 9,
+      "confidence": 80,
+      "supporting_daily_events": [
+        "evt_002"
+      ]
+    },
+    {
+      "finding_id": "wkf_003",
+      "title": "Research Highlights Significant Accuracy Loss in Personalized AI for Finance and Healthcare",
+      "summary": "New research revealed that personalized AI models can lose up to 71% accuracy in high-stakes sectors such as finance and healthcare, underscoring risks and challenges in deploying personalized AI in regulated environments.",
+      "importance": 8,
+      "confidence": 75,
+      "supporting_daily_events": [
+        "evt_003"
+      ]
+    },
+    {
+      "finding_id": "wkf_004",
+      "title": "Writer Launches AI-Powered Brand Systems to Enhance Content Consistency and Workflow Integration",
+      "summary": "Writer introduced brand systems featuring unified voice profiles, terminology lists, style guides, and connected workflows designed to scale brand consistency and streamline content management in the AI era.",
+      "importance": 7,
+      "confidence": 80,
+      "supporting_daily_events": [
+        "evt_004"
+      ]
+    }
+  ]
+}

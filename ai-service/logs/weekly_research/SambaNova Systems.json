@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-27T18:49:48.816029",
+  "payload": [
+    {
+      "finding_id": "wkf_001",
+      "title": "SambaNova Systems advances AI infrastructure with multi-model flexibility and energy efficiency",
+      "summary": "SambaNova Systems introduced SambaStack, enabling switching between multiple frontier-scale AI models on a single node, combined with leading token-per-watt energy efficiency and innovative dataflow technology to support scalable, high-performance AI inference.",
+      "importance": 8,
+      "confidence": 80,
+      "supporting_daily_events": [
+        "evt_001"
+      ]
+    }
+  ]
+}

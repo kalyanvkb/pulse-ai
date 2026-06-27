@@ -1,5 +1,15 @@
+import json
+
 from prompts.weekly.trend_prompt import (
     TREND_PROMPT
+)
+
+from utils.json_parser import (
+    parse_llm_json
+)
+
+from utils.prompt_logger import (
+    log_stage
 )
 
 
@@ -8,14 +18,18 @@ def trend_agent(
     llm
 ):
 
-    findings = "\n".join(
-        state["findings"]
+    findings = json.dumps(
+
+        state["weekly_findings"],
+
+        indent=2
+
     )
 
     prompt = f"""
 {TREND_PROMPT}
 
-FINDINGS:
+WEEKLY FINDINGS
 
 {findings}
 """
@@ -24,15 +38,40 @@ FINDINGS:
         prompt
     )
 
-    state["themes"] = [
+    try:
 
-        line.strip()
-
-        for line in result.content.split(
-            "\n"
+        output = parse_llm_json(
+            result.content
         )
 
-        if line.strip()
-    ]
+        state["weekly_trends"] = output.get(
+
+            "weekly_trends",
+
+            []
+
+        )
+
+        log_stage(
+
+            state["company"],
+
+            "weekly_trend",
+
+            state["weekly_trends"]
+
+        )
+
+    except Exception:
+
+        import traceback
+
+        print("\n========== WEEKLY TREND FAILED ==========\n")
+
+        traceback.print_exc()
+
+        print(result.content)
+
+        raise
 
     return state

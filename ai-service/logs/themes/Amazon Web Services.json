@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-06-27T18:12:14.233805",
+  "payload": [
+    {
+      "theme_id": "theme_001",
+      "theme": "Enterprise AI Adoption Accelerating",
+      "description": "Enterprises are increasingly deploying production-grade AI agent systems to improve operational efficiency while maintaining human oversight, especially in regulated sectors like finance.",
+      "importance": 9,
+      "confidence": 90,
+      "supporting_facts": [
+        "fact_001"
+      ]
+    },
+    {
+      "theme_id": "theme_002",
+      "theme": "AI Infrastructure and Model Training Optimization",
+      "description": "Cloud providers and hardware vendors are collaborating to optimize AI model training infrastructure, leveraging advanced GPUs to enhance performance and reduce training constraints.",
+      "importance": 7,
+      "confidence": 75,
+      "supporting_facts": [
+        "fact_002"
+      ]
+    }
+  ]
+}

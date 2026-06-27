@@ -1,0 +1,115 @@
+{
+  "generated_at": "2026-06-27T18:18:16.296454",
+  "payload": [
+    {
+      "fact_id": "fact_001",
+      "company": "Google",
+      "event_type": "Product Launch",
+      "title": "Google Finance new app launch",
+      "fact": "Google launched a new Android app for Google Finance as it comes out of beta.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "The new Google Finance is coming out of beta and launching a new Android app"
+      ]
+    },
+    {
+      "fact_id": "fact_002",
+      "company": "Google.org",
+      "event_type": "Funding",
+      "title": "Google.org $5 million grant to Obrii",
+      "fact": "Google.org provided a $5 million grant to scale Obrii, Ukraine's national AI job platform.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "org is providing a $5 million grant to scale Obrii, Ukraine’s national AI job platform"
+      ]
+    },
+    {
+      "fact_id": "fact_003",
+      "company": "Google",
+      "event_type": "Enterprise Adoption",
+      "title": "Henry County Public Schools use Gemini for Education",
+      "fact": "Henry County Public Schools in Kentucky used Gemini for Education to close critical achievement gaps.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Henry County Public Schools in Kentucky successfully closed critical achievement gaps with the help of Gemini for Education"
+      ]
+    },
+    {
+      "fact_id": "fact_004",
+      "company": "Google",
+      "event_type": "Product Launch",
+      "title": "Gemini app for jetlag assistance",
+      "fact": "Google launched the Gemini app to help users avoid jetlag during faraway trips.",
+      "evidence_strength": "Low",
+      "supporting_evidence": [
+        "Gemini app can help you avoid jetlag so you can make the most of your visit"
+      ]
+    },
+    {
+      "fact_id": "fact_005",
+      "company": "Google",
+      "event_type": "Product Launch",
+      "title": "Google AI tools for job search",
+      "fact": "Google offers AI tools including Career Dreamer, NotebookLM, and Gemini Live to assist with resumes, cover letters, and interview preparation.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Use Google AI tools — like Career Dreamer, NotebookLM and Gemini Live — for resumes, cover letters, interview prep and more"
+      ]
+    },
+    {
+      "fact_id": "fact_006",
+      "company": "Google",
+      "event_type": "Product Launch",
+      "title": "Gemini used by parents for daily tasks",
+      "fact": "Google's Gemini helps parents with homework, meal planning, and other tasks.",
+      "evidence_strength": "Low",
+      "supporting_evidence": [
+        "How Gemini helps with homework, meal planning and more, so parents have time to focus on the good stuff"
+      ]
+    },
+    {
+      "fact_id": "fact_007",
+      "company": "Google",
+      "event_type": "Product Launch",
+      "title": "Google AI tools for education",
+      "fact": "Google launched AI tools designed to help educators support teaching goals and provide personalized learning experiences.",
+      "evidence_strength": "Low",
+      "supporting_evidence": [
+        "Google’s AI tools help educators support their teaching goals and provide personalized experiences to help students learn"
+      ]
+    },
+    {
+      "fact_id": "fact_008",
+      "company": "Google",
+      "event_type": "Other",
+      "title": "Google announced new education AI tools at ISTE 2026",
+      "fact": "Google made announcements regarding education AI tools at the ISTE 2026 conference.",
+      "evidence_strength": "Low",
+      "supporting_evidence": [
+        "The latest announcements from Google for Education at ISTE 2026"
+      ]
+    },
+    {
+      "fact_id": "fact_009",
+      "company": "Google.org",
+      "event_type": "Funding",
+      "title": "Google.org funding for education and AI partners",
+      "fact": "Google.org announced new funding at the 2026 ISTE conference to support two long-term partners in education and AI.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "We are announcing new funding at the 2026 ISTE conference to support two long-term partners"
+      ]
+    },
+    {
+      "fact_id": "fact_010",
+      "company": "Google",
+      "event_type": "Product Launch",
+      "title": "June Demand Gen Drop for YouTube campaigns",
+      "fact": "Google launched the June Demand Gen Drop offering new ways to improve campaign performance and engage viewers on YouTube.",
+      "evidence_strength": "Low",
+      "supporting_evidence": [
+        "Our June Demand Gen Drop offers more ways to elevate campaign performance and engage new viewers on YouTube"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "generated_at": "2026-06-27T18:53:55.438256",
+  "payload": {
+    "what_changed": [
+      {
+        "source_id": "sig_001",
+        "importance": 9,
+        "text": "Humanoid robots with advanced capabilities are increasingly deployed in manufacturing and logistics, signaling a shift toward robot-dominant workforce models.",
+        "company": "Figure",
+        "strategic_signal": {
+          "signal_id": "sig_001",
+          "signal": "Robotics entering commercial deployment",
+          "description": "Humanoid robots with advanced capabilities are being increasingly deployed in manufacturing and logistics, with companies transitioning toward robot-dominant workforce models.",
+          "signal_strength": 9,
+          "trajectory": "Increasing",
+          "confidence": 80,
+          "beneficiaries": [
+            "Figure AI",
+            "BMW"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_001",
+            "wkf_002"
+          ],
+          "watch_next_week": "Monitor further announcements of robot workforce expansions and new commercial deployments."
+        }
+      }
+    ],
+    "why_it_matters": [
+      {
+        "source_id": "sig_001",
+        "importance": 9,
+        "text": "This shift enables companies to enhance operational efficiency and reduce labor costs, impacting workforce strategies and competitive positioning.",
+        "company": "Figure",
+        "strategic_signal": {
+          "signal_id": "sig_001",
+          "signal": "Robotics entering commercial deployment",
+          "description": "Humanoid robots with advanced capabilities are being increasingly deployed in manufacturing and logistics, with companies transitioning toward robot-dominant workforce models.",
+          "signal_strength": 9,
+          "trajectory": "Increasing",
+          "confidence": 80,
+          "beneficiaries": [
+            "Figure AI",
+            "BMW"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_001",
+            "wkf_002"
+          ],
+          "watch_next_week": "Monitor further announcements of robot workforce expansions and new commercial deployments."
+        }
+      }
+    ],
+    "signals_to_watch": [
+      {
+        "source_id": "sig_001",
+        "importance": 9,
+        "text": "Monitor further announcements of robot workforce expansions and new commercial deployments.",
+        "company": "Figure",
+        "strategic_signal": {
+          "signal_id": "sig_001",
+          "signal": "Robotics entering commercial deployment",
+          "description": "Humanoid robots with advanced capabilities are being increasingly deployed in manufacturing and logistics, with companies transitioning toward robot-dominant workforce models.",
+          "signal_strength": 9,
+          "trajectory": "Increasing",
+          "confidence": 80,
+          "beneficiaries": [
+            "Figure AI",
+            "BMW"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_001",
+            "wkf_002"
+          ],
+          "watch_next_week": "Monitor further announcements of robot workforce expansions and new commercial deployments."
+        }
+      }
+    ]
+  }
+}

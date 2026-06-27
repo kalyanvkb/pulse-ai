@@ -1,0 +1,82 @@
+{
+  "generated_at": "2026-06-27T18:21:31.461991",
+  "payload": [
+    {
+      "fact_id": "fact_001",
+      "company": "Figure",
+      "event_type": "Other",
+      "title": "Figure AI now employs more robots than humans, founder says - The Daily Star",
+      "fact": "Figure AI now employs more robots than humans.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Figure AI now employs more robots than humans, founder says The Daily Star"
+      ]
+    },
+    {
+      "fact_id": "fact_002",
+      "company": "Figure",
+      "event_type": "Partnership",
+      "title": "BMW to Use Figure AI’s Latest Humanoid Robot for Logistics Work at US Factory - AI Insider",
+      "fact": "BMW announced it will use Figure AI’s latest humanoid robot for logistics work at a US factory.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "BMW to Use Figure AI’s Latest Humanoid Robot for Logistics Work at US Factory AI Insider"
+      ]
+    },
+    {
+      "fact_id": "fact_003",
+      "company": "Figure",
+      "event_type": "Enterprise Adoption",
+      "title": "BMW’s New Robot Is Sorting Car Parts in South Carolina - bmwblog",
+      "fact": "BMW deployed Figure AI’s robot to sort car parts in South Carolina.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "BMW’s New Robot Is Sorting Car Parts in South Carolina bmwblog"
+      ]
+    },
+    {
+      "fact_id": "fact_004",
+      "company": "Figure",
+      "event_type": "Enterprise Adoption",
+      "title": "BMW Deploys Humanoid Robot That Sees With Its Hands on the Floor of American Spartanburg Facility - autoevolution",
+      "fact": "BMW deployed a humanoid robot from Figure AI that uses tactile sensing at its Spartanburg facility.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "BMW Deploys Humanoid Robot That Sees With Its Hands on the Floor of American Spartanburg Facility autoevolution"
+      ]
+    },
+    {
+      "fact_id": "fact_005",
+      "company": "Figure",
+      "event_type": "Enterprise Adoption",
+      "title": "BMW’s smart factory in US gets Figure 03 humanoid robot for advanced logistics work - Interesting Engineering",
+      "fact": "BMW’s smart factory in the US integrated Figure AI’s Figure 03 humanoid robot for advanced logistics work.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "BMW’s smart factory in US gets Figure 03 humanoid robot for advanced logistics work Interesting Engineering"
+      ]
+    },
+    {
+      "fact_id": "fact_006",
+      "company": "Figure",
+      "event_type": "Enterprise Adoption",
+      "title": "BMW expands humanoid robot role in US vehicle production - Business Day",
+      "fact": "BMW expanded the role of humanoid robots from Figure AI in US vehicle production.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "BMW expands humanoid robot role in US vehicle production Business Day"
+      ]
+    },
+    {
+      "fact_id": "fact_007",
+      "company": "Figure",
+      "event_type": "Research",
+      "title": "BMW Group advances the use of Physical AI in production with Figure 03 project in Spartanburg - BMW Group",
+      "fact": "BMW Group advanced the use of Physical AI in production through the Figure 03 project in Spartanburg.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "BMW Group advances the use of Physical AI in production with Figure 03 project in Spartanburg BMW Group"
+      ]
+    }
+  ]
+}

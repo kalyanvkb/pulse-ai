@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-06-27T18:50:06.365447",
+  "payload": [
+    {
+      "trend_id": "trend_001",
+      "trend": "Enterprise AI adoption accelerating",
+      "description": "AI adoption is expanding rapidly across traditionally conservative sectors such as banking, with enterprises deploying AI-driven solutions to improve productivity in workflows like prospecting and business development.",
+      "importance": 9,
+      "confidence": 80,
+      "supporting_findings": [
+        "wkf_002"
+      ]
+    },
+    {
+      "trend_id": "trend_002",
+      "trend": "Agentic AI becoming production-ready",
+      "description": "Agentic AI systems have matured to practical deployment stages, automating complex professional workflows such as SEO content creation, podcast production, and business prospecting, demonstrating broad enterprise applicability.",
+      "importance": 9,
+      "confidence": 85,
+      "supporting_findings": [
+        "wkf_001"
+      ]
+    },
+    {
+      "trend_id": "trend_003",
+      "trend": "Challenges in personalized AI for regulated industries",
+      "description": "Research indicates significant accuracy degradation in personalized AI models within high-stakes sectors like finance and healthcare, highlighting ongoing risks and the need for improved approaches in deploying personalized AI in regulated environments.",
+      "importance": 8,
+      "confidence": 75,
+      "supporting_findings": [
+        "wkf_003"
+      ]
+    },
+    {
+      "trend_id": "trend_004",
+      "trend": "AI-powered brand systems enhancing content consistency",
+      "description": "The introduction of AI-driven brand systems integrating unified voice profiles, terminology, and style guides is enabling enterprises to scale brand consistency and streamline content workflows in the AI era.",
+      "importance": 7,
+      "confidence": 80,
+      "supporting_findings": [
+        "wkf_004"
+      ]
+    }
+  ]
+}

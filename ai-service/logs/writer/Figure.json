@@ -1,0 +1,231 @@
+{
+  "generated_at": "2026-06-27T18:21:48.707592",
+  "payload": {
+    "whats_happening": [
+      {
+        "source_id": "evt_001",
+        "importance": 9,
+        "text": "BMW has deployed and expanded Figure AI's humanoid robots across its US vehicle production and logistics facilities.",
+        "market_impact": {
+          "business_score": 8,
+          "competition_score": 7,
+          "technology_score": 8,
+          "enterprise_score": 8,
+          "ecosystem_score": 6,
+          "confidence": 86,
+          "rationale": "BMW's multiple deployments of Figure AI's humanoid robots in production and logistics represent a major enterprise adoption milestone, validating Figure's technology and expanding its commercial footprint.",
+          "counterarguments": [
+            "Deployment scale may remain limited to pilot or niche use cases.",
+            "Other robotics firms could rapidly replicate or surpass Figure's capabilities.",
+            "Broader OEM adoption beyond BMW is not yet evidenced."
+          ],
+          "affected_companies": [
+            {
+              "company": "Figure",
+              "impact": "Very Positive",
+              "confidence": 90,
+              "reason": "Direct beneficiary from BMW's expanded commercial deployments and validation of humanoid robotics."
+            },
+            {
+              "company": "BMW",
+              "impact": "Positive",
+              "confidence": 85,
+              "reason": "Improves production efficiency and innovation positioning with advanced robotics."
+            },
+            {
+              "company": "Fanuc",
+              "impact": "Negative",
+              "confidence": 75,
+              "reason": "Traditional industrial robot suppliers face competition from humanoid robotics in logistics."
+            },
+            {
+              "company": "ABB",
+              "impact": "Negative",
+              "confidence": 70,
+              "reason": "Potential market share pressure in automotive robotics from new humanoid entrants."
+            }
+          ],
+          "overall_score": 7.55,
+          "rating": "Positive"
+        }
+      },
+      {
+        "source_id": "evt_002",
+        "importance": 8,
+        "text": "Figure AI introduced tactile sensing humanoid robots at BMW's Spartanburg manufacturing site to advance Physical AI integration.",
+        "market_impact": {
+          "business_score": 7,
+          "competition_score": 7,
+          "technology_score": 9,
+          "enterprise_score": 7,
+          "ecosystem_score": 5,
+          "confidence": 80,
+          "rationale": "The use of tactile sensing in humanoid robots marks a technical innovation enabling new automation capabilities, enhancing Figure's differentiation and production readiness.",
+          "counterarguments": [
+            "Tactile sensing benefits may be incremental versus existing automation.",
+            "Adoption outside BMW's pilot remains unproven.",
+            "Competitors may develop similar Physical AI capabilities quickly."
+          ],
+          "affected_companies": [
+            {
+              "company": "Figure",
+              "impact": "Very Positive",
+              "confidence": 85,
+              "reason": "Leader in integrating Physical AI tactile sensing in commercial humanoid robots."
+            },
+            {
+              "company": "BMW",
+              "impact": "Positive",
+              "confidence": 80,
+              "reason": "Gains advanced automation capabilities improving manufacturing flexibility."
+            }
+          ],
+          "overall_score": 7.0,
+          "rating": "Positive"
+        }
+      },
+      {
+        "source_id": "evt_003",
+        "importance": 7,
+        "text": "Figure AI's workforce now includes more robots than humans, signaling a shift to robot-first operations.",
+        "market_impact": {
+          "business_score": 6,
+          "competition_score": 6,
+          "technology_score": 7,
+          "enterprise_score": 6,
+          "ecosystem_score": 5,
+          "confidence": 70,
+          "rationale": "Figure AI's robot-dominant workforce reflects a strategic operational model emphasizing automation scale, potentially improving cost structure and innovation velocity.",
+          "counterarguments": [
+            "Scale and productivity benefits are not yet quantified.",
+            "May not be replicable across other companies or sectors.",
+            "Human oversight and intervention remain critical in many processes."
+          ],
+          "affected_companies": [
+            {
+              "company": "Figure",
+              "impact": "Positive",
+              "confidence": 75,
+              "reason": "Operational model leverages automation to reduce labor costs and increase efficiency."
+            }
+          ],
+          "overall_score": 6.0,
+          "rating": "Neutral"
+        }
+      }
+    ],
+    "why_it_matters": [
+      {
+        "source_id": "evt_001",
+        "importance": 9,
+        "text": "This deployment validates humanoid robotics for large-scale manufacturing, enhancing BMW's production efficiency and challenging traditional industrial robot suppliers.",
+        "market_impact": {
+          "business_score": 8,
+          "competition_score": 7,
+          "technology_score": 8,
+          "enterprise_score": 8,
+          "ecosystem_score": 6,
+          "confidence": 86,
+          "rationale": "BMW's multiple deployments of Figure AI's humanoid robots in production and logistics represent a major enterprise adoption milestone, validating Figure's technology and expanding its commercial footprint.",
+          "counterarguments": [
+            "Deployment scale may remain limited to pilot or niche use cases.",
+            "Other robotics firms could rapidly replicate or surpass Figure's capabilities.",
+            "Broader OEM adoption beyond BMW is not yet evidenced."
+          ],
+          "affected_companies": [
+            {
+              "company": "Figure",
+              "impact": "Very Positive",
+              "confidence": 90,
+              "reason": "Direct beneficiary from BMW's expanded commercial deployments and validation of humanoid robotics."
+            },
+            {
+              "company": "BMW",
+              "impact": "Positive",
+              "confidence": 85,
+              "reason": "Improves production efficiency and innovation positioning with advanced robotics."
+            },
+            {
+              "company": "Fanuc",
+              "impact": "Negative",
+              "confidence": 75,
+              "reason": "Traditional industrial robot suppliers face competition from humanoid robotics in logistics."
+            },
+            {
+              "company": "ABB",
+              "impact": "Negative",
+              "confidence": 70,
+              "reason": "Potential market share pressure in automotive robotics from new humanoid entrants."
+            }
+          ],
+          "overall_score": 7.55,
+          "rating": "Positive"
+        }
+      },
+      {
+        "source_id": "evt_002",
+        "importance": 8,
+        "text": "Tactile sensing advances enable new automation capabilities, strengthening Figure AI's technological differentiation and BMW's manufacturing flexibility.",
+        "market_impact": {
+          "business_score": 7,
+          "competition_score": 7,
+          "technology_score": 9,
+          "enterprise_score": 7,
+          "ecosystem_score": 5,
+          "confidence": 80,
+          "rationale": "The use of tactile sensing in humanoid robots marks a technical innovation enabling new automation capabilities, enhancing Figure's differentiation and production readiness.",
+          "counterarguments": [
+            "Tactile sensing benefits may be incremental versus existing automation.",
+            "Adoption outside BMW's pilot remains unproven.",
+            "Competitors may develop similar Physical AI capabilities quickly."
+          ],
+          "affected_companies": [
+            {
+              "company": "Figure",
+              "impact": "Very Positive",
+              "confidence": 85,
+              "reason": "Leader in integrating Physical AI tactile sensing in commercial humanoid robots."
+            },
+            {
+              "company": "BMW",
+              "impact": "Positive",
+              "confidence": 80,
+              "reason": "Gains advanced automation capabilities improving manufacturing flexibility."
+            }
+          ],
+          "overall_score": 7.0,
+          "rating": "Positive"
+        }
+      },
+      {
+        "source_id": "evt_003",
+        "importance": 7,
+        "text": "Adopting a robot-first workforce model may reduce costs and accelerate innovation, positioning Figure AI as a leader in automation scale.",
+        "market_impact": {
+          "business_score": 6,
+          "competition_score": 6,
+          "technology_score": 7,
+          "enterprise_score": 6,
+          "ecosystem_score": 5,
+          "confidence": 70,
+          "rationale": "Figure AI's robot-dominant workforce reflects a strategic operational model emphasizing automation scale, potentially improving cost structure and innovation velocity.",
+          "counterarguments": [
+            "Scale and productivity benefits are not yet quantified.",
+            "May not be replicable across other companies or sectors.",
+            "Human oversight and intervention remain critical in many processes."
+          ],
+          "affected_companies": [
+            {
+              "company": "Figure",
+              "impact": "Positive",
+              "confidence": 75,
+              "reason": "Operational model leverages automation to reduce labor costs and increase efficiency."
+            }
+          ],
+          "overall_score": 6.0,
+          "rating": "Neutral"
+        }
+      }
+    ]
+  }
+}

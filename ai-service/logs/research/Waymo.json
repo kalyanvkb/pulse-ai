@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-06-27T18:17:39.426408",
+  "payload": [
+    {
+      "fact_id": "fact_001",
+      "company": "Waymo",
+      "event_type": "Product Launch",
+      "title": "Introducing Waymo Premier, an elevated rider experience",
+      "fact": "Waymo launched Waymo Premier, an elevated rider experience for its fully autonomous ride-hailing service.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Introducing: Waymo Premier",
+        "As we scale and bring our fully autonomous ride-hailing service to more people across the globe",
+        "We continue to refine the Waymo experience and deliver more for our riders"
+      ]
+    },
+    {
+      "fact_id": "fact_002",
+      "company": "Waymo",
+      "event_type": "Other",
+      "title": "Launching new national campaign 'Because'",
+      "fact": "Waymo launched a new national campaign called 'Because' to invite public conversation about the future of driving.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Today, we are launching our new national campaign, 'Because,'",
+        "We want to invite you to join a conversation about the future of driving"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-06-27T18:51:02.612879",
+  "payload": [
+    {
+      "finding_id": "wkf_001",
+      "title": "Amazon commits $48 billion investment and digitizes 12 million small businesses in India",
+      "summary": "Amazon announced a $48 billion investment in India by 2030 and has digitized 12 million small businesses in the country, significantly expanding its market presence and ecosystem influence in a key emerging market.",
+      "importance": 9,
+      "confidence": 80,
+      "supporting_daily_events": [
+        "evt_001"
+      ]
+    },
+    {
+      "finding_id": "wkf_002",
+      "title": "Amazon joins RAISE US coalition to develop AI workforce",
+      "summary": "Amazon became a founding member of the RAISE US coalition to help workers prepare for AI-driven future jobs, strengthening its position in workforce development initiatives.",
+      "importance": 7,
+      "confidence": 75,
+      "supporting_daily_events": [
+        "evt_002"
+      ]
+    },
+    {
+      "finding_id": "wkf_003",
+      "title": "Amazon supports nonprofits after Venezuela earthquakes",
+      "summary": "Amazon provided support to nonprofits on the ground following devastating earthquakes in northern Venezuela, enhancing its corporate social responsibility profile.",
+      "importance": 6,
+      "confidence": 65,
+      "supporting_daily_events": [
+        "evt_003"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-27T18:52:00.896881",
+  "payload": [
+    {
+      "finding_id": "wkf_001",
+      "title": "Google DeepMind forms $75 million AI partnership with entertainment company A24",
+      "summary": "Google DeepMind entered into a $75 million AI partnership with A24, marking a significant expansion of AI integration into the entertainment industry beyond traditional technology sectors.",
+      "importance": 7,
+      "confidence": 65,
+      "supporting_daily_events": [
+        "evt_001"
+      ]
+    }
+  ]
+}

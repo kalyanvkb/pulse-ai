@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-27T18:50:44.513563",
+  "payload": [
+    {
+      "finding_id": "wkf_001",
+      "title": "CoreWeave advances AI infrastructure with full-stack solutions for NVIDIA Vera Rubin NVL72",
+      "summary": "CoreWeave engineered new full-stack infrastructure solutions for NVIDIA Vera Rubin NVL72, including software-defined liquid cooling and rack-scale networking, aimed at enhancing AI hardware performance and scalability.",
+      "importance": 7,
+      "confidence": 75,
+      "supporting_daily_events": [
+        "evt_001"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-06-27T18:52:04.737052",
+  "payload": [
+    {
+      "signal_id": "sig_001",
+      "signal": "AI integration expanding into non-traditional industries",
+      "description": "AI partnerships and deployments are increasingly extending beyond traditional technology sectors into industries such as entertainment, signaling a broadening scope of AI application.",
+      "signal_strength": 7,
+      "trajectory": "Emerging",
+      "confidence": 65,
+      "beneficiaries": [
+        "Google DeepMind",
+        "A24"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_001"
+      ],
+      "watch_next_week": "Monitor new AI partnerships and deployments in additional non-technology sectors."
+    }
+  ]
+}

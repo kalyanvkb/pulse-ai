@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-06-27T18:19:20.330452",
+  "payload": [
+    {
+      "fact_id": "fact_001",
+      "company": "Google DeepMind",
+      "event_type": "Partnership",
+      "title": "A24 Faces Backlash Over $75 Million AI Partnership with Google DeepMind",
+      "fact": "Google DeepMind entered into a $75 million AI partnership with A24.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "A24 Faces Backlash Over $75 Million AI Partnership with Google DeepMind",
+        "A24 Defends $75M AI Research Partnership With Google DeepMind"
+      ]
+    }
+  ]
+}

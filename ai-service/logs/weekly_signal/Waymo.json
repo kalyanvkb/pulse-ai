@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-06-27T18:50:57.084836",
+  "payload": [
+    {
+      "signal_id": "sig_001",
+      "signal": "Autonomous vehicle services shifting towards consumer-centric experience",
+      "description": "Autonomous vehicle providers are moving beyond technical development to enhance rider experience and public engagement, indicating maturation of the market towards consumer adoption and service differentiation.",
+      "signal_strength": 7,
+      "trajectory": "Increasing",
+      "confidence": 80,
+      "beneficiaries": [
+        "Waymo",
+        "Cruise",
+        "Aurora"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_001",
+        "trend_001"
+      ],
+      "watch_next_week": "Monitor announcements on new consumer experience features and marketing campaigns from autonomous vehicle providers."
+    }
+  ]
+}

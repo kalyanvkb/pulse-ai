@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-27T18:50:52.506355",
+  "payload": [
+    {
+      "finding_id": "wkf_001",
+      "title": "Waymo launched Waymo Premier and national campaign 'Because' to enhance autonomous ride-hailing experience and public engagement",
+      "summary": "Waymo introduced Waymo Premier, an elevated rider experience for its fully autonomous ride-hailing service, and simultaneously launched a national campaign called 'Because' aimed at inviting public conversation about the future of driving.",
+      "importance": 8,
+      "confidence": 80,
+      "supporting_daily_events": [
+        "evt_001"
+      ]
+    }
+  ]
+}

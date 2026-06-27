@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-06-27T18:20:06.820456",
+  "payload": [
+    {
+      "id": "evt_001",
+      "importance": 9,
+      "development": "IBM has unveiled a prototype chip with approximately 100 billion transistors on a fingernail-sized area, doubling transistor density from its 2021 technology and potentially extending Moore's Law by another decade.",
+      "market_impact": {
+        "business_score": 8,
+        "competition_score": 7,
+        "technology_score": 9,
+        "enterprise_score": 8,
+        "ecosystem_score": 7,
+        "confidence": 90,
+        "rationale": "IBM's breakthrough chip density significantly advances semiconductor capabilities, enabling more powerful AI hardware and sustaining performance growth, benefiting AI-centric computing markets.",
+        "counterarguments": [
+          "Commercialization and mass production challenges could delay impact.",
+          "Competitors may develop alternative scaling technologies reducing IBM's advantage.",
+          "Software and system-level bottlenecks might limit immediate enterprise adoption."
+        ],
+        "affected_companies": [
+          {
+            "company": "IBM",
+            "impact": "Very Positive",
+            "confidence": 95,
+            "reason": "Direct innovator of the new chip technology with clear leadership in transistor density."
+          },
+          {
+            "company": "NVIDIA",
+            "impact": "Positive",
+            "confidence": 85,
+            "reason": "Leverages advanced chips for AI accelerators; benefits from improved semiconductor scaling."
+          },
+          {
+            "company": "Intel",
+            "impact": "Negative",
+            "confidence": 80,
+            "reason": "Faces increased competitive pressure in chip density and AI hardware performance."
+          },
+          {
+            "company": "AMD",
+            "impact": "Negative",
+            "confidence": 75,
+            "reason": "May lose relative competitiveness if unable to match IBM's transistor density gains."
+          },
+          {
+            "company": "TSMC",
+            "impact": "Positive",
+            "confidence": 70,
+            "reason": "Potential foundry partner benefiting from demand for advanced chip manufacturing."
+          }
+        ],
+        "overall_score": 7.75,
+        "rating": "Positive"
+      }
+    }
+  ]
+}

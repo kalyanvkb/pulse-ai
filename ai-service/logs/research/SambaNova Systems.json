@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-06-27T18:16:13.704092",
+  "payload": [
+    {
+      "fact_id": "fact_001",
+      "company": "SambaNova Systems",
+      "event_type": "Infrastructure",
+      "title": "Infrastructure flexibility",
+      "fact": "SambaStack switches between multiple frontier-scale models, enabling complex agentic AI workflows to execute end-to-end on one node.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "SambaStack switches between multiple frontier-scale models",
+        "Enabling complex agentic AI workflows to execute end-to-end on one node"
+      ]
+    },
+    {
+      "fact_id": "fact_002",
+      "company": "SambaNova Systems",
+      "event_type": "Infrastructure",
+      "title": "Energy efficiency",
+      "fact": "SambaNova Systems generates the maximum number of tokens per watt with the highest power efficiency, enabling fast inference and scalability.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Generating the maximum number of tokens per watt with the highest power efficiency",
+        "Enables fast inference and scalability"
+      ]
+    },
+    {
+      "fact_id": "fact_003",
+      "company": "SambaNova Systems",
+      "event_type": "Infrastructure",
+      "title": "Inference at scale",
+      "fact": "SambaNova Systems uses groundbreaking dataflow technology and memory architecture to deliver the performance and speed required for ever-growing AI models.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Groundbreaking dataflow technology and memory architecture",
+        "Delivers the performance and speed required for ever-growing AI models"
+      ]
+    }
+  ]
+}

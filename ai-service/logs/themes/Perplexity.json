@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-06-27T18:19:35.997391",
+  "payload": [
+    {
+      "theme_id": "theme_001",
+      "theme": "Agentic AI Becoming Production Ready",
+      "description": "The emergence and deployment of multi-model agentic AI systems tailored for specific professional workflows, demonstrating readiness for real-world enterprise use.",
+      "importance": 9,
+      "confidence": 85,
+      "supporting_facts": [
+        "fact_001",
+        "fact_002",
+        "fact_003"
+      ]
+    },
+    {
+      "theme_id": "theme_002",
+      "theme": "Enterprise AI Adoption Accelerating in Legal Sector",
+      "description": "Legal firms and enterprises are increasingly adopting AI-powered tools to automate and optimize contract and legal workflows, signaling a broader trend of AI integration in regulated professional services.",
+      "importance": 8,
+      "confidence": 75,
+      "supporting_facts": [
+        "fact_002",
+        "fact_003"
+      ]
+    },
+    {
+      "theme_id": "theme_003",
+      "theme": "AI Security Vulnerabilities Emerging",
+      "description": "New AI applications and browsers are showing susceptibility to novel security exploits, highlighting the growing importance of robust AI security measures as AI systems become more integrated into workflows.",
+      "importance": 7,
+      "confidence": 65,
+      "supporting_facts": [
+        "fact_004"
+      ]
+    }
+  ]
+}

@@ -124,6 +124,7 @@ function startScheduler() {
    * Every day @ 5:00 AM IST
    */
   cron.schedule("0 5 * * *", runDailyPipeline, { timezone });
+  //cron.schedule("*/2 * * * *", runDailyPipeline, { timezone });
   console.log("⏰ Daily Pipeline: Every day @ 5:00 AM IST");
 
   /**

@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-06-27T18:51:22.116641",
+  "payload": [
+    {
+      "trend_id": "trend_001",
+      "trend": "AI adoption expanding in education and public sector",
+      "description": "AI integration is accelerating in education systems and public sector social impact initiatives, with deployments aimed at personalized learning, addressing achievement gaps, and supporting national job platforms.",
+      "importance": 9,
+      "confidence": 85,
+      "supporting_findings": [
+        "wkf_001",
+        "wkf_003"
+      ]
+    },
+    {
+      "trend_id": "trend_002",
+      "trend": "Broadening of AI-powered consumer applications",
+      "description": "AI tools are diversifying beyond enterprise use cases into consumer-focused applications such as career assistance, personal productivity, lifestyle management, and financial services.",
+      "importance": 7,
+      "confidence": 75,
+      "supporting_findings": [
+        "wkf_002",
+        "wkf_004"
+      ]
+    },
+    {
+      "trend_id": "trend_003",
+      "trend": "AI-driven enhancements in digital marketing platforms",
+      "description": "AI capabilities are increasingly embedded in digital marketing tools to improve campaign performance and viewer engagement, reflecting a shift towards AI-augmented marketing strategies.",
+      "importance": 6,
+      "confidence": 65,
+      "supporting_findings": [
+        "wkf_005"
+      ]
+    }
+  ]
+}

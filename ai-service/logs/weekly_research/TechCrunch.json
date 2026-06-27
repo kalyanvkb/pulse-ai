@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-06-27T18:53:32.505831",
+  "payload": [
+    {
+      "finding_id": "wkf_001",
+      "title": "OpenAI advances AI infrastructure with custom inference chip and hardware talent acquisition",
+      "summary": "OpenAI developed Jalapeño, a custom inference chip built with Broadcom, and hired Apple Vision Pro hardware executive Paul Meade to strengthen its hardware team, aiming to reduce supplier dependency and enhance AI model performance.",
+      "importance": 9,
+      "confidence": 95,
+      "supporting_daily_events": [
+        "evt_001"
+      ]
+    },
+    {
+      "finding_id": "wkf_002",
+      "title": "Regulatory environment shapes AI model deployment and enterprise adoption",
+      "summary": "Government regulations and export controls limited OpenAI's GPT-5.6 rollout while enabling Anthropic Mythos 5 adoption by over 100 US companies and government agencies, including their non-American employees.",
+      "importance": 9,
+      "confidence": 90,
+      "supporting_daily_events": [
+        "evt_002"
+      ]
+    },
+    {
+      "finding_id": "wkf_003",
+      "title": "OpenAI expands presence in emerging markets through strategic local leadership hire",
+      "summary": "OpenAI hired the Uber India chief to lead its biggest market outside the US, signaling a strategic push into the Indian AI market with expanded offices, partnerships, and hiring.",
+      "importance": 7,
+      "confidence": 80,
+      "supporting_daily_events": [
+        "evt_003"
+      ]
+    },
+    {
+      "finding_id": "wkf_004",
+      "title": "Asian AI startups launch Mythos-like models to bypass export restrictions",
+      "summary": "Asian AI startups introduced new models with Mythos-like capabilities aimed at competing regionally and circumventing export bans, increasing competitive pressure on Western AI providers in Asia.",
+      "importance": 7,
+      "confidence": 75,
+      "supporting_daily_events": [
+        "evt_004"
+      ]
+    },
+    {
+      "finding_id": "wkf_005",
+      "title": "AI applied to personalized healthcare through integration of diverse personal data",
+      "summary": "AI is increasingly used to integrate personal health data streams for individualized disease management, exemplified by Connor Christou using Claude to fight cancer by feeding blood results, scans, wearable data, and journal entries into the model.",
+      "importance": 7,
+      "confidence": 70,
+      "supporting_daily_events": [
+        "evt_005"
+      ]
+    }
+  ]
+}

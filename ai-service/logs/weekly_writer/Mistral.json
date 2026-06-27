@@ -1,0 +1,155 @@
+{
+  "generated_at": "2026-06-27T18:52:48.469931",
+  "payload": {
+    "what_changed": [
+      {
+        "source_id": "sig_001",
+        "importance": 9,
+        "text": "Enterprise AI adoption accelerated with increased deployment of AI solutions automating business workflows, especially in advanced document extraction.",
+        "company": "Mistral",
+        "strategic_signal": {
+          "signal_id": "sig_001",
+          "signal": "Enterprise AI adoption accelerating",
+          "description": "Enterprises are increasingly deploying AI solutions to automate business workflows, particularly in areas like advanced document extraction, reflecting growing demand for operational efficiency.",
+          "signal_strength": 9,
+          "trajectory": "Increasing",
+          "confidence": 80,
+          "beneficiaries": [
+            "Amazon Web Services",
+            "Microsoft",
+            "NVIDIA"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_001",
+            "trend_001"
+          ],
+          "watch_next_week": "Monitor additional enterprise AI deployments and new product launches targeting business workflow automation."
+        }
+      },
+      {
+        "source_id": "sig_002",
+        "importance": 7,
+        "text": "AI companies expanded regional innovation hubs to access local talent and strengthen innovation ecosystems.",
+        "company": "Mistral",
+        "strategic_signal": {
+          "signal_id": "sig_002",
+          "signal": "AI regional innovation hubs expanding",
+          "description": "AI firms are establishing new regional hubs to tap into local talent and foster innovation ecosystems, signaling a strategic shift toward geographic diversification and enhanced talent acquisition.",
+          "signal_strength": 7,
+          "trajectory": "Emerging",
+          "confidence": 65,
+          "beneficiaries": [
+            "Mistral"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_002",
+            "trend_002"
+          ],
+          "watch_next_week": "Track announcements of new AI hubs and regional talent initiatives."
+        }
+      }
+    ],
+    "why_it_matters": [
+      {
+        "source_id": "sig_001",
+        "importance": 9,
+        "text": "Faster AI integration drives operational efficiency and competitive advantage for enterprises, benefiting cloud and AI infrastructure providers.",
+        "company": "Mistral",
+        "strategic_signal": {
+          "signal_id": "sig_001",
+          "signal": "Enterprise AI adoption accelerating",
+          "description": "Enterprises are increasingly deploying AI solutions to automate business workflows, particularly in areas like advanced document extraction, reflecting growing demand for operational efficiency.",
+          "signal_strength": 9,
+          "trajectory": "Increasing",
+          "confidence": 80,
+          "beneficiaries": [
+            "Amazon Web Services",
+            "Microsoft",
+            "NVIDIA"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_001",
+            "trend_001"
+          ],
+          "watch_next_week": "Monitor additional enterprise AI deployments and new product launches targeting business workflow automation."
+        }
+      },
+      {
+        "source_id": "sig_002",
+        "importance": 7,
+        "text": "Geographic diversification enhances talent acquisition and innovation capacity, influencing strategic positioning in the AI market.",
+        "company": "Mistral",
+        "strategic_signal": {
+          "signal_id": "sig_002",
+          "signal": "AI regional innovation hubs expanding",
+          "description": "AI firms are establishing new regional hubs to tap into local talent and foster innovation ecosystems, signaling a strategic shift toward geographic diversification and enhanced talent acquisition.",
+          "signal_strength": 7,
+          "trajectory": "Emerging",
+          "confidence": 65,
+          "beneficiaries": [
+            "Mistral"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_002",
+            "trend_002"
+          ],
+          "watch_next_week": "Track announcements of new AI hubs and regional talent initiatives."
+        }
+      }
+    ],
+    "signals_to_watch": [
+      {
+        "source_id": "sig_001",
+        "importance": 9,
+        "text": "Monitor further enterprise AI deployments and new product launches focused on automating business workflows.",
+        "company": "Mistral",
+        "strategic_signal": {
+          "signal_id": "sig_001",
+          "signal": "Enterprise AI adoption accelerating",
+          "description": "Enterprises are increasingly deploying AI solutions to automate business workflows, particularly in areas like advanced document extraction, reflecting growing demand for operational efficiency.",
+          "signal_strength": 9,
+          "trajectory": "Increasing",
+          "confidence": 80,
+          "beneficiaries": [
+            "Amazon Web Services",
+            "Microsoft",
+            "NVIDIA"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_001",
+            "trend_001"
+          ],
+          "watch_next_week": "Monitor additional enterprise AI deployments and new product launches targeting business workflow automation."
+        }
+      },
+      {
+        "source_id": "sig_002",
+        "importance": 7,
+        "text": "Track announcements of new AI regional hubs and initiatives to develop local talent pools.",
+        "company": "Mistral",
+        "strategic_signal": {
+          "signal_id": "sig_002",
+          "signal": "AI regional innovation hubs expanding",
+          "description": "AI firms are establishing new regional hubs to tap into local talent and foster innovation ecosystems, signaling a strategic shift toward geographic diversification and enhanced talent acquisition.",
+          "signal_strength": 7,
+          "trajectory": "Emerging",
+          "confidence": 65,
+          "beneficiaries": [
+            "Mistral"
+          ],
+          "companies_under_pressure": [],
+          "evidence": [
+            "wkf_002",
+            "trend_002"
+          ],
+          "watch_next_week": "Track announcements of new AI hubs and regional talent initiatives."
+        }
+      }
+    ]
+  }
+}

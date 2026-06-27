@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-06-27T18:52:40.949752",
+  "payload": [
+    {
+      "trend_id": "trend_001",
+      "trend": "Enterprise AI adoption accelerating",
+      "description": "Enterprises are increasingly deploying AI solutions focused on automating business workflows, such as advanced document extraction, reflecting growing demand for AI-driven efficiency in operations.",
+      "importance": 9,
+      "confidence": 80,
+      "supporting_findings": [
+        "wkf_001"
+      ]
+    },
+    {
+      "trend_id": "trend_002",
+      "trend": "AI regional innovation hubs expanding",
+      "description": "AI companies are establishing new regional hubs to access local talent pools and foster innovation ecosystems, indicating a strategic focus on geographic diversification and talent acquisition.",
+      "importance": 7,
+      "confidence": 65,
+      "supporting_findings": [
+        "wkf_002"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-27T17:05:50.287727",
+  "payload": [
+    {
+      "theme": "Collaborative AI Infrastructure Development",
+      "description": "Multiple organizations are partnering to build shared AI infrastructure, such as AI factories, to accelerate AI innovation and deployment at a national or regional level.",
+      "confidence": 0.8
+    },
+    {
+      "theme": "Regional AI Ecosystem Strengthening",
+      "description": "There is a focus on developing localized AI ecosystems through partnerships that leverage regional capabilities and resources to foster AI growth and competitiveness.",
+      "confidence": 0.7
+    }
+  ]
+}

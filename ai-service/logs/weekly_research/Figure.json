@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-06-27T18:53:49.634541",
+  "payload": [
+    {
+      "finding_id": "wkf_001",
+      "title": "BMW expands deployment of Figure AI humanoid robots in US manufacturing",
+      "summary": "BMW significantly increased the use of Figure AI's humanoid robots across its US vehicle production and logistics facilities, including advanced tactile sensing capabilities at the Spartanburg plant.",
+      "importance": 9,
+      "confidence": 86,
+      "supporting_daily_events": [
+        "evt_001",
+        "evt_002"
+      ]
+    },
+    {
+      "finding_id": "wkf_002",
+      "title": "Figure AI transitions to a robot-first workforce model",
+      "summary": "Figure AI reported that its workforce now comprises more robots than humans, indicating a strategic shift toward robot-dominant operations within the company.",
+      "importance": 7,
+      "confidence": 70,
+      "supporting_daily_events": [
+        "evt_003"
+      ]
+    }
+  ]
+}

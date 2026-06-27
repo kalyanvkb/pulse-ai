@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-06-27T18:51:27.088946",
+  "payload": [
+    {
+      "signal_id": "sig_001",
+      "signal": "AI adoption expanding rapidly in education and public sector",
+      "description": "AI integration is accelerating in education systems and public sector initiatives, focusing on personalized learning, closing achievement gaps, and supporting national job platforms, indicating growing institutional reliance on AI for social impact.",
+      "signal_strength": 9,
+      "trajectory": "Increasing",
+      "confidence": 85,
+      "beneficiaries": [
+        "Google"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_001",
+        "wkf_003",
+        "trend_001"
+      ],
+      "watch_next_week": "Monitor further AI deployments and funding announcements in education and public sector projects."
+    },
+    {
+      "signal_id": "sig_002",
+      "signal": "Consumer AI applications broadening beyond traditional domains",
+      "description": "AI-powered tools are diversifying into consumer-focused areas such as career assistance, personal productivity, lifestyle management, and financial services, signaling a shift toward mass-market AI adoption outside enterprise contexts.",
+      "signal_strength": 7,
+      "trajectory": "Increasing",
+      "confidence": 75,
+      "beneficiaries": [
+        "Google"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_002",
+        "wkf_004",
+        "trend_002"
+      ],
+      "watch_next_week": "Track new consumer AI product launches and user adoption metrics."
+    },
+    {
+      "signal_id": "sig_003",
+      "signal": "AI-driven enhancements becoming standard in digital marketing platforms",
+      "description": "AI capabilities are increasingly embedded in digital marketing tools to optimize campaign performance and viewer engagement, reflecting a broader industry shift toward AI-augmented marketing strategies.",
+      "signal_strength": 6,
+      "trajectory": "Emerging",
+      "confidence": 65,
+      "beneficiaries": [
+        "Google"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_005",
+        "trend_003"
+      ],
+      "watch_next_week": "Observe adoption rates and competitive responses in AI-powered marketing tools."
+    }
+  ]
+}

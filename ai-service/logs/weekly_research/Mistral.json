@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-06-27T18:52:38.437367",
+  "payload": [
+    {
+      "finding_id": "wkf_001",
+      "title": "Mistral launches OCR 4 targeting enterprise AI document extraction",
+      "summary": "Mistral introduced OCR 4, a product designed to enhance document extraction capabilities for enterprise AI applications, addressing growing demand for automation in business workflows.",
+      "importance": 9,
+      "confidence": 80,
+      "supporting_daily_events": [
+        "evt_001"
+      ]
+    },
+    {
+      "finding_id": "wkf_002",
+      "title": "Mistral establishes Canadian hub in Montréal",
+      "summary": "Mistral selected Montréal as the location for its Canadian hub to leverage local AI talent and strengthen its regional innovation ecosystem.",
+      "importance": 7,
+      "confidence": 65,
+      "supporting_daily_events": [
+        "evt_002"
+      ]
+    }
+  ]
+}

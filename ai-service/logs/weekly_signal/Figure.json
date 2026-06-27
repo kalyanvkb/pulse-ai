@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-06-27T18:53:53.397331",
+  "payload": [
+    {
+      "signal_id": "sig_001",
+      "signal": "Robotics entering commercial deployment",
+      "description": "Humanoid robots with advanced capabilities are being increasingly deployed in manufacturing and logistics, with companies transitioning toward robot-dominant workforce models.",
+      "signal_strength": 9,
+      "trajectory": "Increasing",
+      "confidence": 80,
+      "beneficiaries": [
+        "Figure AI",
+        "BMW"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_001",
+        "wkf_002"
+      ],
+      "watch_next_week": "Monitor further announcements of robot workforce expansions and new commercial deployments."
+    }
+  ]
+}

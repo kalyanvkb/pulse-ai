@@ -1,0 +1,106 @@
+{
+  "generated_at": "2026-06-27T18:17:05.564641",
+  "payload": [
+    {
+      "fact_id": "fact_001",
+      "company": "LangChain",
+      "event_type": "Enterprise Adoption",
+      "title": "How Lyft Built a Self-Serve AI Agent Platform with LangGraph and LangSmith",
+      "fact": "Lyft used LangGraph and LangSmith to build a self-serve AI agent platform for customer support, reducing agent development time from months to weeks.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Lyft used LangGraph and LangSmith to build a self-serve AI agent platform for customer support",
+        "Cutting agent development from months to weeks"
+      ]
+    },
+    {
+      "fact_id": "fact_002",
+      "company": "LangChain",
+      "event_type": "Developer Tools",
+      "title": "Introducing Langsmith Engine",
+      "fact": "LangSmith Engine monitors production traces, clusters failures into named issues, and proposes targeted fixes and evaluation coverage.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "LangSmith Engine watches your production traces",
+        "Clusters failures into named issues",
+        "Proposes targeted fixes and eval coverage"
+      ]
+    },
+    {
+      "fact_id": "fact_003",
+      "company": "LangChain",
+      "event_type": "Developer Tools",
+      "title": "Introducing Rubrics: Build Agents that Evaluate and Correct Their Work",
+      "fact": "Deep Agents' RubricMiddleware adds a self-evaluation loop to agent runs, allowing configuration of rubrics and graders for reliable task outputs.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Deep Agents' RubricMiddleware adds a self-evaluation loop to your agent runs",
+        "Set a rubric, configure a grader, and get reliable outputs on tasks where correctness matters"
+      ]
+    },
+    {
+      "fact_id": "fact_004",
+      "company": "LangChain",
+      "event_type": "Developer Tools",
+      "title": "Give your agent its own computer",
+      "fact": "LangChain highlighted the complexity of running code execution in AI agents, emphasizing the need for a real computer environment with filesystem, shell, package manager, and persistent state.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Running code execution in an AI agent is harder than it looks",
+        "Your agent needs a real computer (filesystem, shell, package manager, persistent state)"
+      ]
+    },
+    {
+      "fact_id": "fact_005",
+      "company": "LangChain",
+      "event_type": "Developer Tools",
+      "title": "June 2026: LangChain Newsletter — Fleet On-Call Copilot, Deep Agents Rubrics, and More",
+      "fact": "LangSmith introduced a Fleet on-call copilot for alert triage, computer use for agents, voice trace debugging, and experiment status tracking.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "New in LangSmith: a Fleet on-call copilot for alert triage",
+        "Computer use for agents",
+        "Voice trace debugging and experiment status tracking"
+      ]
+    },
+    {
+      "fact_id": "fact_006",
+      "company": "LangChain",
+      "event_type": "Developer Tools",
+      "title": "Prompt Caching with Deep Agents",
+      "fact": "Deep Agents uses prompt caching to reduce LLM token costs by up to 80% across every major model provider without extra configuration.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Deep Agents uses prompt caching to cut LLM token costs by up to 80%",
+        "Across every major model provider",
+        "No extra config required"
+      ]
+    },
+    {
+      "fact_id": "fact_007",
+      "company": "LangChain",
+      "event_type": "Infrastructure",
+      "title": "How we built SmithDB’s inverted index for full-text search",
+      "fact": "LangChain developed full-text search in SmithDB using inverted indexes and routing queries across local SSD and object storage.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "LangChain built full-text search in SmithDB",
+        "Constructing and compacting inverted indexes",
+        "Routing queries across local SSD and object storage"
+      ]
+    },
+    {
+      "fact_id": "fact_008",
+      "company": "LangChain",
+      "event_type": "Infrastructure",
+      "title": "We built SmithDB, the data layer for agent observability",
+      "fact": "LangChain introduced SmithDB, a distributed database for agent observability, delivering up to 12x faster performance with full portability.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Introducing SmithDB: LangSmith's purpose-built distributed database for agent observability",
+        "Delivering up to 12x faster performance",
+        "Full portability"
+      ]
+    }
+  ]
+}

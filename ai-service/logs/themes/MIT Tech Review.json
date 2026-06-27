@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-27T18:20:02.691781",
+  "payload": [
+    {
+      "theme_id": "theme_001",
+      "theme": "AI Hardware Innovation Extending Moore's Law",
+      "description": "Advancements in semiconductor technology are pushing transistor density limits, enabling more powerful AI chips that sustain performance growth beyond traditional Moore's Law expectations.",
+      "importance": 9,
+      "confidence": 90,
+      "supporting_facts": [
+        "fact_001"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-06-27T18:19:10.300072",
+  "payload": [
+    {
+      "fact_id": "fact_001",
+      "company": "Anthropic",
+      "event_type": "Model Release",
+      "title": "US approves limited release of Anthropic's Mythos 5 AI model - Cybernews",
+      "fact": "The US approved a limited release of Anthropic's Mythos 5 AI model.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "US approves limited release of Anthropic's Mythos 5 AI model Cybernews",
+        "US allows limited access to Anthropic's Mythos AI model after blocking over national security concerns The Business Standard",
+        "US allows partial release of Anthropic's Mythos AI model dw"
+      ]
+    },
+    {
+      "fact_id": "fact_002",
+      "company": "Anthropic",
+      "event_type": "Model Release",
+      "title": "Anthropic Restores Mythos 5 Access for US Organizations - Let's Data Science",
+      "fact": "Anthropic restored access to the Mythos 5 AI model for US organizations.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "Anthropic Restores Mythos 5 Access for US Organizations Let's Data Science",
+        "Anthropic's Mythos 5 Is Available Again, No Timeline for Fable 5 PCMag",
+        "Anthropic Regains US Government Approval for Mythos 5 Access The Cryptonomist"
+      ]
+    },
+    {
+      "fact_id": "fact_003",
+      "company": "Anthropic",
+      "event_type": "Model Release",
+      "title": "Anthropic's Mythos 5 AI model cleared by U.S. for wider use - Fortune",
+      "fact": "Anthropic's Mythos 5 AI model was cleared by the US for wider use.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Anthropic’s Mythos 5 AI model cleared by U.S. for wider use Fortune",
+        "US allows partial release of Anthropic's Mythos AI model dw"
+      ]
+    },
+    {
+      "fact_id": "fact_004",
+      "company": "Anthropic",
+      "event_type": "Regulation",
+      "title": "Trump administration partially lifts export ban on Anthropic's most advanced AI model - KUOW",
+      "fact": "The Trump administration partially lifted the export ban on Anthropic's most advanced AI model.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "Trump administration partially lifts export ban on Anthropic's most advanced AI model KUOW"
+      ]
+    },
+    {
+      "fact_id": "fact_005",
+      "company": "Anthropic",
+      "event_type": "Model Release",
+      "title": "Anthropic Set to Regain Access to Fable 5 AI Model Amid Regulato - GuruFocus",
+      "fact": "Anthropic is set to regain access to the Fable 5 AI model amid regulatory developments.",
+      "evidence_strength": "Low",
+      "supporting_evidence": [
+        "Anthropic Set to Regain Access to Fable 5 AI Model Amid Regulato GuruFocus",
+        "Anthropic to win U.S. nod to restore Fable 5 soon (ANTHRO) Seeking Alpha"
+      ]
+    }
+  ]
+}

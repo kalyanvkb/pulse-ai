@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-06-27T18:19:16.790042",
+  "payload": [
+    {
+      "id": "evt_001",
+      "importance": 9,
+      "development": "The US government is progressively adjusting its regulatory stance to allow controlled access and export of Anthropic's advanced AI models, including Mythos 5 and Fable 5, balancing national security with AI innovation.",
+      "market_impact": {
+        "business_score": 8,
+        "competition_score": 7,
+        "technology_score": 8,
+        "enterprise_score": 7,
+        "ecosystem_score": 6,
+        "confidence": 90,
+        "rationale": "US regulatory easing enables Anthropic to expand US market access and enterprise deployments, improving competitive positioning against peers constrained by export controls.",
+        "counterarguments": [
+          "Further regulatory restrictions could reimpose access limitations.",
+          "Competitors may also gain similar regulatory approvals, diluting advantage.",
+          "Limited release scope may restrict immediate revenue impact."
+        ],
+        "affected_companies": [
+          {
+            "company": "Anthropic",
+            "impact": "Very Positive",
+            "confidence": 92,
+            "reason": "Regulatory approval directly restores and expands US access to flagship AI models, enabling revenue growth and market penetration."
+          },
+          {
+            "company": "OpenAI",
+            "impact": "Positive",
+            "confidence": 80,
+            "reason": "Anthropic's improved US access intensifies competition, pressuring OpenAI to accelerate innovation and enterprise adoption."
+          },
+          {
+            "company": "Google DeepMind",
+            "impact": "Positive",
+            "confidence": 75,
+            "reason": "Anthropic's regulatory progress signals competitive shifts in advanced AI model availability in US markets."
+          },
+          {
+            "company": "Microsoft",
+            "impact": "Positive",
+            "confidence": 70,
+            "reason": "As a major AI investor and cloud provider, Microsoft benefits from increased AI model availability and enterprise demand."
+          },
+          {
+            "company": "Meta",
+            "impact": "Neutral",
+            "confidence": 65,
+            "reason": "Anthropic's regulatory changes have limited immediate impact on Meta's AI model deployment strategy."
+          }
+        ],
+        "overall_score": 7.35,
+        "rating": "Positive"
+      }
+    }
+  ]
+}

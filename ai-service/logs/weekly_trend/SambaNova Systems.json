@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-27T18:49:51.167612",
+  "payload": [
+    {
+      "trend_id": "trend_001",
+      "trend": "AI infrastructure investment increasing",
+      "description": "Advancements in AI infrastructure focus on multi-model flexibility, energy efficiency, and scalable high-performance inference, indicating growing industry emphasis on optimizing AI hardware and software stacks.",
+      "importance": 8,
+      "confidence": 80,
+      "supporting_findings": [
+        "wkf_001"
+      ]
+    }
+  ]
+}

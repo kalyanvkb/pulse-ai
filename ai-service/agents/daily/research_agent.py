@@ -1,73 +1,166 @@
+import json
+
 from prompts.daily.research_prompt import (
     RESEARCH_PROMPT
 )
 
-def research_agent(state, llm):
+from utils.json_parser import (
+    parse_llm_json
+)
 
-    article_blocks = []
+from utils.schema_validator import (
+    validate_research
+)
+
+from utils.prompt_logger import (
+    log_stage
+)
+
+
+# ----------------------------------------------------------
+# Prompt Builder
+# ----------------------------------------------------------
+
+def _build_prompt(state):
+
+    articles = []
 
     for article in state["articles"]:
 
-        title = article.get(
-            "title",
-            "Untitled"
-        )
+        articles.append({
 
-        summary = article.get(
-            "summary"
-        )
+            "id": article.get("id"),
 
-        # Handle bad/missing summaries safely
-        if isinstance(summary, list):
+            "title": article.get(
+                "title",
+                ""
+            ),
 
-            summary_text = "\n".join(
-                [
-                    str(item)
-                    for item in summary
-                    if item
-                ]
+            "company": article.get(
+                "source",
+                ""
+            ),
+
+            "summary": article.get(
+                "summary",
+                []
             )
 
-        elif isinstance(summary, str):
+        })
 
-            summary_text = summary
-
-        else:
-
-            summary_text = ""
-
-        article_blocks.append(
-            f"""
-TITLE:
-{title}
-
-SUMMARY:
-{summary_text}
-"""
-        )
-
-    articles_text = "\n\n---\n\n".join(
-        article_blocks
-    )
-
-    prompt = f"""
+    return f"""
 {RESEARCH_PROMPT}
 
-ARTICLES:
+==================================================
 
-{articles_text}
+ARTICLES
+
+{json.dumps(
+    articles,
+    indent=2
+)}
 """
+
+
+# ----------------------------------------------------------
+# Statistics
+# ----------------------------------------------------------
+
+def _research_statistics(facts):
+
+    if not facts:
+        return
+
+    companies = len({
+
+        x["company"]
+
+        for x in facts
+
+    })
+
+    print(f"""
+
+========== RESEARCH AGENT ==========
+
+Facts Extracted : {len(facts)}
+
+Companies Mentioned : {companies}
+
+===================================
+
+""")
+
+
+# ----------------------------------------------------------
+# Research Agent
+# ----------------------------------------------------------
+
+def research_agent(state, llm):
+
+    prompt = _build_prompt(
+        state
+    )
 
     result = llm.invoke(
         prompt
     )
 
-    state["facts"] = [
-        line.strip()
-        for line in result.content.split(
-            "\n"
+    try:
+
+        output = parse_llm_json(
+            result.content
         )
-        if line.strip()
-    ]
+
+        facts = output.get(
+            "facts",
+            []
+        )
+
+        facts = validate_research(
+            facts
+        )
+
+        if len(facts) == 0:
+
+            raise Exception(
+                "Research Agent returned zero valid facts."
+            )
+
+        state["facts"] = facts
+
+        _research_statistics(
+            facts
+        )
+
+        log_stage(
+
+            state["company"],
+
+            "research",
+
+            facts
+
+        )
+
+    except Exception:
+
+        import traceback
+
+        print(
+            "\n========== RESEARCH AGENT FAILED ==========\n"
+        )
+
+        traceback.print_exc()
+
+        print(
+            "\n========== RAW RESPONSE ==========\n"
+        )
+
+        print(
+            result.content
+        )
+
+        raise
 
     return state

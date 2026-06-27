@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-06-27T18:53:05.227272",
+  "payload": [
+    {
+      "finding_id": "wkf_001",
+      "title": "Government intervention delays and restricts advanced AI model deployments",
+      "summary": "Federal government agencies intervened in the release of advanced AI models, causing OpenAI to delay and stagger the GPT-5.6 rollout and limiting Anthropic's Mythos 5 model availability to select organizations while keeping the public-facing Fable 5 model unavailable.",
+      "importance": 9,
+      "confidence": 90,
+      "supporting_daily_events": [
+        "fact_003",
+        "fact_004",
+        "fact_006",
+        "evt_001"
+      ]
+    },
+    {
+      "finding_id": "wkf_002",
+      "title": "OpenAI unveils tiered GPT-5.6 model suite targeting diverse use cases",
+      "summary": "OpenAI introduced a limited preview of its GPT-5.6 suite comprising Sol (flagship), Terra (medium-tier for high-volume work), and Luna (fast and affordable) models, designed to address different performance and cost requirements.",
+      "importance": 8,
+      "confidence": 95,
+      "supporting_daily_events": [
+        "fact_005",
+        "evt_002"
+      ]
+    },
+    {
+      "finding_id": "wkf_003",
+      "title": "Meta relaunches Facebook Creator Studio as standalone AI companion app",
+      "summary": "Meta transformed its Facebook Creator Studio page manager into a standalone AI-powered companion application to enhance user engagement and productivity.",
+      "importance": 7,
+      "confidence": 90,
+      "supporting_daily_events": [
+        "fact_008",
+        "evt_003"
+      ]
+    },
+    {
+      "finding_id": "wkf_004",
+      "title": "Operational challenges in automation prompt Ford to rehire former engineers",
+      "summary": "Ford rehired former engineers and technicians to address errors caused by its automated production and design systems, highlighting current limitations in automation reliability.",
+      "importance": 7,
+      "confidence": 90,
+      "supporting_daily_events": [
+        "fact_007",
+        "evt_004"
+      ]
+    },
+    {
+      "finding_id": "wkf_005",
+      "title": "Apple raises prices on flagship MacBook Pro and iPad Air models",
+      "summary": "Apple increased the price of the 16-inch MacBook Pro by $300 and the 11-inch iPad Air by $150, reflecting pricing pressure amid potential AI integration and supply chain cost increases.",
+      "importance": 6,
+      "confidence": 90,
+      "supporting_daily_events": [
+        "fact_001",
+        "fact_002",
+        "evt_005"
+      ]
+    },
+    {
+      "finding_id": "wkf_006",
+      "title": "Government officials limit AI use in legislative drafting processes",
+      "summary": "Congresswoman Anna Paulina Luna publicly stated that AI was only used for spellchecking in amendment summaries and denied AI involvement in drafting bill text, indicating cautious AI adoption in government legislative workflows.",
+      "importance": 6,
+      "confidence": 90,
+      "supporting_daily_events": [
+        "fact_009"
+      ]
+    }
+  ]
+}

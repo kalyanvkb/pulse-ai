@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-06-27T18:17:29.480692",
+  "payload": [
+    {
+      "fact_id": "fact_001",
+      "company": "CoreWeave",
+      "event_type": "Infrastructure",
+      "title": "New innovations for the agentic era",
+      "fact": "CoreWeave engineered new solutions across the full stack for NVIDIA Vera Rubin NVL72, including software-defined liquid cooling and rack-scale networking.",
+      "evidence_strength": "Medium",
+      "supporting_evidence": [
+        "CoreWeave engineered new solutions across the full stack for NVIDIA Vera Rubin NVL72",
+        "from software-defined liquid cooling to rack-scale networking"
+      ]
+    }
+  ]
+}

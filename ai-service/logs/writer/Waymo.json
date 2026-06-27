@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-06-27T18:17:46.524265",
+  "payload": {
+    "whats_happening": [
+      {
+        "source_id": "evt_001",
+        "importance": 8,
+        "text": "Waymo introduced Waymo Premier, a premium autonomous ride-hailing service, and launched the 'Because' campaign to stimulate public dialogue on the future of driving.",
+        "market_impact": {
+          "business_score": 8,
+          "competition_score": 7,
+          "technology_score": 7,
+          "enterprise_score": 8,
+          "ecosystem_score": 6,
+          "confidence": 80,
+          "rationale": "Waymo's enhanced rider experience and public engagement campaign support broader commercial adoption and brand positioning in autonomous ride-hailing.",
+          "counterarguments": [
+            "Consumer adoption may remain slow due to regulatory and safety concerns.",
+            "Competitors could quickly replicate rider experience improvements.",
+            "Public campaigns may have limited impact on actual usage growth."
+          ],
+          "affected_companies": [
+            {
+              "company": "Waymo",
+              "impact": "Very Positive",
+              "confidence": 85,
+              "reason": "Directly benefits from improved service offering and brand engagement driving adoption."
+            },
+            {
+              "company": "Cruise",
+              "impact": "Negative",
+              "confidence": 70,
+              "reason": "Faces increased competitive pressure in autonomous ride-hailing market."
+            },
+            {
+              "company": "Aurora Innovation",
+              "impact": "Negative",
+              "confidence": 65,
+              "reason": "Slower commercial traction relative to Waymo's enhanced consumer focus."
+            }
+          ],
+          "overall_score": 7.45,
+          "rating": "Positive"
+        }
+      }
+    ],
+    "why_it_matters": [
+      {
+        "source_id": "evt_001",
+        "importance": 8,
+        "text": "This initiative strengthens Waymo's market position and brand, accelerating commercial adoption while intensifying competitive pressure on rivals like Cruise and Aurora Innovation.",
+        "market_impact": {
+          "business_score": 8,
+          "competition_score": 7,
+          "technology_score": 7,
+          "enterprise_score": 8,
+          "ecosystem_score": 6,
+          "confidence": 80,
+          "rationale": "Waymo's enhanced rider experience and public engagement campaign support broader commercial adoption and brand positioning in autonomous ride-hailing.",
+          "counterarguments": [
+            "Consumer adoption may remain slow due to regulatory and safety concerns.",
+            "Competitors could quickly replicate rider experience improvements.",
+            "Public campaigns may have limited impact on actual usage growth."
+          ],
+          "affected_companies": [
+            {
+              "company": "Waymo",
+              "impact": "Very Positive",
+              "confidence": 85,
+              "reason": "Directly benefits from improved service offering and brand engagement driving adoption."
+            },
+            {
+              "company": "Cruise",
+              "impact": "Negative",
+              "confidence": 70,
+              "reason": "Faces increased competitive pressure in autonomous ride-hailing market."
+            },
+            {
+              "company": "Aurora Innovation",
+              "impact": "Negative",
+              "confidence": 65,
+              "reason": "Slower commercial traction relative to Waymo's enhanced consumer focus."
+            }
+          ],
+          "overall_score": 7.45,
+          "rating": "Positive"
+        }
+      }
+    ]
+  }
+}

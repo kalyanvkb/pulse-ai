@@ -1,0 +1,98 @@
+{
+  "generated_at": "2026-06-27T18:51:59.272739",
+  "payload": {
+    "what_changed": [
+      {
+        "source_id": "sig_001",
+        "importance": 8,
+        "text": "Regulatory frameworks in the US are evolving to allow controlled access and partial export of advanced AI models.",
+        "company": "Anthropic",
+        "strategic_signal": {
+          "signal_id": "sig_001",
+          "signal": "AI regulatory frameworks evolving to enable controlled model access",
+          "description": "Governments, especially in the US, are shifting regulatory policies to permit controlled access and partial export of advanced AI models, balancing innovation with oversight and enabling broader market participation.",
+          "signal_strength": 8,
+          "trajectory": "Increasing",
+          "confidence": 90,
+          "beneficiaries": [
+            "Anthropic",
+            "OpenAI",
+            "Google",
+            "Microsoft",
+            "AI model developers"
+          ],
+          "companies_under_pressure": [
+            "AI companies reliant on restrictive export controls"
+          ],
+          "evidence": [
+            "wkf_001",
+            "trend_001"
+          ],
+          "watch_next_week": "Monitor further regulatory adjustments and new market entries enabled by eased controls."
+        }
+      }
+    ],
+    "why_it_matters": [
+      {
+        "source_id": "sig_001",
+        "importance": 8,
+        "text": "Eased regulatory controls will enable broader market participation and accelerate innovation for leading AI developers.",
+        "company": "Anthropic",
+        "strategic_signal": {
+          "signal_id": "sig_001",
+          "signal": "AI regulatory frameworks evolving to enable controlled model access",
+          "description": "Governments, especially in the US, are shifting regulatory policies to permit controlled access and partial export of advanced AI models, balancing innovation with oversight and enabling broader market participation.",
+          "signal_strength": 8,
+          "trajectory": "Increasing",
+          "confidence": 90,
+          "beneficiaries": [
+            "Anthropic",
+            "OpenAI",
+            "Google",
+            "Microsoft",
+            "AI model developers"
+          ],
+          "companies_under_pressure": [
+            "AI companies reliant on restrictive export controls"
+          ],
+          "evidence": [
+            "wkf_001",
+            "trend_001"
+          ],
+          "watch_next_week": "Monitor further regulatory adjustments and new market entries enabled by eased controls."
+        }
+      }
+    ],
+    "signals_to_watch": [
+      {
+        "source_id": "sig_001",
+        "importance": 8,
+        "text": "Monitor further regulatory adjustments and new market entries enabled by eased export controls.",
+        "company": "Anthropic",
+        "strategic_signal": {
+          "signal_id": "sig_001",
+          "signal": "AI regulatory frameworks evolving to enable controlled model access",
+          "description": "Governments, especially in the US, are shifting regulatory policies to permit controlled access and partial export of advanced AI models, balancing innovation with oversight and enabling broader market participation.",
+          "signal_strength": 8,
+          "trajectory": "Increasing",
+          "confidence": 90,
+          "beneficiaries": [
+            "Anthropic",
+            "OpenAI",
+            "Google",
+            "Microsoft",
+            "AI model developers"
+          ],
+          "companies_under_pressure": [
+            "AI companies reliant on restrictive export controls"
+          ],
+          "evidence": [
+            "wkf_001",
+            "trend_001"
+          ],
+          "watch_next_week": "Monitor further regulatory adjustments and new market entries enabled by eased controls."
+        }
+      }
+    ]
+  }
+}

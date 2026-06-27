@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-06-27T18:17:41.125544",
+  "payload": [
+    {
+      "theme_id": "theme_001",
+      "theme": "Autonomous Vehicle Commercialization and Consumer Engagement",
+      "description": "The autonomous vehicle industry is progressing beyond technology development into commercial deployment and consumer experience enhancement, while actively engaging the public to shape acceptance and adoption.",
+      "importance": 8,
+      "confidence": 80,
+      "supporting_facts": [
+        "fact_001",
+        "fact_002"
+      ]
+    }
+  ]
+}

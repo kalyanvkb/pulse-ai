@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-06-27T18:51:46.037214",
+  "payload": [
+    {
+      "signal_id": "sig_001",
+      "signal": "AI infrastructure vertical integration increasing",
+      "description": "Leading AI firms are developing custom AI chips and integrating hardware and software stacks to enhance AI model performance and reduce deployment costs.",
+      "signal_strength": 9,
+      "trajectory": "Increasing",
+      "confidence": 80,
+      "beneficiaries": [
+        "OpenAI",
+        "NVIDIA",
+        "Google",
+        "Amazon Web Services"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_002",
+        "trend_001"
+      ],
+      "watch_next_week": "Monitor announcements of additional custom AI hardware and vertical integration initiatives."
+    },
+    {
+      "signal_id": "sig_002",
+      "signal": "AI model safety and ethical reliability under heightened scrutiny",
+      "description": "Governments and enterprises are imposing stronger safety checks and access restrictions on AI models due to ongoing challenges with model reliability and ethical behavior.",
+      "signal_strength": 8,
+      "trajectory": "Increasing",
+      "confidence": 80,
+      "beneficiaries": [
+        "OpenAI",
+        "IBM",
+        "Microsoft"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_001",
+        "wkf_003",
+        "trend_002"
+      ],
+      "watch_next_week": "Track regulatory developments and new safety protocols impacting AI model deployment."
+    },
+    {
+      "signal_id": "sig_003",
+      "signal": "Enterprise AI security solutions gaining strategic focus",
+      "description": "Major AI and enterprise firms are collaborating to embed AI capabilities into enterprise security frameworks, signaling a growing strategic emphasis on AI-driven security solutions.",
+      "signal_strength": 7,
+      "trajectory": "Emerging",
+      "confidence": 65,
+      "beneficiaries": [
+        "IBM",
+        "OpenAI"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_004",
+        "trend_003"
+      ],
+      "watch_next_week": "Observe progress in enterprise AI security partnerships and pilot deployments."
+    }
+  ]
+}

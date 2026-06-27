@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-06-27T18:52:09.011087",
+  "payload": [
+    {
+      "finding_id": "wkf_001",
+      "title": "Perplexity Launches Multi-Model Agentic AI for Legal Workflows",
+      "summary": "Perplexity launched Computer for Counsel, a multi-model agentic AI layer tailored for legal workflows, and partnered with Docusign to automate enterprise-wide contract workflows. Following the launch, Gunderson Dettmer deepened its use of Perplexity AI.",
+      "importance": 9,
+      "confidence": 86,
+      "supporting_daily_events": [
+        "evt_001"
+      ]
+    },
+    {
+      "finding_id": "wkf_002",
+      "title": "Emerging AI Security Vulnerabilities in AI Browsers",
+      "summary": "Perplexity Comet AI browser was exploited via a puzzle game to leak user credentials, highlighting emerging security vulnerabilities in AI applications integrated into workflows.",
+      "importance": 6,
+      "confidence": 65,
+      "supporting_daily_events": [
+        "evt_002"
+      ]
+    }
+  ]
+}

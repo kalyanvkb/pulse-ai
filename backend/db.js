@@ -21,13 +21,154 @@ const articleSchema = new mongoose.Schema({
 
 const Article = mongoose.model("Article", articleSchema);
 
-const companyWeeklyBriefSchema =
-  new mongoose.Schema(
-    {},
-    {
-      strict: false
-    }
-  );
+const marketImpactSchema = new mongoose.Schema(
+  {
+    score: {
+      type: Number,
+      min: -100,
+      max: 100,
+      default: 0,
+    },
+
+    rating: {
+      type: String,
+      enum: [
+        "Extremely Positive",
+        "Positive",
+        "Slightly Positive",
+        "Neutral",
+        "Slightly Negative",
+        "Negative",
+        "Extremely Negative",
+      ],
+      default: "Neutral",
+    },
+
+    importance: {
+      type: Number,
+      min: 0,
+      max: 100,
+      default: 0,
+    },
+
+    confidence: {
+      type: Number,
+      min: 0,
+      max: 100,
+      default: 0,
+    },
+
+    timeHorizon: {
+      type: String,
+      enum: [
+        "Immediate",
+        "1-4 Weeks",
+        "1-3 Months",
+        "3-12 Months",
+        "Long Term",
+      ],
+      default: "1-3 Months",
+    },
+
+    rationale: {
+      type: [String],
+      default: [],
+    },
+
+    affectedCompanies: [
+      {
+        company: String,
+
+        impact: {
+          type: String,
+          enum: [
+            "Extremely Positive",
+            "Positive",
+            "Slightly Positive",
+            "Neutral",
+            "Slightly Negative",
+            "Negative",
+            "Extremely Negative",
+          ],
+        },
+
+        score: Number,
+
+        confidence: Number,
+      },
+    ],
+  },
+  { _id: false }
+);
+
+const companyBriefSchema = new mongoose.Schema(
+  {
+    company: String,
+    date: String,
+
+    topDevelopments: [
+      {
+        title: String,
+        content: String,
+        marketImpact: marketImpactSchema,
+      },
+    ],
+
+    whyItMatters: [
+      {
+        title: String,
+        content: String,
+        marketImpact: marketImpactSchema,
+      },
+    ],
+
+    signalsToWatch: [
+      {
+        title: String,
+        content: String,
+        marketImpact: marketImpactSchema,
+      },
+    ],
+  },
+  {
+    strict: false,
+  }
+);
+
+const companyWeeklyBriefSchema = new mongoose.Schema(
+  {
+    company: String,
+    week: String,
+
+    topDevelopments: [
+      {
+        title: String,
+        content: String,
+        marketImpact: marketImpactSchema,
+      },
+    ],
+
+    whyItMatters: [
+      {
+        title: String,
+        content: String,
+        marketImpact: marketImpactSchema,
+      },
+    ],
+
+    signalsToWatch: [
+      {
+        title: String,
+        content: String,
+        marketImpact: marketImpactSchema,
+      },
+    ],
+  },
+  {
+    strict: false,
+  }
+);
+
 
 const CompanyWeeklyBrief =
   mongoose.models
@@ -38,13 +179,7 @@ const CompanyWeeklyBrief =
     "companyWeeklyBriefs"
   );
 
-  const companyBriefSchema =
-  new mongoose.Schema(
-    {},
-    {
-      strict: false
-    }
-  );
+ 
 
 const CompanyBrief =
   mongoose.models.CompanyBrief ||

@@ -1,0 +1,68 @@
+{
+  "generated_at": "2026-06-27T18:20:28.860818",
+  "payload": [
+    {
+      "theme_id": "theme_001",
+      "theme": "Government Influence on AI Model Deployment",
+      "description": "Federal government agencies are actively intervening in the release and availability of advanced AI models, causing delays, partial rollouts, and restricted access to certain AI capabilities.",
+      "importance": 9,
+      "confidence": 90,
+      "supporting_facts": [
+        "fact_003",
+        "fact_004",
+        "fact_006"
+      ]
+    },
+    {
+      "theme_id": "theme_002",
+      "theme": "AI Product Diversification for Tiered Use Cases",
+      "description": "AI companies are launching model suites with differentiated tiers targeting distinct user needs, balancing performance, cost, and speed to address a broad spectrum of applications.",
+      "importance": 8,
+      "confidence": 95,
+      "supporting_facts": [
+        "fact_005"
+      ]
+    },
+    {
+      "theme_id": "theme_003",
+      "theme": "Challenges in Automation and AI System Reliability",
+      "description": "Enterprises deploying automation and AI-driven systems face operational challenges requiring human intervention and expertise to correct errors, highlighting current limitations in autonomous system reliability.",
+      "importance": 7,
+      "confidence": 90,
+      "supporting_facts": [
+        "fact_007"
+      ]
+    },
+    {
+      "theme_id": "theme_004",
+      "theme": "AI Integration into Established Digital Platforms",
+      "description": "Legacy digital platforms are being reimagined and relaunched with AI capabilities embedded, transforming traditional tools into AI-powered companion applications to enhance user engagement and productivity.",
+      "importance": 7,
+      "confidence": 90,
+      "supporting_facts": [
+        "fact_008"
+      ]
+    },
+    {
+      "theme_id": "theme_005",
+      "theme": "Consumer Electronics Pricing Pressure Amid AI Investment",
+      "description": "Leading consumer electronics companies are increasing prices on flagship hardware products, potentially reflecting rising costs associated with integrating advanced AI technologies and supply chain pressures.",
+      "importance": 6,
+      "confidence": 90,
+      "supporting_facts": [
+        "fact_001",
+        "fact_002"
+      ]
+    },
+    {
+      "theme_id": "theme_006",
+      "theme": "Cautious and Limited AI Adoption in Government Legislative Processes",
+      "description": "Government officials publicly limit AI use in sensitive processes such as legislation drafting, restricting AI to low-risk tasks like spellchecking, reflecting cautious adoption and regulatory sensitivity.",
+      "importance": 6,
+      "confidence": 90,
+      "supporting_facts": [
+        "fact_009"
+      ]
+    }
+  ]
+}

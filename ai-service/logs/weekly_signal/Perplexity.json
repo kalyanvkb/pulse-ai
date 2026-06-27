@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-06-27T18:52:33.030426",
+  "payload": [
+    {
+      "signal_id": "sig_001",
+      "signal": "Agentic AI moving into production",
+      "description": "Agentic AI systems that integrate multiple models are transitioning from experimental to production use, especially in specialized enterprise workflows such as legal services.",
+      "signal_strength": 8,
+      "trajectory": "Increasing",
+      "confidence": 86,
+      "beneficiaries": [
+        "Perplexity",
+        "DocuSign"
+      ],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_001"
+      ],
+      "watch_next_week": "Track additional enterprise deployments of multi-model agentic AI and partnerships in regulated industries."
+    },
+    {
+      "signal_id": "sig_002",
+      "signal": "AI security vulnerabilities emerging in workflow-integrated applications",
+      "description": "As AI applications become embedded in enterprise workflows, new security vulnerabilities are being identified, signaling a growing need for specialized AI security solutions.",
+      "signal_strength": 7,
+      "trajectory": "Emerging",
+      "confidence": 65,
+      "beneficiaries": [],
+      "companies_under_pressure": [],
+      "evidence": [
+        "wkf_002"
+      ],
+      "watch_next_week": "Monitor developments in AI security measures and responses to newly discovered vulnerabilities in AI-integrated workflows."
+    }
+  ]
+}

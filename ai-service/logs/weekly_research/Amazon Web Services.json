@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-06-27T18:49:36.951804",
+  "payload": [
+    {
+      "finding_id": "wkf_001",
+      "title": "AWS enables production-grade AI agents in regulated finance",
+      "summary": "Stripe deployed a production-grade AI agent system on AWS using Amazon Bedrock, achieving a 26% reduction in review handling time while maintaining human oversight, demonstrating significant enterprise AI adoption in regulated financial services.",
+      "importance": 9,
+      "confidence": 90,
+      "supporting_daily_events": [
+        "evt_001"
+      ]
+    },
+    {
+      "finding_id": "wkf_002",
+      "title": "AWS optimizes SageMaker AI model training with NVIDIA Blackwell GPUs",
+      "summary": "Amazon Web Services enhanced AI model training on Amazon SageMaker by integrating NVIDIA Blackwell GPUs, leveraging expanded memory and new precision formats to reduce training constraints and improve infrastructure performance.",
+      "importance": 7,
+      "confidence": 75,
+      "supporting_daily_events": [
+        "evt_002"
+      ]
+    }
+  ]
+}

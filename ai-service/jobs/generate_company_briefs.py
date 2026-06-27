@@ -239,17 +239,15 @@ def generate_company_briefs_for_date(
                         "articleTitles":
                             article_titles,
 
-                        "whatsHappening":
-                            result.get(
-                                "whats_happening",
-                                []
-                            ),
+                        "whatsHappening": result.get("whats_happening", []),
 
-                        "whyItMatters":
-                            result.get(
-                                "why_it_matters",
-                                []
-                            ),
+"whyItMatters": result.get("why_it_matters", []),
+
+"themes": result.get("themes", []),
+
+"facts": result.get("facts", []),
+
+"impacts": result.get("impacts", []),
 
                         "generatedBy":
                             "gpt-4.1-mini",

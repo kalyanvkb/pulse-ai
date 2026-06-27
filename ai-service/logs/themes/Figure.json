@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-06-27T18:21:35.134676",
+  "payload": [
+    {
+      "theme_id": "theme_001",
+      "theme": "Robotics Moving Into Commercial Deployment",
+      "description": "The deployment of advanced humanoid robots in real-world industrial settings, particularly in manufacturing and logistics, marks a shift from research prototypes to production-ready systems.",
+      "importance": 9,
+      "confidence": 85,
+      "supporting_facts": [
+        "fact_002",
+        "fact_003",
+        "fact_004",
+        "fact_005",
+        "fact_006"
+      ]
+    },
+    {
+      "theme_id": "theme_002",
+      "theme": "Physical AI Integration in Manufacturing",
+      "description": "The integration of AI-powered physical systems, such as tactile sensing humanoid robots, into manufacturing processes is advancing, enabling new capabilities in automation and production efficiency.",
+      "importance": 8,
+      "confidence": 80,
+      "supporting_facts": [
+        "fact_004",
+        "fact_007"
+      ]
+    },
+    {
+      "theme_id": "theme_003",
+      "theme": "Shift Toward Robot-First Workforces",
+      "description": "Some AI-driven companies are transitioning to robot-dominant workforces, reflecting a strategic move to leverage automation at scale within operational environments.",
+      "importance": 7,
+      "confidence": 70,
+      "supporting_facts": [
+        "fact_001"
+      ]
+    }
+  ]
+}

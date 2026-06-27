@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-27T18:50:54.620300",
+  "payload": [
+    {
+      "trend_id": "trend_001",
+      "trend": "Autonomous vehicle services advancing towards enhanced consumer experience",
+      "description": "Autonomous vehicle companies are focusing on improving rider experience and public engagement, signaling a shift from purely technical development to consumer-centric service enhancements in autonomous ride-hailing.",
+      "importance": 7,
+      "confidence": 80,
+      "supporting_findings": [
+        "wkf_001"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "generated_at": "2026-06-27T18:21:14.870202",
+  "payload": [
+    {
+      "id": "evt_001",
+      "importance": 9,
+      "development": "OpenAI developed Jalapeño, a custom inference chip built with Broadcom, and hired Apple Vision Pro hardware exec Paul Meade to strengthen its hardware team.",
+      "market_impact": {
+        "business_score": 8,
+        "competition_score": 8,
+        "technology_score": 9,
+        "enterprise_score": 7,
+        "ecosystem_score": 6,
+        "confidence": 90,
+        "rationale": "OpenAI's move to build custom inference hardware reduces supplier risk and enhances performance, signaling a major strategic shift in AI infrastructure.",
+        "counterarguments": [
+          "Custom chip may face production scaling challenges limiting near-term impact.",
+          "Competitors like Google and Apple already have mature hardware ecosystems.",
+          "Hardware talent integration may take time to yield results."
+        ],
+        "affected_companies": [
+          {
+            "company": "OpenAI",
+            "impact": "Very Positive",
+            "confidence": 95,
+            "reason": "Directly benefits from improved hardware performance and supply chain control."
+          },
+          {
+            "company": "Broadcom",
+            "impact": "Positive",
+            "confidence": 85,
+            "reason": "Partner in chip development gains revenue and strategic positioning."
+          },
+          {
+            "company": "Apple",
+            "impact": "Negative",
+            "confidence": 75,
+            "reason": "Loses key hardware talent to OpenAI, potentially weakening Vision Pro hardware leadership."
+          }
+        ],
+        "overall_score": 7.7,
+        "rating": "Positive"
+      }
+    },
+    {
+      "id": "evt_002",
+      "importance": 9,
+      "development": "Government regulations and export controls are limiting OpenAI's GPT-5.6 rollout while enabling Anthropic Mythos 5 adoption by over 100 US companies and agencies, including non-American employees.",
+      "market_impact": {
+        "business_score": 7,
+        "competition_score": 8,
+        "technology_score": 7,
+        "enterprise_score": 8,
+        "ecosystem_score": 6,
+        "confidence": 85,
+        "rationale": "Regulatory constraints are reshaping AI deployment, benefiting Anthropic's authorized enterprise adoption while constraining OpenAI's model availability.",
+        "counterarguments": [
+          "Regulatory environment may shift, easing restrictions on OpenAI.",
+          "Anthropic's adoption may be limited by model capabilities or pricing.",
+          "OpenAI may develop compliant versions mitigating rollout limits."
+        ],
+        "affected_companies": [
+          {
+            "company": "Anthropic",
+            "impact": "Very Positive",
+            "confidence": 85,
+            "reason": "Authorized for broad enterprise use, expanding market penetration."
+          },
+          {
+            "company": "OpenAI",
+            "impact": "Negative",
+            "confidence": 85,
+            "reason": "Rollout restrictions limit market reach and revenue growth."
+          }
+        ],
+        "overall_score": 7.35,
+        "rating": "Positive"
+      }
+    },
+    {
+      "id": "evt_003",
+      "importance": 7,
+      "development": "OpenAI hired the Uber India chief to lead its biggest market outside the US, signaling a strategic push into the Indian AI market.",
+      "market_impact": {
+        "business_score": 7,
+        "competition_score": 6,
+        "technology_score": 5,
+        "enterprise_score": 6,
+        "ecosystem_score": 6,
+        "confidence": 80,
+        "rationale": "Local leadership hire supports market expansion and partnership development in a high-growth emerging market.",
+        "counterarguments": [
+          "India's AI market adoption may be slower than expected.",
+          "Local competition could limit OpenAI's growth.",
+          "Regulatory or infrastructure challenges may impede expansion."
+        ],
+        "affected_companies": [
+          {
+            "company": "OpenAI",
+            "impact": "Positive",
+            "confidence": 80,
+            "reason": "Strengthens market position and customer growth in India."
+          }
+        ],
+        "overall_score": 6.25,
+        "rating": "Neutral"
+      }
+    },
+    {
+      "id": "evt_004",
+      "importance": 7,
+      "development": "Asian AI startups launched new models with Mythos-like capabilities, aiming to bypass export bans and compete regionally.",
+      "market_impact": {
+        "business_score": 6,
+        "competition_score": 7,
+        "technology_score": 6,
+        "enterprise_score": 5,
+        "ecosystem_score": 5,
+        "confidence": 75,
+        "rationale": "Emerging regional models increase competitive pressure and reduce dependency on Western AI providers amid geopolitical constraints.",
+        "counterarguments": [
+          "New models may lack maturity and enterprise readiness.",
+          "Limited global reach restricts revenue impact.",
+          "Western incumbents may respond with competitive offerings."
+        ],
+        "affected_companies": [
+          {
+            "company": "Anthropic",
+            "impact": "Negative",
+            "confidence": 75,
+            "reason": "Faces increased competition in Asia from local startups."
+          },
+          {
+            "company": "OpenAI",
+            "impact": "Negative",
+            "confidence": 70,
+            "reason": "Potential market share erosion in Asia due to export restrictions."
+          }
+        ],
+        "overall_score": 5.95,
+        "rating": "Neutral"
+      }
+    },
+    {
+      "id": "evt_005",
+      "importance": 7,
+      "development": "AI is increasingly used to integrate diverse personal health data streams for individualized disease management, exemplified by Connor Christou using Claude to fight cancer.",
+      "market_impact": {
+        "business_score": 6,
+        "competition_score": 5,
+        "technology_score": 6,
+        "enterprise_score": 6,
+        "ecosystem_score": 5,
+        "confidence": 70,
+        "rationale": "Personalized AI healthcare applications demonstrate growing use cases, signaling long-term revenue opportunities in health tech.",
+        "counterarguments": [
+          "Current use cases are anecdotal and not widely adopted yet.",
+          "Regulatory and privacy hurdles may slow enterprise adoption.",
+          "Integration complexity limits scalability in healthcare systems."
+        ],
+        "affected_companies": [
+          {
+            "company": "Anthropic",
+            "impact": "Positive",
+            "confidence": 70,
+            "reason": "Claude's demonstrated use in personalized healthcare enhances product relevance."
+          }
+        ],
+        "overall_score": 5.65,
+        "rating": "Neutral"
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-06-27T18:53:51.624975",
+  "payload": [
+    {
+      "trend_id": "trend_001",
+      "trend": "Robotics moving into commercial deployment",
+      "description": "The deployment of humanoid robots in manufacturing and logistics is expanding, with companies like BMW increasing use of advanced robots featuring tactile sensing, and robotics firms shifting toward robot-dominant workforce models.",
+      "importance": 9,
+      "confidence": 80,
+      "supporting_findings": [
+        "wkf_001",
+        "wkf_002"
+      ]
+    }
+  ]
+}

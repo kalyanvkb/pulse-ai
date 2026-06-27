@@ -1,0 +1,173 @@
+{
+  "generated_at": "2026-06-27T18:19:59.000501",
+  "payload": {
+    "whats_happening": [
+      {
+        "source_id": "evt_001",
+        "importance": 9,
+        "text": "Mistral launched OCR 4, a document extraction product for enterprise AI applications.",
+        "market_impact": {
+          "business_score": 8,
+          "competition_score": 7,
+          "technology_score": 8,
+          "enterprise_score": 8,
+          "ecosystem_score": 6,
+          "confidence": 80,
+          "rationale": "OCR 4 addresses a growing enterprise demand for AI-driven document extraction, enhancing automation and operational efficiency, benefiting Mistral and competitors in enterprise AI.",
+          "counterarguments": [
+            "OCR 4 may face strong competition from established document AI providers limiting market share gains.",
+            "Adoption could be slower if enterprises delay integrating new AI tools into workflows.",
+            "Technological differentiation may be insufficient to disrupt incumbent solutions."
+          ],
+          "affected_companies": [
+            {
+              "company": "Mistral",
+              "impact": "Very Positive",
+              "confidence": 85,
+              "reason": "Direct product launch targeting enterprise AI document extraction market."
+            },
+            {
+              "company": "UiPath",
+              "impact": "Negative",
+              "confidence": 75,
+              "reason": "Potential competitive pressure in document automation and AI-driven workflow tools."
+            },
+            {
+              "company": "ABBYY",
+              "impact": "Negative",
+              "confidence": 80,
+              "reason": "Established document extraction player facing new AI competition."
+            },
+            {
+              "company": "Microsoft",
+              "impact": "Positive",
+              "confidence": 70,
+              "reason": "Potential partner or integrator of OCR 4 into Azure AI services."
+            }
+          ],
+          "overall_score": 7.55,
+          "rating": "Positive"
+        }
+      },
+      {
+        "source_id": "evt_002",
+        "importance": 7,
+        "text": "Mistral AI selected Montréal as the location for its Canadian hub.",
+        "market_impact": {
+          "business_score": 5,
+          "competition_score": 4,
+          "technology_score": 5,
+          "enterprise_score": 4,
+          "ecosystem_score": 7,
+          "confidence": 65,
+          "rationale": "Establishing a Canadian hub in Montréal strengthens Mistral's access to local AI talent and ecosystem, supporting long-term innovation and regional presence.",
+          "counterarguments": [
+            "Hub location alone may not significantly impact competitive positioning.",
+            "Talent acquisition benefits may be offset by competition from other hubs.",
+            "Operational scale and product impact remain to be demonstrated."
+          ],
+          "affected_companies": [
+            {
+              "company": "Mistral",
+              "impact": "Positive",
+              "confidence": 70,
+              "reason": "Improves talent access and regional innovation capabilities."
+            },
+            {
+              "company": "Element AI (ServiceNow)",
+              "impact": "Neutral",
+              "confidence": 60,
+              "reason": "Also active in Montréal AI ecosystem; limited direct impact."
+            }
+          ],
+          "overall_score": 4.75,
+          "rating": "Negative"
+        }
+      }
+    ],
+    "why_it_matters": [
+      {
+        "source_id": "evt_001",
+        "importance": 9,
+        "text": "OCR 4 enhances automation and operational efficiency in enterprise AI, intensifying competition among document extraction providers and creating partnership opportunities for platforms like Microsoft Azure.",
+        "market_impact": {
+          "business_score": 8,
+          "competition_score": 7,
+          "technology_score": 8,
+          "enterprise_score": 8,
+          "ecosystem_score": 6,
+          "confidence": 80,
+          "rationale": "OCR 4 addresses a growing enterprise demand for AI-driven document extraction, enhancing automation and operational efficiency, benefiting Mistral and competitors in enterprise AI.",
+          "counterarguments": [
+            "OCR 4 may face strong competition from established document AI providers limiting market share gains.",
+            "Adoption could be slower if enterprises delay integrating new AI tools into workflows.",
+            "Technological differentiation may be insufficient to disrupt incumbent solutions."
+          ],
+          "affected_companies": [
+            {
+              "company": "Mistral",
+              "impact": "Very Positive",
+              "confidence": 85,
+              "reason": "Direct product launch targeting enterprise AI document extraction market."
+            },
+            {
+              "company": "UiPath",
+              "impact": "Negative",
+              "confidence": 75,
+              "reason": "Potential competitive pressure in document automation and AI-driven workflow tools."
+            },
+            {
+              "company": "ABBYY",
+              "impact": "Negative",
+              "confidence": 80,
+              "reason": "Established document extraction player facing new AI competition."
+            },
+            {
+              "company": "Microsoft",
+              "impact": "Positive",
+              "confidence": 70,
+              "reason": "Potential partner or integrator of OCR 4 into Azure AI services."
+            }
+          ],
+          "overall_score": 7.55,
+          "rating": "Positive"
+        }
+      },
+      {
+        "source_id": "evt_002",
+        "importance": 7,
+        "text": "Establishing a Montréal hub strengthens Mistral's access to AI talent and regional innovation, supporting its long-term growth and presence in the Canadian AI ecosystem.",
+        "market_impact": {
+          "business_score": 5,
+          "competition_score": 4,
+          "technology_score": 5,
+          "enterprise_score": 4,
+          "ecosystem_score": 7,
+          "confidence": 65,
+          "rationale": "Establishing a Canadian hub in Montréal strengthens Mistral's access to local AI talent and ecosystem, supporting long-term innovation and regional presence.",
+          "counterarguments": [
+            "Hub location alone may not significantly impact competitive positioning.",
+            "Talent acquisition benefits may be offset by competition from other hubs.",
+            "Operational scale and product impact remain to be demonstrated."
+          ],
+          "affected_companies": [
+            {
+              "company": "Mistral",
+              "impact": "Positive",
+              "confidence": 70,
+              "reason": "Improves talent access and regional innovation capabilities."
+            },
+            {
+              "company": "Element AI (ServiceNow)",
+              "impact": "Neutral",
+              "confidence": 60,
+              "reason": "Also active in Montréal AI ecosystem; limited direct impact."
+            }
+          ],
+          "overall_score": 4.75,
+          "rating": "Negative"
+        }
+      }
+    ]
+  }
+}

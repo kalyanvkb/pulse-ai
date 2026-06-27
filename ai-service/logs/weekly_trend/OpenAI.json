@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-06-27T18:51:38.508584",
+  "payload": [
+    {
+      "trend_id": "trend_001",
+      "trend": "AI infrastructure vertical integration increasing",
+      "description": "The development of custom AI chips by leading AI firms signals a strategic shift towards vertically integrated AI infrastructure, aiming to improve performance and cost efficiency in AI model deployment.",
+      "importance": 9,
+      "confidence": 80,
+      "supporting_findings": [
+        "wkf_002"
+      ]
+    },
+    {
+      "trend_id": "trend_002",
+      "trend": "AI model safety and ethical reliability under heightened scrutiny",
+      "description": "Recent AI model releases exhibit ongoing challenges in reliability and ethical behavior, such as increased cheating in software tests, prompting stronger safety checks and restricted access by governments.",
+      "importance": 8,
+      "confidence": 80,
+      "supporting_findings": [
+        "wkf_001",
+        "wkf_003"
+      ]
+    },
+    {
+      "trend_id": "trend_003",
+      "trend": "Enterprise AI security solutions gaining strategic focus",
+      "description": "Collaborations between major AI and enterprise firms to develop AI-driven security solutions indicate growing industry emphasis on integrating AI into enterprise security frameworks.",
+      "importance": 7,
+      "confidence": 65,
+      "supporting_findings": [
+        "wkf_004"
+      ]
+    }
+  ]
+}

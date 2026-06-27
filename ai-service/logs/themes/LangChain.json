@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-06-27T18:17:10.701273",
+  "payload": [
+    {
+      "theme_id": "theme_001",
+      "theme": "Agentic AI Becoming Production Ready",
+      "description": "Advancements in AI agents focus on self-evaluation, autonomous error correction, and operational reliability, enabling their deployment in real-world enterprise scenarios.",
+      "importance": 9,
+      "confidence": 88,
+      "supporting_facts": [
+        "fact_001",
+        "fact_003",
+        "fact_005"
+      ]
+    },
+    {
+      "theme_id": "theme_004",
+      "theme": "Enterprise AI Adoption Accelerating Through Self-Serve Platforms",
+      "description": "Enterprises are increasingly adopting AI by leveraging self-serve platforms that reduce development time and complexity, enabling faster deployment of AI agents in customer-facing roles.",
+      "importance": 9,
+      "confidence": 80,
+      "supporting_facts": [
+        "fact_001"
+      ]
+    },
+    {
+      "theme_id": "theme_002",
+      "theme": "Developer Tools for AI Agent Lifecycle Management Maturing",
+      "description": "Emerging sophisticated developer tools provide monitoring, debugging, cost optimization, and evaluation frameworks to streamline AI agent development and maintenance.",
+      "importance": 8,
+      "confidence": 88,
+      "supporting_facts": [
+        "fact_002",
+        "fact_003",
+        "fact_005",
+        "fact_006"
+      ]
+    },
+    {
+      "theme_id": "theme_003",
+      "theme": "AI Infrastructure Innovation Focused on Agent Observability and Performance",
+      "description": "New infrastructure components like distributed databases and optimized indexing techniques are being developed to support scalable, high-performance AI agent observability and data management.",
+      "importance": 8,
+      "confidence": 88,
+      "supporting_facts": [
+        "fact_007",
+        "fact_008"
+      ]
+    },
+    {
+      "theme_id": "theme_005",
+      "theme": "Increasing Complexity and Realism in AI Agent Execution Environments",
+      "description": "AI agents are evolving to require more realistic and complex execution environments, including persistent state, filesystem access, and package management, to handle sophisticated tasks.",
+      "importance": 7,
+      "confidence": 80,
+      "supporting_facts": [
+        "fact_004",
+        "fact_005"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-06-27T18:16:15.450823",
+  "payload": [
+    {
+      "theme_id": "theme_001",
+      "theme": "AI Infrastructure Innovation Driving Performance and Efficiency",
+      "description": "Advancements in AI hardware and system architecture are enabling higher performance, energy efficiency, and scalability, supporting the growing demands of large and complex AI models and workflows.",
+      "importance": 8,
+      "confidence": 80,
+      "supporting_facts": [
+        "fact_001",
+        "fact_002",
+        "fact_003"
+      ]
+    }
+  ]
+}

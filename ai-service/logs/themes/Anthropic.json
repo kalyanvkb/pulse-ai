@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-06-27T18:19:12.338547",
+  "payload": [
+    {
+      "theme_id": "theme_001",
+      "theme": "Regulatory Recalibration of Advanced AI Model Access in the US",
+      "description": "The US government is progressively adjusting its regulatory stance to allow controlled access and export of advanced AI models, reflecting a strategic balance between national security concerns and fostering AI innovation.",
+      "importance": 9,
+      "confidence": 90,
+      "supporting_facts": [
+        "fact_001",
+        "fact_002",
+        "fact_003",
+        "fact_004",
+        "fact_005"
+      ]
+    }
+  ]
+}

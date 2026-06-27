@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-06-27T18:49:40.443942",
+  "payload": [
+    {
+      "trend_id": "trend_001",
+      "trend": "Enterprise AI adoption accelerating",
+      "description": "Production-grade AI agent deployments are expanding in regulated industries such as financial services, demonstrating increased enterprise trust and integration of AI systems with human oversight.",
+      "importance": 9,
+      "confidence": 90,
+      "supporting_findings": [
+        "wkf_001"
+      ]
+    },
+    {
+      "trend_id": "trend_002",
+      "trend": "AI infrastructure investment increasing",
+      "description": "Cloud providers are upgrading AI infrastructure by integrating next-generation GPUs and optimizing model training platforms, enabling more efficient and scalable AI development.",
+      "importance": 7,
+      "confidence": 75,
+      "supporting_findings": [
+        "wkf_002"
+      ]
+    }
+  ]
+}

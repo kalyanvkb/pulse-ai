@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-06-27T18:51:05.517341",
+  "payload": [
+    {
+      "trend_id": "trend_001",
+      "trend": "Enterprise AI adoption accelerating",
+      "description": "Enterprises are increasingly investing in AI-driven workforce development and digital transformation initiatives, signaling a broader adoption of AI technologies to enhance business capabilities and prepare for future job markets.",
+      "importance": 9,
+      "confidence": 80,
+      "supporting_findings": [
+        "wkf_001",
+        "wkf_002"
+      ]
+    },
+    {
+      "trend_id": "trend_002",
+      "trend": "Corporate social responsibility integrating AI and disaster response",
+      "description": "Corporations are leveraging AI and digital resources to support disaster relief and nonprofit efforts, reflecting a growing trend of integrating AI capabilities into social impact and crisis management strategies.",
+      "importance": 6,
+      "confidence": 65,
+      "supporting_findings": [
+        "wkf_003"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-06-27T18:20:00.960629",
+  "payload": [
+    {
+      "fact_id": "fact_001",
+      "company": "IBM",
+      "event_type": "Infrastructure",
+      "title": "IBM has unveiled chip technology that could help extend Moore’s Law another decade",
+      "fact": "IBM built a new prototype chip with around 100 billion transistors on an area the size of a fingernail, doubling the transistor density of its previous state-of-the-art technology announced in 2021.",
+      "evidence_strength": "High",
+      "supporting_evidence": [
+        "IBM has built a new prototype chip with around 100 billion transistors on an area the size of a fingernail",
+        "which is twice the density of the company’s previous state-of-the-art technology announced in 2021"
+      ]
+    }
+  ]
+}
