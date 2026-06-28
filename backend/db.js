@@ -406,20 +406,45 @@ async function unfollowCompany(email, company) {
 
 
 
-async function getCompanyWeeklyBriefs(
-  companies
-) {
+async function getCompanyWeeklyBriefs(companies) {
+
+  // --------------------------------------------------
+  // Find the latest week and version available
+  // --------------------------------------------------
+
+  const latest = await CompanyWeeklyBrief
+    .findOne()
+    .sort({
+      week: -1,
+      version: -1
+    })
+    .lean();
+
+  if (!latest) {
+    return [];
+  }
+
+  // --------------------------------------------------
+  // Return only latest week's intelligence
+  // --------------------------------------------------
 
   return CompanyWeeklyBrief.find({
+
     company: {
       $in: companies
-    }
+    },
+
+    week: latest.week,
+
+    version: latest.version
+
   })
     .sort({
       company: 1
     })
     .lean();
 }
+
 
 async function getCompanyDailyBriefs(
   companies

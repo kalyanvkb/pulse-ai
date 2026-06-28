@@ -486,14 +486,9 @@ function buildRankedSection(
 }
 
 
-function aggregateIntelligence(
-  briefs
-) {
+function aggregateIntelligence(companyBriefs) {
 
-  if (
-    !briefs ||
-    briefs.length === 0
-  ) {
+  if (!companyBriefs || companyBriefs.length === 0) {
 
     return {
 
@@ -504,46 +499,149 @@ function aggregateIntelligence(
       executiveSummary: {
 
         whatChanged: [],
+
         whyItMatters: [],
+
         signalsToWatch: []
+
       },
 
       companyBriefs: []
+
     };
+
   }
+
+  //--------------------------------------------------
+  // Safety check
+  //--------------------------------------------------
+
+  const latestWeek = companyBriefs.reduce(
+
+    (latest, brief) =>
+
+      (!latest || brief.week > latest)
+
+        ? brief.week
+
+        : latest,
+
+    null
+
+  );
+
+  const latestVersion = companyBriefs.reduce(
+
+    (latest, brief) =>
+
+      (!latest || (brief.version || 0) > latest)
+
+        ? (brief.version || 0)
+
+        : latest,
+
+    0
+
+  );
+
+  const latestBriefs = companyBriefs.filter(
+
+    brief =>
+
+      brief.week === latestWeek &&
+
+      (brief.version || 0) === latestVersion
+
+  );
+
+  //--------------------------------------------------
+  // Executive Summary
+  //--------------------------------------------------
+
+  const executiveSummary = {
+
+    whatChanged:
+
+      latestBriefs
+
+        .flatMap(
+
+          b => b.whatChanged || []
+
+        )
+
+        .sort(
+
+          (a, b) =>
+
+            (b.importance || 0) -
+
+            (a.importance || 0)
+
+        )
+
+        .slice(0, 10),
+
+    whyItMatters:
+
+      latestBriefs
+
+        .flatMap(
+
+          b => b.whyItMatters || []
+
+        )
+
+        .sort(
+
+          (a, b) =>
+
+            (b.importance || 0) -
+
+            (a.importance || 0)
+
+        )
+
+        .slice(0, 10),
+
+    signalsToWatch:
+
+      latestBriefs
+
+        .flatMap(
+
+          b => b.signalsToWatch || []
+
+        )
+
+        .sort(
+
+          (a, b) =>
+
+            (b.importance || 0) -
+
+            (a.importance || 0)
+
+        )
+
+        .slice(0, 10)
+
+  };
 
   return {
 
-    week:
-      briefs[0].week,
+    week: latestWeek,
 
-    companyCount:
-      briefs.length,
+    version: latestVersion,
 
-    executiveSummary: {
+    companyCount: latestBriefs.length,
 
-      whatChanged:
-        buildRankedSection(
-          briefs,
-          "whatChanged"
-        ),
+    executiveSummary,
 
-      whyItMatters:
-        buildRankedSection(
-          briefs,
-          "whyItMatters"
-        ),
+    companyBriefs: latestBriefs
 
-      signalsToWatch:
-        buildRankedSection(
-          briefs,
-          "signalsToWatch"
-        )
-    },
-
-    companyBriefs:
-      briefs
   };
+
 }
 
 function aggregateDailyIntelligence(
@@ -1234,16 +1332,6 @@ app.get(
             "Failed to load daily intelligence"
         });
     }
-  }
-);
-app.get(
-  "/api/intelligence/weekly",
-  async (req, res) => {
-
-    const data =
-      await getLatestWeeklyIntelligence();
-
-    res.json(data);
   }
 );
 
